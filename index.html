@@ -370,6 +370,9 @@
         font-size: 10px;
       }
       .group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         margin: 12px 0 6px;
         color: var(--muted);
         font-size: 10px;
@@ -462,6 +465,7 @@
       .tabs {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         gap: 6px;
         margin: 14px 0 12px;
       }
@@ -570,10 +574,10 @@
       }
       /* Numbered markers: the instruments, explained below the drawing. */
       .marker {
-        position: absolute;
-        z-index: 2;
-        display: grid;
+        display: inline-grid;
+        flex-shrink: 0;
         place-items: center;
+        vertical-align: middle;
         width: 22px;
         height: 22px;
         border-radius: 50%;
@@ -627,9 +631,6 @@
         }
         .panes {
           grid-template-columns: 1fr;
-        }
-        .marker.m1 {
-          display: none;
         }
       }
 
@@ -1070,16 +1071,12 @@
 
         <!-- The console, drawn: the real app's layout, its instruments numbered. -->
         <div class="console" role="img" aria-label="Mergiato's window: the PR inbox on the left, and a pull request on the right with its review status, checks, stack, merge button, diff and checks panel.">
-          <span class="marker m1" style="left: 200px; top: 96px">1</span>
-          <span class="marker m2" style="right: 120px; top: 52px">2</span>
-          <span class="marker m3" style="right: 16px; top: 52px">3</span>
-          <span class="marker m4" style="left: calc(50% + 20px); top: 168px">4</span>
           <div class="titlebar"><i></i><i></i><i></i><span>Mergiato</span></div>
           <div class="deck">
             <aside class="rail" aria-hidden="true">
               <div class="search">Search PRs · ⌘F</div>
               <div class="segment"><b>My PRs</b><b>Reviews <span class="count">3</span></b></div>
-              <div class="group">IN PROGRESS · 4</div>
+              <div class="group">IN PROGRESS · 4 <span class="marker">1</span></div>
               <div class="row on"><i class="dot" style="background: var(--ok)"></i><span class="t">Checkout: retry failed payments</span><span class="n">#2481</span></div>
               <div class="row"><i class="dot" style="background: var(--wait)"></i><span class="t">Search: index archived projects</span><span class="n">#2477</span></div>
               <div class="row"><i class="dot" style="background: var(--bad)"></i><span class="t">Auth: rotate session keys</span><span class="n">#2470</span></div>
@@ -1090,16 +1087,19 @@
             </aside>
             <div class="main" aria-hidden="true">
               <div class="head-top">
+                <span class="marker">2</span>
                 <span class="chip ok">● Approved</span>
                 <span class="chip ok">✓ 14/14 checks</span>
                 <span class="chip accent">Stack 2 of 3</span>
                 <span class="chip plain">2 reviewers</span>
                 <span class="merge">Merge ▾</span>
+                <span class="marker">3</span>
               </div>
               <div class="pr-title">Checkout: retry failed payments</div>
               <div class="branch">payments-retry → main · 3 commits</div>
               <div class="tabs">
                 <b>Overview</b><b>Checks</b><b class="on">Changes 38 <span class="plus">+1,204</span> <span class="minus">−340</span></b><b>Reviews 4</b>
+                <span class="marker">4</span>
               </div>
               <div class="panes">
                 <div class="pane">
