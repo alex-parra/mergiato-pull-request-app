@@ -6,12 +6,12 @@
     <title>Mergiato · The flight deck for your pull requests</title>
     <meta
       name="description"
-      content="Mergiato puts every pull request you own or review on one native macOS console: inbox, checks, stacks, diffs, threads, previews and merges. It runs on your own GitHub CLI: no app to authorize, no servers, no account."
+      content="Mergiato puts every pull request you own or review in one Mac app: inbox, checks, stacks, diffs, threads, previews and merges. It runs on your own GitHub CLI: no app to authorize, no servers, no account."
     />
     <meta property="og:title" content="Mergiato · The flight deck for your pull requests" />
     <meta
       property="og:description"
-      content="Every PR, check, stack, diff and preview on one native macOS console. Runs on your own GitHub CLI. Beta, free for now."
+      content="Every PR, check, stack, diff and preview in one Mac app. Runs on your own GitHub CLI. Beta, free for now."
     />
     <meta property="og:image" content="icon.png" />
     <link rel="icon" href="favicon.png" />
@@ -82,7 +82,12 @@
         overflow-x: hidden;
         background: var(--bg);
         color: var(--body);
-        font: 16px/1.6 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font:
+          16px/1.6 "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       a {
@@ -1010,6 +1015,23 @@
         color: var(--bad);
         font-weight: 700;
       }
+      .quote {
+        margin: 8px 0 0;
+        padding: 16px 18px;
+        border-left: 3px solid var(--accent);
+        border-radius: 0 10px 10px 0;
+        background: var(--accent-soft);
+        color: var(--fg);
+        font-size: 17px;
+        font-weight: 600;
+      }
+      .quote small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 400;
+      }
       .compare {
         width: 100%;
         margin-top: 8px;
@@ -1129,6 +1151,34 @@
         max-width: 72ch;
       }
 
+      /* From the maker */
+      .maker {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 22px;
+        max-width: 760px;
+        margin-inline: auto;
+        padding: 28px;
+        border: 1px solid var(--edge);
+        border-radius: 16px;
+        background: var(--panel);
+      }
+      .maker img {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+      }
+      .maker p:last-child {
+        margin: 0;
+        color: var(--body);
+        font-size: 17px;
+      }
+      @media (max-width: 560px) {
+        .maker {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* Closing */
       .closing {
         text-align: center;
@@ -1165,6 +1215,7 @@
         <a class="brand" href="#top"><img src="icon.png" alt="" />Mergiato</a>
         <span class="nav-links">
           <a href="#console">The console</a>
+          <a href="#team">Teams</a>
           <a href="#security">Security</a>
           <a href="#install">Install</a>
           <a href="#faq">FAQ</a>
@@ -1180,8 +1231,8 @@
         <span class="pill">Beta · free for now · macOS</span>
         <h1>The flight deck for your <em>pull requests.</em></h1>
         <p class="lead">
-          Every PR you own or review, every check, stack, diff, thread and preview, on one native console. Stop
-          piloting seven browser tabs. Take off, review, land the merge.
+          A Mac app that puts every pull request you own or review in one window, with its checks, stack, diff,
+          threads and preview. Close the seven tabs. Review, then land the merge.
         </p>
         <div class="actions">
           <a class="button" data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest">
@@ -1194,7 +1245,7 @@
           </a>
           <a class="button ghost" href="#console">Tour the console</a>
         </div>
-        <p class="fine" data-version>macOS · Apple silicon · beta, free for now</p>
+        <p class="fine" data-version>Free · no sign-up · macOS, Apple silicon</p>
         <ul class="trust">
           <li>Runs on your own GitHub CLI</li>
           <li>No app to authorize in your org</li>
@@ -1202,20 +1253,44 @@
         </ul>
 
         <!-- The console, drawn: the real app's layout, its instruments numbered. -->
-        <div class="console" role="img" aria-label="Mergiato's window: the PR inbox on the left, and a pull request on the right with its review status, checks, stack, merge button, diff and checks panel.">
+        <div
+          class="console"
+          role="img"
+          aria-label="Mergiato's window: the PR inbox on the left, and a pull request on the right with its review status, checks, stack, merge button, diff and checks panel."
+        >
           <div class="titlebar"><i></i><i></i><i></i><span>Mergiato</span></div>
           <div class="deck">
             <aside class="rail" aria-hidden="true">
               <div class="search">Search PRs · ⌘F</div>
-              <div class="segment"><b>My PRs</b><b>Reviews <span class="count">3</span></b></div>
+              <div class="segment">
+                <b>My PRs</b><b>Reviews <span class="count">3</span></b>
+              </div>
               <div class="group">IN PROGRESS · 4 <span class="marker">1</span></div>
-              <div class="row on"><i class="dot" style="background: var(--ok)"></i><span class="t">Checkout: retry failed payments</span><span class="n">#2481</span></div>
-              <div class="row"><i class="dot" style="background: var(--wait)"></i><span class="t">Search: index archived projects</span><span class="n">#2477</span></div>
-              <div class="row"><i class="dot" style="background: var(--bad)"></i><span class="t">Auth: rotate session keys</span><span class="n">#2470</span></div>
-              <div class="row"><i class="dot" style="background: var(--muted)"></i><span class="t">Draft: new onboarding flow</span><span class="n">#2466</span></div>
+              <div class="row on">
+                <i class="dot" style="background: var(--ok)"></i><span class="t">Checkout: retry failed payments</span
+                ><span class="n">#2481</span>
+              </div>
+              <div class="row">
+                <i class="dot" style="background: var(--wait)"></i><span class="t">Search: index archived projects</span
+                ><span class="n">#2477</span>
+              </div>
+              <div class="row">
+                <i class="dot" style="background: var(--bad)"></i><span class="t">Auth: rotate session keys</span
+                ><span class="n">#2470</span>
+              </div>
+              <div class="row">
+                <i class="dot" style="background: var(--muted)"></i><span class="t">Draft: new onboarding flow</span
+                ><span class="n">#2466</span>
+              </div>
               <div class="group">MERGED · 12</div>
-              <div class="row"><i class="dot" style="background: var(--violet)"></i><span class="t">Billing: proration on upgrades</span><span class="n">#2459</span></div>
-              <div class="row"><i class="dot" style="background: var(--violet)"></i><span class="t">CI: cache pnpm store</span><span class="n">#2452</span></div>
+              <div class="row">
+                <i class="dot" style="background: var(--violet)"></i
+                ><span class="t">Billing: proration on upgrades</span><span class="n">#2459</span>
+              </div>
+              <div class="row">
+                <i class="dot" style="background: var(--violet)"></i><span class="t">CI: cache pnpm store</span
+                ><span class="n">#2452</span>
+              </div>
             </aside>
             <div class="main" aria-hidden="true">
               <div class="head-top">
@@ -1230,22 +1305,34 @@
               <div class="pr-title">Checkout: retry failed payments</div>
               <div class="branch">payments-retry → main · 3 commits</div>
               <div class="tabs">
-                <b>Overview</b><b>Checks</b><b class="on">Changes 38 <span class="plus">+1,204</span> <span class="minus">−340</span></b><b>Reviews 4</b>
+                <b>Overview</b><b>Checks</b
+                ><b class="on">Changes 38 <span class="plus">+1,204</span> <span class="minus">−340</span></b
+                ><b>Reviews 4</b>
                 <span class="marker">4</span>
               </div>
               <div class="panes">
                 <div class="pane">
                   <div class="pane-head"><span>src/checkout/retry.ts</span><span>✓ Viewed</span></div>
-                  <pre class="code"><span class="c">  export async function charge(order: Order) {</span><span class="d">-   return gateway.charge(order.total);</span><span class="a">+   return withRetry(() => gateway.charge(order.total), {</span><span class="a">+     attempts: 3,</span><span class="a">+     backoff: "exponential",</span><span class="a">+   });</span><span class="c">  }</span></pre>
+                  <pre
+                    class="code"
+                  ><span class="c">  export async function charge(order: Order) {</span><span class="d">-   return gateway.charge(order.total);</span><span class="a">+   return withRetry(() => gateway.charge(order.total), {</span><span class="a">+     attempts: 3,</span><span class="a">+     backoff: "exponential",</span><span class="a">+   });</span><span class="c">  }</span></pre>
                   <div class="thread"><b>mara</b> · Should 3 attempts be configurable per merchant?</div>
                 </div>
                 <div class="pane">
                   <div class="pane-head"><span>Checks</span><span>6m 12s</span></div>
                   <div class="checks">
-                    <div class="check"><i style="background: var(--ok)"></i><span>build</span><span class="time">1m 48s</span></div>
-                    <div class="check"><i style="background: var(--ok)"></i><span>unit tests</span><span class="time">2m 31s</span></div>
-                    <div class="check"><i style="background: var(--ok)"></i><span>e2e · checkout</span><span class="time">4m 05s</span></div>
-                    <div class="check"><i style="background: var(--ok)"></i><span>preview · web</span><span class="time">58s</span></div>
+                    <div class="check">
+                      <i style="background: var(--ok)"></i><span>build</span><span class="time">1m 48s</span>
+                    </div>
+                    <div class="check">
+                      <i style="background: var(--ok)"></i><span>unit tests</span><span class="time">2m 31s</span>
+                    </div>
+                    <div class="check">
+                      <i style="background: var(--ok)"></i><span>e2e · checkout</span><span class="time">4m 05s</span>
+                    </div>
+                    <div class="check">
+                      <i style="background: var(--ok)"></i><span>preview · web</span><span class="time">58s</span>
+                    </div>
                   </div>
                   <div class="rerun">↻ Re-run failed</div>
                 </div>
@@ -1254,10 +1341,18 @@
           </div>
         </div>
         <ol class="legend">
-          <li><span><b>Inbox radar.</b> What needs you, live: your PRs, and reviews waiting on you.</span></li>
-          <li><span><b>Status gauges.</b> Review decision, checks, stack and reviewers, always in view.</span></li>
-          <li><span><b>The throttle.</b> Merge with your method, mark ready, close, from the same bar.</span></li>
-          <li><span><b>Flight data.</b> The diff, its threads and every check's timing, side by side.</span></li>
+          <li>
+            <span><b>Inbox radar.</b> What needs you, live: your PRs, and reviews waiting on you.</span>
+          </li>
+          <li>
+            <span><b>Status gauges.</b> Review decision, checks, stack and reviewers, always in view.</span>
+          </li>
+          <li>
+            <span><b>The throttle.</b> Merge with your method, mark ready, close, from the same bar.</span>
+          </li>
+          <li>
+            <span><b>Flight data.</b> The diff, its threads and every check's timing, side by side.</span>
+          </li>
         </ol>
       </div>
     </header>
@@ -1267,8 +1362,8 @@
         <p class="eyebrow">The problem</p>
         <h2>One review. Seven tabs. Zero altitude.</h2>
         <p class="intro">
-          Reviewing a pull request shouldn't be a scavenger hunt. Today it means jumping between the PR, its files,
-          the Actions logs, the preview dashboard, the stack, the chat thread that pinged you, and a terminal.
+          Reviewing a pull request shouldn't be a scavenger hunt. Today it means jumping between the PR, its files, the
+          Actions logs, the preview dashboard, the stack, the chat thread that pinged you, and a terminal.
         </p>
         <ul class="tabs-mess" aria-label="What a review takes today">
           <li>PR conversation</li>
@@ -1284,11 +1379,16 @@
         <div class="pains">
           <div class="pain">
             <q>Which PRs actually need me?</q>
-            <p>Your inbox splits what you're building from what's waiting on you, with a live count. No notification digging.</p>
+            <p>
+              Your inbox splits what you're building from what's waiting on you, with a live count. No notification
+              digging.
+            </p>
           </div>
           <div class="pain">
             <q>The diff is too big to load.</q>
-            <p>Hundreds of files, thousands of lines, no cap. Only what's near your view is drawn, so it never stalls.</p>
+            <p>
+              Hundreds of files, thousands of lines, no cap. Only what's near your view is drawn, so it never stalls.
+            </p>
           </div>
           <div class="pain">
             <q>Which check failed, and can I re-run it?</q>
@@ -1296,7 +1396,40 @@
           </div>
           <div class="pain">
             <q>Security won't approve another GitHub app.</q>
-            <p>There's nothing to approve. Mergiato uses the GitHub CLI you're already signed in to. Your access, your machine.</p>
+            <p>
+              There's nothing to approve. Mergiato uses the GitHub CLI you're already signed in to. Your access, your
+              machine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="wrap">
+        <p class="eyebrow">Zero rollout</p>
+        <h2>Your team doesn't have to switch.</h2>
+        <p class="intro">
+          Mergiato is a better window onto GitHub, not a new place everyone has to move to. Your comments, reviews and
+          merges land on GitHub exactly as if you'd made them there. Your teammates notice one thing: faster reviews
+          from you.
+        </p>
+        <div class="pains" style="margin-top: 0">
+          <div class="pain">
+            <q>Nothing to roll out</q>
+            <p>No org app, no seats, no admin. One person downloads it and starts reviewing.</p>
+          </div>
+          <div class="pain">
+            <q>Everything stays on GitHub</q>
+            <p>Comments, approvals, labels, merges: GitHub's own, visible to everyone as usual.</p>
+          </div>
+          <div class="pain">
+            <q>Works with your stack</q>
+            <p>Graphite stacks and merge queue, GitHub Actions, Vercel previews. Shown, not replaced.</p>
+          </div>
+          <div class="pain">
+            <q>Leave anytime</q>
+            <p>Drag it to the Trash. Nothing to cancel, nothing to revoke, nothing left behind on GitHub.</p>
           </div>
         </div>
       </div>
@@ -1323,16 +1456,16 @@
             <span class="gauge">Gauges · Status</span>
             <h3>Read the PR at a glance</h3>
             <p>
-              Review decision, approvers, checks, labels, assignees and its place in the stack, in a header that's
-              there on every tab. Change reviewers, labels or the title right there.
+              Review decision, approvers, checks, labels, assignees and its place in the stack, in a header that's there
+              on every tab. Change reviewers, labels or the title right there.
             </p>
           </div>
           <div class="instrument">
             <span class="gauge">Engines · Checks</span>
             <h3>Know why it's red</h3>
             <p>
-              Each job's latest run (no stale duplicates), grouped and timed, live while running. Re-run what failed,
-              or one job, without opening Actions.
+              Each job's latest run (no stale duplicates), grouped and timed, live while running. Re-run what failed, or
+              one job, without opening Actions.
             </p>
           </div>
           <div class="instrument">
@@ -1406,19 +1539,46 @@
             </ul>
           </div>
           <!-- Drawn: the Changes tab on a huge PR. A real screenshot (media/big-prs.png) can replace it. -->
-          <figure class="illus" role="img" aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, files listed with their changes, one changed again since it was viewed.">
+          <figure
+            class="illus"
+            role="img"
+            aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, files listed with their changes, one changed again since it was viewed."
+          >
             <div class="illus-head">
               <b>Files</b> 914 <span class="chip plain">Only with comments · 23</span>
               <span class="end">612 / 914 viewed</span>
             </div>
             <div class="illus-body">
               <div class="bar"><i style="width: 67%"></i></div>
-              <div class="line faded"><span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span><span class="meta"><span style="color: var(--ok)">+42</span> −9</span></div>
-              <div class="line faded"><span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span><span class="meta"><span style="color: var(--ok)">+18</span> −4</span></div>
-              <div class="line"><span class="tick"></span><span class="name">src/checkout/refunds.ts <span class="chip wait" style="margin-left: 6px">changed<span class="wide-only"> since viewed</span></span></span><span class="meta"><span style="color: var(--ok)">+7</span> −2</span></div>
-              <div class="line"><span class="tick"></span><span class="name">tests/baselines/checkout/retry-spec.snap</span><span class="meta"><span style="color: var(--ok)">+1,860</span></span></div>
-              <div class="line"><span class="tick"></span><span class="name">tests/baselines/checkout/gateway-spec.snap</span><span class="meta"><span style="color: var(--ok)">+1,851</span></span></div>
-              <div class="line"><span class="tick"></span><span class="name">… 907 more, every one of them</span><span class="meta">no cap</span></div>
+              <div class="line faded">
+                <span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span
+                ><span class="meta"><span style="color: var(--ok)">+42</span> −9</span>
+              </div>
+              <div class="line faded">
+                <span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span
+                ><span class="meta"><span style="color: var(--ok)">+18</span> −4</span>
+              </div>
+              <div class="line">
+                <span class="tick"></span
+                ><span class="name"
+                  >src/checkout/refunds.ts
+                  <span class="chip wait" style="margin-left: 6px"
+                    >changed<span class="wide-only"> since viewed</span></span
+                  ></span
+                ><span class="meta"><span style="color: var(--ok)">+7</span> −2</span>
+              </div>
+              <div class="line">
+                <span class="tick"></span><span class="name">tests/baselines/checkout/retry-spec.snap</span
+                ><span class="meta"><span style="color: var(--ok)">+1,860</span></span>
+              </div>
+              <div class="line">
+                <span class="tick"></span><span class="name">tests/baselines/checkout/gateway-spec.snap</span
+                ><span class="meta"><span style="color: var(--ok)">+1,851</span></span>
+              </div>
+              <div class="line">
+                <span class="tick"></span><span class="name">… 907 more, every one of them</span
+                ><span class="meta">no cap</span>
+              </div>
             </div>
           </figure>
         </div>
@@ -1427,8 +1587,8 @@
           <div class="copy">
             <h3>Checks you can act on.</h3>
             <p>
-              A flaky job shouldn't cost you ten clicks through Actions. See each job's latest run, how long it took
-              and why it failed, then re-run it from the PR.
+              A flaky job shouldn't cost you ten clicks through Actions. See each job's latest run, how long it took and
+              why it failed, then re-run it from the PR.
             </p>
             <ul>
               <li>Counts by state and total time, at a glance</li>
@@ -1437,18 +1597,38 @@
             </ul>
           </div>
           <!-- Drawn: the Checks panel with a failed job. A real screenshot (media/checks.png) can replace it. -->
-          <figure class="illus" role="img" aria-label="The Checks panel: 13 jobs passed and 1 failed, with each job's time, and buttons to re-run the failed jobs or all of them.">
+          <figure
+            class="illus"
+            role="img"
+            aria-label="The Checks panel: 13 jobs passed and 1 failed, with each job's time, and buttons to re-run the failed jobs or all of them."
+          >
             <div class="illus-head">
               <b>Checks</b>
-              <span class="chip ok">✓ 13</span><span class="chip" style="background: var(--bad-soft); color: var(--bad)">✕ 1</span>
+              <span class="chip ok">✓ 13</span
+              ><span class="chip" style="background: var(--bad-soft); color: var(--bad)">✕ 1</span>
               <span class="end">8m 40s</span>
             </div>
             <div class="illus-body">
-              <div class="line fail"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--bad)"></i><span class="name">e2e · checkout</span><span class="meta">4m 05s</span></div>
-              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">build</span><span class="meta">1m 48s</span></div>
-              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">unit tests</span><span class="meta">2m 31s</span></div>
-              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">lint · types</span><span class="meta">52s</span></div>
-              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">preview · web</span><span class="meta">58s</span></div>
+              <div class="line fail">
+                <i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--bad)"></i
+                ><span class="name">e2e · checkout</span><span class="meta">4m 05s</span>
+              </div>
+              <div class="line">
+                <i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i
+                ><span class="name">build</span><span class="meta">1m 48s</span>
+              </div>
+              <div class="line">
+                <i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i
+                ><span class="name">unit tests</span><span class="meta">2m 31s</span>
+              </div>
+              <div class="line">
+                <i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i
+                ><span class="name">lint · types</span><span class="meta">52s</span>
+              </div>
+              <div class="line">
+                <i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i
+                ><span class="name">preview · web</span><span class="meta">58s</span>
+              </div>
               <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px">
                 <span class="mini-btn">Re-run all</span><span class="mini-btn primary">↻ Re-run failed</span>
               </div>
@@ -1460,8 +1640,8 @@
           <div class="copy">
             <h3>Your inbox, finally sorted.</h3>
             <p>
-              Two lists that matter: what you're shipping and what's waiting on you. They follow each PR's state
-              live, so a merged PR moves the second it lands.
+              Two lists that matter: what you're shipping and what's waiting on you. They follow each PR's state live,
+              so a merged PR moves the second it lands.
             </p>
             <ul>
               <li>Review requests with a live count</li>
@@ -1470,18 +1650,43 @@
             </ul>
           </div>
           <!-- Drawn: the Reviews tab of the inbox. A real screenshot (media/inbox.png) can replace it. -->
-          <figure class="illus" role="img" aria-label="The inbox's Reviews tab: three review requests waiting, with their authors and checks, and PRs you've reviewed below.">
+          <figure
+            class="illus"
+            role="img"
+            aria-label="The inbox's Reviews tab: three review requests waiting, with their authors and checks, and PRs you've reviewed below."
+          >
             <div class="illus-head">
-              <span class="mini-btn">My PRs</span><span class="mini-btn primary">Reviews <span class="count">3</span></span>
+              <span class="mini-btn">My PRs</span
+              ><span class="mini-btn primary">Reviews <span class="count">3</span></span>
               <span class="end">updated just now</span>
             </div>
             <div class="illus-body" style="gap: 2px">
               <div class="group" style="margin: 2px 0 4px">REVIEW REQUESTED · 3</div>
-              <div class="inbox-row on"><span class="avatar" style="background: linear-gradient(135deg, #80a7e8, #c9b3f0)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">Search: index archived projects<br /><span class="who">mara · 2h · ✓ checks</span></span><span class="chip wait">Waiting on you</span></div>
-              <div class="inbox-row"><span class="avatar" style="background: linear-gradient(135deg, #8dceaa, #80a7e8)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">Billing: proration on upgrades<br /><span class="who">theo · 5h · stack 1 of 2</span></span><span class="chip wait">Waiting on you</span></div>
-              <div class="inbox-row"><span class="avatar" style="background: linear-gradient(135deg, #e8b45d, #dd9396)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">Auth: rotate session keys<br /><span class="who">sam · 1d · ✕ 1 check</span></span><span class="chip wait">Waiting on you</span></div>
+              <div class="inbox-row on">
+                <span class="avatar" style="background: linear-gradient(135deg, #80a7e8, #c9b3f0)"></span
+                ><span class="name" style="font-family: inherit; font-size: 12.5px"
+                  >Search: index archived projects<br /><span class="who">mara · 2h · ✓ checks</span></span
+                ><span class="chip wait">Waiting on you</span>
+              </div>
+              <div class="inbox-row">
+                <span class="avatar" style="background: linear-gradient(135deg, #8dceaa, #80a7e8)"></span
+                ><span class="name" style="font-family: inherit; font-size: 12.5px"
+                  >Billing: proration on upgrades<br /><span class="who">theo · 5h · stack 1 of 2</span></span
+                ><span class="chip wait">Waiting on you</span>
+              </div>
+              <div class="inbox-row">
+                <span class="avatar" style="background: linear-gradient(135deg, #e8b45d, #dd9396)"></span
+                ><span class="name" style="font-family: inherit; font-size: 12.5px"
+                  >Auth: rotate session keys<br /><span class="who">sam · 1d · ✕ 1 check</span></span
+                ><span class="chip wait">Waiting on you</span>
+              </div>
               <div class="group" style="margin: 10px 0 4px">REVIEWED BY YOU · 5</div>
-              <div class="inbox-row"><span class="avatar" style="background: linear-gradient(135deg, #c9b3f0, #dd9396)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">CI: cache pnpm store<br /><span class="who">ana · you approved</span></span><span class="chip ok">Approved</span></div>
+              <div class="inbox-row">
+                <span class="avatar" style="background: linear-gradient(135deg, #c9b3f0, #dd9396)"></span
+                ><span class="name" style="font-family: inherit; font-size: 12.5px"
+                  >CI: cache pnpm store<br /><span class="who">ana · you approved</span></span
+                ><span class="chip ok">Approved</span>
+              </div>
             </div>
           </figure>
         </div>
@@ -1490,8 +1695,8 @@
           <div class="copy">
             <h3>Previews on the runway.</h3>
             <p>
-              The preview is part of the review. See every project's deployment, open it, or build the branch's
-              latest commit, without the dashboard.
+              The preview is part of the review. See every project's deployment, open it, or build the branch's latest
+              commit, without the dashboard.
             </p>
             <ul>
               <li>State and preview link per project</li>
@@ -1500,15 +1705,30 @@
             </ul>
           </div>
           <!-- Drawn: the Vercel Previews panel. A real screenshot (media/previews.png) can replace it. -->
-          <figure class="illus" role="img" aria-label="The Vercel Previews panel: three projects with their state, preview address, and Deploy latest and Redeploy buttons.">
+          <figure
+            class="illus"
+            role="img"
+            aria-label="The Vercel Previews panel: three projects with their state, preview address, and Deploy latest and Redeploy buttons."
+          >
             <div class="illus-head">
               <b>▲ Vercel Previews</b><span class="mini-btn">Create Deployment ▾</span>
               <span class="end">updated 2m ago</span>
             </div>
             <div class="illus-body">
-              <div class="line" style="grid-template-columns: 90px 72px 1fr auto"><span class="name">web</span><span style="color: var(--ok)">● Ready</span><span class="meta" style="overflow: hidden; text-overflow: ellipsis">↗ web-git-payments-retry.vercel.app</span><span class="mini-btn">Deploy latest</span></div>
-              <div class="line" style="grid-template-columns: 90px 72px 1fr auto"><span class="name">dashboard</span><span style="color: var(--wait)">◌ Building</span><span class="meta"></span><span class="meta">—</span></div>
-              <div class="line" style="grid-template-columns: 90px 72px 1fr auto"><span class="name">docs</span><span style="color: var(--bad)">● Failed</span><span class="meta"></span><span class="mini-btn">Redeploy</span></div>
+              <div class="line" style="grid-template-columns: 90px 72px 1fr auto">
+                <span class="name">web</span><span style="color: var(--ok)">● Ready</span
+                ><span class="meta" style="overflow: hidden; text-overflow: ellipsis"
+                  >↗ web-git-payments-retry.vercel.app</span
+                ><span class="mini-btn">Deploy latest</span>
+              </div>
+              <div class="line" style="grid-template-columns: 90px 72px 1fr auto">
+                <span class="name">dashboard</span><span style="color: var(--wait)">◌ Building</span
+                ><span class="meta"></span><span class="meta">—</span>
+              </div>
+              <div class="line" style="grid-template-columns: 90px 72px 1fr auto">
+                <span class="name">docs</span><span style="color: var(--bad)">● Failed</span><span class="meta"></span
+                ><span class="mini-btn">Redeploy</span>
+              </div>
             </div>
           </figure>
         </div>
@@ -1527,8 +1747,12 @@
           <p class="intro">
             It drives the tools you already use and trust, on your Mac: the <b>GitHub CLI</b> you're signed in to,
             <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to
-            GitHub, with your own access, exactly as if you typed the command. There's nothing for your security
-            team to review, because there's no one new in the loop.
+            GitHub, with your own access, exactly as if you typed the command. There's nothing for your security team to
+            review, because there's no one new in the loop.
+          </p>
+          <p class="quote">
+            “It's the GitHub CLI, with a cockpit.”
+            <small>The one line to forward to your security team.</small>
           </p>
         </div>
         <div>
@@ -1547,13 +1771,33 @@
           </div>
           <table class="compare">
             <thead>
-              <tr><th></th><th>Typical review SaaS</th><th>Mergiato</th></tr>
+              <tr>
+                <th></th>
+                <th>Typical review SaaS</th>
+                <th>Mergiato</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>Access</td><td>An org-wide app</td><td>Your own gh sign-in</td></tr>
-              <tr><td>Approval</td><td>Admin + security review</td><td>None needed</td></tr>
-              <tr><td>Your code</td><td>Through their servers</td><td>Stays between you and GitHub</td></tr>
-              <tr><td>Sign-up</td><td>Account and seats</td><td>Download and go</td></tr>
+              <tr>
+                <td>Access</td>
+                <td>An org-wide app</td>
+                <td>Your own gh sign-in</td>
+              </tr>
+              <tr>
+                <td>Approval</td>
+                <td>Admin + security review</td>
+                <td>None needed</td>
+              </tr>
+              <tr>
+                <td>Your code</td>
+                <td>Through their servers</td>
+                <td>Stays between you and GitHub</td>
+              </tr>
+              <tr>
+                <td>Sign-up</td>
+                <td>Account and seats</td>
+                <td>Download and go</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1566,14 +1810,30 @@
         <h2>Hands on the keys.</h2>
         <p class="intro">Everything has a shortcut, and <kbd>⌘/</kbd> lists them all.</p>
         <div class="keys">
-          <div class="key"><span>Next / previous PR</span><span><kbd>⌥↑</kbd><kbd>⌥↓</kbd></span></div>
-          <div class="key"><span>Overview, Checks, Changes, Reviews</span><span><kbd>⌘1</kbd><kbd>⌘4</kbd></span></div>
-          <div class="key"><span>Previous / next tab</span><span><kbd>⌘←</kbd><kbd>⌘→</kbd></span></div>
-          <div class="key"><span>Find any PR</span><span><kbd>⌘F</kbd></span></div>
-          <div class="key"><span>Terminal</span><span><kbd>⌘J</kbd></span></div>
-          <div class="key"><span>Refresh</span><span><kbd>⌘R</kbd></span></div>
-          <div class="key"><span>Comment on a range</span><span><kbd>⇧</kbd><kbd>click</kbd></span></div>
-          <div class="key"><span>Themes, live</span><span><kbd>⌥⌘T</kbd></span></div>
+          <div class="key">
+            <span>Next / previous PR</span><span><kbd>⌥↑</kbd><kbd>⌥↓</kbd></span>
+          </div>
+          <div class="key">
+            <span>Overview, Checks, Changes, Reviews</span><span><kbd>⌘1</kbd><kbd>⌘4</kbd></span>
+          </div>
+          <div class="key">
+            <span>Previous / next tab</span><span><kbd>⌘←</kbd><kbd>⌘→</kbd></span>
+          </div>
+          <div class="key">
+            <span>Find any PR</span><span><kbd>⌘F</kbd></span>
+          </div>
+          <div class="key">
+            <span>Terminal</span><span><kbd>⌘J</kbd></span>
+          </div>
+          <div class="key">
+            <span>Refresh</span><span><kbd>⌘R</kbd></span>
+          </div>
+          <div class="key">
+            <span>Comment on a range</span><span><kbd>⇧</kbd><kbd>click</kbd></span>
+          </div>
+          <div class="key">
+            <span>Themes, live</span><span><kbd>⌥⌘T</kbd></span>
+          </div>
         </div>
       </div>
     </section>
@@ -1585,8 +1845,9 @@
         <ol class="steps">
           <li>
             <strong>Download</strong> the
-            <a data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest">latest <code>.dmg</code></a>,
-            open it and drag Mergiato to Applications.
+            <a data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest"
+              >latest <code>.dmg</code></a
+            >, open it and drag Mergiato to Applications.
           </li>
           <li>
             <strong>First open:</strong> macOS can't verify the developer yet, so allow it once in System Settings →
@@ -1611,8 +1872,8 @@
         <details>
           <summary>Is it free?</summary>
           <p>
-            Yes, while in beta. Paid plans may come later, likely a one-time license; early users will hear first,
-            and nothing you rely on will vanish overnight.
+            Yes, while in beta. Paid plans may come later, likely a one-time license; early users will hear first, and
+            nothing you rely on will vanish overnight.
           </p>
         </details>
         <details>
@@ -1628,6 +1889,13 @@
           <p>
             No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can
             review it in Mergiato.
+          </p>
+        </details>
+        <details>
+          <summary>Does my team need it too?</summary>
+          <p>
+            No. Everything you do lands on GitHub as usual, so it works for one person on a team of a hundred.
+            Teammates who like what they see can download it themselves.
           </p>
         </details>
         <details>
@@ -1648,17 +1916,37 @@
       </div>
     </section>
 
+    <section id="maker">
+      <div class="wrap">
+        <div class="maker">
+          <img src="icon.png" alt="" />
+          <div>
+            <p class="eyebrow">From the maker</p>
+            <p>
+              Hi, I'm Alex. Like you, I spend a good part of my day in pull requests, and I got tired of flying them
+              across seven tabs. So I built the console I wanted: everything about a PR in one window, fast, on my own
+              tools. Mergiato is free while it's in beta. If something's missing or broken, tell me on
+              <a href="https://github.com/alex-parra/mergiato-releases/issues">GitHub</a>; that's what shapes it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="closing">
       <div class="wrap">
         <p class="eyebrow">Ready</p>
         <h2>Close the tabs. Open the console.</h2>
-        <p class="intro">Free during the beta. One download, no sign-up, no org approval.</p>
+        <p class="intro">
+          Free during the beta. One download, no sign-up, no org approval. Not for you? Drag it to the Trash: nothing
+          to cancel, nothing to revoke.
+        </p>
         <div class="actions">
           <a class="button" data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest"
             >Download for Mac</a
           >
         </div>
-        <p class="fine" data-version>macOS · Apple silicon · beta, free for now</p>
+        <p class="fine" data-version>Free · no sign-up · macOS, Apple silicon</p>
       </div>
     </section>
 
@@ -1683,9 +1971,10 @@
           const dmg = dmgs.find((asset) => asset.name.includes("universal")) ?? dmgs[0];
           if (!dmg) return;
           const macs = dmg.name.includes("universal") ? "Apple silicon & Intel" : "Apple silicon";
+          const size = (dmg.size / 1_000_000).toFixed(1);
           for (const link of document.querySelectorAll("[data-download]")) link.href = dmg.browser_download_url;
           for (const line of document.querySelectorAll("[data-version]"))
-            line.textContent = `${release.tag_name} · macOS · ${macs} · beta, free for now`;
+            line.textContent = `Free · ${size} MB · no sign-up · ${release.tag_name} for ${macs}`;
         })
         .catch(() => {});
     </script>
