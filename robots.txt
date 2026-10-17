@@ -1,0 +1,5 @@
+# Everyone's welcome, search engines and AI agents alike.
+User-agent: *
+Allow: /
+
+Sitemap: https://alex-parra.github.io/mergiato-releases/sitemap.xml

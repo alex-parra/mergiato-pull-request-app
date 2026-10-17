@@ -1,0 +1,49 @@
+# Mergiato
+
+> Mergiato is a free Mac app for reviewing GitHub pull requests. It puts your PR inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and the merge button in one window. It runs on the user's own GitHub CLI (`gh`): no GitHub App to install in the organization, no servers, no account, no analytics.
+
+- Platform: macOS on Apple silicon. Intel Macs are planned; Windows and Linux are not.
+- Price: free during the beta, every feature included. Paid plans, if any, come later with fair notice.
+- Requirements: the GitHub CLI, signed in (`gh auth login`). Optional: the Vercel CLI, for preview deployments. No local clone needed (only for the docked terminal).
+- Download: under 5 MB, a .dmg from https://github.com/alex-parra/mergiato-releases/releases/latest
+- Maker: Alex Parra (https://github.com/alex-parra). Feedback and bugs: https://github.com/alex-parra/mergiato-releases/issues
+
+## Who it is for
+
+Developers who review or ship many pull requests a day on GitHub, including teams that use Graphite stacks and its merge queue, GitHub Actions and Vercel. It works for one person on a team: everything you do lands on GitHub as usual, so teammates don't have to switch.
+
+## Features
+
+- Inbox: "My PRs" (in progress, merged) and "Reviews" (review requested, reviewed by you), refreshed every 30 seconds, with check and review state on every row. Open any PR by link, `owner/repo#123` or `#123`.
+- Checks: each job's latest run, its state and time, grouped by workflow. Re-run failed jobs, all jobs, or one job, from the PR. Updates every 10 seconds while jobs run.
+- Changes: every file GitHub has, up to 3,000, drawn only near the view so large diffs stay smooth. File tree or list, unified or split, syntax colors, Viewed marks that reset when a file changes, generated files and lockfiles folded, one commit at a time.
+- Review: comment on a line or a range, reply, react, resolve, edit or delete your comments. Approve, approve with a comment, or request changes. Drafts kept per line. Edit the title, description (with PR templates and image or video uploads), reviewers (including teams), labels and assignees.
+- Stacks: Graphite stacks, GitHub's native stacks and plain branch chains, shown on every PR with up and down jumps.
+- Merge: one button that follows the repository's rules: Graphite's merge queue (queues the stack), GitHub's merge queue, or the repository's allowed merge methods. Two clicks to merge; when blocked it says why (approvals, conflicts, failing checks, the PR below in the stack).
+- PR state: convert to draft, mark ready for review, close, reopen.
+- Previews: each Vercel project's deployment state and link; deploy the branch's latest commit or redeploy, from the PR.
+- Terminal: shells docked under each PR, in its local clone, kept running per PR.
+- Everyday details: reopens where you left off, shows the last inbox at once on launch, keeps the open PR current without refreshing, handles going offline, optimistic updates that roll back if GitHub refuses, six themes (three dark, three light), keyboard shortcuts for everything (Cmd-/ lists them), quit asks twice, signed automatic updates.
+
+## Security and privacy
+
+Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requests go from the Mac straight to GitHub (and Vercel) with the user's existing access. There is no GitHub App, no OAuth grant, no tokens stored by Mergiato, no Mergiato servers, no account and no analytics.
+
+## Install
+
+1. Download the .dmg, open it and drag Mergiato to Applications.
+2. First open: the app is not yet signed with an Apple Developer ID, so macOS asks once. Allow it in System Settings > Privacy & Security > Open Anyway. Updates don't ask again. Some company-managed Macs block unsigned apps entirely.
+3. If needed, install and sign in to the GitHub CLI: `brew install gh`, then `gh auth login`.
+
+## Compared with
+
+- GitHub in a browser: the same pull requests, but in one window instead of separate tabs for the PR, files, Actions, previews, stacks and notifications.
+- GitHub Desktop: a git client for commits and branches. Mergiato is for the pull request side; they work side by side.
+- Graphite: a service with its own web app and CLI for stacked PRs. Mergiato needs no account, sits on top of GitHub, and shows Graphite's stacks and merge queue when a team uses them.
+
+## Links
+
+- [Website](https://alex-parra.github.io/mergiato-releases/): features, live demo, FAQ
+- [Latest release](https://github.com/alex-parra/mergiato-releases/releases/latest): download the .dmg
+- [All releases](https://github.com/alex-parra/mergiato-releases/releases): versions and notes
+- [Issues](https://github.com/alex-parra/mergiato-releases/issues): bugs and feature requests
