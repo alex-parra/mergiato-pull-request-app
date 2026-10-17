@@ -1,6 +1,6 @@
 # Mergiato
 
-> Mergiato is a free Mac app for reviewing GitHub pull requests. It puts your PR inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and the merge button in one window. It runs on the user's own GitHub CLI (`gh`): no GitHub App to install in the organization, no servers, no account, no analytics.
+> Mergiato is a free Mac app for GitHub pull requests and code review. It puts your PR inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and the merge button in one window. It runs on the user's own GitHub CLI (`gh`): no GitHub App to install in the organization, no servers, no account, no analytics.
 
 - Platform: macOS on Apple silicon. Intel Macs are planned; Windows and Linux are not.
 - Price: free during the beta, every feature included. Paid plans, if any, come later with fair notice.
@@ -18,7 +18,7 @@ Developers who review or ship many pull requests a day on GitHub, including team
 - Checks: each job's latest run, its state and time, grouped by workflow. Re-run failed jobs, all jobs, or one job, from the PR. Updates every 10 seconds while jobs run.
 - Changes: every file GitHub has, up to 3,000, drawn only near the view so large diffs stay smooth. File tree or list, unified or split, syntax colors, Viewed marks that reset when a file changes, generated files and lockfiles folded, one commit at a time.
 - Review: comment on a line or a range, reply, react, resolve, edit or delete your comments. Approve, approve with a comment, or request changes. Drafts kept per line. Edit the title, description (with PR templates and image or video uploads), reviewers (including teams), labels and assignees.
-- Stacks: Graphite stacks, GitHub's native stacks and plain branch chains, shown on every PR with up and down jumps.
+- Stacked PRs: Graphite stacks, GitHub's native stacks and plain branch chains, shown on every PR with up and down jumps.
 - Merge: one button that follows the repository's rules: Graphite's merge queue (queues the stack), GitHub's merge queue, or the repository's allowed merge methods. Two clicks to merge; when blocked it says why (approvals, conflicts, failing checks, the PR below in the stack).
 - PR state: convert to draft, mark ready for review, close, reopen.
 - Previews: each Vercel project's deployment state and link; deploy the branch's latest commit or redeploy, from the PR.

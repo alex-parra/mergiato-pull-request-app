@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mergiato · GitHub pull requests on your Mac</title>
+    <title>Mergiato · Review and merge GitHub pull requests</title>
     <meta
       name="description"
-      content="Mergiato is a free Mac app for reviewing GitHub pull requests: one inbox, CI checks, stacked PRs, diffs of any size, comments and merges. It runs on your own GitHub CLI."
+      content="Mergiato is a free desktop app for GitHub pull requests: your inbox, CI checks, stacked PRs, code review and merges in one window. Runs on your own GitHub CLI."
     />
     <meta name="author" content="Alex Parra" />
     <meta name="application-name" content="Mergiato" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Mergiato · Your PRs in one window, not seven tabs" />
     <meta
       property="og:description"
-      content="A free Mac app for GitHub pull requests: inbox, checks, stacks, diffs, threads, previews and merges. Runs on your own GitHub CLI."
+      content="A free app for GitHub pull requests: inbox, CI checks, stacked PRs, code review, previews and merges. Runs on your own GitHub CLI."
     />
     <meta property="og:image" content="https://alex-parra.github.io/mergiato-releases/og.png?v=3" />
     <meta property="og:image:width" content="1200" />
@@ -36,12 +36,8 @@
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- A plain-text summary for AI agents and LLMs (llmstxt.org). -->
     <link rel="alternate" type="text/plain" href="llms.txt" title="Mergiato, for language models" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
+    <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -58,7 +54,7 @@
             "@id": "https://alex-parra.github.io/mergiato-releases/#app",
             "name": "Mergiato",
             "url": "https://alex-parra.github.io/mergiato-releases/",
-            "description": "A Mac app for reviewing GitHub pull requests: one inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and merges, in one window. It runs on the user's own GitHub CLI, with no GitHub App, no servers and no account.",
+            "description": "A desktop app for GitHub pull requests and code review: one inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and merges, in one window. It runs on the user's own GitHub CLI, with no GitHub App, no servers and no account.",
             "applicationCategory": "DeveloperApplication",
             "applicationSubCategory": "Code review",
             "operatingSystem": "macOS (Apple silicon)",
@@ -100,6 +96,20 @@
       } catch {}
     </script>
     <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("fonts/inter-latin-wght-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-style: normal;
+        font-weight: 100 800;
+        font-display: swap;
+        src: url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      }
       /* The app's own palette (its Graphite and Paper themes), so the site looks like what you get. */
       :root {
         --bg: #090909;
@@ -2418,8 +2428,8 @@
           <span class="pill">Free beta · macOS · under 5 MB</span>
           <h1>Your PRs in one window, <em>not seven tabs.</em></h1>
           <p class="lead">
-            Mergiato is a Mac app for GitHub pull requests. Review the diff, re-run the failed check, step through the
-            stack and merge, all from the PR. It runs on <b>the GitHub CLI you already use</b>, so your org has nothing
+            Mergiato is a Mac app for GitHub pull requests. Review the diff, re-run the failed check, step through
+            stacked PRs and merge, all in one place. It runs on <b>the GitHub CLI you already use</b>, so your org has nothing
             to approve.
           </p>
           <div class="actions">
@@ -2686,7 +2696,7 @@
           <div class="feature">
             <div class="copy">
               <p class="eyebrow">Review</p>
-              <h3>The whole review, start to finish.</h3>
+              <h3>The whole code review, start to finish.</h3>
               <p>
                 Comment on a line or a range, reply, resolve, react, approve. Everything lands on GitHub as your own
                 account, and shows at once. If GitHub says no, it rolls back and tells you why.
