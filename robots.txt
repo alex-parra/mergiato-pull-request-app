@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alex-parra.github.io/mergiato-releases/sitemap.xml
+Sitemap: https://mergiato.com/sitemap.xml

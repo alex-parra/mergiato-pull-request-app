@@ -44,7 +44,7 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 
 ## Links
 
-- [Website](https://alex-parra.github.io/mergiato-releases/): features, live demo, FAQ
+- [Website](https://mergiato.com/): features, live demo, FAQ
 - [Latest release](https://github.com/alex-parra/mergiato-releases/releases/latest): download the .dmg
 - [All releases](https://github.com/alex-parra/mergiato-releases/releases): versions and notes
 - [Issues](https://github.com/alex-parra/mergiato-releases/issues): bugs and feature requests
