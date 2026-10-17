@@ -380,7 +380,7 @@
       /* Hero */
       .hero {
         position: relative;
-        padding: 64px 0 40px;
+        padding: 36px 0 40px;
         text-align: center;
         overflow: hidden;
       }
@@ -419,11 +419,17 @@
       .app-icon.small {
         margin-bottom: 10px;
       }
+      /* Kept small so the demo's top edge shows on a laptop's first screen. */
+      .hero .app-icon {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 14px;
+      }
       .pill {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        margin-bottom: 22px;
+        margin-bottom: 16px;
         padding: 4px 12px;
         border: 1px solid var(--edge-strong);
         border-radius: 999px;
@@ -440,16 +446,17 @@
         box-shadow: 0 0 0 3px var(--ok-soft);
       }
       h1 {
-        margin: 0 auto 20px;
-        max-width: 17ch;
+        margin: 0 auto 16px;
         color: var(--fg);
-        font-size: clamp(40px, 7vw, 72px);
+        font-size: clamp(40px, 5.6vw, 64px);
         text-wrap: balance;
         line-height: 1.03;
         letter-spacing: -2.4px;
         font-weight: 800;
       }
+      /* Its own line: two lines on a laptop instead of three. */
       h1 em {
+        display: block;
         font-style: normal;
         background: linear-gradient(90deg, var(--accent), var(--ok));
         -webkit-background-clip: text;
@@ -457,7 +464,7 @@
         color: transparent;
       }
       .lead {
-        margin: 0 auto 32px;
+        margin: 0 auto 26px;
         max-width: 62ch;
         color: var(--muted);
         font-size: clamp(16px, 2.2vw, 19px);
@@ -482,7 +489,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px 22px;
-        margin: 22px 0 0;
+        margin: 16px 0 0;
         padding: 0;
         list-style: none;
         color: var(--muted);
@@ -499,7 +506,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        margin: 52px 0 14px;
+        margin: 30px 0 12px;
         color: var(--muted);
         font-size: 14px;
       }
