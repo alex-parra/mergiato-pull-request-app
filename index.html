@@ -3,18 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mergiato · GitHub PR review for macOS</title>
+    <title>Mergiato · The flight deck for your pull requests</title>
     <meta
       name="description"
-      content="Mergiato is a fast, native macOS app for reviewing GitHub pull requests: huge diffs that stay smooth, Claude one click away, previews and checks in reach."
+      content="Mergiato puts every pull request you own or review on one native macOS console: inbox, checks, stacks, diffs, threads, previews and merges. It runs on your own GitHub CLI: no app to authorize, no servers, no account."
     />
-    <meta property="og:title" content="Mergiato · GitHub PR review for macOS" />
-    <meta property="og:description" content="Fast, native pull request review for macOS. Beta, free for now." />
+    <meta property="og:title" content="Mergiato · The flight deck for your pull requests" />
+    <meta
+      property="og:description"
+      content="Every PR, check, stack, diff and preview on one native macOS console. Runs on your own GitHub CLI. Beta, free for now."
+    />
     <meta property="og:image" content="icon.png" />
     <link rel="icon" href="favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       /* The app's own palette (its Graphite and Paper themes), so the site looks like what you get. */
       :root {
@@ -27,25 +33,39 @@
         --body: #dedede;
         --muted: #8f8f94;
         --accent: #80a7e8;
-        --claude: #d97757;
+        --accent-soft: rgb(128 167 232 / 0.12);
         --ok: #8dceaa;
+        --ok-soft: rgb(141 206 170 / 0.12);
+        --bad: #dd9396;
+        --bad-soft: rgb(221 147 150 / 0.12);
+        --wait: #e8b45d;
+        --wait-soft: rgb(232 180 93 / 0.12);
+        --violet: #c9b3f0;
+        --merge: #1f7a42;
         --button-bg: #f2f2f2;
         --button-fg: #111111;
+        --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
         color-scheme: dark;
       }
       @media (prefers-color-scheme: light) {
         :root {
           --bg: #ffffff;
           --panel: #f7f7f8;
-          --raised: #f0f0f2;
+          --raised: #efeff1;
           --edge: #e4e4e7;
           --edge-strong: #d4d4d8;
           --fg: #18181b;
           --body: #27272a;
           --muted: #5c5c66;
           --accent: #2f5fb3;
-          --claude: #c4553f;
+          --accent-soft: rgb(47 95 179 / 0.1);
           --ok: #1a7f4b;
+          --ok-soft: rgb(26 127 75 / 0.1);
+          --bad: #c03b42;
+          --bad-soft: rgb(192 59 66 / 0.1);
+          --wait: #a76a00;
+          --wait-soft: rgb(167 106 0 / 0.1);
+          --violet: #6b46c1;
           --button-bg: #18181b;
           --button-fg: #ffffff;
           color-scheme: light;
@@ -59,6 +79,7 @@
       }
       body {
         margin: 0;
+        overflow-x: hidden;
         background: var(--bg);
         color: var(--body);
         font: 16px/1.6 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -68,28 +89,32 @@
         color: inherit;
       }
       .wrap {
-        width: min(1080px, 100% - 32px);
+        width: min(1120px, 100% - 32px);
         margin-inline: auto;
       }
       code,
       kbd {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 0.88em;
+        font-family: var(--mono);
+        font-size: 0.85em;
       }
       kbd {
+        display: inline-block;
+        min-width: 1.9em;
         padding: 1px 6px;
         border: 1px solid var(--edge-strong);
-        border-radius: 5px;
+        border-bottom-width: 2px;
+        border-radius: 6px;
         color: var(--fg);
+        text-align: center;
       }
 
       /* Top bar */
       nav {
         position: sticky;
         top: 0;
-        z-index: 10;
-        background: color-mix(in srgb, var(--bg) 85%, transparent);
-        backdrop-filter: blur(12px);
+        z-index: 20;
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(14px);
         border-bottom: 1px solid var(--edge);
       }
       nav .wrap {
@@ -103,7 +128,7 @@
         align-items: center;
         gap: 10px;
         color: var(--fg);
-        font-weight: 650;
+        font-weight: 700;
         text-decoration: none;
         letter-spacing: -0.2px;
       }
@@ -114,7 +139,7 @@
       }
       .nav-links {
         display: flex;
-        gap: 20px;
+        gap: 22px;
         margin-left: auto;
         font-size: 14px;
       }
@@ -125,7 +150,7 @@
       .nav-links a:hover {
         color: var(--fg);
       }
-      @media (max-width: 640px) {
+      @media (max-width: 720px) {
         .nav-links {
           display: none;
         }
@@ -139,18 +164,21 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 10px 18px;
-        border-radius: 9px;
+        padding: 12px 20px;
+        border-radius: 10px;
         background: var(--button-bg);
         color: var(--button-fg);
-        font-weight: 600;
+        font-weight: 650;
         font-size: 15px;
         text-decoration: none;
         white-space: nowrap;
-        transition: opacity 120ms;
+        transition:
+          transform 120ms,
+          opacity 120ms;
       }
       .button:hover {
-        opacity: 0.88;
+        opacity: 0.9;
+        transform: translateY(-1px);
       }
       .button.small {
         padding: 7px 14px;
@@ -161,11 +189,32 @@
         color: var(--fg);
         border: 1px solid var(--edge-strong);
       }
+      .button svg {
+        width: 16px;
+        height: 16px;
+      }
 
       /* Hero */
       .hero {
-        padding: 88px 0 56px;
+        position: relative;
+        padding: 84px 0 40px;
         text-align: center;
+        overflow: hidden;
+      }
+      .hero::before {
+        /* A faint instrument-panel grid behind the title. */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--edge) 1px, transparent 1px), linear-gradient(90deg, var(--edge) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(ellipse at 50% 0%, black 10%, transparent 65%);
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      .hero .wrap {
+        position: relative;
       }
       .pill {
         display: inline-flex;
@@ -175,6 +224,7 @@
         padding: 4px 12px;
         border: 1px solid var(--edge-strong);
         border-radius: 999px;
+        background: var(--bg);
         font-size: 13px;
         color: var(--muted);
       }
@@ -184,19 +234,27 @@
         height: 7px;
         border-radius: 50%;
         background: var(--ok);
+        box-shadow: 0 0 0 3px var(--ok-soft);
       }
       h1 {
-        margin: 0 auto 18px;
-        max-width: 16ch;
+        margin: 0 auto 20px;
+        max-width: 15ch;
         color: var(--fg);
-        font-size: clamp(40px, 7vw, 68px);
-        line-height: 1.04;
-        letter-spacing: -2px;
-        font-weight: 700;
+        font-size: clamp(42px, 7.4vw, 76px);
+        line-height: 1.02;
+        letter-spacing: -2.4px;
+        font-weight: 800;
+      }
+      h1 em {
+        font-style: normal;
+        background: linear-gradient(90deg, var(--accent), var(--ok));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
       .lead {
         margin: 0 auto 32px;
-        max-width: 54ch;
+        max-width: 60ch;
         color: var(--muted);
         font-size: clamp(16px, 2.2vw, 19px);
       }
@@ -207,15 +265,543 @@
         gap: 12px;
       }
       .fine {
-        margin-top: 14px;
+        margin: 14px 0 0;
         color: var(--muted);
         font-size: 13px;
       }
+      .trust {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 22px;
+        margin: 26px 0 0;
+        padding: 0;
+        list-style: none;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .trust li::before {
+        content: "✓ ";
+        color: var(--ok);
+        font-weight: 700;
+      }
 
-      /* Placeholders for the real screenshots and recording: swap each <figure> for an <img> or
-         <video> of the same aspect. */
-      .shot {
+      /* The console: a drawing of the app, its instruments numbered. */
+      .console {
         position: relative;
+        margin-top: 56px;
+        text-align: left;
+        border: 1px solid var(--edge-strong);
+        border-radius: 14px;
+        background: var(--panel);
+        box-shadow:
+          0 40px 100px -40px rgb(0 0 0 / 0.7),
+          0 0 0 1px rgb(255 255 255 / 0.02) inset;
+        overflow: hidden;
+        font-size: 12px;
+      }
+      .titlebar {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 34px;
+        padding: 0 14px;
+        border-bottom: 1px solid var(--edge);
+      }
+      .titlebar i {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--edge-strong);
+      }
+      .titlebar i:nth-child(1) {
+        background: #ec6a5e;
+      }
+      .titlebar i:nth-child(2) {
+        background: #f4be4f;
+      }
+      .titlebar i:nth-child(3) {
+        background: #61c454;
+      }
+      .titlebar span {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .deck {
+        display: grid;
+        grid-template-columns: 230px 1fr;
+        min-height: 400px;
+      }
+      .rail {
+        border-right: 1px solid var(--edge);
+        padding: 12px;
+        background: var(--bg);
+      }
+      .search {
+        padding: 6px 10px;
+        border: 1px solid var(--edge);
+        border-radius: 7px;
+        color: var(--muted);
+      }
+      .segment {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        margin: 10px 0 12px;
+      }
+      .segment b {
+        padding: 5px;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .segment b:first-child {
+        background: var(--raised);
+        color: var(--fg);
+      }
+      .count {
+        margin-left: 4px;
+        padding: 0 6px;
+        border-radius: 99px;
+        background: #3b82f6;
+        color: white;
+        font-size: 10px;
+      }
+      .group {
+        margin: 12px 0 6px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 8px 1fr auto;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 8px;
+        border-radius: 7px;
+      }
+      .row.on {
+        background: var(--raised);
+      }
+      .row .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .row .t {
+        color: var(--body);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .row .n {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+      .main {
+        padding: 16px 20px;
+        min-width: 0;
+      }
+      .head-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 3px 9px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .chip.ok {
+        background: var(--ok-soft);
+        color: var(--ok);
+      }
+      .chip.wait {
+        background: var(--wait-soft);
+        color: var(--wait);
+      }
+      .chip.accent {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .chip.plain {
+        border: 1px solid var(--edge-strong);
+        color: var(--muted);
+      }
+      .merge {
+        margin-left: auto;
+        padding: 6px 14px;
+        border-radius: 8px;
+        background: var(--merge);
+        color: white;
+        font-weight: 650;
+      }
+      .pr-title {
+        margin: 10px 0 4px;
+        color: var(--fg);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+      }
+      .branch {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+      }
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 14px 0 12px;
+      }
+      .tabs b {
+        padding: 5px 11px;
+        border: 1px solid var(--edge);
+        border-radius: 7px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .tabs b.on {
+        border-color: var(--edge-strong);
+        background: var(--raised);
+        color: var(--fg);
+      }
+      .tabs .plus {
+        color: var(--ok);
+      }
+      .tabs .minus {
+        color: var(--bad);
+      }
+      .panes {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 12px;
+      }
+      .pane {
+        border: 1px solid var(--edge);
+        border-radius: 9px;
+        background: var(--bg);
+        overflow: hidden;
+      }
+      .pane-head {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--edge);
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 10.5px;
+      }
+      .code {
+        margin: 0;
+        padding: 6px 0;
+        font-family: var(--mono);
+        font-size: 11px;
+        line-height: 1.75;
+      }
+      .code span {
+        display: block;
+        padding: 0 10px;
+        white-space: pre;
+        overflow: hidden;
+      }
+      .code .a {
+        background: var(--ok-soft);
+        color: var(--body);
+      }
+      .code .d {
+        background: var(--bad-soft);
+        color: var(--muted);
+      }
+      .code .c {
+        color: var(--muted);
+      }
+      .checks {
+        padding: 8px 10px;
+        display: grid;
+        gap: 7px;
+      }
+      .check {
+        display: grid;
+        grid-template-columns: 10px 1fr auto;
+        align-items: center;
+        gap: 8px;
+      }
+      .check i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .check .time {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+      .rerun {
+        margin: 4px 10px 10px;
+        padding: 5px;
+        border: 1px solid var(--edge-strong);
+        border-radius: 7px;
+        color: var(--fg);
+        text-align: center;
+        font-weight: 600;
+      }
+      .thread {
+        margin: 0 10px 10px;
+        padding: 8px 10px;
+        border: 1px solid var(--edge);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--body);
+      }
+      .thread b {
+        color: var(--fg);
+      }
+      /* Numbered markers: the instruments, explained below the drawing. */
+      .marker {
+        position: absolute;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--bg);
+        font-size: 11px;
+        font-weight: 800;
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
+      .legend {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 10px 22px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: instrument;
+        text-align: left;
+        font-size: 14px;
+      }
+      .legend li {
+        counter-increment: instrument;
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 10px;
+        color: var(--muted);
+      }
+      .legend li::before {
+        content: counter(instrument);
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        margin-top: 1px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--bg);
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .legend b {
+        color: var(--fg);
+        font-weight: 600;
+      }
+      @media (max-width: 860px) {
+        .deck {
+          grid-template-columns: 1fr;
+        }
+        .rail {
+          display: none;
+        }
+        .panes {
+          grid-template-columns: 1fr;
+        }
+        .marker.m1 {
+          display: none;
+        }
+      }
+
+      /* Sections */
+      section {
+        padding: 88px 0;
+        border-top: 1px solid var(--edge);
+      }
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+      }
+      h2 {
+        margin: 0 0 16px;
+        max-width: 22ch;
+        color: var(--fg);
+        font-size: clamp(30px, 4.4vw, 46px);
+        line-height: 1.1;
+        letter-spacing: -1.4px;
+        font-weight: 750;
+      }
+      .intro {
+        margin: 0 0 44px;
+        max-width: 62ch;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      /* The problem: one review, seven tabs. */
+      .tabs-mess {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 28px;
+        padding: 0;
+        list-style: none;
+      }
+      .tabs-mess li {
+        padding: 9px 14px;
+        border: 1px solid var(--edge);
+        border-radius: 9px 9px 2px 2px;
+        background: var(--panel);
+        color: var(--muted);
+        font-size: 14px;
+        text-decoration: line-through;
+        text-decoration-color: var(--bad);
+        text-decoration-thickness: 2px;
+      }
+      .verdict {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 18px;
+        border: 1px solid var(--ok);
+        border-radius: 12px;
+        background: var(--ok-soft);
+        color: var(--fg);
+        font-weight: 600;
+      }
+      .pains {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 14px;
+        margin-top: 44px;
+      }
+      .pain {
+        padding: 20px;
+        border: 1px solid var(--edge);
+        border-radius: 12px;
+        background: var(--panel);
+      }
+      .pain q {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--fg);
+        font-weight: 600;
+        quotes: "“" "”";
+      }
+      .pain p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Instruments grid */
+      .instruments {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 14px;
+      }
+      .instrument {
+        position: relative;
+        padding: 22px;
+        border: 1px solid var(--edge);
+        border-radius: 14px;
+        background: var(--panel);
+      }
+      .instrument .gauge {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+      }
+      .instrument h3 {
+        margin: 0 0 8px;
+        color: var(--fg);
+        font-size: 19px;
+        letter-spacing: -0.3px;
+      }
+      .instrument p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      /* Features with a screenshot beside, alternating. */
+      .feature {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        align-items: center;
+        gap: 56px;
+        padding: 40px 0;
+      }
+      .feature + .feature {
+        border-top: 1px dashed var(--edge);
+      }
+      .feature:nth-child(even) .copy {
+        order: 2;
+      }
+      .feature h3 {
+        margin: 0 0 12px;
+        color: var(--fg);
+        font-size: 26px;
+        line-height: 1.2;
+        letter-spacing: -0.6px;
+      }
+      .feature p {
+        margin: 0 0 14px;
+        color: var(--muted);
+      }
+      .feature ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 6px;
+        font-size: 15px;
+      }
+      .feature li::before {
+        content: "→ ";
+        color: var(--accent);
+      }
+      @media (max-width: 860px) {
+        .feature {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .feature:nth-child(even) .copy {
+          order: 0;
+        }
+      }
+      /* Placeholders for the real screenshots: swap each <figure> for an <img> of the same aspect. */
+      .shot {
         display: grid;
         place-items: center;
         margin: 0;
@@ -223,7 +809,7 @@
         border: 1px dashed var(--edge-strong);
         border-radius: 14px;
         background:
-          radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
+          radial-gradient(circle at 30% 20%, var(--accent-soft), transparent 60%),
           var(--panel);
         color: var(--muted);
         font-size: 14px;
@@ -235,95 +821,112 @@
         color: var(--body);
         font-weight: 600;
       }
-      .hero .shot {
-        margin-top: 56px;
-        box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.6);
-      }
 
-      /* Sections */
-      section {
-        padding: 72px 0;
-        border-top: 1px solid var(--edge);
+      /* Security */
+      .secure {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
       }
-      .eyebrow {
-        margin: 0 0 10px;
-        color: var(--accent);
+      @media (max-width: 860px) {
+        .secure {
+          grid-template-columns: 1fr;
+        }
+      }
+      .flow {
+        padding: 24px;
+        border: 1px solid var(--edge);
+        border-radius: 14px;
+        background: var(--panel);
+        font-family: var(--mono);
         font-size: 13px;
+      }
+      .flow .hop {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid var(--edge-strong);
+        border-radius: 10px;
+        background: var(--bg);
+        color: var(--fg);
+      }
+      .flow .hop small {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .flow .link {
+        padding: 8px 0 8px 26px;
+        border-left: 2px dashed var(--edge-strong);
+        margin-left: 22px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .flow .nope {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--edge);
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+      }
+      .flow .nope span::before {
+        content: "✕ ";
+        color: var(--bad);
+        font-weight: 700;
+      }
+      .compare {
+        width: 100%;
+        margin-top: 8px;
+        border-collapse: collapse;
+        font-size: 15px;
+      }
+      .compare th,
+      .compare td {
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--edge);
+        text-align: left;
+        vertical-align: top;
+      }
+      .compare th {
+        color: var(--muted);
+        font-size: 12px;
         font-weight: 600;
-        letter-spacing: 0.4px;
+        letter-spacing: 0.6px;
         text-transform: uppercase;
       }
-      h2 {
-        margin: 0 0 14px;
-        color: var(--fg);
-        font-size: clamp(28px, 4vw, 40px);
-        line-height: 1.15;
-        letter-spacing: -1px;
-      }
-      .intro {
-        margin: 0 0 40px;
-        max-width: 60ch;
+      .compare td:first-child {
         color: var(--muted);
       }
+      .compare td:last-child {
+        color: var(--fg);
+        font-weight: 500;
+      }
 
-      /* Features: text beside its screenshot, alternating sides. */
-      .feature {
+      /* Keyboard */
+      .keys {
         display: grid;
-        grid-template-columns: 1fr 1.25fr;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 10px;
+      }
+      .key {
+        display: flex;
         align-items: center;
-        gap: 48px;
-        padding: 36px 0;
-      }
-      .feature:nth-child(even) .copy {
-        order: 2;
-      }
-      .feature h3 {
-        margin: 0 0 10px;
-        color: var(--fg);
-        font-size: 22px;
-        letter-spacing: -0.4px;
-      }
-      .feature p {
-        margin: 0;
-        color: var(--muted);
-      }
-      .feature .tag {
-        display: inline-block;
-        margin-bottom: 10px;
-        font-size: 13px;
-        font-weight: 600;
-      }
-      @media (max-width: 820px) {
-        .feature {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-        .feature:nth-child(even) .copy {
-          order: 0;
-        }
-      }
-
-      /* And more */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 14px;
-      }
-      .card {
-        padding: 20px;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
         border: 1px solid var(--edge);
-        border-radius: 12px;
+        border-radius: 11px;
         background: var(--panel);
-      }
-      .card h3 {
-        margin: 0 0 6px;
-        color: var(--fg);
-        font-size: 16px;
-      }
-      .card p {
-        margin: 0;
         color: var(--muted);
         font-size: 14px;
+      }
+      .key span:last-child {
+        display: flex;
+        gap: 4px;
+        flex-shrink: 0;
       }
 
       /* Install */
@@ -338,7 +941,7 @@
       }
       .steps li {
         counter-increment: step;
-        padding: 20px;
+        padding: 22px;
         border: 1px solid var(--edge);
         border-radius: 12px;
         background: var(--panel);
@@ -348,8 +951,8 @@
         content: counter(step);
         display: grid;
         place-items: center;
-        width: 26px;
-        height: 26px;
+        width: 28px;
+        height: 28px;
         margin-bottom: 12px;
         border-radius: 50%;
         background: var(--raised);
@@ -368,7 +971,7 @@
       /* FAQ */
       details {
         border-bottom: 1px solid var(--edge);
-        padding: 16px 0;
+        padding: 18px 0;
       }
       summary {
         cursor: pointer;
@@ -390,7 +993,7 @@
       details p {
         margin: 10px 0 0;
         color: var(--muted);
-        max-width: 70ch;
+        max-width: 72ch;
       }
 
       /* Closing */
@@ -399,7 +1002,9 @@
       }
       .closing h2 {
         margin-inline: auto;
-        max-width: 18ch;
+      }
+      .closing .intro {
+        margin-inline: auto;
       }
       footer {
         padding: 28px 0 40px;
@@ -426,10 +1031,10 @@
       <div class="wrap">
         <a class="brand" href="#top"><img src="icon.png" alt="" />Mergiato</a>
         <span class="nav-links">
-          <a href="#features">Features</a>
+          <a href="#console">The console</a>
+          <a href="#security">Security</a>
           <a href="#install">Install</a>
           <a href="#faq">FAQ</a>
-          <a href="https://github.com/alex-parra/mergiato-releases/releases">Releases</a>
         </span>
         <a class="button small" data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest"
           >Download</a
@@ -439,131 +1044,363 @@
 
     <header class="hero" id="top">
       <div class="wrap">
-        <span class="pill">Beta · free for now</span>
-        <h1>Pull request review, served fast.</h1>
+        <span class="pill">Beta · free for now · macOS</span>
+        <h1>The flight deck for your <em>pull requests.</em></h1>
         <p class="lead">
-          Mergiato is a native macOS app for reviewing GitHub pull requests. Huge diffs stay smooth, Claude is one
-          click away, and checks, stacks and previews sit right where you review.
+          Every PR you own or review, every check, stack, diff, thread and preview, on one native console. Stop
+          piloting seven browser tabs. Take off, review, land the merge.
         </p>
         <div class="actions">
-          <a class="button" data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest"
-            >Download for Mac</a
-          >
-          <a class="button ghost" href="#features">See what it does</a>
+          <a class="button" data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.2zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1.1 3.1 1.2.1 2.3-.6 3.1-1.4z"
+              />
+            </svg>
+            Download for Mac
+          </a>
+          <a class="button ghost" href="#console">Tour the console</a>
         </div>
-        <p class="fine" data-version>macOS · Apple silicon</p>
+        <p class="fine" data-version>macOS · Apple silicon · beta, free for now</p>
+        <ul class="trust">
+          <li>Runs on your own GitHub CLI</li>
+          <li>No app to authorize in your org</li>
+          <li>No servers, no account</li>
+        </ul>
 
-        <!-- PLACEHOLDER: a 20–30s screen recording (media/hero.mp4, autoplay muted loop playsinline, with a
-             poster image): open a PR, scroll a big diff, comment, approve. -->
-        <figure class="shot">
-          <span><strong>Screen recording</strong>20–30 seconds: open a PR, fly through a big diff, comment, approve.</span>
-        </figure>
+        <!-- The console, drawn: the real app's layout, its instruments numbered. -->
+        <div class="console" role="img" aria-label="Mergiato's window: the PR inbox on the left, and a pull request on the right with its review status, checks, stack, merge button, diff and checks panel.">
+          <span class="marker m1" style="left: 200px; top: 96px">1</span>
+          <span class="marker m2" style="right: 120px; top: 52px">2</span>
+          <span class="marker m3" style="right: 16px; top: 52px">3</span>
+          <span class="marker m4" style="left: calc(50% + 20px); top: 168px">4</span>
+          <div class="titlebar"><i></i><i></i><i></i><span>Mergiato</span></div>
+          <div class="deck">
+            <aside class="rail" aria-hidden="true">
+              <div class="search">Search PRs · ⌘F</div>
+              <div class="segment"><b>My PRs</b><b>Reviews <span class="count">3</span></b></div>
+              <div class="group">IN PROGRESS · 4</div>
+              <div class="row on"><i class="dot" style="background: var(--ok)"></i><span class="t">Checkout: retry failed payments</span><span class="n">#2481</span></div>
+              <div class="row"><i class="dot" style="background: var(--wait)"></i><span class="t">Search: index archived projects</span><span class="n">#2477</span></div>
+              <div class="row"><i class="dot" style="background: var(--bad)"></i><span class="t">Auth: rotate session keys</span><span class="n">#2470</span></div>
+              <div class="row"><i class="dot" style="background: var(--muted)"></i><span class="t">Draft: new onboarding flow</span><span class="n">#2466</span></div>
+              <div class="group">MERGED · 12</div>
+              <div class="row"><i class="dot" style="background: var(--violet)"></i><span class="t">Billing: proration on upgrades</span><span class="n">#2459</span></div>
+              <div class="row"><i class="dot" style="background: var(--violet)"></i><span class="t">CI: cache pnpm store</span><span class="n">#2452</span></div>
+            </aside>
+            <div class="main" aria-hidden="true">
+              <div class="head-top">
+                <span class="chip ok">● Approved</span>
+                <span class="chip ok">✓ 14/14 checks</span>
+                <span class="chip accent">Stack 2 of 3</span>
+                <span class="chip plain">2 reviewers</span>
+                <span class="merge">Merge ▾</span>
+              </div>
+              <div class="pr-title">Checkout: retry failed payments</div>
+              <div class="branch">payments-retry → main · 3 commits</div>
+              <div class="tabs">
+                <b>Overview</b><b>Checks</b><b class="on">Changes 38 <span class="plus">+1,204</span> <span class="minus">−340</span></b><b>Reviews 4</b>
+              </div>
+              <div class="panes">
+                <div class="pane">
+                  <div class="pane-head"><span>src/checkout/retry.ts</span><span>✓ Viewed</span></div>
+                  <pre class="code"><span class="c">  export async function charge(order: Order) {</span><span class="d">-   return gateway.charge(order.total);</span><span class="a">+   return withRetry(() => gateway.charge(order.total), {</span><span class="a">+     attempts: 3,</span><span class="a">+     backoff: "exponential",</span><span class="a">+   });</span><span class="c">  }</span></pre>
+                  <div class="thread"><b>mara</b> · Should 3 attempts be configurable per merchant?</div>
+                </div>
+                <div class="pane">
+                  <div class="pane-head"><span>Checks</span><span>6m 12s</span></div>
+                  <div class="checks">
+                    <div class="check"><i style="background: var(--ok)"></i><span>build</span><span class="time">1m 48s</span></div>
+                    <div class="check"><i style="background: var(--ok)"></i><span>unit tests</span><span class="time">2m 31s</span></div>
+                    <div class="check"><i style="background: var(--ok)"></i><span>e2e · checkout</span><span class="time">4m 05s</span></div>
+                    <div class="check"><i style="background: var(--ok)"></i><span>preview · web</span><span class="time">58s</span></div>
+                  </div>
+                  <div class="rerun">↻ Re-run failed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="legend">
+          <li><span><b>Inbox radar.</b> What needs you, live: your PRs, and reviews waiting on you.</span></li>
+          <li><span><b>Status gauges.</b> Review decision, checks, stack and reviewers, always in view.</span></li>
+          <li><span><b>The throttle.</b> Merge with your method, mark ready, close, from the same bar.</span></li>
+          <li><span><b>Flight data.</b> The diff, its threads and every check's timing, side by side.</span></li>
+        </ol>
       </div>
     </header>
 
-    <section id="features">
+    <section id="problem">
       <div class="wrap">
-        <p class="eyebrow">Features</p>
-        <h2>Everything a review needs, in one window.</h2>
+        <p class="eyebrow">The problem</p>
+        <h2>One review. Seven tabs. Zero altitude.</h2>
         <p class="intro">
-          Your inbox of PRs on the left, the PR on the right: description, activity, checks, the diff and its
-          threads. No page loads, no tabs to juggle.
+          Reviewing a pull request shouldn't be a scavenger hunt. Today it means jumping between the PR, its files,
+          the Actions logs, the preview dashboard, the stack, the chat thread that pinged you, and a terminal.
         </p>
+        <ul class="tabs-mess" aria-label="What a review takes today">
+          <li>PR conversation</li>
+          <li>Files changed</li>
+          <li>Actions logs</li>
+          <li>Preview dashboard</li>
+          <li>Stack view</li>
+          <li>Notifications</li>
+          <li>Terminal</li>
+        </ul>
+        <span class="verdict">→ Mergiato: one window, every instrument.</span>
 
-        <div class="feature">
-          <div class="copy">
-            <span class="tag" style="color: var(--accent)">Big PRs</span>
-            <h3>Thousands of files, still smooth.</h3>
-            <p>
-              No 50-file cap and no "diff too large": every file is there, and only the ones near your view are
-              drawn, so scrolling stays fast whether the PR has 9 files or 900.
-            </p>
+        <div class="pains">
+          <div class="pain">
+            <q>Which PRs actually need me?</q>
+            <p>Your inbox splits what you're building from what's waiting on you, with a live count. No notification digging.</p>
           </div>
-          <!-- PLACEHOLDER: media/big-prs.png, the Changes tab on a PR with hundreds of files, file tree visible. -->
-          <figure class="shot"><span><strong>Screenshot</strong>Changes tab on a PR with hundreds of files.</span></figure>
+          <div class="pain">
+            <q>The diff is too big to load.</q>
+            <p>Hundreds of files, thousands of lines, no cap. Only what's near your view is drawn, so it never stalls.</p>
+          </div>
+          <div class="pain">
+            <q>Which check failed, and can I re-run it?</q>
+            <p>Each job's latest run with its time, the failure first. Re-run the failed ones, or one job, in a click.</p>
+          </div>
+          <div class="pain">
+            <q>Security won't approve another GitHub app.</q>
+            <p>There's nothing to approve. Mergiato uses the GitHub CLI you're already signed in to. Your access, your machine.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="feature">
-          <div class="copy">
-            <span class="tag" style="color: var(--claude)">Review with Claude</span>
-            <h3>Claude Code, in your clone, in one click.</h3>
+    <section id="console">
+      <div class="wrap">
+        <p class="eyebrow">The console</p>
+        <h2>Every control you need, within reach.</h2>
+        <p class="intro">
+          Not another diff viewer: the whole cockpit for shipping code. Find the PR, read the gauges, review, fix,
+          deploy a preview and land the merge, without leaving the window.
+        </p>
+        <div class="instruments">
+          <div class="instrument">
+            <span class="gauge">Radar · Inbox</span>
+            <h3>See what needs you</h3>
             <p>
-              Start a review with your own Claude Code skill, running in your local clone, in a terminal inside the
-              app. Or have Claude draft the PR description from its commits and diff.
+              My PRs (in progress, merged) and Reviews (requested, reviewed by you), refreshed every 30 seconds. Close
+              or merge one and it moves at once. Open any PR by link or number with <kbd>⌘F</kbd>.
             </p>
           </div>
-          <!-- PLACEHOLDER: media/claude.png, a PR with the terminal panel open and Claude reviewing. -->
-          <figure class="shot"><span><strong>Screenshot</strong>A PR with Claude reviewing in the terminal panel.</span></figure>
-        </div>
-
-        <div class="feature">
-          <div class="copy">
-            <span class="tag" style="color: var(--ok)">Vercel previews</span>
-            <h3>Try it before you approve it.</h3>
+          <div class="instrument">
+            <span class="gauge">Gauges · Status</span>
+            <h3>Read the PR at a glance</h3>
             <p>
-              Each project's preview, its state and its link, right under the description. Deploy the branch's
-              latest commit, or redeploy, without leaving the PR.
+              Review decision, approvers, checks, labels, assignees and its place in the stack, in a header that's
+              there on every tab. Change reviewers, labels or the title right there.
             </p>
           </div>
-          <!-- PLACEHOLDER: media/previews.png, the Vercel Previews panel with a few projects. -->
-          <figure class="shot"><span><strong>Screenshot</strong>The Vercel Previews panel on a PR.</span></figure>
-        </div>
-
-        <div class="feature">
-          <div class="copy">
-            <span class="tag" style="color: var(--fg)">Themes</span>
-            <h3>Make it yours.</h3>
+          <div class="instrument">
+            <span class="gauge">Engines · Checks</span>
+            <h3>Know why it's red</h3>
             <p>
-              Dark, light or your Mac's own, in six variants. Press <kbd>⌥⌘T</kbd> and flip through them on the app
-              itself.
+              Each job's latest run (no stale duplicates), grouped and timed, live while running. Re-run what failed,
+              or one job, without opening Actions.
             </p>
           </div>
-          <!-- PLACEHOLDER: media/themes.png, the theme strip open at the window's foot. -->
-          <figure class="shot"><span><strong>Screenshot</strong>The theme switcher open over the app.</span></figure>
+          <div class="instrument">
+            <span class="gauge">Formation · Stacks</span>
+            <h3>Fly stacked PRs</h3>
+            <p>
+              Graphite stacks shown as they are: what's above and below, with a jump to each. The merge queue's
+              progress, and PRs it merged counted as merged.
+            </p>
+          </div>
+          <div class="instrument">
+            <span class="gauge">Payload · Changes</span>
+            <h3>Review any size of diff</h3>
+            <p>
+              File tree, unified or split, syntax colors, Viewed marks that reset when a file changes again, and one
+              commit at a time when you want it.
+            </p>
+          </div>
+          <div class="instrument">
+            <span class="gauge">Radio · Reviews</span>
+            <h3>Talk where the code is</h3>
+            <p>
+              Comment on a line or a range, reply, resolve, react, edit your own. Approve or request changes from the
+              header. Long threads fold, resolved ones tuck away.
+            </p>
+          </div>
+          <div class="instrument">
+            <span class="gauge">Runway · Previews</span>
+            <h3>Try it before you approve it</h3>
+            <p>
+              Each Vercel project's preview and state under the description. Deploy the branch's latest commit, or
+              redeploy, from the PR.
+            </p>
+          </div>
+          <div class="instrument">
+            <span class="gauge">Toolbox · Terminal</span>
+            <h3>A shell in the PR's clone</h3>
+            <p>
+              Terminals docked under the PR, in your local clone, kept per PR and running while you look elsewhere.
+              <kbd>⌘J</kbd> to show or hide.
+            </p>
+          </div>
+          <div class="instrument">
+            <span class="gauge">Autopilot · Updates</span>
+            <h3>Always current</h3>
+            <p>
+              PRs refresh as they change, wherever the change came from. The app updates itself, signed, in the
+              background. Six themes, light and dark.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="wrap">
-        <p class="eyebrow">And more</p>
-        <h2>Small things that add up.</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Stacked PRs</h3>
-            <p>Graphite stacks shown as they are: where a PR sits, what's above and below.</p>
+        <p class="eyebrow">Up close</p>
+        <h2>Built for the reviews that hurt.</h2>
+
+        <div class="feature">
+          <div class="copy">
+            <h3>Huge PRs, smooth as small ones.</h3>
+            <p>
+              Some tools stop at 50 files; GitHub's diff stops at 300. Mergiato shows every file, up to thousands, and
+              draws only what's near your view: scrolling stays light, memory stays flat.
+            </p>
+            <ul>
+              <li>File tree or flat list, with search</li>
+              <li>Viewed marks that reset when a file changes</li>
+              <li>Only files with comments, in one click</li>
+            </ul>
           </div>
-          <div class="card">
-            <h3>Checks that make sense</h3>
-            <p>Each job's latest run, grouped and timed, with re-runs a click away.</p>
+          <!-- PLACEHOLDER: media/big-prs.png, the Changes tab on a PR with hundreds of files, file tree visible. -->
+          <figure class="shot"><span><strong>Screenshot</strong>The Changes tab on a PR with hundreds of files.</span></figure>
+        </div>
+
+        <div class="feature">
+          <div class="copy">
+            <h3>Checks you can act on.</h3>
+            <p>
+              A flaky job shouldn't cost you ten clicks through Actions. See each job's latest run, how long it took
+              and why it failed, then re-run it from the PR.
+            </p>
+            <ul>
+              <li>Counts by state and total time, at a glance</li>
+              <li>Re-run failed jobs, all jobs, or one</li>
+              <li>Stale runs of the same job left out</li>
+            </ul>
           </div>
-          <div class="card">
-            <h3>Threads where they belong</h3>
-            <p>Inline comments under their lines, resolved ones folded, long ones shortened.</p>
+          <!-- PLACEHOLDER: media/checks.png, the Checks panel open on a PR with a failed job. -->
+          <figure class="shot"><span><strong>Screenshot</strong>The Checks panel with a failed job and Re-run.</span></figure>
+        </div>
+
+        <div class="feature">
+          <div class="copy">
+            <h3>Your inbox, finally sorted.</h3>
+            <p>
+              Two lists that matter: what you're shipping and what's waiting on you. They follow each PR's state
+              live, so a merged PR moves the second it lands.
+            </p>
+            <ul>
+              <li>Review requests with a live count</li>
+              <li>PRs you reviewed, kept handy for the follow-up</li>
+              <li><kbd>⌥↑</kbd> <kbd>⌥↓</kbd> to fly between them</li>
+            </ul>
           </div>
-          <div class="card">
-            <h3>Commit by commit</h3>
-            <p>Step through a PR one commit at a time, or see everything at once.</p>
+          <!-- PLACEHOLDER: media/inbox.png, the sidebar with both tabs' parts and the open PR. -->
+          <figure class="shot"><span><strong>Screenshot</strong>The inbox beside an open PR.</span></figure>
+        </div>
+
+        <div class="feature">
+          <div class="copy">
+            <h3>Previews on the runway.</h3>
+            <p>
+              The preview is part of the review. See every project's deployment, open it, or build the branch's
+              latest commit, without the dashboard.
+            </p>
+            <ul>
+              <li>State and preview link per project</li>
+              <li>Deploy latest, or redeploy, from the PR</li>
+              <li>Projects found across your Vercel teams</li>
+            </ul>
           </div>
-          <div class="card">
-            <h3>Keyboard first</h3>
-            <p><kbd>⌥↑</kbd> <kbd>⌥↓</kbd> between PRs, <kbd>⌘1</kbd>–<kbd>⌘4</kbd> between tabs, <kbd>⌘/</kbd> for the rest.</p>
+          <!-- PLACEHOLDER: media/previews.png, the Vercel Previews panel with a few projects. -->
+          <figure class="shot"><span><strong>Screenshot</strong>The Vercel Previews panel on a PR.</span></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="security">
+      <div class="wrap secure">
+        <div>
+          <p class="eyebrow">Security</p>
+          <h2>Your keys never leave the cockpit.</h2>
+          <p class="intro">
+            Most review tools ask you to install an app in your GitHub organization, grant it access to your
+            repositories, and send your code through their servers. Mergiato doesn't.
+          </p>
+          <p class="intro" style="margin-bottom: 0">
+            It drives the tools you already use and trust, on your Mac: the <b>GitHub CLI</b> you're signed in to,
+            <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to
+            GitHub, with your own access, exactly as if you typed the command. There's nothing for your security
+            team to review, because there's no one new in the loop.
+          </p>
+        </div>
+        <div>
+          <div class="flow" aria-label="How a request travels">
+            <div class="hop">Mergiato <small>your Mac</small></div>
+            <div class="link">runs</div>
+            <div class="hop">gh · git · vercel <small>your CLIs, your sign-in</small></div>
+            <div class="link">talk directly to</div>
+            <div class="hop">GitHub · Vercel <small>same as your terminal</small></div>
+            <div class="nope">
+              <span>No GitHub app or OAuth grant</span>
+              <span>No tokens stored by Mergiato</span>
+              <span>No Mergiato servers, no account</span>
+              <span>No code leaves for anyone else</span>
+            </div>
           </div>
-          <div class="card">
-            <h3>A terminal at hand</h3>
-            <p>Shells and Claude sessions per PR, docked under it like VS Code's.</p>
-          </div>
+          <table class="compare">
+            <thead>
+              <tr><th></th><th>Typical review SaaS</th><th>Mergiato</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Access</td><td>An org-wide app</td><td>Your own gh sign-in</td></tr>
+              <tr><td>Approval</td><td>Admin + security review</td><td>None needed</td></tr>
+              <tr><td>Your code</td><td>Through their servers</td><td>Stays between you and GitHub</td></tr>
+              <tr><td>Sign-up</td><td>Account and seats</td><td>Download and go</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="keys">
+      <div class="wrap">
+        <p class="eyebrow">Controls</p>
+        <h2>Hands on the keys.</h2>
+        <p class="intro">Everything has a shortcut, and <kbd>⌘/</kbd> lists them all.</p>
+        <div class="keys">
+          <div class="key"><span>Next / previous PR</span><span><kbd>⌥↑</kbd><kbd>⌥↓</kbd></span></div>
+          <div class="key"><span>Overview, Checks, Changes, Reviews</span><span><kbd>⌘1</kbd><kbd>⌘4</kbd></span></div>
+          <div class="key"><span>Previous / next tab</span><span><kbd>⌘←</kbd><kbd>⌘→</kbd></span></div>
+          <div class="key"><span>Find any PR</span><span><kbd>⌘F</kbd></span></div>
+          <div class="key"><span>Terminal</span><span><kbd>⌘J</kbd></span></div>
+          <div class="key"><span>Refresh</span><span><kbd>⌘R</kbd></span></div>
+          <div class="key"><span>Comment on a range</span><span><kbd>⇧</kbd><kbd>click</kbd></span></div>
+          <div class="key"><span>Themes, live</span><span><kbd>⌥⌘T</kbd></span></div>
         </div>
       </div>
     </section>
 
     <section id="install">
       <div class="wrap">
-        <p class="eyebrow">Install</p>
-        <h2>Up and running in a minute.</h2>
+        <p class="eyebrow">Pre-flight</p>
+        <h2>Cleared for takeoff in a minute.</h2>
         <ol class="steps">
           <li>
-            <strong>Download</strong> the <a data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest">latest <code>.dmg</code></a>,
+            <strong>Download</strong> the
+            <a data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest">latest <code>.dmg</code></a>,
             open it and drag Mergiato to Applications.
           </li>
           <li>
@@ -571,13 +1408,13 @@
             Privacy &amp; Security → <strong>Open Anyway</strong>. Updates don't ask again.
           </li>
           <li>
-            <strong>Sign in to GitHub</strong> with the GitHub CLI (<code>gh auth login</code>), if you haven't. Mergiato
-            reads your PRs through it.
+            <strong>Signed in to GitHub?</strong> If <code>gh auth status</code> says yes, you're done. If not,
+            <code>gh auth login</code> once.
           </li>
         </ol>
         <p class="needs">
-          Needs macOS on Apple silicon and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: Claude Code
-          (Review with Claude) and the Vercel CLI (deploys). Mergiato updates itself.
+          Needs macOS on Apple silicon and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: the Vercel
+          CLI, for previews. Mergiato keeps itself up to date.
         </p>
       </div>
     </section>
@@ -585,20 +1422,32 @@
     <section id="faq">
       <div class="wrap">
         <p class="eyebrow">FAQ</p>
-        <h2>Questions</h2>
+        <h2>Questions from the tower</h2>
         <details>
           <summary>Is it free?</summary>
           <p>
             Yes, while in beta. Paid plans may come later, likely a one-time license; early users will hear first,
-            and nothing you rely on will disappear overnight.
+            and nothing you rely on will vanish overnight.
           </p>
         </details>
         <details>
-          <summary>Does my code go anywhere?</summary>
+          <summary>What can Mergiato see? Does my code go anywhere?</summary>
           <p>
-            No. Mergiato talks to GitHub through your own GitHub CLI and runs everything else on your Mac. There's no
-            Mergiato server and no account.
+            Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your Mac straight to
+            GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the
+            app, and no analytics.
           </p>
+        </details>
+        <details>
+          <summary>Do I need to install anything in my GitHub organization?</summary>
+          <p>
+            No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can
+            review it in Mergiato.
+          </p>
+        </details>
+        <details>
+          <summary>Does it work with Graphite?</summary>
+          <p>Yes: it shows Graphite stacks and the merge queue, and links each PR to its Graphite page.</p>
         </details>
         <details>
           <summary>Intel Mac, Windows or Linux?</summary>
@@ -608,25 +1457,23 @@
           <summary>Why does macOS warn on the first open?</summary>
           <p>
             Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check it. Allow it once in System
-            Settings → Privacy &amp; Security. Some company-managed Macs don't allow that at all; signing is planned.
+            Settings → Privacy &amp; Security. Some company-managed Macs block that entirely; signing is coming.
           </p>
-        </details>
-        <details>
-          <summary>Does it work with Graphite?</summary>
-          <p>Yes: it shows Graphite stacks and the merge queue, and links each PR to its Graphite page.</p>
         </details>
       </div>
     </section>
 
     <section class="closing">
       <div class="wrap">
-        <h2>Review your next PR in Mergiato.</h2>
+        <p class="eyebrow">Ready</p>
+        <h2>Close the tabs. Open the console.</h2>
+        <p class="intro">Free during the beta. One download, no sign-up, no org approval.</p>
         <div class="actions">
           <a class="button" data-download href="https://github.com/alex-parra/mergiato-releases/releases/latest"
             >Download for Mac</a
           >
         </div>
-        <p class="fine" data-version>macOS · Apple silicon</p>
+        <p class="fine" data-version>macOS · Apple silicon · beta, free for now</p>
       </div>
     </section>
 
@@ -635,6 +1482,7 @@
         <span>© 2026 Alex Parra · Buon review.</span>
         <span>
           <a href="https://github.com/alex-parra/mergiato-releases/releases">Releases</a> ·
+          <a href="#security">Security</a> ·
           <a href="#faq">FAQ</a>
         </span>
       </div>
