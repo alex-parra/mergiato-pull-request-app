@@ -58,7 +58,7 @@
             "description": "A desktop app for GitHub pull requests and code review: one inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and merges, in one window. It runs on the user's own GitHub CLI, with no GitHub App, no servers and no account.",
             "applicationCategory": "DeveloperApplication",
             "applicationSubCategory": "Code review",
-            "operatingSystem": "macOS (Apple silicon)",
+            "operatingSystem": "macOS (Apple silicon and Intel)",
             "softwareRequirements": "GitHub CLI (gh), signed in",
             "downloadUrl": "https://github.com/alex-parra/mergiato-pull-request-app/releases/latest",
             "releaseNotes": "https://github.com/alex-parra/mergiato-pull-request-app/releases",
@@ -171,10 +171,10 @@
               },
               {
                 "@type": "Question",
-                "name": "Intel Mac, Windows or Linux?",
+                "name": "Does it run on Intel Macs, Windows or Linux?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Apple silicon Macs for now. Intel Macs are next, and more platforms are coming."
+                  "text": "Every Mac: one universal download runs on Apple silicon and Intel. More platforms are coming."
                 }
               },
               {
@@ -597,7 +597,8 @@
       }
       .app-icon.small {
         margin-bottom: 10px;
-      }      .pill {
+      }
+      .pill {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -2499,7 +2500,10 @@
           <a href="#get">Pricing</a>
           <a href="#faq">FAQ</a>
         </span>
-        <a class="button small" data-download href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        <a
+          class="button small"
+          data-download
+          href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
           ><span data-download-label>Download</span></a
         >
         <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
@@ -2535,15 +2539,19 @@
     <main id="main">
       <div class="hero" id="top">
         <div class="wrap">
-          <span class="pill">Free beta · macOS · under 5 MB</span>
+          <span class="pill">Free beta · macOS · under 10 MB</span>
           <h1>Your PRs in one window, <em>not seven tabs.</em></h1>
           <p class="lead">
             Mergiato is a Mac app for GitHub pull requests. Review the diff, re-run the failed check, step through
-            stacked PRs and merge, all in one place. It runs on <b>the GitHub CLI you already use</b>, so your org has nothing
-            to approve.
+            stacked PRs and merge, all in one place. It runs on <b>the GitHub CLI you already use</b>, so your org has
+            nothing to approve.
           </p>
           <div class="actions">
-            <a class="button" data-download href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest">
+            <a
+              class="button"
+              data-download
+              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+            >
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path
                   d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.2zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1.1 3.1 1.2.1 2.3-.6 3.1-1.4z"
@@ -2553,7 +2561,7 @@
             </a>
             <a class="button ghost" href="#demo">Try the live demo ↓</a>
           </div>
-          <p class="fine" data-version>Free · no sign-up · macOS on Apple silicon</p>
+          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
           <ul class="trust">
             <li>No GitHub App to install in your org</li>
             <li>Requests go straight from your Mac to GitHub</li>
@@ -2573,19 +2581,28 @@
                     <span class="fresh">Updated just now ↻</span>
                   </div>
                   <div class="me">
-                    <span class="avatar" style="width: 26px; height: 26px; background: linear-gradient(135deg, #80a7e8, #8dceaa)"></span>
+                    <span
+                      class="avatar"
+                      style="width: 26px; height: 26px; background: linear-gradient(135deg, #80a7e8, #8dceaa)"
+                    ></span>
                     <span><b>you</b><br />30d · 41 merged · 96 reviewed</span>
                   </div>
                   <div class="search">Search PRs <kbd>⌘F</kbd></div>
                   <div class="segment">
-                    <button type="button" data-side="mine" class="on">My PRs <span class="n" data-mine-count>4</span></button>
+                    <button type="button" data-side="mine" class="on">
+                      My PRs <span class="n" data-mine-count>4</span>
+                    </button>
                     <button type="button" data-side="reviews">
                       Reviews <span class="count" data-review-count>3</span>
                     </button>
                   </div>
                   <div class="rail-list" data-rail></div>
                   <div class="rail-foot">
-                    <span>⚙</span><span class="tools"><span data-gh-icon>●</span><span style="color: var(--claude)">✻</span><span>▭</span><span>▲</span></span>
+                    <span>⚙</span
+                    ><span class="tools"
+                      ><span data-gh-icon>●</span><span style="color: var(--claude)">✻</span><span>▭</span
+                      ><span>▲</span></span
+                    >
                   </div>
                 </aside>
                 <div class="main">
@@ -2737,11 +2754,64 @@
               </div>
               <div class="illus-body" style="gap: 0">
                 <div class="group" style="margin: 2px 0 4px">⌄ REVIEW REQUESTED<span class="n">3</span></div>
-                <div class="row on"><span class="l1"><b>#2490</b><span class="repo">acme/shop</span><span class="icons"><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="ic-muted"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Billing: proration on upgrades</span></div>
-                <div class="row"><span class="l1"><b>#2488</b><span class="repo">acme/docs</span><span class="icons"><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="ic-muted"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Docs: API rate limits</span></div>
-                <div class="row"><span class="l1"><b>#2485</b><span class="repo">acme/shop</span><span class="icons"><span class="ic-bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span class="ic-muted"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Search: debounce the query box</span></div>
+                <div class="row on">
+                  <span class="l1"
+                    ><b>#2490</b><span class="repo">acme/shop</span
+                    ><span class="icons"
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                      ><span class="ic-muted"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Billing: proration on upgrades</span>
+                </div>
+                <div class="row">
+                  <span class="l1"
+                    ><b>#2488</b><span class="repo">acme/docs</span
+                    ><span class="icons"
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                      ><span class="ic-muted"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Docs: API rate limits</span>
+                </div>
+                <div class="row">
+                  <span class="l1"
+                    ><b>#2485</b><span class="repo">acme/shop</span
+                    ><span class="icons"
+                      ><span class="ic-bad"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
+                      ><span class="ic-muted"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Search: debounce the query box</span>
+                </div>
                 <div class="group" style="margin: 10px 0 4px">⌄ REVIEWED BY YOU<span class="n">5</span></div>
-                <div class="row"><span class="l1"><b>#2471</b><span class="repo">acme/shop</span><span class="icons"><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Infra: bump Node to 24</span></div>
+                <div class="row">
+                  <span class="l1"
+                    ><b>#2471</b><span class="repo">acme/shop</span
+                    ><span class="icons"
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="m16 11 2 2 4-4" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Infra: bump Node to 24</span>
+                </div>
               </div>
             </figure>
           </div>
@@ -2834,7 +2904,24 @@
                 <div>Request changes…<small>A comment is required</small></div>
               </div>
               <div class="illus-body" style="padding-top: 0">
-                <div class="diff pane" style="margin: 0"><div class="dl c"><span class="ln">41</span><span class="ln">41</span><span class="cd">  <span class="sk">const</span> attempts = merchant.retries ?? <span class="sc">3</span>;</span></div><div class="dl a"><span class="ln"></span><span class="ln">42</span><span class="cd">+ <span class="sk">if</span> (attempts &gt; <span class="sc">5</span>) <span class="sk">throw</span> <span class="sk">new</span> <span class="st">RangeError</span>(<span class="ss">"max 5"</span>);</span></div></div>
+                <div class="diff pane" style="margin: 0">
+                  <div class="dl c">
+                    <span class="ln">41</span><span class="ln">41</span
+                    ><span class="cd">
+                      <span class="sk">const</span> attempts = merchant.retries ?? <span class="sc">3</span>;</span
+                    >
+                  </div>
+                  <div class="dl a">
+                    <span class="ln"></span><span class="ln">42</span
+                    ><span class="cd"
+                      >+ <span class="sk">if</span> (attempts &gt; <span class="sc">5</span>)
+                      <span class="sk">throw</span> <span class="sk">new</span> <span class="st">RangeError</span>(<span
+                        class="ss"
+                        >"max 5"</span
+                      >);</span
+                    >
+                  </div>
+                </div>
                 <div class="thread" style="margin: 0">
                   <span
                     class="avatar"
@@ -2882,20 +2969,24 @@
               </div>
               <div class="illus-body">
                 <div class="line fail">
-                  <span class="ic-bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span class="name">e2e · checkout</span
-                  ><span class="meta">4m 05s</span>
+                  <span class="ic-bad"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
+                  ><span class="name">e2e · checkout</span><span class="meta">4m 05s</span>
                 </div>
                 <div class="line">
-                  <span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="name">build</span
-                  ><span class="meta">1m 48s</span>
+                  <span class="ic-ok"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                  ><span class="name">build</span><span class="meta">1m 48s</span>
                 </div>
                 <div class="line">
-                  <span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="name">unit tests</span
-                  ><span class="meta">2m 31s</span>
+                  <span class="ic-ok"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                  ><span class="name">unit tests</span><span class="meta">2m 31s</span>
                 </div>
                 <div class="line">
-                  <span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="name">lint · types</span
-                  ><span class="meta">52s</span>
+                  <span class="ic-ok"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                  ><span class="name">lint · types</span><span class="meta">52s</span>
                 </div>
                 <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px">
                   <span class="mini-btn">Re-run all</span><span class="mini-btn primary">↻ Re-run failed</span>
@@ -2997,9 +3088,12 @@
           <div class="band">
             <div>
               <strong>Seen enough? Take it for a spin.</strong>
-              <p>Free, under 5 MB, and you're reviewing in about a minute.</p>
+              <p>Free, under 10 MB, and you're reviewing in about a minute.</p>
             </div>
-            <a class="button" data-download href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+            <a
+              class="button"
+              data-download
+              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
               ><span data-download-label>Download for Mac</span></a
             >
           </div>
@@ -3053,7 +3147,9 @@
           <div class="cards" style="margin-top: 0">
             <div class="tile">
               <h3>Nothing to roll out</h3>
-              <p>One person downloads it and starts reviewing. The org, its admins and the rest of the team do nothing.</p>
+              <p>
+                One person downloads it and starts reviewing. The org, its admins and the rest of the team do nothing.
+              </p>
             </div>
             <div class="tile">
               <h3>Everything stays on GitHub</h3>
@@ -3163,10 +3259,13 @@
                 <li>Automatic updates</li>
                 <li>Paid plans, if they come, with fair notice</li>
               </ul>
-              <a class="button" data-download href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+              <a
+                class="button"
+                data-download
+                href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
                 ><span data-download-label>Download for Mac</span></a
               >
-              <p class="fine" data-version>Free · no sign-up · macOS on Apple silicon</p>
+              <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
             </div>
             <div>
               <ol class="steps">
@@ -3180,9 +3279,9 @@
                 </li>
                 <li>
                   <p>
-                    <strong>Open it once.</strong> Mergiato isn't signed with an Apple Developer ID yet, so macOS asks on the first
-                    open: go to System Settings → Privacy &amp; Security → <strong>Open Anyway</strong>. Updates don't
-                    ask again.
+                    <strong>Open it once.</strong> Mergiato isn't signed with an Apple Developer ID yet, so macOS asks
+                    on the first open: go to System Settings → Privacy &amp; Security → <strong>Open Anyway</strong>.
+                    Updates don't ask again.
                   </p>
                 </li>
                 <li>
@@ -3196,7 +3295,7 @@
                 </li>
               </ol>
               <p class="needs">
-                Needs macOS on Apple silicon and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: the
+                Needs a Mac (Apple silicon or Intel) and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: the
                 Vercel CLI, for previews. No local clone needed.
               </p>
             </div>
@@ -3274,8 +3373,8 @@
             </p>
           </details>
           <details>
-            <summary>Intel Mac, Windows or Linux?</summary>
-            <p>Apple silicon Macs for now. Intel Macs are next, and more platforms are coming.</p>
+            <summary>Does it run on Intel Macs, Windows or Linux?</summary>
+            <p>Every Mac: one universal download runs on Apple silicon and Intel. More platforms are coming.</p>
           </details>
           <details>
             <summary>Why does macOS warn on the first open?</summary>
@@ -3287,8 +3386,8 @@
           <details>
             <summary>Something's broken, or missing. Where do I say so?</summary>
             <p>
-              On <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>. In a beta, your bug
-              report is the roadmap.
+              On <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>. In a beta,
+              your bug report is the roadmap.
             </p>
           </details>
         </div>
@@ -3303,7 +3402,8 @@
                 Hi, I'm Alex. Like you, I spend a good part of my day in pull requests, and I got tired of flying them
                 across seven tabs. So I built the window I wanted: everything about a PR in one place, fast, on my own
                 tools. I use it every day at work. If something's missing or broken, tell me on
-                <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub</a>; that's what shapes it.
+                <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub</a>; that's what shapes
+                it.
               </p>
             </div>
           </div>
@@ -3320,11 +3420,14 @@
             drag it to the Trash.
           </p>
           <div class="actions">
-            <a class="button" data-download href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+            <a
+              class="button"
+              data-download
+              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
               ><span data-download-label>Download for Mac</span></a
             >
           </div>
-          <p class="fine" data-version>Free · no sign-up · macOS on Apple silicon</p>
+          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
         </div>
       </section>
     </main>
@@ -3662,7 +3765,8 @@
           const files = pr.files
             .map((file, i) => {
               const open = i === 0 && !file.viewed;
-              const kind = file[2] === 0 ? '<span class="badge ok">added</span>' : '<span class="badge">modified</span>';
+              const kind =
+                file[2] === 0 ? '<span class="badge ok">added</span>' : '<span class="badge">modified</span>';
               const ext = file[0].split(".").pop().toUpperCase().slice(0, 3);
               return `<div class="fblock"><div class="fhead"><span class="chev">${open ? "⌄" : "›"}</span><span class="lang">${ext}</span><span class="path">${file[0]}</span>${kind}<span class="plus">+${file[1]}</span><span class="minus">−${file[2]}</span><button type="button" class="viewed" data-viewed="${i}"><i class="${file.viewed ? "on" : ""}">${file.viewed ? "✓" : ""}</i>Viewed</button></div>${open ? diff(pr) : ""}</div>`;
             })
@@ -3831,8 +3935,7 @@
           users:
             '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
           tag: '<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1"/>',
-          layers:
-            '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
+          layers: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
           commit: '<circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/>',
           file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
           comment: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
