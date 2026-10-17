@@ -36,7 +36,7 @@ Mergiato drives the tools you already trust, on your Mac: `gh`, `git` and, if yo
 
 ## Requirements
 
-- macOS on Apple silicon. Intel Macs are next.
+- macOS on Apple silicon or Intel (one universal download).
 - The [GitHub CLI](https://cli.github.com), signed in: `brew install gh`, then `gh auth login`.
 - Optional: the Vercel CLI, for preview deployments. No local clone needed, except for the docked terminal.
 
