@@ -2,6 +2,8 @@
 
 A fast, native GitHub pull request review app for macOS.
 
+Website, live demo and FAQ: **[mergiato.com](https://mergiato.com)**
+
 ## Download
 
 Get the latest `.dmg` from [Releases](https://github.com/alex-parra/mergiato-releases/releases/latest) (Apple silicon), open it and drag Mergiato to Applications.
