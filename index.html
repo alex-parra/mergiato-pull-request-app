@@ -93,12 +93,11 @@
       }
     </script>
     <script>
+      // Dark unless the visitor picked light, whatever the system says: it's the app's own default.
+      document.documentElement.dataset.theme = "dark";
       try {
-        const saved = localStorage.getItem("theme");
-        if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+        if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light";
       } catch {}
-      if (!document.documentElement.dataset.theme)
-        document.documentElement.dataset.theme = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
     </script>
     <style>
       /* The app's own palette (its Graphite and Paper themes), so the site looks like what you get. */
@@ -128,7 +127,7 @@
         --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
         color-scheme: dark;
       }
-      /* Light: picked in the top bar, else the system's choice (set before paint by the script in <head>). */
+      /* Light: only when picked with the theme button (set before paint by the script in <head>). */
       :root[data-theme="light"] {
         --bg: #ffffff;
         --panel: #f7f7f8;
@@ -281,12 +280,23 @@
         flex-shrink: 0;
         width: 34px;
         height: 34px;
-        margin: 0 -8px 0 -14px;
         border: 0;
         border-radius: 8px;
         background: none;
         color: var(--muted);
         cursor: pointer;
+      }
+      /* Pinned to the window's right edge, outside the centered container. */
+      nav .theme-toggle {
+        position: absolute;
+        top: 13px;
+        right: 12px;
+      }
+      /* Where the container reaches the edge, it leaves room for the button. */
+      @media (max-width: 1220px) {
+        nav .wrap {
+          padding-right: 38px;
+        }
       }
       .theme-toggle:hover {
         background: var(--raised);
@@ -313,6 +323,9 @@
       @media (max-width: 480px) {
         nav .theme-toggle {
           display: none;
+        }
+        nav .wrap {
+          padding-right: 0;
         }
       }
       .link-button {
@@ -2794,11 +2807,10 @@
         }
       }
 
-      // A pick is kept for the next visit; without one, the page follows the system as it switches.
+      // A pick is kept for the next visit.
       function wireThemeToggle() {
         const root = document.documentElement;
         const buttons = document.querySelectorAll("[data-theme-toggle]");
-        const system = matchMedia("(prefers-color-scheme: light)");
         const apply = (theme) => {
           root.dataset.theme = theme;
           const other = theme === "light" ? "dark" : "light";
@@ -2818,13 +2830,6 @@
               localStorage.setItem("theme", theme);
             } catch {}
           });
-        system.addEventListener("change", (event) => {
-          let saved = null;
-          try {
-            saved = localStorage.getItem("theme");
-          } catch {}
-          if (!saved) apply(event.matches ? "light" : "dark");
-        });
       }
 
       function wireCopyButtons() {
