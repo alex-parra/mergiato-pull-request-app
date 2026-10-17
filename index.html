@@ -291,10 +291,21 @@
         font-size: 17px;
       }
       /* The icon's wax seal alone: the full icon's dark tile disappears on the dark bar. */
+      /* Bigger than the bar on purpose: it hangs over the bottom edge like a seal on a letter. The negative
+         margin keeps the bar's height. */
       .brand img {
-        width: 30px;
-        height: 30px;
-        filter: drop-shadow(0 2px 6px rgb(181 42 31 / 0.35));
+        align-self: flex-start;
+        width: 72px;
+        height: 72px;
+        margin: 6px 0 -18px;
+        filter: drop-shadow(0 6px 14px rgb(181 42 31 / 0.4));
+      }
+      @media (max-width: 760px) {
+        .brand img {
+          width: 62px;
+          height: 62px;
+          margin: 6px 0 -16px;
+        }
       }
       .skip {
         position: absolute;
@@ -2259,8 +2270,6 @@
       /* From the maker */
       .maker {
         display: grid;
-        grid-template-columns: 64px 1fr;
-        gap: 22px;
         max-width: 760px;
         margin-inline: auto;
         padding: 28px;
@@ -2268,20 +2277,10 @@
         border-radius: 16px;
         background: var(--panel);
       }
-      .maker img {
-        width: 64px;
-        height: 64px;
-        border-radius: 14px;
-      }
       .maker p:last-child {
         margin: 0;
         color: var(--body);
         font-size: 17px;
-      }
-      @media (max-width: 560px) {
-        .maker {
-          grid-template-columns: 1fr;
-        }
       }
 
       /* Closing */
@@ -2372,7 +2371,7 @@
     <a class="skip" href="#main">Skip to content</a>
     <nav aria-label="Main">
       <div class="wrap">
-        <a class="brand" href="#top"><img src="seal.svg" width="30" height="30" alt="" />Mergiato</a>
+        <a class="brand" href="#top"><img src="seal.svg" width="72" height="72" alt="" />Mergiato</a>
         <span class="nav-links">
           <a href="#demo">Demo</a>
           <a href="#features">Features</a>
@@ -3178,7 +3177,6 @@
       <section id="maker">
         <div class="wrap">
           <div class="maker">
-            <img src="icon.png" width="64" height="64" alt="" loading="lazy" />
             <div>
               <p class="eyebrow">From the maker</p>
               <p>
