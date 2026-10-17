@@ -126,6 +126,31 @@
         --button-fg: #111111;
         --shadow: rgb(0 0 0 / 0.7);
         --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        /* The app's own surfaces, pills, diff and syntax colors, for the drawings of it. */
+        --app-sidebar: #0f0f0f;
+        --app-input: #151515;
+        --app-hover: #1a1a1a;
+        --app-selected: #222222;
+        --app-file-head: #171717;
+        --app-edge-file: #333333;
+        --app-code: #080808;
+        --app-branch: #ec7a68;
+        --diff-add: #122018;
+        --diff-del: #211519;
+        --syn-keyword: #ff7b72;
+        --syn-string: #a5d6ff;
+        --syn-constant: #79c0ff;
+        --syn-title: #d2a8ff;
+        --pill-green-bg: #17251d;
+        --pill-green-fg: #9fdfb9;
+        --pill-purple-bg: #231c2d;
+        --pill-purple-fg: #c9b3f0;
+        --pill-neutral-bg: #2b2b2b;
+        --pill-neutral-fg: #d4d4d4;
+        --pill-red-bg: #2b1c1e;
+        --pill-red-fg: #e3a3a3;
+        --pill-amber-bg: #2a2214;
+        --claude: #d97757;
         color-scheme: dark;
       }
       /* Light: only when picked with the theme button (set before paint by the script in <head>). */
@@ -151,6 +176,29 @@
         --button-bg: #18181b;
         --button-fg: #ffffff;
         --shadow: rgb(0 0 0 / 0.18);
+        --app-sidebar: #f7f7f8;
+        --app-input: #ffffff;
+        --app-hover: #f0f0f2;
+        --app-selected: #e8e8eb;
+        --app-file-head: #f6f6f7;
+        --app-edge-file: #d4d4d8;
+        --app-code: #ffffff;
+        --app-branch: #c4553f;
+        --diff-add: #e6f6ec;
+        --diff-del: #fcebec;
+        --syn-keyword: #cf222e;
+        --syn-string: #0a3069;
+        --syn-constant: #0550ae;
+        --syn-title: #8250df;
+        --pill-green-bg: #e3f4ea;
+        --pill-green-fg: #1a6b3f;
+        --pill-purple-bg: #efe7fb;
+        --pill-purple-fg: #6b46c1;
+        --pill-neutral-bg: #e8e8eb;
+        --pill-neutral-fg: #3f3f46;
+        --pill-red-bg: #fbe8e9;
+        --pill-red-fg: #a8323a;
+        --pill-amber-bg: #fbf1dc;
         color-scheme: light;
       }
       * {
@@ -528,99 +576,132 @@
         position: relative;
         text-align: left;
         border: 1px solid var(--edge-strong);
-        border-radius: 14px;
-        background: var(--panel);
+        border-radius: 12px;
+        background: var(--bg);
         box-shadow:
           0 40px 100px -40px var(--shadow),
           0 0 0 1px rgb(255 255 255 / 0.02) inset;
         overflow: hidden;
         font-size: 12px;
+        line-height: 1.45;
       }
       .console button {
         cursor: pointer;
+        font: inherit;
       }
-      .titlebar {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        height: 34px;
-        padding: 0 14px;
-        border-bottom: 1px solid var(--edge);
-      }
-      .titlebar i {
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        background: var(--edge-strong);
-      }
-      .titlebar i:nth-child(1) {
-        background: #ec6a5e;
-      }
-      .titlebar i:nth-child(2) {
-        background: #f4be4f;
-      }
-      .titlebar i:nth-child(3) {
-        background: #61c454;
-      }
-      .titlebar span {
-        margin-left: auto;
-        color: var(--muted);
-        font-size: 11px;
+      .console svg,
+      .illus svg {
+        flex: none;
+        width: 13px;
+        height: 13px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
       .deck {
         display: grid;
-        grid-template-columns: 250px 1fr;
-        height: 470px;
+        grid-template-columns: 250px minmax(0, 1fr);
+        height: 520px;
       }
+      /* Sidebar, as in the app: window buttons in its top row, the account, search, tabs, lists. */
       .rail {
         display: flex;
         flex-direction: column;
         min-height: 0;
         border-right: 1px solid var(--edge);
-        padding: 12px;
-        background: var(--bg);
+        padding: 10px 10px 0;
+        background: var(--app-sidebar);
       }
-      .rail-list {
-        flex: 1;
-        min-height: 0;
-        overflow: auto;
+      .rail-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+      .lights {
+        display: flex;
+        gap: 6px;
+      }
+      .lights i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ec6a5e;
+      }
+      .lights i:nth-child(2) {
+        background: #f4be4f;
+      }
+      .lights i:nth-child(3) {
+        background: #61c454;
+      }
+      .beta {
+        padding: 1px 6px;
+        border-radius: 4px;
+        background: var(--app-input);
+        color: var(--body);
+        font-size: 9px;
+      }
+      .fresh {
+        margin-left: auto;
       }
       .me {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 9px;
         margin-bottom: 10px;
         color: var(--muted);
-        font-size: 10.5px;
+        font-size: 10px;
+        line-height: 1.35;
       }
       .me b {
         color: var(--fg);
         font-size: 12px;
+        font-weight: 600;
       }
-      .search {
-        padding: 6px 10px;
+      .rail .search {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 10px;
         border: 1px solid var(--edge);
         border-radius: 7px;
+        background: var(--app-input);
+        color: var(--muted);
+      }
+      .console kbd {
+        padding: 0 5px;
+        border: 1px solid var(--edge-strong);
+        border-radius: 4px;
+        font: 9.5px/1.6 inherit;
         color: var(--muted);
       }
       .segment {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4px;
-        margin: 10px 0 6px;
+        gap: 6px;
+        margin: 10px 0 4px;
       }
       .segment button {
-        padding: 5px;
+        padding: 6px;
         border: 0;
-        border-radius: 6px;
-        background: none;
+        border-radius: 7px;
+        background: var(--app-input);
         text-align: center;
         font-weight: 600;
         color: var(--muted);
       }
       .segment button.on {
-        background: var(--raised);
+        background: var(--app-selected);
         color: var(--fg);
+      }
+      .segment .n {
+        margin-left: 4px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 500;
       }
       .count {
         margin-left: 4px;
@@ -630,33 +711,42 @@
         color: white;
         font-size: 10px;
       }
+      .rail-list {
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+      }
       .group {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         margin: 12px 0 6px;
-        color: var(--muted);
+        color: var(--fg);
         font-size: 10px;
         font-weight: 700;
-        letter-spacing: 1.4px;
+        letter-spacing: 1.7px;
+      }
+      .group .n {
+        color: var(--muted);
+        letter-spacing: 0;
+        font-weight: 600;
       }
       .row {
         display: grid;
-        grid-template-columns: 8px 1fr auto;
-        align-items: center;
-        gap: 8px;
+        gap: 2px;
         width: 100%;
-        padding: 7px 8px;
+        padding: 6px 8px;
         border: 0;
         border-radius: 7px;
         background: none;
         text-align: left;
+        color: var(--body);
       }
       .row:hover {
-        background: color-mix(in srgb, var(--raised) 60%, transparent);
+        background: var(--app-hover);
       }
       .row.on {
-        background: var(--raised);
+        background: var(--app-selected);
       }
       .row.moved {
         animation: flash 1.2s;
@@ -666,135 +756,285 @@
           background: var(--violet-soft);
         }
       }
-      .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
+      .row .l1 {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
       }
-      .row .t {
-        color: var(--body);
-        white-space: nowrap;
+      .row .l1 b {
+        color: var(--fg);
+        font-size: 11px;
+      }
+      .row .repo {
         overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .row .n {
         color: var(--muted);
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: 9.5px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
+      .row .icons {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-left: auto;
+      }
+      .row .l2 {
+        overflow: hidden;
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .ic-ok,
+      .ic-bad,
+      .ic-wait,
+      .ic-muted {
+        display: inline-flex;
+      }
+      .ic-ok {
+        color: var(--ok);
+      }
+      .ic-bad {
+        color: var(--bad);
+      }
+      .ic-wait {
+        color: var(--wait);
+      }
+      .ic-muted {
+        color: var(--muted);
+      }
+      .spin {
+        animation: spin 0.8s linear infinite;
+      }
+      .rail-foot {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 2px;
+        color: var(--muted);
+      }
+      .rail-foot .tools {
+        display: flex;
+        gap: 10px;
+        margin: 0 auto;
+      }
+      /* Pills: small in the sidebar, large in the PR header (the app's Pill). */
+      .pill-sm,
+      .pill-lg {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        flex: none;
+        border: 0;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+      .pill-sm {
+        padding: 1px 7px;
+        font-size: 9px;
+      }
+      .pill-lg {
+        padding: 4px 11px;
+        font-size: 12px;
+      }
+      .tone-green {
+        background: var(--pill-green-bg);
+        color: var(--pill-green-fg);
+      }
+      .tone-purple {
+        background: var(--pill-purple-bg);
+        color: var(--pill-purple-fg);
+      }
+      .tone-neutral {
+        background: var(--pill-neutral-bg);
+        color: var(--pill-neutral-fg);
+      }
+      .tone-red {
+        background: var(--pill-red-bg);
+        color: var(--pill-red-fg);
+      }
+      .tone-amber {
+        background: var(--pill-amber-bg);
+        color: var(--wait);
+      }
+      /* The PR: crumbs, branches, the header line, title, tabs, then the view. */
       .main {
         position: relative;
         display: flex;
         flex-direction: column;
         min-width: 0;
         min-height: 0;
-        padding: 14px 20px 0;
       }
-      .head-top {
+      .main-scroll {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        padding: 10px 18px 0;
+      }
+      .crumbs {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .crumbs b {
+        color: var(--body);
+        font-weight: 600;
+      }
+      .branches {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 8px;
-        min-height: 30px;
-      }
-      .num {
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 11px;
-      }
-      .chip {
-        display: inline-flex;
-        align-items: center;
         gap: 6px;
-        padding: 3px 9px;
-        border: 0;
-        border-radius: 99px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-      .chip.ok {
-        background: var(--ok-soft);
-        color: var(--ok);
-      }
-      .chip.wait {
-        background: var(--wait-soft);
-        color: var(--wait);
-      }
-      .chip.bad {
-        background: var(--bad-soft);
-        color: var(--bad);
-      }
-      .chip.accent {
-        background: var(--accent-soft);
-        color: var(--accent);
-      }
-      .chip.violet {
-        background: var(--violet-soft);
-        color: var(--violet);
-      }
-      .chip.plain {
-        border: 1px solid var(--edge-strong);
+        margin-top: 6px;
         color: var(--muted);
+        font-size: 11px;
       }
-      .act {
+      .br {
+        padding: 1px 6px;
+        border-radius: 4px;
+        background: color-mix(in srgb, var(--app-branch) 14%, transparent);
+        color: var(--app-branch);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+      .branches .side {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 14px;
         margin-left: auto;
+      }
+      .branches .side span {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .head {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .head > div {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-width: 0;
+      }
+      .head .h-right {
+        justify-content: flex-end;
+      }
+      .num {
+        color: var(--fg);
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.4px;
+      }
+      .h-mid .people {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .title-row {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 8px;
+      }
+      .pr-title {
+        color: var(--fg);
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+      }
+      .pen {
+        color: var(--muted);
       }
       .why {
         color: var(--muted);
         font-size: 11px;
       }
+      .merge-split {
+        display: inline-flex;
+      }
       .merge {
         padding: 6px 14px;
         border: 0;
-        border-radius: 8px;
+        border-radius: 7px;
         background: var(--merge);
         color: white;
-        font-weight: 650;
-        transition: box-shadow 150ms;
+        font-weight: 600;
+        transition: background 150ms;
+      }
+      .merge-split .merge {
+        border-radius: 7px 0 0 7px;
+      }
+      .merge-split .caret {
+        display: grid;
+        place-items: center;
+        padding: 0 7px;
+        border-left: 1px solid rgb(0 0 0 / 0.3);
+        border-radius: 0 7px 7px 0;
+        background: var(--merge);
+        color: white;
       }
       .merge.armed {
-        box-shadow: 0 0 0 3px var(--ok-soft);
-        background: #23914d;
+        background: #9a6a1d;
       }
-      .merge:disabled {
+      .merge:disabled,
+      .merge:disabled + .caret {
         opacity: 0.4;
         cursor: not-allowed;
-      }
-      .pr-title {
-        margin: 8px 0 2px;
-        color: var(--fg);
-        font-size: 18px;
-        font-weight: 700;
-        letter-spacing: -0.3px;
-      }
-      .branch {
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 11px;
       }
       .tabs {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 6px;
-        margin: 12px 0 12px;
+        gap: 7px;
+        margin: 12px 0 10px;
       }
-      .tabs button {
-        padding: 5px 11px;
-        border: 1px solid var(--edge);
+      .tabs button,
+      .tabs .tab-like {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border: 1px solid var(--edge-strong);
         border-radius: 7px;
         background: none;
-        color: var(--muted);
+        color: var(--body);
         font-weight: 500;
       }
       .tabs button.on {
-        border-color: var(--edge-strong);
-        background: var(--raised);
+        background: var(--app-selected);
         color: var(--fg);
+        font-weight: 600;
+      }
+      .tabs .k {
+        color: var(--muted);
+        font-size: 10.5px;
+      }
+      .tabs .claude-btn {
+        color: var(--fg);
+        font-weight: 600;
+      }
+      .tabs .claude-btn i {
+        color: var(--claude);
+        font-style: normal;
+      }
+      .tabs .end {
+        margin-left: auto;
+      }
+      .tabs .merge-split .merge {
+        padding: 6px 12px;
+        border: 0;
+        border-radius: 7px 0 0 7px;
+        background: var(--merge);
+        color: white;
+        font-weight: 600;
       }
       .plus {
         color: var(--ok);
@@ -806,16 +1046,263 @@
         flex: 1;
         min-height: 0;
         overflow: auto;
-        padding-bottom: 16px;
+        padding-bottom: 14px;
       }
-      .panes {
+      /* Changes: a toolbar, then one block per file with a header and numbered lines. */
+      .ch-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px 14px;
+        margin-bottom: 10px;
+        color: var(--body);
+        font-size: 11px;
+      }
+      .ch-bar > span {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .ch-bar .k {
+        color: var(--muted);
+      }
+      .ch-bar .find {
+        padding: 3px 10px;
+        border: 1px solid var(--edge);
+        border-radius: 6px;
+        color: var(--muted);
+      }
+      .ch-bar .comments {
+        padding: 3px 9px;
+        border-radius: 6px;
+        background: color-mix(in srgb, var(--accent) 14%, transparent);
+        color: var(--accent);
+      }
+      .ch-bar .end {
+        margin-left: auto;
+        color: var(--muted);
+      }
+      .fblock {
+        border: 1px solid var(--edge);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .fblock + .fblock {
+        margin-top: 8px;
+      }
+      .fhead {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 10px;
+        background: var(--app-file-head);
+        color: var(--body);
+        font-family: var(--mono);
+        font-size: 10.5px;
+      }
+      .fhead .chev {
+        color: var(--muted);
+        width: 8px;
+      }
+      .fhead .lang {
+        color: #4d9fe8;
+        font-size: 8.5px;
+        font-weight: 700;
+      }
+      .fhead .path {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .badge {
+        padding: 1px 5px;
+        border-radius: 4px;
+        background: var(--app-input);
+        color: var(--muted);
+        font-family: Inter, sans-serif;
+        font-size: 9.5px;
+      }
+      .badge.ok {
+        background: color-mix(in srgb, var(--ok) 15%, transparent);
+        color: var(--ok);
+      }
+      .badge.wait {
+        background: color-mix(in srgb, var(--wait) 15%, transparent);
+        color: var(--wait);
+      }
+      .viewed {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--body);
+        font-family: Inter, sans-serif;
+        font-size: 11px;
+      }
+      .viewed i {
         display: grid;
-        grid-template-columns: 190px 1fr;
+        place-items: center;
+        width: 12px;
+        height: 12px;
+        border: 1px solid var(--muted);
+        border-radius: 3px;
+        font-size: 9px;
+        font-style: normal;
+      }
+      .viewed i.on {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--bg);
+      }
+      .diff {
+        padding: 4px 0;
+        font-variant-ligatures: none;
+        background: var(--app-code);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.8;
+      }
+      .dl {
+        display: grid;
+        grid-template-columns: 30px 30px 1fr;
+      }
+      .dl .ln {
+        padding-right: 8px;
+        color: var(--muted);
+        text-align: right;
+        opacity: 0.7;
+      }
+      .dl .cd {
+        overflow: hidden;
+        color: var(--body);
+        white-space: pre;
+      }
+      .dl.a {
+        background: var(--diff-add);
+      }
+      .dl.d {
+        background: var(--diff-del);
+      }
+      .sk {
+        color: var(--syn-keyword);
+      }
+      .ss {
+        color: var(--syn-string);
+      }
+      .sc {
+        color: var(--syn-constant);
+      }
+      .st {
+        color: var(--syn-title);
+      }
+      .d-thread {
+        margin: 6px 12px 8px 60px;
+        padding: 9px 12px;
+        border: 1px solid var(--edge);
+        border-radius: 8px;
+        background: var(--bg);
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        white-space: normal;
+        max-width: 520px;
+      }
+      .d-thread .who,
+      .card .who {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .d-thread .who b,
+      .card .who b {
+        color: var(--fg);
+      }
+      .d-thread p {
+        margin: 5px 0 8px;
+        color: var(--body);
+      }
+      .reply {
+        padding: 5px 9px;
+        border: 1px solid var(--edge);
+        border-radius: 6px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .term-bar {
+        display: flex;
+        align-items: center;
         gap: 12px;
+        padding: 7px 18px;
+        border-top: 1px solid var(--edge);
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .term-bar span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .term-bar .end {
+        margin-left: auto;
+      }
+      /* Shared with the feature drawings below. */
+      .search {
+        padding: 6px 10px;
+        border: 1px solid var(--edge);
+        border-radius: 7px;
+        color: var(--muted);
+      }
+      .branch {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 3px 9px;
+        border: 0;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .chip.ok {
+        background: var(--pill-green-bg);
+        color: var(--pill-green-fg);
+      }
+      .chip.wait {
+        background: var(--pill-amber-bg);
+        color: var(--wait);
+      }
+      .chip.bad {
+        background: var(--pill-red-bg);
+        color: var(--pill-red-fg);
+      }
+      .chip.accent {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .chip.violet {
+        background: var(--pill-purple-bg);
+        color: var(--pill-purple-fg);
+      }
+      .chip.plain {
+        padding: 1px 6px;
+        border-radius: 4px;
+        background: var(--app-input);
+        color: var(--muted);
+        font-size: 10px;
       }
       .pane {
         border: 1px solid var(--edge);
-        border-radius: 9px;
+        border-radius: 8px;
         background: var(--bg);
         overflow: hidden;
       }
@@ -829,31 +1316,10 @@
         font-family: var(--mono);
         font-size: 10.5px;
       }
-      .file {
-        display: grid;
-        grid-template-columns: 14px 1fr auto;
-        align-items: center;
-        gap: 7px;
-        width: 100%;
-        padding: 6px 10px;
-        border: 0;
-        background: none;
-        text-align: left;
-        font-family: var(--mono);
-        font-size: 10.5px;
-      }
-      .file .p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .file.viewed .p {
-        color: var(--muted);
-        text-decoration: line-through;
-      }
       .code {
         margin: 0;
         padding: 6px 0;
+        background: var(--app-code);
         font-family: var(--mono);
         font-size: 11px;
         line-height: 1.75;
@@ -865,11 +1331,11 @@
         overflow: hidden;
       }
       .code .a {
-        background: var(--ok-soft);
+        background: var(--diff-add);
         color: var(--body);
       }
       .code .d {
-        background: var(--bad-soft);
+        background: var(--diff-del);
         color: var(--muted);
       }
       .code .c {
@@ -891,14 +1357,10 @@
         gap: 6px;
         margin-top: 8px;
       }
-      .thread.resolved {
-        opacity: 0.6;
-      }
       .card {
         padding: 12px 14px;
-        border: 1px solid var(--edge);
-        border-radius: 9px;
-        background: var(--bg);
+        border-radius: 8px;
+        background: var(--panel);
       }
       .card + .card {
         margin-top: 10px;
@@ -906,20 +1368,16 @@
       .card p {
         margin: 6px 0 0;
       }
-      .card .who {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--muted);
-        font-size: 11px;
-      }
-      .card .who b {
-        color: var(--fg);
+      /* The Discussion's cards: a faint rule down the left marks where each one starts. */
+      .card.disc {
+        border-left: 3px solid color-mix(in srgb, var(--accent) 20%, transparent);
+        border-radius: 0 8px 8px 0;
+        background: var(--app-sidebar);
       }
       .overview {
         display: grid;
-        grid-template-columns: 1fr 200px;
-        gap: 12px;
+        grid-template-columns: 1fr 220px;
+        gap: 14px;
         align-items: start;
       }
       .stack-list {
@@ -936,7 +1394,7 @@
         position: relative;
       }
       .stack-row.on {
-        background: var(--raised);
+        background: var(--app-selected);
       }
       .stack-row i {
         width: 9px;
@@ -969,7 +1427,7 @@
         z-index: 3;
         display: grid;
         place-items: start center;
-        padding-top: 70px;
+        padding-top: 120px;
         background: color-mix(in srgb, var(--bg) 55%, transparent);
         backdrop-filter: blur(3px);
       }
@@ -977,45 +1435,63 @@
         display: none;
       }
       .float-panel {
-        width: min(440px, 92%);
+        width: min(460px, 92%);
         border: 1px solid var(--edge-strong);
-        border-radius: 12px;
-        background: var(--panel);
+        border-radius: 10px;
+        background: var(--app-sidebar);
         box-shadow: 0 30px 80px -30px var(--shadow);
         overflow: hidden;
       }
+      .fp-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--edge);
+        font-size: 11px;
+      }
+      .fp-head b {
+        color: var(--fg);
+        font-size: 12px;
+      }
+      .fp-head .time {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+      .fp-head .end {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: auto;
+        color: var(--muted);
+      }
       .checks {
-        padding: 8px 10px;
+        padding: 6px 12px 10px;
         display: grid;
-        gap: 4px;
+        gap: 2px;
       }
       .check {
         display: grid;
-        grid-template-columns: 10px 1fr auto;
+        grid-template-columns: 16px 1fr auto;
         align-items: center;
         gap: 8px;
-        padding: 4px 2px;
+        padding: 4px 0;
+        color: var(--body);
       }
-      .check i {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-      }
-      .check i.run {
-        border: 2px solid var(--wait);
-        border-right-color: transparent;
-        background: none !important;
-        animation: spin 0.8s linear infinite;
+      .check .time {
+        font-family: var(--mono);
+        font-size: 10px;
       }
       @keyframes spin {
         to {
           rotate: 360deg;
         }
       }
-      .check .time {
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 10px;
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
       }
       .mini-btn {
         padding: 4px 10px;
@@ -1054,27 +1530,39 @@
       }
       @media (max-width: 860px) {
         .deck {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
           height: auto;
         }
+        .rail-top,
         .rail .me,
-        .rail .search {
+        .rail .search,
+        .rail-foot {
           display: none;
         }
         .rail {
-          max-height: 230px;
+          max-height: 250px;
+          padding-bottom: 8px;
           border-right: 0;
           border-bottom: 1px solid var(--edge);
         }
         .main {
-          height: 520px;
+          height: 600px;
         }
-        .panes,
+        .head {
+          grid-template-columns: 1fr auto;
+        }
+        .head .h-mid,
+        .branches .side,
+        .tabs .claude-btn,
+        .ch-bar .find,
+        .term-bar {
+          display: none;
+        }
         .overview {
           grid-template-columns: 1fr;
         }
-        .files-pane {
-          display: none;
+        .d-thread {
+          margin-left: 12px;
         }
       }
 
@@ -1960,24 +2448,35 @@
             </p>
             <!-- A working drawing of the app: the script at the end fills it and handles the clicks. -->
             <div class="console" data-demo>
-              <div class="titlebar"><i></i><i></i><i></i><span>Mergiato</span></div>
               <div class="deck">
                 <aside class="rail">
+                  <div class="rail-top">
+                    <span class="lights"><i></i><i></i><i></i></span><span class="beta">Beta</span>
+                    <span class="fresh">Updated just now ↻</span>
+                  </div>
                   <div class="me">
-                    <span class="avatar" style="background: linear-gradient(135deg, #80a7e8, #8dceaa)"></span>
+                    <span class="avatar" style="width: 26px; height: 26px; background: linear-gradient(135deg, #80a7e8, #8dceaa)"></span>
                     <span><b>you</b><br />30d · 41 merged · 96 reviewed</span>
                   </div>
-                  <div class="search">Search, or paste a PR link · ⌘F</div>
+                  <div class="search">Search PRs <kbd>⌘F</kbd></div>
                   <div class="segment">
-                    <button type="button" data-side="mine" class="on">My PRs</button>
+                    <button type="button" data-side="mine" class="on">My PRs <span class="n" data-mine-count>4</span></button>
                     <button type="button" data-side="reviews">
                       Reviews <span class="count" data-review-count>3</span>
                     </button>
                   </div>
                   <div class="rail-list" data-rail></div>
+                  <div class="rail-foot">
+                    <span>⚙</span><span class="tools"><span data-gh-icon>●</span><span style="color: var(--claude)">✻</span><span>▭</span><span>▲</span></span>
+                  </div>
                 </aside>
-                <div class="main" data-main>
-                  <noscript><p>Turn on JavaScript to try the demo.</p></noscript>
+                <div class="main">
+                  <div class="main-scroll" data-main>
+                    <noscript><p>Turn on JavaScript to try the demo.</p></noscript>
+                  </div>
+                  <div class="term-bar">
+                    <span>▭ Terminal</span><span>+</span><span class="end"><kbd>⌘J</kbd> show</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2109,38 +2608,22 @@
             <figure
               class="illus"
               role="img"
-              aria-label="The inbox's Reviews tab: three review requests waiting, with their authors and checks, and PRs you've reviewed below."
+              aria-label="The inbox's Reviews tab: three review requests, each with its number, repository, check and review icons and state, and a PR you've reviewed below."
             >
               <div class="illus-head">
-                <span class="mini-btn">My PRs</span
-                ><span class="mini-btn primary">Reviews <span class="count">3</span></span>
+                <span class="segment" style="margin: 0; width: 230px"
+                  ><button type="button" tabindex="-1">My PRs <span class="n">4</span></button
+                  ><button type="button" tabindex="-1" class="on">Reviews <span class="count">3</span></button></span
+                >
                 <span class="end">Updated just now</span>
               </div>
-              <div class="illus-body" style="gap: 2px">
-                <div class="group" style="margin: 2px 0 4px">REVIEW REQUESTED · 3</div>
-                <div class="inbox-row on">
-                  <span class="avatar" style="background: linear-gradient(135deg, #80a7e8, #c9b3f0)"></span
-                  ><span class="name"
-                    >Search: index archived projects<br /><span class="who">mara · 2h · ✓ checks</span></span
-                  ><span class="chip wait">Waiting on you</span>
-                </div>
-                <div class="inbox-row">
-                  <span class="avatar" style="background: linear-gradient(135deg, #8dceaa, #80a7e8)"></span
-                  ><span class="name"
-                    >Billing: proration on upgrades<br /><span class="who">theo · 5h · stack 1 of 2</span></span
-                  ><span class="chip wait">Waiting on you</span>
-                </div>
-                <div class="inbox-row">
-                  <span class="avatar" style="background: linear-gradient(135deg, #e8b45d, #dd9396)"></span
-                  ><span class="name">Auth: rotate session keys<br /><span class="who">sam · 1d · ✕ 1 check</span></span
-                  ><span class="chip wait">Waiting on you</span>
-                </div>
-                <div class="group" style="margin: 10px 0 4px">REVIEWED BY YOU · 5</div>
-                <div class="inbox-row">
-                  <span class="avatar" style="background: linear-gradient(135deg, #c9b3f0, #dd9396)"></span
-                  ><span class="name">CI: cache pnpm store<br /><span class="who">ana · you approved</span></span
-                  ><span class="chip ok">Approved</span>
-                </div>
+              <div class="illus-body" style="gap: 0">
+                <div class="group" style="margin: 2px 0 4px">⌄ REVIEW REQUESTED<span class="n">3</span></div>
+                <div class="row on"><span class="l1"><b>#2490</b><span class="repo">acme/shop</span><span class="icons"><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="ic-muted"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Billing: proration on upgrades</span></div>
+                <div class="row"><span class="l1"><b>#2488</b><span class="repo">acme/docs</span><span class="icons"><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="ic-muted"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Docs: API rate limits</span></div>
+                <div class="row"><span class="l1"><b>#2485</b><span class="repo">acme/shop</span><span class="icons"><span class="ic-bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span class="ic-muted"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Search: debounce the query box</span></div>
+                <div class="group" style="margin: 10px 0 4px">⌄ REVIEWED BY YOU<span class="n">5</span></div>
+                <div class="row"><span class="l1"><b>#2471</b><span class="repo">acme/shop</span><span class="icons"><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span><span class="pill-sm tone-green">Open</span></span></span><span class="l2">Infra: bump Node to 24</span></div>
               </div>
             </figure>
           </div>
@@ -2184,7 +2667,7 @@
                   <span class="tick"></span
                   ><span class="name"
                     >src/checkout/refunds.ts
-                    <span class="chip wait" style="margin-left: 6px"
+                    <span class="badge wait" style="margin-left: 6px"
                       >changed<span class="wide-only"> since viewed</span></span
                     ></span
                   ><span class="meta"><span class="plus">+7</span> −2</span>
@@ -2233,10 +2716,7 @@
                 <div>Request changes…<small>A comment is required</small></div>
               </div>
               <div class="illus-body" style="padding-top: 0">
-                <pre
-                  class="code pane"
-                  style="margin: 0"
-                ><span class="c">  const attempts = merchant.retries ?? 3;</span><span class="a">+ if (attempts > 5) throw new RangeError("max 5");</span></pre>
+                <div class="diff pane" style="margin: 0"><div class="dl c"><span class="ln">41</span><span class="ln">41</span><span class="cd">  <span class="sk">const</span> attempts = merchant.retries ?? <span class="sc">3</span>;</span></div><div class="dl a"><span class="ln"></span><span class="ln">42</span><span class="cd">+ <span class="sk">if</span> (attempts &gt; <span class="sc">5</span>) <span class="sk">throw</span> <span class="sk">new</span> <span class="st">RangeError</span>(<span class="ss">"max 5"</span>);</span></div></div>
                 <div class="thread" style="margin: 0">
                   <span
                     class="avatar"
@@ -2320,19 +2800,19 @@
               </div>
               <div class="illus-body">
                 <div class="line fail">
-                  <i class="dot" style="background: var(--bad)"></i><span class="name">e2e · checkout</span
+                  <span class="ic-bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span class="name">e2e · checkout</span
                   ><span class="meta">4m 05s</span>
                 </div>
                 <div class="line">
-                  <i class="dot" style="background: var(--ok)"></i><span class="name">build</span
+                  <span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="name">build</span
                   ><span class="meta">1m 48s</span>
                 </div>
                 <div class="line">
-                  <i class="dot" style="background: var(--ok)"></i><span class="name">unit tests</span
+                  <span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="name">unit tests</span
                   ><span class="meta">2m 31s</span>
                 </div>
                 <div class="line">
-                  <i class="dot" style="background: var(--ok)"></i><span class="name">lint · types</span
+                  <span class="ic-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="name">lint · types</span
                   ><span class="meta">52s</span>
                 </div>
                 <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px">
@@ -2997,6 +3477,7 @@
           }
         });
 
+        root.querySelector("[data-gh-icon]").innerHTML = icon.github;
         render();
 
         function find(n) {
@@ -3024,16 +3505,17 @@
           root.querySelector("[data-review-count]").textContent = demoPrs.filter(
             (pr) => pr.group === "requested",
           ).length;
+          root.querySelector("[data-mine-count]").textContent = demoPrs.filter((pr) => pr.group === "progress").length;
           rail.innerHTML = groups
             .map(([group, title]) => {
               const items = demoPrs.filter((pr) => pr.group === group);
               const rows = items
                 .map(
                   (pr) =>
-                    `<button type="button" class="row${pr.n === state.open ? " on" : ""}${pr.justMoved ? " moved" : ""}" data-pr="${pr.n}"><i class="dot" style="background:${dotColor(pr)}"></i><span class="t">${pr.title}</span><span class="n">#${pr.n}</span></button>`,
+                    `<button type="button" class="row${pr.n === state.open ? " on" : ""}${pr.justMoved ? " moved" : ""}" data-pr="${pr.n}"><span class="l1"><b>#${pr.n}</b><span class="repo">${repoOf(pr)}</span><span class="icons">${checkIcon(pr)}${reviewIcon(pr)}${statePill(pr, "sm")}</span></span><span class="l2">${pr.title}</span></button>`,
                 )
                 .join("");
-              return `<div class="group">${title} · ${items.length}</div>${rows}`;
+              return `<div class="group">⌄ ${title}<span class="n">${items.length}</span></div>${rows}`;
             })
             .join("");
           for (const pr of demoPrs) pr.justMoved = false;
@@ -3044,28 +3526,37 @@
           const checks = summary(pr.checks);
           const added = pr.files.reduce((sum, file) => sum + file[1], 0);
           const removed = pr.files.reduce((sum, file) => sum + file[2], 0);
-          const tabs = ["Overview", "Checks", "Changes", "Reviews"]
-            .map((tab) => {
-              const label =
-                tab === "Checks"
-                  ? `Checks <span class="${checks.cls === "bad" ? "minus" : checks.cls === "wait" ? "" : "plus"}">${checks.short}</span>`
-                  : tab === "Changes"
-                    ? `Changes ${pr.files.length} <span class="plus">+${added}</span> <span class="minus">−${removed}</span>`
-                    : tab;
-              return `<button type="button" data-tab="${tab}" class="${tab === state.tab ? "on" : ""}">${label}</button>`;
-            })
+          const [head, rest] = pr.branch.split(" → ");
+          const [base] = rest.split(" · ");
+          const checkLabel = { ok: "ic-ok", wait: "ic-wait", bad: "ic-bad" }[checks.cls];
+          const tabs = [
+            ["Overview", "Overview"],
+            ["Checks", `Checks <span class="${checkLabel}">${checks.short}</span>`],
+            [
+              "Changes",
+              `Changes <span class="k">${pr.files.length}</span> <span class="plus">+${added}</span> <span class="minus">−${removed}</span>`,
+            ],
+            ["Reviews", `Reviews <span class="k">${pr.resolved ? 0 : 1}</span>`],
+          ]
+            .map(
+              ([tab, label]) =>
+                `<button type="button" data-tab="${tab}" class="${tab === state.tab ? "on" : ""}">${label}</button>`,
+            )
             .join("");
+          const claude = `<span class="tab-like claude-btn">Review with <i>✻</i> ▾</span>`;
+          const tabEnd = pr.stack
+            ? `<span class="tab-like end">${icon.layers} Stack ${pr.stack.at}/${pr.stack.rows.length - 1} ⌄ ⌃</span>`
+            : "";
           return `
-            <div class="head-top">
-              <span class="num">#${pr.n}</span>
-              ${statePill(pr)}
-              ${reviewChip(pr)}
-              ${pr.stack ? `<span class="chip accent">Stack ${pr.stack.at} of ${pr.stack.rows.length - 1}</span>` : ""}
-              <span class="act">${action(pr)}</span>
+            <div class="crumbs">${repoOf(pr)} · <b>${pr.author}</b></div>
+            <div class="branches"><span class="br">${head}</span>→<span class="br">${base}</span><span class="side"><span>${icon.tag} ${labelOf(pr)}</span><span>${icon.user} ${pr.author}</span></span></div>
+            <div class="head">
+              <div class="h-left"><span class="num">#${pr.n}</span><span class="ic-muted">${icon.github}</span>${statePill(pr, "lg")}</div>
+              <div class="h-mid">${reviewPill(pr)}<span class="people">${icon.users} ${firstReviewer(pr)}</span></div>
+              <div class="h-right">${action(pr)}</div>
             </div>
-            <div class="pr-title">${pr.title}</div>
-            <div class="branch">${pr.branch} · ${pr.author === "you" ? "you" : pr.author}</div>
-            <div class="tabs">${tabs}</div>
+            <div class="title-row">${avatar(pr.author, 20)}<span class="pr-title">${pr.title}</span><span class="pen">✎</span></div>
+            <div class="tabs">${tabs}${claude}${tabEnd}${approveButton(pr)}</div>
             <div class="view">${view(pr)}</div>
             <div class="floating" data-backdrop ${state.checksOpen ? "" : "hidden"}>${checksPanel(pr, checks)}</div>`;
         }
@@ -3080,50 +3571,97 @@
                   )
                   .join("")}</div></div>`
               : `<div class="card"><div class="who"><b>Reviewers</b></div><p>${pr.reviewers}</p></div>`;
-            return `<div class="overview"><div><div class="card"><div class="who">${avatar(pr.author)}<b>${pr.author}</b> · description</div><p>${pr.desc}</p></div><div class="card"><div class="who">${avatar(pr.thread[0])}<b>${pr.thread[0]}</b> · commented</div><p>${pr.thread[1]}</p></div></div><div>${stack}</div></div>`;
+            return `<div class="overview"><div><div class="card"><div class="who">${avatar(pr.author)}<b>${pr.author}</b> opened this · 2d ago</div><p>${pr.desc}</p></div><div class="card disc"><div class="who">${avatar(pr.thread[0])}<b>${pr.thread[0]}</b> commented · 1h ago</div><p>${pr.thread[1]}</p></div></div><div>${stack}</div></div>`;
           }
           if (state.tab === "Reviews") {
-            const thread = pr.resolved
-              ? `<div class="card"><div class="who"><span class="chip ok">Resolved</span> ${pr.thread[0]} · ${pr.files[0][0]} · ${pr.thread[1].slice(0, 40)}…<button type="button" class="mini-btn end" data-action="resolve">Unresolve</button></div></div>`
-              : `<div class="card"><div class="who">${avatar(pr.thread[0])}<b>${pr.thread[0]}</b> · ${pr.files[0][0]}<button type="button" class="mini-btn end" data-action="resolve">Resolve</button></div><p>${pr.thread[1]}</p><div class="search" style="margin-top:10px">Reply…</div></div>`;
-            return `<div class="card"><div class="who"><b>Reviewers:</b> ${pr.reviewers}</div></div>${thread}`;
+            return `<div class="card"><div class="who"><b>Reviewers:</b> ${pr.reviewers}</div></div><div style="margin-top:10px">${thread(pr)}</div>`;
           }
+          const viewed = pr.files.filter((file) => file.viewed).length;
+          const bar = `<div class="ch-bar"><span>${icon.commit} Commits <span class="k">${pr.branch.split(" · ")[1]?.split(" ")[0] ?? 1}</span></span><span>${icon.file} Files <span class="k">${pr.files.length}</span></span><span class="find">Search files…</span><span class="comments">${icon.comment} Review comments ${pr.resolved ? 0 : 1}</span><span class="end">${viewed} / ${pr.files.length} viewed</span></div>`;
           const files = pr.files
-            .map(
-              (file, i) =>
-                `<button type="button" class="file${file.viewed ? " viewed" : ""}" data-viewed="${i}"><span class="tick${file.viewed ? " on" : ""}">${file.viewed ? "✓" : ""}</span><span class="p">${file[0].split("/").pop()}</span><span><span class="plus">+${file[1]}</span> <span class="minus">−${file[2]}</span></span></button>`,
-            )
+            .map((file, i) => {
+              const open = i === 0 && !file.viewed;
+              const kind = file[2] === 0 ? '<span class="badge ok">added</span>' : '<span class="badge">modified</span>';
+              const ext = file[0].split(".").pop().toUpperCase().slice(0, 3);
+              return `<div class="fblock"><div class="fhead"><span class="chev">${open ? "⌄" : "›"}</span><span class="lang">${ext}</span><span class="path">${file[0]}</span>${kind}<span class="plus">+${file[1]}</span><span class="minus">−${file[2]}</span><button type="button" class="viewed" data-viewed="${i}"><i class="${file.viewed ? "on" : ""}">${file.viewed ? "✓" : ""}</i>Viewed</button></div>${open ? diff(pr) : ""}</div>`;
+            })
             .join("");
-          const lines = pr.diff
-            .map((line) => `<span class="${{ "+": "a", "-": "d" }[line[0]] ?? "c"}">${line}</span>`)
+          return bar + files;
+        }
+
+        // Numbered lines, both sides, with the app's syntax colors; the thread sits under the last change.
+        function diff(pr) {
+          let old = 12;
+          let now = 12;
+          const last = pr.diff.findLastIndex((line) => line[0] !== " ");
+          return `<div class="diff">${pr.diff
+            .map((line, i) => {
+              const kind = { "+": "a", "-": "d" }[line[0]] ?? "c";
+              const left = kind === "a" ? "" : old++;
+              const right = kind === "d" ? "" : now++;
+              const row = `<div class="dl ${kind}"><span class="ln">${left}</span><span class="ln">${right}</span><span class="cd">${line[0] === " " ? " " : line[0]}${highlight(line.slice(1))}</span></div>`;
+              return i === last && !pr.resolved ? row + thread(pr) : row;
+            })
+            .join("")}</div>`;
+        }
+
+        function thread(pr) {
+          if (pr.resolved)
+            return `<div class="d-thread"><div class="who"><span class="badge ok">resolved</span>${avatar(pr.thread[0], 14)}<b>${pr.thread[0]}</b> ${pr.thread[1].slice(0, 36)}…<button type="button" class="mini-btn" style="margin-left:auto" data-action="resolve">Unresolve</button></div></div>`;
+          return `<div class="d-thread"><div class="who">${avatar(pr.thread[0], 16)}<b>${pr.thread[0]}</b> 2h<button type="button" class="mini-btn" style="margin-left:auto" data-action="resolve">Resolve</button></div><p>${pr.thread[1]}</p><div class="reply">Reply…</div></div>`;
+        }
+
+        function highlight(code) {
+          const keywords =
+            /^(export|async|function|return|const|let|if|throw|new|await|import|from|where|uses|with|false|true)$/;
+          return code
+            .split(/("[^"]*"|`[^`]*`|\b\d+\b|[A-Za-z_$][\w$]*(?=\()|[A-Za-z_$][\w$]*)/)
+            .map((part) => {
+              const safe = part.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+              if (/^["`]/.test(part)) return `<span class="ss">${safe}</span>`;
+              if (/^\d+$/.test(part)) return `<span class="sc">${safe}</span>`;
+              if (keywords.test(part)) return `<span class="sk">${safe}</span>`;
+              if (/^[A-Za-z_$]/.test(part) && code.includes(part + "(")) return `<span class="st">${safe}</span>`;
+              return safe;
+            })
             .join("");
-          const thread = pr.resolved
-            ? ""
-            : `<div class="thread">${avatar(pr.thread[0], 14)} <b>${pr.thread[0]}</b> · ${pr.thread[1]}</div>`;
-          return `<div class="panes"><div class="pane files-pane"><div class="pane-head"><span>Files</span><span>${pr.files.filter((file) => file.viewed).length}/${pr.files.length} viewed</span></div>${files}</div><div class="pane"><div class="pane-head"><span>${pr.files[0][0]}</span><span>${pr.files[0].viewed ? "✓ Viewed" : "Viewed ☐"}</span></div><pre class="code">${lines}</pre>${thread}</div></div>`;
         }
 
         function checksPanel(pr, checks) {
+          const count = (status) => pr.checks.filter((check) => check[1] === status).length;
+          const seconds = pr.checks.reduce((sum, [, , time]) => {
+            const [, m = 0, s = 0] = time.match(/(?:(\d+)m)?\s*(?:(\d+)s)?/) ?? [];
+            return sum + Number(m) * 60 + Number(s);
+          }, 0);
+          const total = `${Math.floor(seconds / 60)}m ${String(seconds % 60).padStart(2, "0")}s`;
           const rows = pr.checks
-            .map(
-              ([name, status, time]) =>
-                `<div class="check"><i class="${status === "run" ? "run" : ""}" style="background:var(--${status})"></i><span>${name}</span><span class="time">${status === "run" ? "running" : time}</span></div>`,
-            )
+            .map(([name, status, time]) => {
+              const mark = {
+                ok: `<span class="ic-ok">${icon.check}</span>`,
+                bad: `<span class="ic-bad">${icon.x}</span>`,
+                run: `<span class="ic-wait spin">${icon.loader}</span>`,
+              }[status];
+              const tone = { ok: "ic-ok", bad: "ic-bad", run: "ic-wait" }[status];
+              return `<div class="check">${mark}<span>${name}</span><span class="time ${tone}">${status === "run" ? "running" : time}</span></div>`;
+            })
             .join("");
-          const failed = pr.checks.some((check) => check[1] === "bad");
-          return `<div class="float-panel"><div class="pane-head" style="font-family:inherit;font-size:12px"><b style="color:var(--fg)">Checks</b><span class="chip ${checks.cls}">${checks.long}</span></div><div class="checks">${rows}</div><div style="display:flex;justify-content:flex-end;gap:8px;padding:0 10px 10px">${failed ? '<button type="button" class="mini-btn primary" data-action="rerun">↻ Re-run failed</button>' : '<span class="why">Esc or a click outside closes this</span>'}</div></div>`;
+          const failed = count("bad") > 0;
+          return `<div class="float-panel"><div class="fp-head"><b>Checks</b><span class="ic-ok">✓ ${count("ok")}</span>${failed ? `<span class="ic-bad">✕ ${count("bad")}</span>` : ""}${count("run") ? `<span class="ic-wait">◌ ${count("run")}</span>` : ""}<span class="time">${total}</span><span class="end">Re-run: ${failed ? '<button type="button" class="mini-btn" data-action="rerun">Failed</button>' : ""}<span class="mini-btn">All</span></span></div><div class="checks">${rows}</div></div>`;
         }
 
         function action(pr) {
-          if (pr.group === "merged") return "";
-          if (pr.side === "reviews") {
-            if (pr.group === "reviewed") return `<span class="why">You approved this</span>`;
-            return `<button type="button" class="mini-btn approve" data-action="approve">✓ Approve</button>`;
-          }
+          if (pr.group === "merged" || pr.side === "reviews") return "";
           const blocked = blockedBy(pr);
           if (blocked)
-            return `<span class="why">${blocked}</span><button type="button" class="merge" disabled>Merge ▾</button>`;
-          return `<button type="button" class="merge${state.armed ? " armed" : ""}" data-action="merge">${state.armed ? "Confirm squash merge" : "Merge ▾"}</button>`;
+            return `<span class="why">${blocked}</span><span class="merge-split"><button type="button" class="merge" disabled>Merge</button><span class="caret">▾</span></span>`;
+          return `<span class="merge-split"><button type="button" class="merge${state.armed ? " armed" : ""}" data-action="merge">${state.armed ? "Confirm squash merge" : "Merge"}</button><span class="caret">▾</span></span>`;
+        }
+
+        // Someone else's open PR: the tabs row ends with Approve, as in the app.
+        function approveButton(pr) {
+          if (pr.side !== "reviews" || pr.group === "merged") return "";
+          if (pr.group === "reviewed") return `<span class="why end">You approved this</span>`;
+          return `<span class="merge-split ${pr.stack ? "" : "end"}"><button type="button" class="merge" data-action="approve">✓ Approve</button><span class="caret">▾</span></span>`;
         }
 
         function blockedBy(pr) {
@@ -3134,36 +3672,55 @@
           return "";
         }
 
-        function statePill(pr) {
-          if (pr.group === "merged") return `<span class="chip violet">Merged</span>`;
-          if (pr.draft) return `<span class="chip plain">Draft</span>`;
-          return `<span class="chip ok">Open</span>`;
+        function statePill(pr, size) {
+          const chevron = size === "lg" && pr.side === "mine" && pr.group !== "merged" ? " ⌄" : "";
+          if (pr.group === "merged") return `<span class="pill-${size} tone-purple">Merged</span>`;
+          if (pr.draft) return `<span class="pill-${size} tone-neutral">Draft${chevron}</span>`;
+          return `<span class="pill-${size} tone-green">Open${chevron}</span>`;
         }
 
-        function reviewChip(pr) {
+        function reviewPill(pr) {
           if (pr.group === "merged" || pr.draft) return "";
           return {
-            approved: `<span class="chip ok">● Approved</span>`,
-            changes: `<span class="chip bad">● Changes requested</span>`,
-            waiting: `<span class="chip wait">● Waiting review</span>`,
+            approved: `<span class="pill-lg tone-green">Approved</span>`,
+            changes: `<span class="pill-lg tone-red">Changes requested</span>`,
+            waiting: `<span class="pill-lg tone-amber">Waiting review</span>`,
+          }[pr.review];
+        }
+
+        function checkIcon(pr) {
+          if (pr.group === "merged") return "";
+          if (pr.checks.some((check) => check[1] === "bad")) return `<span class="ic-bad">${icon.x}</span>`;
+          if (pr.checks.some((check) => check[1] === "run")) return `<span class="ic-wait spin">${icon.loader}</span>`;
+          return `<span class="ic-ok">${icon.check}</span>`;
+        }
+
+        function reviewIcon(pr) {
+          if (pr.group === "merged" || pr.draft) return "";
+          return {
+            approved: `<span class="ic-ok">${icon.userCheck}</span>`,
+            changes: `<span class="ic-bad">${icon.userX}</span>`,
+            waiting: `<span class="ic-muted">${icon.clock}</span>`,
           }[pr.review];
         }
 
         function summary(checks) {
           const count = (status) => checks.filter((check) => check[1] === status).length;
-          if (count("bad"))
-            return { cls: "bad", short: `✕ ${count("bad")}`, long: `✕ ${count("bad")} failed · ✓ ${count("ok")}` };
-          if (count("run"))
-            return { cls: "wait", short: `◌ ${count("run")}`, long: `◌ ${count("run")} running · ✓ ${count("ok")}` };
-          return { cls: "ok", short: `✓ ${checks.length}`, long: `✓ ${checks.length}/${checks.length} passed` };
+          if (count("bad")) return { cls: "bad", short: `✕ ${count("bad")}` };
+          if (count("run")) return { cls: "wait", short: `◌ ${count("run")}` };
+          return { cls: "ok", short: `✓ ${checks.length}` };
         }
 
-        function dotColor(pr) {
-          if (pr.group === "merged") return "var(--violet)";
-          if (pr.draft) return "var(--muted)";
-          if (pr.checks.some((check) => check[1] === "bad")) return "var(--bad)";
-          if (pr.checks.some((check) => check[1] === "run")) return "var(--wait)";
-          return "var(--ok)";
+        function repoOf(pr) {
+          return pr.files[0][0].startsWith("docs/") ? "acme/docs" : "acme/shop";
+        }
+
+        function labelOf(pr) {
+          return pr.title.split(":")[0].toLowerCase();
+        }
+
+        function firstReviewer(pr) {
+          return pr.reviewers.split(" · ")[0].replace(/ (✓|✕|\(requested\))/, "");
         }
 
         function avatar(name, size = 16) {
@@ -3177,6 +3734,31 @@
           return `<span class="avatar" style="width:${size}px;height:${size}px;background:linear-gradient(135deg, ${colors[name] ?? "#888, #555"})"></span>`;
         }
       }
+
+      // Lucide icons, as the app draws them.
+      const icon = Object.fromEntries(
+        Object.entries({
+          check: '<path d="M20 6 9 17l-5-5"/>',
+          x: '<path d="M18 6 6 18M6 6l12 12"/>',
+          loader: '<path d="M21 12a9 9 0 1 1-6.219-8.56"/>',
+          clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+          userCheck:
+            '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/>',
+          userX:
+            '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 8 5 5M22 8l-5 5"/>',
+          user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+          users:
+            '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+          tag: '<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1"/>',
+          layers:
+            '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
+          commit: '<circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/>',
+          file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+          comment: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+          github:
+            '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
+        }).map(([name, paths]) => [name, `<svg viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`]),
+      );
 
       function celebrate(from) {
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
