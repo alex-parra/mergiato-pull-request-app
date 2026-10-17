@@ -5,8 +5,8 @@
 - Platform: macOS on Apple silicon. Intel Macs are planned; Windows and Linux are not.
 - Price: free during the beta, every feature included. Paid plans, if any, come later with fair notice.
 - Requirements: the GitHub CLI, signed in (`gh auth login`). Optional: the Vercel CLI, for preview deployments. No local clone needed (only for the docked terminal).
-- Download: under 5 MB, a .dmg from https://github.com/alex-parra/mergiato-releases/releases/latest
-- Maker: Alex Parra (https://github.com/alex-parra). Feedback and bugs: https://github.com/alex-parra/mergiato-releases/issues
+- Download: under 5 MB, a .dmg from https://github.com/alex-parra/mergiato-pull-request-app/releases/latest
+- Maker: Alex Parra (https://github.com/alex-parra). Feedback and bugs: https://github.com/alex-parra/mergiato-pull-request-app/issues
 
 ## Who it is for
 
@@ -45,6 +45,6 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 ## Links
 
 - [Website](https://mergiato.com/): features, live demo, FAQ
-- [Latest release](https://github.com/alex-parra/mergiato-releases/releases/latest): download the .dmg
-- [All releases](https://github.com/alex-parra/mergiato-releases/releases): versions and notes
-- [Issues](https://github.com/alex-parra/mergiato-releases/issues): bugs and feature requests
+- [Latest release](https://github.com/alex-parra/mergiato-pull-request-app/releases/latest): download the .dmg
+- [All releases](https://github.com/alex-parra/mergiato-pull-request-app/releases): versions and notes
+- [Issues](https://github.com/alex-parra/mergiato-pull-request-app/issues): bugs and feature requests
