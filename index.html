@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mergiato</title>
+    <meta name="description" content="A fast, native GitHub pull request review app for macOS." />
+    <style>
+      :root {
+        --bg: #0b0b0c;
+        --fg: #f2f2f2;
+        --muted: #9a9a9f;
+        --accent: #80a7e8;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #ffffff;
+          --fg: #18181b;
+          --muted: #5c5c66;
+          --accent: #2f5fb3;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          16px/1.6 -apple-system,
+          BlinkMacSystemFont,
+          "Inter",
+          "Segoe UI",
+          sans-serif;
+        text-align: center;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(36px, 8vw, 56px);
+        letter-spacing: -1.5px;
+      }
+      p {
+        margin: 0 auto 28px;
+        max-width: 34ch;
+        color: var(--muted);
+      }
+      .download {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 10px;
+        background: var(--fg);
+        color: var(--bg);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      small {
+        display: block;
+        margin-top: 14px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Mergiato</h1>
+      <p>A fast, native GitHub pull request review app for macOS.</p>
+      <a class="download" id="download" href="https://github.com/alex-parra/mergiato-releases/releases/latest">
+        Download for Mac
+      </a>
+      <small id="version">Beta · free for now</small>
+    </main>
+    <script>
+      // The newest release's .dmg, straight from GitHub; the button already points at the
+      // Releases page should this fail (offline, rate limit).
+      fetch("https://api.github.com/repos/alex-parra/mergiato-releases/releases/latest")
+        .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
+        .then((release) => {
+          const dmgs = release.assets.filter((asset) => asset.name.endsWith(".dmg"));
+          const dmg = dmgs.find((asset) => asset.name.includes("universal")) ?? dmgs[0];
+          if (!dmg) return;
+          document.getElementById("download").href = dmg.browser_download_url;
+          const chips = dmg.name.includes("universal") ? "Apple silicon & Intel" : "Apple silicon";
+          document.getElementById("version").textContent = `${release.tag_name} · ${chips} · beta, free for now`;
+        })
+        .catch(() => {});
+    </script>
+  </body>
+</html>
