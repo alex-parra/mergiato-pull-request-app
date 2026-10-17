@@ -777,6 +777,10 @@
       .feature + .feature {
         border-top: 1px dashed var(--edge);
       }
+      .feature:nth-child(even) {
+        /* The panel comes first on these rows, and keeps the wider column. */
+        grid-template-columns: 1.25fr 1fr;
+      }
       .feature:nth-child(even) .copy {
         order: 2;
       }
@@ -804,7 +808,8 @@
         color: var(--accent);
       }
       @media (max-width: 860px) {
-        .feature {
+        .feature,
+        .feature:nth-child(even) {
           grid-template-columns: 1fr;
           gap: 24px;
         }
