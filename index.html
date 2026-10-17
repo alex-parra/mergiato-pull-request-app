@@ -933,6 +933,11 @@
       .inbox-row.on {
         background: var(--raised);
       }
+      @media (max-width: 560px) {
+        .wide-only {
+          display: none;
+        }
+      }
       .avatar {
         width: 22px;
         height: 22px;
@@ -1410,7 +1415,7 @@
               <div class="bar"><i style="width: 67%"></i></div>
               <div class="line faded"><span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span><span class="meta"><span style="color: var(--ok)">+42</span> −9</span></div>
               <div class="line faded"><span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span><span class="meta"><span style="color: var(--ok)">+18</span> −4</span></div>
-              <div class="line"><span class="tick"></span><span class="name">src/checkout/refunds.ts <span class="chip wait" style="margin-left: 6px">changed since viewed</span></span><span class="meta"><span style="color: var(--ok)">+7</span> −2</span></div>
+              <div class="line"><span class="tick"></span><span class="name">src/checkout/refunds.ts <span class="chip wait" style="margin-left: 6px">changed<span class="wide-only"> since viewed</span></span></span><span class="meta"><span style="color: var(--ok)">+7</span> −2</span></div>
               <div class="line"><span class="tick"></span><span class="name">tests/baselines/checkout/retry-spec.snap</span><span class="meta"><span style="color: var(--ok)">+1,860</span></span></div>
               <div class="line"><span class="tick"></span><span class="name">tests/baselines/checkout/gateway-spec.snap</span><span class="meta"><span style="color: var(--ok)">+1,851</span></span></div>
               <div class="line"><span class="tick"></span><span class="name">… 907 more, every one of them</span><span class="meta">no cap</span></div>
