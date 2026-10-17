@@ -78,6 +78,7 @@
               "Merge through Graphite's merge queue, GitHub's merge queue or the repository's merge methods",
               "Vercel preview deployments, deployable from the pull request",
               "Terminal docked under each pull request, in its local clone",
+              "Review with Claude: Claude Code docked under the pull request, and PR descriptions drafted with Claude",
               "Keyboard shortcuts for everything",
               "Six themes, light and dark"
             ],
@@ -1992,11 +1993,11 @@
       <section id="problem">
         <div class="wrap">
           <p class="eyebrow">The problem</p>
-          <h2>One review. Seven tabs. Zero altitude.</h2>
+          <h2>Agents write the PRs. You still have to look.</h2>
           <p class="intro">
-            Reviewing a pull request shouldn't be a scavenger hunt. Today it means jumping between the PR, its files,
-            the Actions logs, the preview dashboard, the stack, the notification that pinged you, and a terminal. By tab
-            five you forgot why you opened tab one.
+            Coding agents open pull requests faster than anyone can read them. Each one still needs a person to read the
+            diff, check the run and press merge, and each look means jumping between the PR, its files, the Actions
+            logs, the preview, the stack and a terminal. By tab five you forgot why you opened tab one.
           </p>
           <ul class="tabs-mess" aria-label="What a review takes today">
             <li>PR conversation</li>
@@ -2252,6 +2253,42 @@
                   </div>
                   <div class="search" style="margin-top: 8px">Reply…</div>
                 </div>
+              </div>
+            </figure>
+          </div>
+
+          <div class="feature">
+            <div class="copy">
+              <p class="eyebrow">With Claude</p>
+              <h3>Let Claude take the first pass. You make the call.</h3>
+              <p>
+                Review with Claude opens Claude Code under the PR, in your clone, with the review command ready to paste.
+                Read its notes next to the diff, ask follow-ups, then approve or request changes yourself. It can also
+                draft the PR description from the commits and diff.
+              </p>
+              <ul>
+                <li>Runs your Claude Code, signed in as you</li>
+                <li>Built-in code review, or any skill you pick</li>
+                <li>One switch in Settings turns every AI feature off</li>
+              </ul>
+            </div>
+            <figure
+              class="illus"
+              role="img"
+              aria-label="A Claude Code panel docked under a pull request, running a code review that lists two notes on the changed files."
+            >
+              <div class="illus-head">
+                <b>✻ Claude</b> <span class="chip plain">code-review</span>
+                <span class="end"><span class="mini-btn approve">✓ Approve ▾</span></span>
+              </div>
+              <div class="illus-body">
+                <pre
+                  class="code pane"
+                  style="margin: 0"
+                ><span class="c">&gt; /code-review github.com/acme/shop/pull/2481</span><span class="c">  Read retry.ts, gateway.ts, retry.test.ts</span><span class="c"> </span><span style="color: var(--wait)">  ● retry.ts:14  attempts can pass the gateway's cap of 5</span><span style="color: var(--wait)">  ● retry.test.ts  no test for the backoff ceiling</span><span class="c"> </span><span class="c">  Two notes. The rest looks good to merge.</span></pre>
+                <p style="margin: 8px 2px 0; color: var(--muted); font-size: 12px">
+                  Esc interrupt · ⇧⇥ mode · ⌘J hide
+                </p>
               </div>
             </figure>
           </div>
@@ -2597,7 +2634,7 @@
               </ol>
               <p class="needs">
                 Needs macOS on Apple silicon and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: the
-                Vercel CLI, for previews. No local clone needed.
+                Vercel CLI, for previews, and Claude Code, for reviews with Claude. No local clone needed.
               </p>
             </div>
           </div>
