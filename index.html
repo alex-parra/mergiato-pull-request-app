@@ -812,26 +812,130 @@
           order: 0;
         }
       }
-      /* Placeholders for the real screenshots: swap each <figure> for an <img> of the same aspect. */
-      .shot {
+      /* Drawn panels for the features: the app's own pieces, in the console's style. A real
+         screenshot can take a panel's place later. */
+      .illus {
+        margin: 0;
+        border: 1px solid var(--edge-strong);
+        border-radius: 14px;
+        background: var(--panel);
+        box-shadow: 0 30px 80px -40px rgb(0 0 0 / 0.6);
+        overflow: hidden;
+        font-size: 12.5px;
+      }
+      .illus-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--edge);
+        color: var(--muted);
+      }
+      .illus-head b {
+        color: var(--fg);
+        font-weight: 650;
+      }
+      .illus-head .end {
+        margin-left: auto;
+      }
+      .illus-body {
+        padding: 10px 14px 14px;
+        display: grid;
+        gap: 6px;
+      }
+      .line {
+        display: grid;
+        grid-template-columns: 14px 1fr auto;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 10px;
+        border: 1px solid var(--edge);
+        border-radius: 8px;
+        background: var(--bg);
+      }
+      .line .name {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--body);
+        font-family: var(--mono);
+        font-size: 11.5px;
+      }
+      .line .meta {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .line.fail {
+        border-color: color-mix(in srgb, var(--bad) 45%, transparent);
+        background: var(--bad-soft);
+      }
+      .line.faded {
+        opacity: 0.5;
+      }
+      .tick {
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+        border: 1px solid var(--edge-strong);
         display: grid;
         place-items: center;
-        margin: 0;
-        aspect-ratio: 16 / 10;
-        border: 1px dashed var(--edge-strong);
-        border-radius: 14px;
-        background:
-          radial-gradient(circle at 30% 20%, var(--accent-soft), transparent 60%),
-          var(--panel);
-        color: var(--muted);
-        font-size: 14px;
-        text-align: center;
-        padding: 16px;
+        font-size: 10px;
+        line-height: 1;
       }
-      .shot strong {
+      .tick.on {
+        background: var(--ok);
+        border-color: var(--ok);
+        color: var(--bg);
+        font-weight: 800;
+      }
+      .bar {
+        height: 6px;
+        border-radius: 99px;
+        background: var(--raised);
+        overflow: hidden;
+      }
+      .bar i {
         display: block;
-        color: var(--body);
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--ok));
+      }
+      .mini-btn {
+        padding: 4px 10px;
+        border: 1px solid var(--edge-strong);
+        border-radius: 7px;
+        color: var(--fg);
+        font-size: 11.5px;
         font-weight: 600;
+        white-space: nowrap;
+      }
+      .mini-btn.primary {
+        background: var(--button-bg);
+        border-color: var(--button-bg);
+        color: var(--button-fg);
+      }
+      .inbox-row {
+        display: grid;
+        grid-template-columns: 22px 1fr auto;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 8px;
+      }
+      .inbox-row.on {
+        background: var(--raised);
+      }
+      .avatar {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+      }
+      .inbox-row .who {
+        color: var(--muted);
+        font-size: 11px;
       }
 
       /* Security */
@@ -1291,8 +1395,22 @@
               <li>Only files with comments, in one click</li>
             </ul>
           </div>
-          <!-- PLACEHOLDER: media/big-prs.png, the Changes tab on a PR with hundreds of files, file tree visible. -->
-          <figure class="shot"><span><strong>Screenshot</strong>The Changes tab on a PR with hundreds of files.</span></figure>
+          <!-- Drawn: the Changes tab on a huge PR. A real screenshot (media/big-prs.png) can replace it. -->
+          <figure class="illus" role="img" aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, files listed with their changes, one changed again since it was viewed.">
+            <div class="illus-head">
+              <b>Files</b> 914 <span class="chip plain">Only with comments · 23</span>
+              <span class="end">612 / 914 viewed</span>
+            </div>
+            <div class="illus-body">
+              <div class="bar"><i style="width: 67%"></i></div>
+              <div class="line faded"><span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span><span class="meta"><span style="color: var(--ok)">+42</span> −9</span></div>
+              <div class="line faded"><span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span><span class="meta"><span style="color: var(--ok)">+18</span> −4</span></div>
+              <div class="line"><span class="tick"></span><span class="name">src/checkout/refunds.ts <span class="chip wait" style="margin-left: 6px">changed since viewed</span></span><span class="meta"><span style="color: var(--ok)">+7</span> −2</span></div>
+              <div class="line"><span class="tick"></span><span class="name">tests/baselines/checkout/retry-spec.snap</span><span class="meta"><span style="color: var(--ok)">+1,860</span></span></div>
+              <div class="line"><span class="tick"></span><span class="name">tests/baselines/checkout/gateway-spec.snap</span><span class="meta"><span style="color: var(--ok)">+1,851</span></span></div>
+              <div class="line"><span class="tick"></span><span class="name">… 907 more, every one of them</span><span class="meta">no cap</span></div>
+            </div>
+          </figure>
         </div>
 
         <div class="feature">
@@ -1308,8 +1426,24 @@
               <li>Stale runs of the same job left out</li>
             </ul>
           </div>
-          <!-- PLACEHOLDER: media/checks.png, the Checks panel open on a PR with a failed job. -->
-          <figure class="shot"><span><strong>Screenshot</strong>The Checks panel with a failed job and Re-run.</span></figure>
+          <!-- Drawn: the Checks panel with a failed job. A real screenshot (media/checks.png) can replace it. -->
+          <figure class="illus" role="img" aria-label="The Checks panel: 13 jobs passed and 1 failed, with each job's time, and buttons to re-run the failed jobs or all of them.">
+            <div class="illus-head">
+              <b>Checks</b>
+              <span class="chip ok">✓ 13</span><span class="chip" style="background: var(--bad-soft); color: var(--bad)">✕ 1</span>
+              <span class="end">8m 40s</span>
+            </div>
+            <div class="illus-body">
+              <div class="line fail"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--bad)"></i><span class="name">e2e · checkout</span><span class="meta">4m 05s</span></div>
+              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">build</span><span class="meta">1m 48s</span></div>
+              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">unit tests</span><span class="meta">2m 31s</span></div>
+              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">lint · types</span><span class="meta">52s</span></div>
+              <div class="line"><i class="dot" style="width: 9px; height: 9px; border-radius: 50%; background: var(--ok)"></i><span class="name">preview · web</span><span class="meta">58s</span></div>
+              <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px">
+                <span class="mini-btn">Re-run all</span><span class="mini-btn primary">↻ Re-run failed</span>
+              </div>
+            </div>
+          </figure>
         </div>
 
         <div class="feature">
@@ -1325,8 +1459,21 @@
               <li><kbd>⌥↑</kbd> <kbd>⌥↓</kbd> to fly between them</li>
             </ul>
           </div>
-          <!-- PLACEHOLDER: media/inbox.png, the sidebar with both tabs' parts and the open PR. -->
-          <figure class="shot"><span><strong>Screenshot</strong>The inbox beside an open PR.</span></figure>
+          <!-- Drawn: the Reviews tab of the inbox. A real screenshot (media/inbox.png) can replace it. -->
+          <figure class="illus" role="img" aria-label="The inbox's Reviews tab: three review requests waiting, with their authors and checks, and PRs you've reviewed below.">
+            <div class="illus-head">
+              <span class="mini-btn">My PRs</span><span class="mini-btn primary">Reviews <span class="count">3</span></span>
+              <span class="end">updated just now</span>
+            </div>
+            <div class="illus-body" style="gap: 2px">
+              <div class="group" style="margin: 2px 0 4px">REVIEW REQUESTED · 3</div>
+              <div class="inbox-row on"><span class="avatar" style="background: linear-gradient(135deg, #80a7e8, #c9b3f0)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">Search: index archived projects<br /><span class="who">mara · 2h · ✓ checks</span></span><span class="chip wait">Waiting on you</span></div>
+              <div class="inbox-row"><span class="avatar" style="background: linear-gradient(135deg, #8dceaa, #80a7e8)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">Billing: proration on upgrades<br /><span class="who">theo · 5h · stack 1 of 2</span></span><span class="chip wait">Waiting on you</span></div>
+              <div class="inbox-row"><span class="avatar" style="background: linear-gradient(135deg, #e8b45d, #dd9396)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">Auth: rotate session keys<br /><span class="who">sam · 1d · ✕ 1 check</span></span><span class="chip wait">Waiting on you</span></div>
+              <div class="group" style="margin: 10px 0 4px">REVIEWED BY YOU · 5</div>
+              <div class="inbox-row"><span class="avatar" style="background: linear-gradient(135deg, #c9b3f0, #dd9396)"></span><span class="name" style="font-family: inherit; font-size: 12.5px">CI: cache pnpm store<br /><span class="who">ana · you approved</span></span><span class="chip ok">Approved</span></div>
+            </div>
+          </figure>
         </div>
 
         <div class="feature">
@@ -1342,8 +1489,18 @@
               <li>Projects found across your Vercel teams</li>
             </ul>
           </div>
-          <!-- PLACEHOLDER: media/previews.png, the Vercel Previews panel with a few projects. -->
-          <figure class="shot"><span><strong>Screenshot</strong>The Vercel Previews panel on a PR.</span></figure>
+          <!-- Drawn: the Vercel Previews panel. A real screenshot (media/previews.png) can replace it. -->
+          <figure class="illus" role="img" aria-label="The Vercel Previews panel: three projects with their state, preview address, and Deploy latest and Redeploy buttons.">
+            <div class="illus-head">
+              <b>▲ Vercel Previews</b><span class="mini-btn">Create Deployment ▾</span>
+              <span class="end">updated 2m ago</span>
+            </div>
+            <div class="illus-body">
+              <div class="line" style="grid-template-columns: 90px 72px 1fr auto"><span class="name">web</span><span style="color: var(--ok)">● Ready</span><span class="meta" style="overflow: hidden; text-overflow: ellipsis">↗ web-git-payments-retry.vercel.app</span><span class="mini-btn">Deploy latest</span></div>
+              <div class="line" style="grid-template-columns: 90px 72px 1fr auto"><span class="name">dashboard</span><span style="color: var(--wait)">◌ Building</span><span class="meta"></span><span class="meta">—</span></div>
+              <div class="line" style="grid-template-columns: 90px 72px 1fr auto"><span class="name">docs</span><span style="color: var(--bad)">● Failed</span><span class="meta"></span><span class="mini-btn">Redeploy</span></div>
+            </div>
+          </figure>
         </div>
       </div>
     </section>
