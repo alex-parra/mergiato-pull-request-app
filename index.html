@@ -38,6 +38,7 @@
     <link rel="alternate" type="text/plain" href="llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- The FAQPage block mirrors the FAQ section word for word; change both together. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -64,7 +65,12 @@
             "image": "https://mergiato.com/icon.png",
             "screenshot": "https://mergiato.com/og.png?v=3",
             "isAccessibleForFree": true,
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free during the beta" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Free during the beta"
+            },
             "featureList": [
               "Inbox of your pull requests and review requests, refreshed live",
               "CI checks per job with timing and one-click re-run",
@@ -77,13 +83,117 @@
               "Keyboard shortcuts for everything",
               "Six themes, light and dark"
             ],
-            "author": { "@id": "https://mergiato.com/#maker" }
+            "author": {
+              "@id": "https://mergiato.com/#maker"
+            }
           },
           {
             "@type": "Person",
             "@id": "https://mergiato.com/#maker",
             "name": "Alex Parra",
             "url": "https://github.com/alex-parra"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://mergiato.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is it free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, while in beta, with every feature. Paid plans may come later, likely a one-time license. Early users will hear first, and nothing you rely on will vanish overnight."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What can Mergiato see? Does my code go anywhere?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your Mac straight to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the app, and no analytics."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need to install anything in my GitHub organization?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can review it in Mergiato."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does my team need it too?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Everything you do lands on GitHub as usual, so it works for one person on a team of a hundred. Teammates who like what they see can download it themselves."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a local clone of the repo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Everything comes from GitHub through the CLI. The clone is only for the docked terminal, and Mergiato asks for it the first time you open one."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will it burn through my GitHub rate limit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached, avatars cost nothing, and polling pauses while the app is in the background."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it work with Graphite?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes: it shows Graphite stacks and the merge queue, merges through the queue, and links each PR to its Graphite page. It also reads GitHub's own stacks and plain branch chains."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is it different from GitHub Desktop?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "GitHub Desktop is a git client: commits, branches and pushes in your local repository. Mergiato is for the pull request side: your inbox, reviews, checks, stacks, comments and merges. They work fine side by side."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is it different from Graphite?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a Mac app with no account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works the same without them."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Intel Mac, Windows or Linux?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Apple silicon Macs for now. Intel Macs are next, and more platforms are coming."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why does macOS warn on the first open?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check it. Allow it once in System Settings → Privacy & Security. Some company-managed Macs block that entirely; signing is coming."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Something's broken, or missing. Where do I say so?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "On GitHub issues. In a beta, your bug report is the roadmap."
+                }
+              }
+            ]
           }
         ]
       }
@@ -3165,7 +3275,7 @@
           </details>
           <details>
             <summary>Intel Mac, Windows or Linux?</summary>
-            <p>Apple silicon Macs for now. Intel Macs are next; Windows and Linux aren't planned yet.</p>
+            <p>Apple silicon Macs for now. Intel Macs are next, and more platforms are coming.</p>
           </details>
           <details>
             <summary>Why does macOS warn on the first open?</summary>
