@@ -39,7 +39,29 @@
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
-    <script src="https://stats.vineleafapps.com/api/script.js" data-site-id="eff85bc59b62" defer></script>
+    <script>
+      // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
+      // browser out for good (the maker's own checks), ?track opts it back in.
+      (() => {
+        const params = new URLSearchParams(location.search);
+        try {
+          if (params.has("notrack")) localStorage.setItem("disable-rybbit", "1");
+          if (params.has("track")) localStorage.removeItem("disable-rybbit");
+          if (params.has("notrack") || params.has("track")) {
+            params.delete("notrack");
+            params.delete("track");
+            history.replaceState(null, "", location.pathname + (params.size ? `?${params}` : "") + location.hash);
+          }
+          if (localStorage.getItem("disable-rybbit") !== null) return;
+        } catch {}
+        if (location.hostname !== "mergiato.com") return;
+        const script = document.createElement("script");
+        script.src = "https://stats.vineleafapps.com/api/script.js";
+        script.dataset.siteId = "eff85bc59b62";
+        script.defer = true;
+        document.head.append(script);
+      })();
+    </script>
     <!-- The FAQPage block mirrors the FAQ section word for word; change both together. -->
     <script type="application/ld+json">
       {
