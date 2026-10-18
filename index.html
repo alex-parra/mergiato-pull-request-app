@@ -2525,7 +2525,7 @@
         </span>
         <a
           class="button small"
-          data-download
+          data-download data-place="nav"
           href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
           ><span data-download-label>Download</span></a
         >
@@ -2572,7 +2572,7 @@
           <div class="actions">
             <a
               class="button"
-              data-download
+              data-download data-place="hero"
               href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -3117,7 +3117,7 @@
             </div>
             <a
               class="button"
-              data-download
+              data-download data-place="features"
               href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
               ><span data-download-label>Download for Mac</span></a
             >
@@ -3286,7 +3286,7 @@
               </ul>
               <a
                 class="button"
-                data-download
+                data-download data-place="pricing"
                 href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
                 ><span data-download-label>Download for Mac</span></a
               >
@@ -3297,7 +3297,7 @@
                 <li>
                   <p>
                     <strong>Download</strong> the
-                    <a data-download href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+                    <a data-download data-place="pricing-steps" href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
                       >latest <code>.dmg</code></a
                     >, open it and drag Mergiato to Applications.
                   </p>
@@ -3462,7 +3462,7 @@
           <div class="actions">
             <a
               class="button"
-              data-download
+              data-download data-place="closing"
               href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
               ><span data-download-label>Download for Mac</span></a
             >
@@ -3512,7 +3512,7 @@
         <div class="dlg-foot">
           <span
             >Didn't start?
-            <a data-download-direct href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+            <a data-download-direct data-place="guide-retry" href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
               >Download it here</a
             >.</span
           >
@@ -3538,16 +3538,28 @@
         for (const link of document.querySelectorAll("[data-download]")) {
           link.addEventListener("click", (event) => {
             if (isMac) {
+              countDownload("Download", link);
               // Let the download start, then explain the first open, the one step people get stuck on.
               setTimeout(() => dialog.showModal(), 400);
               return;
             }
+            countDownload("Send to Mac", link);
             event.preventDefault();
             const page = { title: "Mergiato", text: "A desktop app for GitHub pull requests", url: location.href };
             if (navigator.share) navigator.share(page).catch(() => {});
             else copy(location.href, "Link copied. Open it on your Mac.");
           });
         }
+        // The guide's "Download it here", for when the first try didn't start.
+        const retry = dialog.querySelector("[data-download-direct]");
+        retry.addEventListener("click", () => countDownload("Download", retry));
+      }
+
+      // Rybbit custom event: which button, and which version the link pointed at ("latest" before the release
+      // list loads). Rybbit may be blocked or still loading; the click works either way.
+      function countDownload(name, link) {
+        const version = link.href.match(/\/download\/(v[^/]+)\//)?.[1] ?? "latest";
+        window.rybbit?.event(name, { place: link.dataset.place, version });
       }
 
       // A pick is kept for the next visit.
