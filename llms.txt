@@ -36,17 +36,21 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 2. First open: the app is not yet signed with an Apple Developer ID, so macOS asks once. Allow it in System Settings > Privacy & Security > Open Anyway. Updates don't ask again. Some company-managed Macs block unsigned apps entirely.
 3. If needed, install and sign in to the GitHub CLI: `brew install gh`, then `gh auth login`.
 
+## Works with
+
+- GitHub: Mergiato sits on top of it. Repositories, permissions, reviews, checks and merges stay GitHub's; Mergiato is one window for the work instead of separate tabs for the PR, files, Actions, previews, stacks and notifications.
+- Graphite: Graphite creates and restacks stacks and runs its merge queue; Mergiato shows those stacks on every PR and merges through that queue. It isn't a replacement for Graphite.
+
 ## Compared with
 
-- GitHub in a browser: the same pull requests, but in one window instead of separate tabs for the PR, files, Actions, previews, stacks and notifications.
 - GitHub Desktop: a git client for commits and branches. Mergiato is for the pull request side; they work side by side.
-- Graphite: a service with its own web app and CLI for stacked PRs. Mergiato needs no account, sits on top of GitHub, and shows Graphite's stacks and merge queue when a team uses them.
+- Pulldog: a code review client for several Git hosts. Mergiato goes deep on GitHub: checks, stacks, merge queues and previews.
+- gh-dash: a terminal dashboard for GitHub PRs and issues, on the same gh sign-in.
 
 ## Pages
 
 - [Mergiato vs gh-dash: window or terminal for PRs](https://mergiato.com/compare/gh-dash/): gh-dash is a free terminal dashboard for GitHub PRs and issues. Mergiato is a desktop app with visual diffs, line comments, CI re-runs and stacks. Both use gh.
 - [Mergiato vs GitHub Desktop: PRs vs commits](https://mergiato.com/compare/github-desktop/): GitHub Desktop is a git client for commits and branches, and can't comment on PRs. Mergiato is for the pull request side: review, checks, stacks and merges.
-- [Mergiato vs Graphite: which fits your GitHub PRs](https://mergiato.com/compare/graphite/): Graphite is a hosted service for stacked PRs, AI review and a merge queue. Mergiato is a free desktop app on your GitHub CLI that shows and merges its stacks.
 - [Mergiato vs Pulldog: desktop apps for PRs](https://mergiato.com/compare/pulldog/): Pulldog is a Mac code review client for GitHub, GitLab and more. Mergiato covers the whole life of a GitHub PR: checks, stacks, merge queues, previews.
 - [Re-run failed GitHub Actions jobs from the PR](https://mergiato.com/github-actions/): See every GitHub Actions job on the pull request with its time and state, and re-run the failed jobs, all of them, or just one, without opening the Actions tab.
 - [Install Mergiato: download, first open, sign in](https://mergiato.com/install/): Install Mergiato in about a minute: download the .dmg, allow it once in Privacy & Security, and sign in to the GitHub CLI. Updates then install themselves.
@@ -54,6 +58,8 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 - [Mergiato pricing: free while in beta](https://mergiato.com/pricing/): Mergiato is free during the beta, with every feature and no sign-up, card or account. Paid plans may come later, likely a one-time license, with fair notice.
 - [Security and privacy: what Mergiato can access](https://mergiato.com/security/): Mergiato runs on your own GitHub CLI and sends every request straight from your machine to GitHub. Here's what it can access, and what it keeps.
 - [Review and merge stacked PRs on GitHub](https://mergiato.com/stacked-prs/): See the whole stack on every PR, from Graphite, GitHub's own stacks or branch chains, and merge it the way your repo does, through Graphite's queue or GitHub's.
+- [How Mergiato works with GitHub](https://mergiato.com/works-with/github/): Mergiato sits on top of GitHub: your PRs, reviews, checks and merges stay GitHub's own. It adds a desktop window for the work, through your GitHub CLI.
+- [Mergiato with Graphite: review and merge your stacks](https://mergiato.com/works-with/graphite/): Mergiato works on top of Graphite: the whole stack on every PR, checks you can re-run, and a Merge button that goes through Graphite's merge queue.
 
 ## Links
 

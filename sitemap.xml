@@ -53,18 +53,6 @@
     <lastmod>2026-10-18</lastmod>
   </url>
   <url>
-    <loc>https://mergiato.com/compare/graphite/</loc>
-    <lastmod>2026-10-18</lastmod>
-    <video:video>
-      <video:thumbnail_loc>https://mergiato.com/media/stack-merge-poster.jpg</video:thumbnail_loc>
-      <video:title>Stepping up a three-PR stack, then merging two PRs through Graphite's queue</video:title>
-      <video:description>A Graphite stack in Mergiato: step through it, then merge through Graphite's queue.</video:description>
-      <video:content_loc>https://mergiato.com/media/stack-merge.mp4</video:content_loc>
-      <video:duration>12</video:duration>
-      <video:publication_date>2026-10-18T12:53:17Z</video:publication_date>
-    </video:video>
-  </url>
-  <url>
     <loc>https://mergiato.com/compare/pulldog/</loc>
     <lastmod>2026-10-18</lastmod>
     <video:video>
@@ -119,6 +107,22 @@
       <video:thumbnail_loc>https://mergiato.com/media/stack-merge-poster.jpg</video:thumbnail_loc>
       <video:title>Stepping up a three-PR stack, then merging two PRs through Graphite's queue</video:title>
       <video:description>Step through the stack, then merge it through Graphite's queue.</video:description>
+      <video:content_loc>https://mergiato.com/media/stack-merge.mp4</video:content_loc>
+      <video:duration>12</video:duration>
+      <video:publication_date>2026-10-18T12:53:17Z</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://mergiato.com/works-with/github/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://mergiato.com/works-with/graphite/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://mergiato.com/media/stack-merge-poster.jpg</video:thumbnail_loc>
+      <video:title>Stepping up a three-PR stack, then merging two PRs through Graphite's queue</video:title>
+      <video:description>A Graphite stack in Mergiato: step through it, then merge through Graphite's queue.</video:description>
       <video:content_loc>https://mergiato.com/media/stack-merge.mp4</video:content_loc>
       <video:duration>12</video:duration>
       <video:publication_date>2026-10-18T12:53:17Z</video:publication_date>
