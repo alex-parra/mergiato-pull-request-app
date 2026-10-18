@@ -63,3 +63,4 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 - [Latest release](https://github.com/alex-parra/mergiato-pull-request-app/releases/latest): download the .dmg
 - [All releases](https://github.com/alex-parra/mergiato-pull-request-app/releases): versions and notes
 - [Issues](https://github.com/alex-parra/mergiato-pull-request-app/issues): bugs and feature requests
+- [X: @mergiato](https://x.com/mergiato): news and releases
