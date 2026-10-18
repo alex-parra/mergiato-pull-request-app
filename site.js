@@ -77,12 +77,20 @@ function wireThemeToggle() {
 }
 
 function wireCopyButtons() {
-  for (const button of document.querySelectorAll("[data-copy]"))
+  for (const button of document.querySelectorAll("[data-copy]")) {
+    const label = button.textContent;
     button.addEventListener("click", () => {
       copy(button.dataset.copy, "Copied: " + button.dataset.copy);
       button.textContent = "Copied";
-      setTimeout(() => (button.textContent = "Copy"), 1500);
+      setTimeout(() => (button.textContent = label), 1500);
     });
+  }
+}
+
+// The share asks in the download guide: which ones people use (Rybbit counts the click, not the post).
+function wireShares() {
+  for (const link of document.querySelectorAll("[data-share]"))
+    link.addEventListener("click", () => window.rybbit?.event("Share", { platform: link.dataset.share }));
 }
 
 // Every Download link gets the newest release's .dmg, straight from GitHub; they already point at the
@@ -140,6 +148,7 @@ function toast(text) {
 wireThemeToggle();
 wireDownloads();
 wireCopyButtons();
+wireShares();
 loadLatestRelease();
 wireVideos();
 

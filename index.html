@@ -1616,6 +1616,55 @@
             </div>
           </li>
         </ol>
+        <!-- While the .dmg downloads: a gentle ask to pass it on. Never in the way of the download itself. -->
+        <div class="mb-4 border-t border-edge pt-4">
+          <p class="mb-2.5 text-[14px] font-semibold text-fg">Know someone with too many PR tabs open?</p>
+          <div class="flex flex-wrap gap-2">
+            <a
+              class="cursor-pointer rounded-lg border border-edge-strong px-3 py-1.5 text-[13px] font-semibold text-fg hover:bg-raised"
+              href="https://x.com/intent/post?text=Trying%20Mergiato%2C%20a%20free%20Mac%20app%20for%20GitHub%20pull%20requests%3A%20inbox%2C%20checks%2C%20stacks%20and%20merges%20in%20one%20window%2C%20on%20your%20own%20gh%20CLI.&amp;url=https%3A%2F%2Fmergiato.com&amp;via=mergiato"
+              target="_blank"
+              rel="noopener"
+              data-share="x"
+              >Post on X</a
+            >
+            <a
+              class="cursor-pointer rounded-lg border border-edge-strong px-3 py-1.5 text-[13px] font-semibold text-fg hover:bg-raised"
+              href="https://bsky.app/intent/compose?text=Trying%20Mergiato%2C%20a%20free%20Mac%20app%20for%20GitHub%20pull%20requests%3A%20inbox%2C%20checks%2C%20stacks%20and%20merges%20in%20one%20window%2C%20on%20your%20own%20gh%20CLI.%20https%3A//mergiato.com"
+              target="_blank"
+              rel="noopener"
+              data-share="bluesky"
+              >Bluesky</a
+            >
+            <a
+              class="cursor-pointer rounded-lg border border-edge-strong px-3 py-1.5 text-[13px] font-semibold text-fg hover:bg-raised"
+              href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmergiato.com"
+              target="_blank"
+              rel="noopener"
+              data-share="linkedin"
+              >LinkedIn</a
+            >
+            <button
+              type="button"
+              class="cursor-pointer rounded-lg border border-edge-strong px-3 py-1.5 text-[13px] font-semibold text-fg hover:bg-raised"
+              data-copy="https://mergiato.com"
+              data-share="copy"
+            >
+              Copy link
+            </button>
+          </div>
+          <p class="mt-2.5 text-[13px] text-muted">
+            Or
+            <a
+              class="underline"
+              href="https://github.com/alex-parra/mergiato-pull-request-app"
+              target="_blank"
+              rel="noopener"
+              data-share="github-star"
+              >star it on GitHub</a
+            >, so others find it.
+          </p>
+        </div>
         <div class="flex flex-wrap items-center justify-between gap-2.5 text-[13px] text-muted">
           <span
             >Didn't start?
@@ -1631,6 +1680,7 @@
             type="button"
             class="inline-flex items-center gap-2 rounded-[10px] bg-button font-[650] whitespace-nowrap text-button-fg transition-[translate,opacity] duration-120 hover:-translate-y-px hover:opacity-90 cursor-pointer px-3.5 py-1.75 text-[14px]"
             data-close
+            autofocus
           >
             Got it
           </button>
@@ -1638,7 +1688,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=72359586"></script>
+    <script src="/site.js?v=37f0da2d"></script>
     <script>
   // The demo: a few made-up PRs in the app's real layout. Merge, approve and re-run change them, like the app.
   function startDemo(root) {
