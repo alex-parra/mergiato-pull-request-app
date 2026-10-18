@@ -28,7 +28,7 @@
     <meta name="twitter:title" content="Mergiato · Your PRs in one window, not seven tabs" />
     <meta
       name="twitter:description"
-      content="A free Mac app for GitHub pull requests. Runs on your own GitHub CLI: no org app, no servers, no account."
+      content="A free desktop app for GitHub pull requests. Runs on your own GitHub CLI: no org app, no servers, no account."
     />
     <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
     <meta name="theme-color" content="#090909" />
@@ -110,7 +110,7 @@
                 "name": "What can Mergiato see? Does my code go anywhere?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your Mac straight to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the app, and no analytics."
+                  "text": "Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the app, and no analytics."
                 }
               },
               {
@@ -119,6 +119,14 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can review it in Mergiato."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a GitHub token?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Mergiato signs in through the GitHub CLI (gh auth login), so there's nothing to create, paste or rotate."
                 }
               },
               {
@@ -166,7 +174,15 @@
                 "name": "How is it different from Graphite?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a Mac app with no account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works the same without them."
+                  "text": "Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works the same without them."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it work with GitLab or Bitbucket?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on GitHub issues: demand decides what comes next."
                 }
               },
               {
@@ -2542,9 +2558,9 @@
           <span class="pill">Free beta · macOS · under 10 MB</span>
           <h1>Your PRs in one window, <em>not seven tabs.</em></h1>
           <p class="lead">
-            Mergiato is a Mac app for GitHub pull requests. Review the diff, re-run the failed check, step through
-            stacked PRs and merge, all in one place. It runs on <b>the GitHub CLI you already use</b>, so your org has
-            nothing to approve.
+            Mergiato is a desktop app for GitHub pull requests: the ones you ship and the ones you review. Re-run the
+            failed check, step through stacked PRs, review the diff and merge, all in one place. It signs in through
+            <b>the GitHub CLI you already use</b>, so there's no token to paste and nothing for your org to approve.
           </p>
           <div class="actions">
             <a
@@ -2564,8 +2580,8 @@
           <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
           <ul class="trust">
             <li>No GitHub App to install in your org</li>
-            <li>Requests go straight from your Mac to GitHub</li>
-            <li>Uninstall: drag to the Trash</li>
+            <li>Requests go straight from your machine to GitHub</li>
+            <li>No account, no analytics</li>
           </ul>
 
           <div id="demo">
@@ -2723,233 +2739,15 @@
       <section id="features">
         <div class="wrap">
           <p class="eyebrow">Features</p>
-          <h2>Built for the 900-file refactor and the Friday stack.</h2>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Inbox</p>
-              <h3>Know what needs you, at a glance.</h3>
-              <p>
-                Two lists that matter: what you're shipping, and what's waiting on you. They refresh every 30 seconds
-                and follow each PR live, so a merged PR moves the second it lands.
-              </p>
-              <ul>
-                <li>Review requests with a live count</li>
-                <li>PRs you reviewed, kept handy for the follow-up</li>
-                <li>Check and review state on every row</li>
-                <li>Paste a link, <code>owner/repo#123</code> or <code>#123</code> to open any PR</li>
-              </ul>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="The inbox's Reviews tab: three review requests, each with its number, repository, check and review icons and state, and a PR you've reviewed below."
-            >
-              <div class="illus-head">
-                <span class="segment" style="margin: 0; width: 230px"
-                  ><button type="button" tabindex="-1">My PRs <span class="n">4</span></button
-                  ><button type="button" tabindex="-1" class="on">Reviews <span class="count">3</span></button></span
-                >
-                <span class="end">Updated just now</span>
-              </div>
-              <div class="illus-body" style="gap: 0">
-                <div class="group" style="margin: 2px 0 4px">⌄ REVIEW REQUESTED<span class="n">3</span></div>
-                <div class="row on">
-                  <span class="l1"
-                    ><b>#2490</b><span class="repo">acme/shop</span
-                    ><span class="icons"
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                      ><span class="ic-muted"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 6v6l4 2" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Billing: proration on upgrades</span>
-                </div>
-                <div class="row">
-                  <span class="l1"
-                    ><b>#2488</b><span class="repo">acme/docs</span
-                    ><span class="icons"
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                      ><span class="ic-muted"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 6v6l4 2" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Docs: API rate limits</span>
-                </div>
-                <div class="row">
-                  <span class="l1"
-                    ><b>#2485</b><span class="repo">acme/shop</span
-                    ><span class="icons"
-                      ><span class="ic-bad"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
-                      ><span class="ic-muted"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 6v6l4 2" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Search: debounce the query box</span>
-                </div>
-                <div class="group" style="margin: 10px 0 4px">⌄ REVIEWED BY YOU<span class="n">5</span></div>
-                <div class="row">
-                  <span class="l1"
-                    ><b>#2471</b><span class="repo">acme/shop</span
-                    ><span class="icons"
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                          <circle cx="9" cy="7" r="4" />
-                          <path d="m16 11 2 2 4-4" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Infra: bump Node to 24</span>
-                </div>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Changes</p>
-              <h3>Huge PRs, smooth as small ones.</h3>
-              <p>
-                Some tools stop at 50 files. Mergiato shows every file GitHub has, up to 3,000, and draws only what's
-                near your view: scrolling stays light, memory stays flat. A 914-file PR draws its first screen in 0.2
-                seconds.
-              </p>
-              <ul>
-                <li>File tree or flat list, unified or split, syntax colors</li>
-                <li>Viewed marks that reset when a file changes again</li>
-                <li>Lockfiles and generated files folded away</li>
-                <li>One commit at a time, when you want it</li>
-              </ul>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, one changed again since it was viewed."
-            >
-              <div class="illus-head">
-                <b>Files</b> 914 <span class="chip plain">Only with comments · 23</span>
-                <span class="end">612 / 914 viewed</span>
-              </div>
-              <div class="illus-body">
-                <div class="bar"><i style="width: 67%"></i></div>
-                <div class="line faded">
-                  <span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span
-                  ><span class="meta"><span class="plus">+42</span> −9</span>
-                </div>
-                <div class="line faded">
-                  <span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span
-                  ><span class="meta"><span class="plus">+18</span> −4</span>
-                </div>
-                <div class="line">
-                  <span class="tick"></span
-                  ><span class="name"
-                    >src/checkout/refunds.ts
-                    <span class="badge wait" style="margin-left: 6px"
-                      >changed<span class="wide-only"> since viewed</span></span
-                    ></span
-                  ><span class="meta"><span class="plus">+7</span> −2</span>
-                </div>
-                <div class="line faded">
-                  <span class="tick"></span
-                  ><span class="name">pnpm-lock.yaml <span class="chip plain">generated</span></span
-                  ><span class="meta"><span class="plus">+1,860</span></span>
-                </div>
-                <div class="line">
-                  <span class="tick"></span><span class="name">… 910 more, every one of them</span
-                  ><span class="meta">no cap</span>
-                </div>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Review</p>
-              <h3>The whole code review, start to finish.</h3>
-              <p>
-                Comment on a line or a range, reply, resolve, react, approve. Everything lands on GitHub as your own
-                account, and shows at once. If GitHub says no, it rolls back and tells you why.
-              </p>
-              <ul>
-                <li>Approve in one click, or with a comment, or request changes</li>
-                <li>Jump to any open thread from one list</li>
-                <li>Half-written comments kept as drafts, per line</li>
-                <li>Edit the title, description, reviewers (teams too), labels</li>
-                <li>Paste or drop images and videos into any comment</li>
-              </ul>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="A review thread under a changed line, with a reply box, reactions, a Resolve button, and an Approve button with its menu open."
-            >
-              <div class="illus-head">
-                <b>Changes</b> <span class="chip plain">Review comments · 4</span>
-                <span class="end"><span class="mini-btn approve">✓ Approve ▾</span></span>
-              </div>
-              <div class="menu">
-                <div class="sel">Approve<small>Submit an approval right away</small></div>
-                <div>Approve with comment…<small>Say why it's good to go</small></div>
-                <div>Request changes…<small>A comment is required</small></div>
-              </div>
-              <div class="illus-body" style="padding-top: 0">
-                <div class="diff pane" style="margin: 0">
-                  <div class="dl c">
-                    <span class="ln">41</span><span class="ln">41</span
-                    ><span class="cd">
-                      <span class="sk">const</span> attempts = merchant.retries ?? <span class="sc">3</span>;</span
-                    >
-                  </div>
-                  <div class="dl a">
-                    <span class="ln"></span><span class="ln">42</span
-                    ><span class="cd"
-                      >+ <span class="sk">if</span> (attempts &gt; <span class="sc">5</span>)
-                      <span class="sk">throw</span> <span class="sk">new</span> <span class="st">RangeError</span>(<span
-                        class="ss"
-                        >"max 5"</span
-                      >);</span
-                    >
-                  </div>
-                </div>
-                <div class="thread" style="margin: 0">
-                  <span
-                    class="avatar"
-                    style="
-                      width: 16px;
-                      height: 16px;
-                      vertical-align: -3px;
-                      background: linear-gradient(135deg, #80a7e8, #c9b3f0);
-                    "
-                  ></span>
-                  <b>mara</b> · Should 5 be a constant? Billing uses the same cap.
-                  <div class="tools">
-                    <span class="chip plain">👍 2</span><span class="chip plain">🎯 1</span>
-                    <span class="mini-btn end">Resolve</span>
-                  </div>
-                  <div class="search" style="margin-top: 8px">Reply…</div>
-                </div>
-              </div>
-            </figure>
-          </div>
+          <h2>Built for the PRs you ship and the ones you review.</h2>
 
           <div class="feature">
             <div class="copy">
               <p class="eyebrow">Checks</p>
               <h3>Know why it's red, fix it from here.</h3>
               <p>
-                A flaky job shouldn't cost you ten clicks through Actions. See each job's latest run, how long it took
-                and whether it failed, then re-run it from the PR. It updates every 10 seconds while jobs run.
+                A flaky job shouldn't cost you ten clicks through Actions. See each GitHub Actions job's latest run, how
+                long it took and whether it failed, then re-run the failed jobs from the PR. It updates every 10 seconds while jobs run.
               </p>
               <ul>
                 <li>Counts by state and total time, at a glance</li>
@@ -3085,6 +2883,226 @@
             </figure>
           </div>
 
+          <div class="feature">
+            <div class="copy">
+              <p class="eyebrow">Changes</p>
+              <h3>Huge PRs, smooth as small ones.</h3>
+              <p>
+                Where GitHub makes you press <b>Load diff</b> file by file and some tools stop at 50, Mergiato shows every
+                file GitHub has, up to 3,000, and draws only what's
+                near your view: scrolling stays light, memory stays flat. A 914-file PR draws its first screen in 0.2
+                seconds.
+              </p>
+              <ul>
+                <li>File tree or flat list, unified or split, syntax colors</li>
+                <li>Viewed marks that reset when a file changes again</li>
+                <li>Lockfiles and generated files folded away</li>
+                <li>One commit at a time, when you want it</li>
+              </ul>
+            </div>
+            <figure
+              class="illus"
+              role="img"
+              aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, one changed again since it was viewed."
+            >
+              <div class="illus-head">
+                <b>Files</b> 914 <span class="chip plain">Only with comments · 23</span>
+                <span class="end">612 / 914 viewed</span>
+              </div>
+              <div class="illus-body">
+                <div class="bar"><i style="width: 67%"></i></div>
+                <div class="line faded">
+                  <span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span
+                  ><span class="meta"><span class="plus">+42</span> −9</span>
+                </div>
+                <div class="line faded">
+                  <span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span
+                  ><span class="meta"><span class="plus">+18</span> −4</span>
+                </div>
+                <div class="line">
+                  <span class="tick"></span
+                  ><span class="name"
+                    >src/checkout/refunds.ts
+                    <span class="badge wait" style="margin-left: 6px"
+                      >changed<span class="wide-only"> since viewed</span></span
+                    ></span
+                  ><span class="meta"><span class="plus">+7</span> −2</span>
+                </div>
+                <div class="line faded">
+                  <span class="tick"></span
+                  ><span class="name">pnpm-lock.yaml <span class="chip plain">generated</span></span
+                  ><span class="meta"><span class="plus">+1,860</span></span>
+                </div>
+                <div class="line">
+                  <span class="tick"></span><span class="name">… 910 more, every one of them</span
+                  ><span class="meta">no cap</span>
+                </div>
+              </div>
+            </figure>
+          </div>
+
+          <div class="feature">
+            <div class="copy">
+              <p class="eyebrow">Review</p>
+              <h3>The whole code review, start to finish.</h3>
+              <p>
+                Comment on a line or a range, reply, resolve, react, approve. Everything lands on GitHub as your own
+                account, and shows at once. If GitHub says no, it rolls back and tells you why.
+              </p>
+              <ul>
+                <li>Approve in one click, or with a comment, or request changes</li>
+                <li>Jump to any open thread from one list</li>
+                <li>Half-written comments kept as drafts, per line</li>
+                <li>Edit the title, description, reviewers (teams too), labels</li>
+                <li>Paste or drop images and videos into any comment</li>
+              </ul>
+            </div>
+            <figure
+              class="illus"
+              role="img"
+              aria-label="A review thread under a changed line, with a reply box, reactions, a Resolve button, and an Approve button with its menu open."
+            >
+              <div class="illus-head">
+                <b>Changes</b> <span class="chip plain">Review comments · 4</span>
+                <span class="end"><span class="mini-btn approve">✓ Approve ▾</span></span>
+              </div>
+              <div class="menu">
+                <div class="sel">Approve<small>Submit an approval right away</small></div>
+                <div>Approve with comment…<small>Say why it's good to go</small></div>
+                <div>Request changes…<small>A comment is required</small></div>
+              </div>
+              <div class="illus-body" style="padding-top: 0">
+                <div class="diff pane" style="margin: 0">
+                  <div class="dl c">
+                    <span class="ln">41</span><span class="ln">41</span
+                    ><span class="cd">
+                      <span class="sk">const</span> attempts = merchant.retries ?? <span class="sc">3</span>;</span
+                    >
+                  </div>
+                  <div class="dl a">
+                    <span class="ln"></span><span class="ln">42</span
+                    ><span class="cd"
+                      >+ <span class="sk">if</span> (attempts &gt; <span class="sc">5</span>)
+                      <span class="sk">throw</span> <span class="sk">new</span> <span class="st">RangeError</span>(<span
+                        class="ss"
+                        >"max 5"</span
+                      >);</span
+                    >
+                  </div>
+                </div>
+                <div class="thread" style="margin: 0">
+                  <span
+                    class="avatar"
+                    style="
+                      width: 16px;
+                      height: 16px;
+                      vertical-align: -3px;
+                      background: linear-gradient(135deg, #80a7e8, #c9b3f0);
+                    "
+                  ></span>
+                  <b>mara</b> · Should 5 be a constant? Billing uses the same cap.
+                  <div class="tools">
+                    <span class="chip plain">👍 2</span><span class="chip plain">🎯 1</span>
+                    <span class="mini-btn end">Resolve</span>
+                  </div>
+                  <div class="search" style="margin-top: 8px">Reply…</div>
+                </div>
+              </div>
+            </figure>
+          </div>
+
+          <div class="feature">
+            <div class="copy">
+              <p class="eyebrow">Inbox</p>
+              <h3>Your PRs and your reviews, live.</h3>
+              <p>
+                Two lists: what you're shipping, with each PR's checks, reviews and merge state, and what's waiting on
+                you. They refresh every 30 seconds and follow each PR live, so a merged PR moves the second it lands.
+              </p>
+              <ul>
+                <li>Your open PRs with checks, reviews and merge state</li>
+                <li>Review requests with a live count</li>
+                <li>PRs you reviewed, kept handy for the follow-up</li>
+                <li>Check and review state on every row</li>
+                <li>Paste a link, <code>owner/repo#123</code> or <code>#123</code> to open any PR</li>
+              </ul>
+            </div>
+            <figure
+              class="illus"
+              role="img"
+              aria-label="The inbox's Reviews tab: three review requests, each with its number, repository, check and review icons and state, and a PR you've reviewed below."
+            >
+              <div class="illus-head">
+                <span class="segment" style="margin: 0; width: 230px"
+                  ><button type="button" tabindex="-1">My PRs <span class="n">4</span></button
+                  ><button type="button" tabindex="-1" class="on">Reviews <span class="count">3</span></button></span
+                >
+                <span class="end">Updated just now</span>
+              </div>
+              <div class="illus-body" style="gap: 0">
+                <div class="group" style="margin: 2px 0 4px">⌄ REVIEW REQUESTED<span class="n">3</span></div>
+                <div class="row on">
+                  <span class="l1"
+                    ><b>#2490</b><span class="repo">acme/shop</span
+                    ><span class="icons"
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                      ><span class="ic-muted"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Billing: proration on upgrades</span>
+                </div>
+                <div class="row">
+                  <span class="l1"
+                    ><b>#2488</b><span class="repo">acme/docs</span
+                    ><span class="icons"
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                      ><span class="ic-muted"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Docs: API rate limits</span>
+                </div>
+                <div class="row">
+                  <span class="l1"
+                    ><b>#2485</b><span class="repo">acme/shop</span
+                    ><span class="icons"
+                      ><span class="ic-bad"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
+                      ><span class="ic-muted"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Search: debounce the query box</span>
+                </div>
+                <div class="group" style="margin: 10px 0 4px">⌄ REVIEWED BY YOU<span class="n">5</span></div>
+                <div class="row">
+                  <span class="l1"
+                    ><b>#2471</b><span class="repo">acme/shop</span
+                    ><span class="icons"
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
+                      ><span class="ic-ok"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="m16 11 2 2 4-4" /></svg></span
+                      ><span class="pill-sm tone-green">Open</span></span
+                    ></span
+                  ><span class="l2">Infra: bump Node to 24</span>
+                </div>
+              </div>
+            </figure>
+          </div>
+
           <div class="band">
             <div>
               <strong>Seen enough? Take it for a spin.</strong>
@@ -3171,13 +3189,13 @@
         <div class="wrap secure">
           <div>
             <p class="eyebrow">Security</p>
-            <h2>Your keys never leave your Mac.</h2>
+            <h2>Your keys never leave your machine.</h2>
             <p class="intro">
               Most review tools ask you to install an app in your GitHub organization, grant it access to your
               repositories, and send your code through their servers. Mergiato doesn't.
             </p>
             <p class="intro">
-              It drives the tools you already use and trust, on your Mac: the <b>GitHub CLI</b> you're signed in to,
+              It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in to,
               <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to
               GitHub, with your own access, as if you typed the command. Your security team has no new vendor to vet,
               because no one new is in the loop.
@@ -3189,7 +3207,7 @@
           </div>
           <div>
             <div class="flow" aria-label="How a request travels">
-              <div class="hop">Mergiato <small>your Mac</small></div>
+              <div class="hop">Mergiato <small>your machine</small></div>
               <div class="link">runs</div>
               <div class="hop">gh · git · vercel <small>your CLIs, your sign-in</small></div>
               <div class="link">talk directly to</div>
@@ -3295,8 +3313,8 @@
                 </li>
               </ol>
               <p class="needs">
-                Needs a Mac (Apple silicon or Intel) and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: the
-                Vercel CLI, for previews. No local clone needed.
+                Needs a Mac (Apple silicon or Intel) and the <a href="https://cli.github.com">GitHub CLI</a>. Optional:
+                the Vercel CLI, for previews. No local clone needed.
               </p>
             </div>
           </div>
@@ -3317,7 +3335,7 @@
           <details>
             <summary>What can Mergiato see? Does my code go anywhere?</summary>
             <p>
-              Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your Mac straight to
+              Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight to
               GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the
               app, and no analytics.
             </p>
@@ -3327,6 +3345,13 @@
             <p>
               No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can
               review it in Mergiato.
+            </p>
+          </details>
+          <details>
+            <summary>Do I need a GitHub token?</summary>
+            <p>
+              No. Mergiato signs in through the GitHub CLI (<code>gh auth login</code>), so there's nothing to create,
+              paste or rotate.
             </p>
           </details>
           <details>
@@ -3367,9 +3392,17 @@
           <details>
             <summary>How is it different from Graphite?</summary>
             <p>
-              Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a Mac app with no account
+              Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no account
               that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works
               the same without them.
+            </p>
+          </details>
+          <details>
+            <summary>Does it work with GitLab or Bitbucket?</summary>
+            <p>
+              GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on
+              <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>: demand decides
+              what comes next.
             </p>
           </details>
           <details>
@@ -3500,7 +3533,7 @@
               return;
             }
             event.preventDefault();
-            const page = { title: "Mergiato", text: "A Mac app for GitHub pull requests", url: location.href };
+            const page = { title: "Mergiato", text: "A desktop app for GitHub pull requests", url: location.href };
             if (navigator.share) navigator.share(page).catch(() => {});
             else copy(location.href, "Link copied. Open it on your Mac.");
           });

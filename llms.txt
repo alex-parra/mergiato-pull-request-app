@@ -1,6 +1,6 @@
 # Mergiato
 
-> Mergiato is a free Mac app for GitHub pull requests and code review. It puts your PR inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and the merge button in one window. It runs on the user's own GitHub CLI (`gh`): no GitHub App to install in the organization, no servers, no account, no analytics.
+> Mergiato is a free desktop app for GitHub pull requests, the ones you ship and the ones you review (macOS today, Apple silicon and Intel). It puts your PR inbox, CI checks, stacked PRs, diffs of any size, code review threads, Vercel previews and the merge button in one window. It signs in through the user's own GitHub CLI (`gh`), so there are no access tokens to create, no GitHub App to install in the organization, no servers, no account and no analytics.
 
 - Platform: macOS, one universal download for Apple silicon and Intel Macs. More platforms are coming.
 - Price: free during the beta, every feature included. Paid plans, if any, come later with fair notice.
