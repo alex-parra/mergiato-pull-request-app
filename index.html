@@ -235,6 +235,30 @@
           },
           {
             "@type": "Question",
+            "name": "How do I see which PRs actually need me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The inbox splits what you're shipping from what's waiting on you: your open PRs in one list, review requests in another, with a live count."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can it handle a PR too big for GitHub's diff view?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Mergiato shows every file GitHub has, up to its limit of 3,000, and draws only what's near your view, so scrolling stays smooth."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I see which check failed, and re-run it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Each GitHub Actions job shows its latest run, its state and how long it took, and you can re-run the failed jobs from the PR in one click."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Will it burn through my GitHub rate limit?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -1336,6 +1360,27 @@
       <p>
         No. Everything comes from GitHub through the CLI. The clone is only for the docked terminal, and Mergiato asks
         for it the first time you open one.
+      </p>
+    </details>
+    <details>
+      <summary>How do I see which PRs actually need me?</summary>
+      <p>
+        The inbox splits what you're shipping from what's waiting on you: your open PRs in one list, review requests in
+        another, with a live count.
+      </p>
+    </details>
+    <details>
+      <summary>Can it handle a PR too big for GitHub's diff view?</summary>
+      <p>
+        Yes. Mergiato shows <a class="underline" href="/large-pull-requests/">every file GitHub has</a>, up to its limit
+        of 3,000, and draws only what's near your view, so scrolling stays smooth.
+      </p>
+    </details>
+    <details>
+      <summary>Can I see which check failed, and re-run it?</summary>
+      <p>
+        Yes. Each GitHub Actions job shows its latest run, its state and how long it took, and you can
+        <a class="underline" href="/github-actions/">re-run the failed jobs</a> from the PR in one click.
       </p>
     </details>
     <details>
