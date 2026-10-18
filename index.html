@@ -38,6 +38,8 @@
     <link rel="alternate" type="text/plain" href="llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
+    <script src="https://stats.vineleafapps.com/api/script.js" data-site-id="2" defer></script>
     <!-- The FAQPage block mirrors the FAQ section word for word; change both together. -->
     <script type="application/ld+json">
       {
@@ -2434,6 +2436,11 @@
         color: var(--muted);
         font-size: 13px;
       }
+      footer .privacy-note {
+        flex-basis: 100%;
+        margin: 0;
+        font-size: 12px;
+      }
       footer .wrap {
         display: flex;
         flex-wrap: wrap;
@@ -2581,7 +2588,7 @@
           <ul class="trust">
             <li>No GitHub App to install in your org</li>
             <li>Requests go straight from your machine to GitHub</li>
-            <li>No account, no analytics</li>
+            <li>The app: no account, no analytics</li>
           </ul>
 
           <div id="demo">
@@ -2747,7 +2754,8 @@
               <h3>Know why it's red, fix it from here.</h3>
               <p>
                 A flaky job shouldn't cost you ten clicks through Actions. See each GitHub Actions job's latest run, how
-                long it took and whether it failed, then re-run the failed jobs from the PR. It updates every 10 seconds while jobs run.
+                long it took and whether it failed, then re-run the failed jobs from the PR. It updates every 10 seconds
+                while jobs run.
               </p>
               <ul>
                 <li>Counts by state and total time, at a glance</li>
@@ -2888,10 +2896,9 @@
               <p class="eyebrow">Changes</p>
               <h3>Huge PRs, smooth as small ones.</h3>
               <p>
-                Where GitHub makes you press <b>Load diff</b> file by file and some tools stop at 50, Mergiato shows every
-                file GitHub has, up to 3,000, and draws only what's
-                near your view: scrolling stays light, memory stays flat. A 914-file PR draws its first screen in 0.2
-                seconds.
+                Where GitHub makes you press <b>Load diff</b> file by file and some tools stop at 50, Mergiato shows
+                every file GitHub has, up to 3,000, and draws only what's near your view: scrolling stays light, memory
+                stays flat. A 914-file PR draws its first screen in 0.2 seconds.
               </p>
               <ul>
                 <li>File tree or flat list, unified or split, syntax colors</li>
@@ -3195,8 +3202,8 @@
               repositories, and send your code through their servers. Mergiato doesn't.
             </p>
             <p class="intro">
-              It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in to,
-              <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to
+              It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in
+              to, <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to
               GitHub, with your own access, as if you typed the command. Your security team has no new vendor to vet,
               because no one new is in the loop.
             </p>
@@ -3335,9 +3342,9 @@
           <details>
             <summary>What can Mergiato see? Does my code go anywhere?</summary>
             <p>
-              Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight to
-              GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the
-              app, and no analytics.
+              Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight
+              to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by
+              the app, and no analytics.
             </p>
           </details>
           <details>
@@ -3392,9 +3399,9 @@
           <details>
             <summary>How is it different from Graphite?</summary>
             <p>
-              Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no account
-              that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works
-              the same without them.
+              Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no
+              account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and
+              works the same without them.
             </p>
           </details>
           <details>
@@ -3474,6 +3481,9 @@
           <a href="#security">Security</a> · <a href="#faq">FAQ</a> · <a href="llms.txt">llms.txt</a> ·
           <button type="button" class="link-button" data-theme-toggle data-theme-text>Light mode</button>
         </span>
+        <p class="privacy-note">
+          This site counts visits with self-hosted, cookieless Rybbit. The app collects nothing.
+        </p>
       </div>
     </footer>
 
