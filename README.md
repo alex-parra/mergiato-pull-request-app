@@ -2,7 +2,7 @@
 
 **Your PRs in one window, not seven tabs.**
 
-Mergiato is a fast desktop app for GitHub pull requests and code review. Your inbox, CI checks, stacked PRs, diffs of any size, review threads, previews and the merge button sit side by side. It runs on the GitHub CLI you already use, so your org has nothing to approve.
+Mergiato is a fast desktop app for GitHub pull requests: the ones you ship and the ones you review. Your inbox, CI checks, stacked PRs, diffs of any size, code review threads, previews and the merge button sit side by side. It signs in through the GitHub CLI you already use, so there's no token to paste and nothing for your org to approve.
 
 **[mergiato.com](https://mergiato.com)** · [Try the live demo](https://mergiato.com/#demo) · [Features](https://mergiato.com/#features) · [FAQ](https://mergiato.com/#faq)
 
@@ -20,19 +20,19 @@ Mergiato isn't signed with an Apple Developer ID yet, so macOS can't verify it o
 
 ## What it does
 
-- **Inbox:** your PRs and the reviews waiting on you, in two lists that refresh every 30 seconds, with check and review state on every row. Open any PR by link, `owner/repo#123` or `#123`.
-- **Code review:** comment on a line or a range, reply, react and resolve. Approve, approve with a comment, or request changes. Drafts are kept per line.
 - **CI checks:** each job's latest run, its state and its time, grouped by workflow. Re-run the failed jobs, all of them, or one, from the PR.
-- **Diffs of any size:** every file GitHub has, up to 3,000, drawn only near your view. A 914-file PR draws its first screen in 0.2 seconds.
 - **Stacked PRs:** Graphite stacks, GitHub's native stacks and plain branch chains, with ↑ ↓ to move along them. One Merge button follows the repo's rules: Graphite's merge queue, GitHub's merge queue or its merge methods.
 - **Previews:** each Vercel project's deployment, with deploy and redeploy from the PR.
 - **Terminal:** shells docked under each PR, in its local clone.
+- **Diffs of any size:** every file GitHub has, up to 3,000, drawn only near your view. A 914-file PR draws its first screen in 0.2 seconds.
+- **Code review:** comment on a line or a range, reply, react and resolve. Approve, approve with a comment, or request changes. Drafts are kept per line.
+- **Inbox:** your PRs and the reviews waiting on you, in two lists that refresh every 30 seconds, with check and review state on every row. Open any PR by link, `owner/repo#123` or `#123`.
 
 Everything lands on GitHub as your own account, so your team doesn't have to switch. [See every feature →](https://mergiato.com/#features)
 
 ## Security and privacy
 
-Mergiato drives the tools you already trust, on your Mac: `gh`, `git` and, if you use it, `vercel`. Every request goes straight from your machine to GitHub with your own access. There's no GitHub App or OAuth grant, Mergiato stores no tokens, and it has no servers, no account and no analytics. [More on security →](https://mergiato.com/#security)
+Mergiato drives the tools you already trust, on your computer: `gh`, `git` and, if you use it, `vercel`. Every request goes straight from your machine to GitHub with your own access. There's no GitHub App or OAuth grant, Mergiato stores no tokens, and it has no servers, no account and no analytics. [More on security →](https://mergiato.com/#security)
 
 ## Requirements
 
