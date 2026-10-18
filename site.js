@@ -28,8 +28,7 @@ function wireDownloads() {
     link.addEventListener("click", (event) => {
       if (isMac) {
         countDownload("Download", link);
-        // Let the download start, then explain the first open, the one step people get stuck on.
-        setTimeout(() => dialog.showModal(), 400);
+        openGuideAfterSave(dialog);
         return;
       }
       countDownload("Send to Mac", link);
@@ -42,6 +41,20 @@ function wireDownloads() {
   // The guide's "Download it here", for when the first try didn't start.
   const retry = dialog.querySelector("[data-download-direct]");
   retry.addEventListener("click", () => countDownload("Download", retry));
+}
+
+// Let the download start, then explain the first open, the one step people get stuck on. A browser that asks
+// where to save takes the focus with its own window; the guide waits until that's closed.
+function openGuideAfterSave(dialog) {
+  let asked = false;
+  const onBlur = () => (asked = true);
+  addEventListener("blur", onBlur, { once: true });
+  setTimeout(() => {
+    removeEventListener("blur", onBlur);
+    const show = () => dialog.open || dialog.showModal();
+    if (asked || !document.hasFocus()) addEventListener("focus", show, { once: true });
+    else show();
+  }, 500);
 }
 
 // Rybbit custom event: which button, and which version the link pointed at ("latest" before the release
