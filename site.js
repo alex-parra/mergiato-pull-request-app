@@ -117,7 +117,8 @@ function copy(text, note) {
 
 function toast(text) {
   const note = document.createElement("div");
-  note.className = "toast";
+  note.className =
+    "fixed bottom-6 left-1/2 z-60 -translate-x-1/2 rounded-[10px] border border-edge-strong bg-raised px-4 py-2.5 text-[14px] text-fg shadow-[0_20px_50px_-20px_var(--color-shadow)]";
   note.setAttribute("role", "status");
   note.textContent = text;
   document.body.append(note);
@@ -133,6 +134,19 @@ wireVideos();
 // The app's videos play while on screen and pause off it, so a long page doesn't run them all.
 // With Reduce Motion on they stay on their poster, with controls to play one by choice.
 function wireVideos() {
+  // Posters far down the page wait until their video is a screen away, so they don't slow the first paint.
+  const near = new IntersectionObserver(
+    (entries) => {
+      for (const { target, isIntersecting } of entries) {
+        if (!isIntersecting) continue;
+        target.poster = target.dataset.poster;
+        near.unobserve(target);
+      }
+    },
+    { rootMargin: "100% 0px" },
+  );
+  for (const video of document.querySelectorAll("video[data-poster]")) near.observe(video);
+
   const videos = document.querySelectorAll("video[data-autoplay]");
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
     for (const video of videos) video.controls = true;
