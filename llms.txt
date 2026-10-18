@@ -44,14 +44,20 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 
 ## Pages
 
+- [Mergiato vs gh-dash: window or terminal for PRs](https://mergiato.com/compare/gh-dash/): gh-dash is a free terminal dashboard for GitHub PRs and issues. Mergiato is a desktop app with visual diffs, line comments, CI re-runs and stacks. Both use gh.
 - [Mergiato vs GitHub Desktop: PRs vs commits](https://mergiato.com/compare/github-desktop/): GitHub Desktop is a git client for commits and branches, and can't comment on PRs. Mergiato is for the pull request side: review, checks, stacks and merges.
 - [Mergiato vs Graphite: which fits your GitHub PRs](https://mergiato.com/compare/graphite/): Graphite is a hosted service for stacked PRs, AI review and a merge queue. Mergiato is a free desktop app on your GitHub CLI that shows and merges its stacks.
 - [Mergiato vs Pulldog: desktop apps for PRs](https://mergiato.com/compare/pulldog/): Pulldog is a Mac code review client for GitHub, GitLab and more. Mergiato covers the whole life of a GitHub PR: checks, stacks, merge queues, previews.
+- [Re-run failed GitHub Actions jobs from the PR](https://mergiato.com/github-actions/): See every GitHub Actions job on the pull request with its time and state, and re-run the failed jobs, all of them, or just one, without opening the Actions tab.
+- [Install Mergiato: download, first open, sign in](https://mergiato.com/install/): Install Mergiato in about a minute: download the .dmg, allow it once in Privacy & Security, and sign in to the GitHub CLI. Updates then install themselves.
 - [Review large GitHub pull requests, every file](https://mergiato.com/large-pull-requests/): GitHub hides big diffs behind Load diff, and its diff API stops at 300 files. Mergiato shows every file, up to 3,000, and draws a 914-file PR in 0.2 seconds.
+- [Mergiato pricing: free while in beta](https://mergiato.com/pricing/): Mergiato is free during the beta, with every feature and no sign-up, card or account. Paid plans may come later, likely a one-time license, with fair notice.
 - [Security and privacy: what Mergiato can access](https://mergiato.com/security/): Mergiato runs on your own GitHub CLI and sends every request straight from your machine to GitHub. Here's what it can access, and what it keeps.
 - [Review and merge stacked PRs on GitHub](https://mergiato.com/stacked-prs/): See the whole stack on every PR, from Graphite, GitHub's own stacks or branch chains, and merge it the way your repo does, through Graphite's queue or GitHub's.
 
 ## Links
+
+- [Pricing, as plain text](https://mergiato.com/pricing.md): free beta, what's included, what comes later
 
 - [Website](https://mergiato.com/): features, live demo, FAQ
 - [Latest release](https://github.com/alex-parra/mergiato-pull-request-app/releases/latest): download the .dmg
