@@ -9,8 +9,20 @@ function wireDownloads() {
   dialog.addEventListener("click", (event) => event.target === dialog && dialog.close());
   if (!isMac) {
     for (const label of document.querySelectorAll("[data-download-label]")) label.textContent = "Send to my Mac";
-    for (const line of document.querySelectorAll("[data-version]"))
-      line.textContent = "Mergiato runs on Macs. Send yourself the link for later.";
+    for (const note of document.querySelectorAll("[data-mac-only]")) note.hidden = true;
+    // Windows and Linux visitors get a way to hear when it's theirs, and we learn how many there are.
+    for (const line of document.querySelectorAll("[data-version]")) {
+      const watch = document.createElement("a");
+      watch.href = "https://github.com/alex-parra/mergiato-pull-request-app";
+      watch.className = "underline";
+      watch.textContent = "watch releases on GitHub";
+      watch.addEventListener("click", () => window.rybbit?.event("Watch releases"));
+      line.replaceChildren(
+        "Mergiato runs on Macs today. Send yourself the link, or ",
+        watch,
+        " to hear about Windows and Linux.",
+      );
+    }
   }
   for (const link of document.querySelectorAll("[data-download]")) {
     link.addEventListener("click", (event) => {

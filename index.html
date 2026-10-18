@@ -419,9 +419,8 @@
       <span class="block">not seven tabs.</span>
     </h1>
     <p class="mx-auto mb-6.5 max-w-[62ch] text-[clamp(16px,2.2vw,19px)] text-muted [&_b]:font-semibold [&_b]:text-fg">
-      Review and ship GitHub pull requests without leaving your flow. Mergiato is a fast desktop app for your PR inbox,
-      code reviews, CI checks, stacked PRs and merges. It signs in through
-      <b>the GitHub CLI you already use</b>, so there's no token to paste and nothing for your org to approve.
+      Review and ship GitHub pull requests in one fast desktop app: your inbox, code reviews, CI checks, stacked PRs and
+      merges. It signs in through <b>the GitHub CLI you already use</b>, so your org has nothing to approve.
     </p>
     <div class="flex flex-wrap justify-center gap-3">
       <a
@@ -439,11 +438,14 @@
       </a>
       <a
         class="inline-flex items-center gap-2 rounded-[10px] border border-edge-strong px-5.5 py-3.25 text-[15px] font-[650] whitespace-nowrap text-fg transition-[translate,opacity] duration-120 hover:-translate-y-px hover:opacity-90"
-        href="#demo"
-        >Try the live demo ↓</a
+        href="/security/"
+        >What it can access</a
       >
     </div>
-    <p class="mt-3.5 text-[13px] text-muted" data-version>Free, no sign-up. For Apple silicon and Intel Macs.</p>
+    <p class="mt-3.5 text-[13px] text-muted">
+      <span data-version>Free, no sign-up. For Apple silicon and Intel Macs.</span>
+      <a class="underline" href="/install/" data-mac-only>macOS asks once on the first open.</a>
+    </p>
     <ul
       class="mt-4 flex flex-wrap justify-center gap-x-5.5 gap-y-2 text-[14px] text-muted *:before:font-bold *:before:text-ok *:before:content-['✓_']"
     >
@@ -519,6 +521,21 @@
           </div>
         </div>
       </div>
+      <!-- Shown once a merge or an approval lands in the demo: the moment it has made its case. -->
+      <p
+        class="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[15px] font-semibold text-fg"
+        data-demo-cta
+        hidden
+      >
+        <span data-demo-cta-text>That's the real merge flow.</span>
+        <a
+          class="inline-flex items-center gap-2 rounded-[10px] bg-seal font-[650] whitespace-nowrap text-white no-underline transition-[translate,opacity] duration-120 hover:-translate-y-px hover:opacity-90 px-3.5 py-1.75 text-[14px]"
+          data-download
+          data-place="demo"
+          href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+          ><span data-download-label>Download for Mac</span></a
+        >
+      </p>
     </div>
 
     <p
@@ -991,6 +1008,73 @@
   </div>
 </section>
 
+<section id="security" class="border-t border-edge py-22">
+  <div class="mx-auto w-[min(1120px,100%_-_32px)] grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+    <div>
+      <h2
+        class="mb-4 max-w-[22ch] font-display text-[clamp(33px,4.8vw,52px)] leading-[1.04] font-bold tracking-[-0.5px] text-balance text-fg"
+      >
+        Your keys never leave your machine.
+      </h2>
+      <p class="mb-4 max-w-[62ch] text-[17px] text-muted">
+        Most review tools ask you to install an app in your GitHub organization, grant it access to your repositories,
+        and send your code through their servers. Mergiato doesn't.
+      </p>
+      <p class="mb-4 max-w-[62ch] text-[17px] text-muted">
+        It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in to,
+        <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to GitHub,
+        with your own access, as if you typed the command. Your security team has no new vendor to vet, because no one
+        new is in the loop.
+      </p>
+      <p
+        class="mt-2 rounded-r-[10px] border-l-3 border-accent bg-accent-soft px-4.5 py-4 text-[17px] font-semibold text-fg"
+      >
+        “It's the GitHub CLI, in one window.”
+        <small class="mt-1 block text-[13px] font-normal text-muted"
+          >The one line to forward to your security team.</small
+        >
+      </p>
+      <p class="mt-4 font-semibold [&_a]:text-accent [&_a:hover]:underline">
+        <a href="/security/">Everything Mergiato can access, in full</a>
+      </p>
+    </div>
+    <div>
+      <div
+        class="rounded-[14px] border border-edge bg-panel p-6 font-mono text-[13px]"
+        aria-label="How a request travels"
+      >
+        <div
+          class="flex items-center gap-3 rounded-[10px] border border-edge-strong bg-page px-3.5 py-3 text-fg [&_small]:ml-auto [&_small]:text-[11px] [&_small]:text-muted"
+        >
+          Mergiato <small>your machine</small>
+        </div>
+        <div class="ml-5.5 border-l-2 border-dashed border-edge-strong py-2 pl-6.5 text-[12px] text-muted">runs</div>
+        <div
+          class="flex items-center gap-3 rounded-[10px] border border-edge-strong bg-page px-3.5 py-3 text-fg [&_small]:ml-auto [&_small]:text-[11px] [&_small]:text-muted"
+        >
+          gh, git and vercel <small>your CLIs, your sign-in</small>
+        </div>
+        <div class="ml-5.5 border-l-2 border-dashed border-edge-strong py-2 pl-6.5 text-[12px] text-muted">
+          talk directly to
+        </div>
+        <div
+          class="flex items-center gap-3 rounded-[10px] border border-edge-strong bg-page px-3.5 py-3 text-fg [&_small]:ml-auto [&_small]:text-[11px] [&_small]:text-muted"
+        >
+          GitHub and Vercel <small>same as your terminal</small>
+        </div>
+        <div
+          class="mt-4.5 grid gap-1.5 border-t border-edge pt-4 text-muted *:before:font-bold *:before:text-bad *:before:content-['✕_']"
+        >
+          <span>No GitHub App or OAuth grant</span>
+          <span>No tokens stored by Mergiato</span>
+          <span>No Mergiato servers, no account</span>
+          <span>No analytics, no code sent anywhere else</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="polish" class="border-t border-edge py-22">
   <div class="mx-auto w-[min(1120px,100%_-_32px)]">
     <h2
@@ -1071,73 +1155,6 @@
       <div>
         <h3>Leave anytime</h3>
         <p>Drag it to the Trash. Your comments and reviews stay on GitHub, where they always lived.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="security" class="border-t border-edge py-22">
-  <div class="mx-auto w-[min(1120px,100%_-_32px)] grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
-    <div>
-      <h2
-        class="mb-4 max-w-[22ch] font-display text-[clamp(33px,4.8vw,52px)] leading-[1.04] font-bold tracking-[-0.5px] text-balance text-fg"
-      >
-        Your keys never leave your machine.
-      </h2>
-      <p class="mb-4 max-w-[62ch] text-[17px] text-muted">
-        Most review tools ask you to install an app in your GitHub organization, grant it access to your repositories,
-        and send your code through their servers. Mergiato doesn't.
-      </p>
-      <p class="mb-4 max-w-[62ch] text-[17px] text-muted">
-        It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in to,
-        <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to GitHub,
-        with your own access, as if you typed the command. Your security team has no new vendor to vet, because no one
-        new is in the loop.
-      </p>
-      <p
-        class="mt-2 rounded-r-[10px] border-l-3 border-accent bg-accent-soft px-4.5 py-4 text-[17px] font-semibold text-fg"
-      >
-        “It's the GitHub CLI, in one window.”
-        <small class="mt-1 block text-[13px] font-normal text-muted"
-          >The one line to forward to your security team.</small
-        >
-      </p>
-      <p class="mt-4 font-semibold [&_a]:text-accent [&_a:hover]:underline">
-        <a href="/security/">Everything Mergiato can access, in full</a>
-      </p>
-    </div>
-    <div>
-      <div
-        class="rounded-[14px] border border-edge bg-panel p-6 font-mono text-[13px]"
-        aria-label="How a request travels"
-      >
-        <div
-          class="flex items-center gap-3 rounded-[10px] border border-edge-strong bg-page px-3.5 py-3 text-fg [&_small]:ml-auto [&_small]:text-[11px] [&_small]:text-muted"
-        >
-          Mergiato <small>your machine</small>
-        </div>
-        <div class="ml-5.5 border-l-2 border-dashed border-edge-strong py-2 pl-6.5 text-[12px] text-muted">runs</div>
-        <div
-          class="flex items-center gap-3 rounded-[10px] border border-edge-strong bg-page px-3.5 py-3 text-fg [&_small]:ml-auto [&_small]:text-[11px] [&_small]:text-muted"
-        >
-          gh, git and vercel <small>your CLIs, your sign-in</small>
-        </div>
-        <div class="ml-5.5 border-l-2 border-dashed border-edge-strong py-2 pl-6.5 text-[12px] text-muted">
-          talk directly to
-        </div>
-        <div
-          class="flex items-center gap-3 rounded-[10px] border border-edge-strong bg-page px-3.5 py-3 text-fg [&_small]:ml-auto [&_small]:text-[11px] [&_small]:text-muted"
-        >
-          GitHub and Vercel <small>same as your terminal</small>
-        </div>
-        <div
-          class="mt-4.5 grid gap-1.5 border-t border-edge pt-4 text-muted *:before:font-bold *:before:text-bad *:before:content-['✕_']"
-        >
-          <span>No GitHub App or OAuth grant</span>
-          <span>No tokens stored by Mergiato</span>
-          <span>No Mergiato servers, no account</span>
-          <span>No analytics, no code sent anywhere else</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1486,7 +1503,10 @@
         ><span data-download-label>Download for Mac</span></a
       >
     </div>
-    <p class="mt-3.5 text-[13px] text-muted" data-version>Free, no sign-up. For Apple silicon and Intel Macs.</p>
+    <p class="mt-3.5 text-[13px] text-muted">
+      <span data-version>Free, no sign-up. For Apple silicon and Intel Macs.</span>
+      <a class="underline" href="/install/" data-mac-only>macOS asks once on the first open.</a>
+    </p>
   </div>
 </section></main>
 
@@ -1603,7 +1623,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=8061df39"></script>
+    <script src="/site.js?v=72359586"></script>
     <script>
   // The demo: a few made-up PRs in the app's real layout. Merge, approve and re-run change them, like the app.
   function startDemo(root) {
@@ -1634,6 +1654,7 @@
           pr.group = "merged";
           pr.justMoved = true;
           celebrate(target);
+          offerDownload("merge");
         }
       } else if (target.dataset.action === "approve") {
         pr.review = "approved";
@@ -1641,6 +1662,7 @@
         pr.group = "reviewed";
         pr.justMoved = true;
         celebrate(target);
+        offerDownload("approve");
       } else if (target.dataset.action === "rerun") {
         for (const check of pr.checks) if (check[1] === "bad") check[1] = "run";
         setTimeout(() => {
@@ -1676,6 +1698,13 @@
 
     root.querySelector("[data-gh-icon]").innerHTML = icon.github;
     render();
+
+    // After a merge or an approval, the download sits right under the demo.
+    function offerDownload(action) {
+      const offer = document.querySelector("[data-demo-cta]");
+      offer.querySelector("[data-demo-cta-text]").textContent = `That's the real ${action} flow.`;
+      offer.hidden = false;
+    }
 
     function find(n) {
       return demoPrs.find((pr) => pr.n === n);
