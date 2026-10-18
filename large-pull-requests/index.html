@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/large-pull-requests/" />
     <meta property="og:title" content="Review the 900-file pull request without clicking Load diff" />
     <meta property="og:description" content="GitHub hides big diffs behind Load diff, and its diff API stops at 300 files. Mergiato shows every file, up to 3,000, and draws a 914-file PR in 0.2 seconds." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: Review large GitHub pull requests, every file" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Review the 900-file pull request without clicking Load diff" />
     <meta name="twitter:description" content="GitHub hides big diffs behind Load diff, and its diff API stops at 300 files. Mergiato shows every file, up to 3,000, and draws a 914-file PR in 0.2 seconds." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -148,158 +148,120 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Large pull requests</nav>
-          <p class="eyebrow">Large pull requests</p>
-          <h1>Review the 900-file pull request without clicking Load diff.</h1>
-          <p class="lead">
-            Big pull requests happen: a dependency bump, a rename across the codebase, a refactor an agent opened
-            overnight. Mergiato shows every file GitHub has, up to 3,000, and draws only what's near your view, so a
-            914-file PR opens in 0.2 seconds and scrolls like a small one.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download
-              data-place="large-prs-hero"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-        </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Large pull requests</nav>
+    <p class="eyebrow">Large pull requests</p>
+    <h1>Review the 900-file pull request without clicking Load diff.</h1>
+    <p class="lead">
+      Big pull requests happen: a dependency bump, a rename across the codebase, a refactor an agent opened overnight.
+      Mergiato shows every file GitHub has, up to 3,000, and draws only what's near your view, so a 914-file PR opens in
+      0.2 seconds and scrolls like a small one.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="large-prs-hero"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+  </div>
+</div>
+
+<section class="page">
+  <div class="wrap prose">
+    <figure class="media">
+      <video data-autoplay muted loop playsinline preload="none" width="1124" height="900"
+        poster="/media/large-pr-poster.jpg" aria-label="Scrolling a 914-file pull request and marking files viewed">
+        <source src="/media/large-pr.webm" type="video/webm" />
+        <source src="/media/large-pr.mp4" type="video/mp4" />
+      </video>
+      <figcaption>A 914-file pull request: every file, scrolled and marked Viewed.</figcaption>
+    </figure>
+
+    <h2>Where large diffs get stuck</h2>
+    <ul>
+      <li>
+        <b>On github.com</b>, big files hide behind a <b>Load diff</b> link, so you open them one at a time and can miss
+        the one that matters.
+      </li>
+      <li>
+        <b>GitHub's diff API</b> refuses a pull request over 300 files or 20,000 lines, which is where many tools built
+        on it give up.
+      </li>
+      <li><b>Some review tools</b> show the first 50 files or so and leave the rest for later.</li>
+    </ul>
+
+    <h2>How Mergiato shows every file</h2>
+    <ol>
+      <li><b>It lists every file.</b> It pages through GitHub's file list, up to GitHub's own limit of 3,000 files.</li>
+      <li>
+        <b>It rebuilds the diff when GitHub won't send it.</b> If GitHub refuses the whole diff as too large, Mergiato
+        builds it from each file's patch instead. A file GitHub sends no patch for at all says so.
+      </li>
+      <li>
+        <b>It draws only what's near your view.</b> Files far above or below hold their place with an empty block of the
+        right height. On a 914-file PR the page keeps about 30,000 to 40,000 elements wherever you scroll, where drawing
+        everything would need more than 300,000.
+      </li>
+      <li>
+        <b>The screen doesn't jump.</b> When a file above you fills in, the scroll position is corrected so what you're
+        reading stays put.
+      </li>
+    </ol>
+
+    <h2>Getting through it, file by file</h2>
+    <ul>
+      <li>
+        <b>Lockfiles and generated files start folded</b>: <code>package-lock.json</code>, <code>pnpm-lock.yaml</code>,
+        <code>Cargo.lock</code>, <code>go.sum</code>, minified bundles, source maps and snapshots. Deleted files too.
+      </li>
+      <li>
+        <b>Viewed marks</b> fold a file away and jump to the next one. If the file changes again, its mark resets.
+      </li>
+      <li><b>Filter</b> by path, or show only files with review comments.</li>
+      <li><b>List or tree</b>, unified or split, with syntax colors.</li>
+      <li><b>One commit at a time</b>, when the PR was built that way.</li>
+    </ul>
+
+    <h2>Questions</h2>
+    <details>
+      <summary>What happens past 3,000 files?</summary>
+      <p>
+        GitHub itself lists at most 3,000 files for a pull request, so that's the ceiling for any tool built on GitHub.
+        Mergiato shows all of them.
+      </p>
+    </details>
+    <details>
+      <summary>Do I need a local clone for big diffs?</summary>
+      <p>No. Everything comes from GitHub through the GitHub CLI. A clone is only for the optional terminal.</p>
+    </details>
+    <details>
+      <summary>Does it keep a big diff in memory between visits?</summary>
+      <p>
+        It keeps the diff for the PR's current commit while the app runs, so going back to it is instant. New commits
+        bring a fresh copy, and an unused one is dropped after 10 minutes.
+      </p>
+    </details>
+
+    <div class="band">
+      <div>
+        <strong>Open the PR everyone's been avoiding.</strong>
+        <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
       </div>
-
-      <section class="page">
-        <div class="wrap prose">
-          <figure
-            class="illus"
-            role="img"
-            aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, one changed again since it was viewed."
-          >
-            <div class="illus-head">
-              <b>Files</b> 914 <span class="chip plain">Only with comments · 23</span>
-              <span class="end">612 / 914 viewed</span>
-            </div>
-            <div class="illus-body">
-              <div class="bar"><i style="width: 67%"></i></div>
-              <div class="line faded">
-                <span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span
-                ><span class="meta"><span class="plus">+42</span> −9</span>
-              </div>
-              <div class="line faded">
-                <span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span
-                ><span class="meta"><span class="plus">+18</span> −4</span>
-              </div>
-              <div class="line">
-                <span class="tick"></span
-                ><span class="name"
-                  >src/checkout/refunds.ts
-                  <span class="badge wait" style="margin-left: 6px"
-                    >changed<span class="wide-only"> since viewed</span></span
-                  ></span
-                ><span class="meta"><span class="plus">+7</span> −2</span>
-              </div>
-              <div class="line faded">
-                <span class="tick"></span
-                ><span class="name">pnpm-lock.yaml <span class="chip plain">generated</span></span
-                ><span class="meta"><span class="plus">+1,860</span></span>
-              </div>
-              <div class="line">
-                <span class="tick"></span><span class="name">… 910 more, every one of them</span
-                ><span class="meta">no cap</span>
-              </div>
-            </div>
-          </figure>
-
-          <h2>Where large diffs get stuck</h2>
-          <ul>
-            <li>
-              <b>On github.com</b>, big files hide behind a <b>Load diff</b> link, so you open them one at a time and
-              can miss the one that matters.
-            </li>
-            <li>
-              <b>GitHub's diff API</b> refuses a pull request over 300 files or 20,000 lines, which is where many tools
-              built on it give up.
-            </li>
-            <li>
-              <b>Some review tools</b> show the first 50 files or so and leave the rest for later.
-            </li>
-          </ul>
-
-          <h2>How Mergiato shows every file</h2>
-          <ol>
-            <li>
-              <b>It lists every file.</b> It pages through GitHub's file list, up to GitHub's own limit of 3,000 files.
-            </li>
-            <li>
-              <b>It rebuilds the diff when GitHub won't send it.</b> If GitHub refuses the whole diff as too large,
-              Mergiato builds it from each file's patch instead. A file GitHub sends no patch for at all says so.
-            </li>
-            <li>
-              <b>It draws only what's near your view.</b> Files far above or below hold their place with an empty block
-              of the right height. On a 914-file PR the page keeps about 30,000 to 40,000 elements wherever you scroll,
-              where drawing everything would need more than 300,000.
-            </li>
-            <li>
-              <b>The screen doesn't jump.</b> When a file above you fills in, the scroll position is corrected so what
-              you're reading stays put.
-            </li>
-          </ol>
-
-          <h2>Getting through it, file by file</h2>
-          <ul>
-            <li>
-              <b>Lockfiles and generated files start folded</b>: <code>package-lock.json</code>,
-              <code>pnpm-lock.yaml</code>, <code>Cargo.lock</code>, <code>go.sum</code>, minified bundles, source maps
-              and snapshots. Deleted files too.
-            </li>
-            <li>
-              <b>Viewed marks</b> fold a file away and jump to the next one. If the file changes again, its mark resets.
-            </li>
-            <li>
-              <b>Filter</b> by path, or show only files with review comments.
-            </li>
-            <li><b>List or tree</b>, unified or split, with syntax colors.</li>
-            <li><b>One commit at a time</b>, when the PR was built that way.</li>
-          </ul>
-
-          <h2>Questions</h2>
-          <details>
-            <summary>What happens past 3,000 files?</summary>
-            <p>
-              GitHub itself lists at most 3,000 files for a pull request, so that's the ceiling for any tool built on
-              GitHub. Mergiato shows all of them.
-            </p>
-          </details>
-          <details>
-            <summary>Do I need a local clone for big diffs?</summary>
-            <p>No. Everything comes from GitHub through the GitHub CLI. A clone is only for the optional terminal.</p>
-          </details>
-          <details>
-            <summary>Does it keep a big diff in memory between visits?</summary>
-            <p>
-              It keeps the diff for the PR's current commit while the app runs, so going back to it is instant. New
-              commits bring a fresh copy, and an unused one is dropped after 10 minutes.
-            </p>
-          </details>
-
-          <div class="band">
-            <div>
-              <strong>Open the PR everyone's been avoiding.</strong>
-              <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
-            </div>
-            <a
-              class="button"
-              data-download
-              data-place="large-prs-end"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
+      <a
+        class="button"
+        data-download
+        data-place="large-prs-end"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -372,7 +334,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>

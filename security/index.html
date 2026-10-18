@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/security/" />
     <meta property="og:title" content="What Mergiato can see, and where your code goes" />
     <meta property="og:description" content="Mergiato runs on your own GitHub CLI and sends every request straight from your machine to GitHub. Here's what it can access, and what it keeps." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: security and privacy" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="What Mergiato can see, and where your code goes" />
     <meta name="twitter:description" content="Mergiato runs on your own GitHub CLI and sends every request straight from your machine to GitHub. Here's what it can access, and what it keeps." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -148,203 +148,213 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Security and privacy</nav>
-          <p class="eyebrow">Security and privacy</p>
-          <h1>What Mergiato can see, and where your code goes.</h1>
-          <p class="lead">
-            Mergiato is a desktop app that drives the GitHub CLI you're already signed in to. Every request goes
-            straight from your machine to GitHub with your own access, the same as typing the command yourself. This
-            is the page to forward to your security team.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download
-              data-place="security-hero"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-        </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Security and privacy</nav>
+    <p class="eyebrow">Security and privacy</p>
+    <h1>What Mergiato can see, and where your code goes.</h1>
+    <p class="lead">
+      Mergiato is a desktop app that drives the GitHub CLI you're already signed in to. Every request goes straight from
+      your machine to GitHub with your own access, the same as typing the command yourself. This is the page to forward
+      to your security team.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="security-hero"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+  </div>
+</div>
+
+<section class="page">
+  <div class="wrap prose">
+    <div class="callout">
+      <p><b>The short version:</b> it's the GitHub CLI, with a cockpit.</p>
+      <ul>
+        <li>Mergiato can do exactly what your <code>gh</code> sign-in can do, and nothing more.</li>
+        <li>Requests go from your machine to GitHub, and to Vercel if you use its CLI.</li>
+        <li>The GitHub CLI signs every request. Mergiato never stores your GitHub token.</li>
+        <li>Mergiato has no servers, no account and no analytics.</li>
+      </ul>
+    </div>
+
+    <h2>How a request travels</h2>
+    <p>
+      Mergiato runs the command-line tools already on your machine and shows what they return. To load your inbox it
+      calls <code>gh api</code>; to merge a PR it asks <code>gh</code> to merge it; to deploy a preview it asks the
+      <code>vercel</code> CLI. Each tool talks to its own service with the sign-in you gave it.
+    </p>
+    <div class="flow" aria-label="How a request travels">
+      <div class="hop">Mergiato <small>your machine</small></div>
+      <div class="link">runs</div>
+      <div class="hop">gh · git · vercel <small>your CLIs, your sign-in</small></div>
+      <div class="link">talk directly to</div>
+      <div class="hop">GitHub · Vercel <small>same as your terminal</small></div>
+    </div>
+
+    <figure class="media">
+      <img class="dark-only" src="/media/tools-dark-800.jpg"
+        srcset="/media/tools-dark-800.jpg 800w, /media/tools-dark.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+        width="345" height="120" loading="lazy" decoding="async" alt="The tools row at the foot of Mergiato's sidebar, with the GitHub CLI's version and path" />
+      <img class="light-only" src="/media/tools-light-800.jpg"
+        srcset="/media/tools-light-800.jpg 800w, /media/tools-light.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+        width="345" height="120" loading="lazy" decoding="async" alt="The tools row at the foot of Mergiato's sidebar, with the GitHub CLI's version and path" />
+      <figcaption>Mergiato shows the CLIs it runs, with their versions and paths.</figcaption>
+    </figure>
+
+    <h2>What it can access</h2>
+    <p>
+      Exactly what your GitHub CLI can see. If you can open a repository with <code>gh</code>, Mergiato can show it; if
+      you can't, it can't either. Its reach is the scopes of your <code>gh auth login</code>, which you can check with
+      <code>gh auth status</code>.
+    </p>
+    <ul>
+      <li>
+        <b>In the background</b> it only reads: your PR lists every 30 seconds, the open PR's details, and its checks
+        every 10 seconds while jobs run. Polling pauses while the app is in the background.
+      </li>
+      <li>
+        <b>Anything that changes GitHub</b> happens when you click: a comment, an approval, a merge, a label, a re-run.
+        It lands as your own account, just as if you'd done it on github.com.
+      </li>
+    </ul>
+
+    <h2>Every connection it makes</h2>
+    <table class="versus facts">
+      <thead>
+        <tr>
+          <th>To</th>
+          <th>Why</th>
+          <th>How</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GitHub API</td>
+          <td>Your PRs, diffs, checks, reviews, merges, file uploads</td>
+          <td>Through <code>gh</code>, signed by it</td>
+        </tr>
+        <tr>
+          <td>api.github.com</td>
+          <td>Checks you're online (a bare connection, no data)</td>
+          <td>Direct</td>
+        </tr>
+        <tr>
+          <td>github.com avatars</td>
+          <td>Profile pictures next to names</td>
+          <td>Plain image requests, like any web page</td>
+        </tr>
+        <tr>
+          <td>GitHub Releases</td>
+          <td>Checks for updates and downloads them</td>
+          <td>Direct; each update is signed and verified before it installs</td>
+        </tr>
+        <tr>
+          <td>Vercel</td>
+          <td>Preview deployments, only if you use them</td>
+          <td>Through the <code>vercel</code> CLI</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Optional AI features run the AI command-line tool you've installed, under your own account and its terms. One
+      switch in Settings turns every AI feature off.
+    </p>
+
+    <h2>What stays on your machine</h2>
+    <p>
+      Mergiato keeps a few things so it opens fast and remembers your choices: your settings and theme, the last inbox
+      it loaded, which files you've marked Viewed, and the clone folder you picked for each repository. It keeps them in
+      its own app data (<code>~/Library/WebKit/com.mergiato.app</code> and
+      <code>~/Library/Caches/com.mergiato.app</code> on a Mac). None of it leaves your machine.
+    </p>
+    <p>
+      To remove Mergiato, drag it to the Trash and delete those two folders. Your comments, reviews and merges stay on
+      GitHub, where they always were.
+    </p>
+
+    <h2>For your security review</h2>
+    <table class="versus facts">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Needs a GitHub App or OAuth grant in the org?</td>
+          <td>No. It uses each person's own <code>gh</code> sign-in.</td>
+        </tr>
+        <tr>
+          <td>Stores tokens?</td>
+          <td>No. The GitHub CLI keeps and uses its own.</td>
+        </tr>
+        <tr>
+          <td>Sends code or metadata to Mergiato?</td>
+          <td>No. There are no Mergiato servers.</td>
+        </tr>
+        <tr>
+          <td>Telemetry or crash reports?</td>
+          <td>None in the app. (This website counts visits with cookieless Rybbit.)</td>
+        </tr>
+        <tr>
+          <td>Needs a local clone?</td>
+          <td>No. Only the optional docked terminal opens one you pick.</td>
+        </tr>
+        <tr>
+          <td>Code signing?</td>
+          <td>
+            Updates are signed and checked before they install. The app isn't signed with an Apple Developer ID yet, so
+            macOS asks once on the first open; some company-managed Macs block it until it is.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Questions</h2>
+    <details>
+      <summary>Can Mergiato act on GitHub without me?</summary>
+      <p>
+        No. In the background it only reads. Everything that changes GitHub (a comment, an approval, a merge, a re-run)
+        starts with your click, and merges ask for a second, deliberate one.
+      </p>
+    </details>
+    <details>
+      <summary>Does my team or my org need to approve anything?</summary>
+      <p>
+        No. There's nothing to install in the organization. Each person signs in to the GitHub CLI, which most
+        developers have done already.
+      </p>
+    </details>
+    <details>
+      <summary>Will it burn through my GitHub rate limit?</summary>
+      <p>
+        It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached, avatars
+        cost nothing, and polling pauses while the app is in the background.
+      </p>
+    </details>
+
+    <div class="band">
+      <div>
+        <strong>Nothing to approve, nothing to roll out.</strong>
+        <p>Free while in beta, under 10 MB, and you're reviewing in about a minute.</p>
       </div>
-
-      <section class="page">
-        <div class="wrap prose">
-          <div class="callout">
-            <p><b>The short version:</b> it's the GitHub CLI, with a cockpit.</p>
-            <ul>
-              <li>Mergiato can do exactly what your <code>gh</code> sign-in can do, and nothing more.</li>
-              <li>Requests go from your machine to GitHub, and to Vercel if you use its CLI.</li>
-              <li>The GitHub CLI signs every request. Mergiato never stores your GitHub token.</li>
-              <li>Mergiato has no servers, no account and no analytics.</li>
-            </ul>
-          </div>
-
-          <h2>How a request travels</h2>
-          <p>
-            Mergiato runs the command-line tools already on your machine and shows what they return. To load your
-            inbox it calls <code>gh api</code>; to merge a PR it asks <code>gh</code> to merge it; to deploy a preview
-            it asks the <code>vercel</code> CLI. Each tool talks to its own service with the sign-in you gave it.
-          </p>
-          <div class="flow" aria-label="How a request travels">
-            <div class="hop">Mergiato <small>your machine</small></div>
-            <div class="link">runs</div>
-            <div class="hop">gh · git · vercel <small>your CLIs, your sign-in</small></div>
-            <div class="link">talk directly to</div>
-            <div class="hop">GitHub · Vercel <small>same as your terminal</small></div>
-          </div>
-
-          <h2>What it can access</h2>
-          <p>
-            Exactly what your GitHub CLI can see. If you can open a repository with <code>gh</code>, Mergiato can show
-            it; if you can't, it can't either. Its reach is the scopes of your <code>gh auth login</code>, which you
-            can check with <code>gh auth status</code>.
-          </p>
-          <ul>
-            <li>
-              <b>In the background</b> it only reads: your PR lists every 30 seconds, the open PR's details, and its
-              checks every 10 seconds while jobs run. Polling pauses while the app is in the background.
-            </li>
-            <li>
-              <b>Anything that changes GitHub</b> happens when you click: a comment, an approval, a merge, a label, a
-              re-run. It lands as your own account, just as if you'd done it on github.com.
-            </li>
-          </ul>
-
-          <h2>Every connection it makes</h2>
-          <table class="versus facts">
-            <thead>
-              <tr>
-                <th>To</th>
-                <th>Why</th>
-                <th>How</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>GitHub API</td>
-                <td>Your PRs, diffs, checks, reviews, merges, file uploads</td>
-                <td>Through <code>gh</code>, signed by it</td>
-              </tr>
-              <tr>
-                <td>api.github.com</td>
-                <td>Checks you're online (a bare connection, no data)</td>
-                <td>Direct</td>
-              </tr>
-              <tr>
-                <td>github.com avatars</td>
-                <td>Profile pictures next to names</td>
-                <td>Plain image requests, like any web page</td>
-              </tr>
-              <tr>
-                <td>GitHub Releases</td>
-                <td>Checks for updates and downloads them</td>
-                <td>Direct; each update is signed and verified before it installs</td>
-              </tr>
-              <tr>
-                <td>Vercel</td>
-                <td>Preview deployments, only if you use them</td>
-                <td>Through the <code>vercel</code> CLI</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>
-            Optional AI features run the AI command-line tool you've installed, under your own account and its terms.
-            One switch in Settings turns every AI feature off.
-          </p>
-
-          <h2>What stays on your machine</h2>
-          <p>
-            Mergiato keeps a few things so it opens fast and remembers your choices: your settings and theme, the last
-            inbox it loaded, which files you've marked Viewed, and the clone folder you picked for each repository. It
-            keeps them in its own app data (<code>~/Library/WebKit/com.mergiato.app</code> and
-            <code>~/Library/Caches/com.mergiato.app</code> on a Mac). None of it leaves your machine.
-          </p>
-          <p>
-            To remove Mergiato, drag it to the Trash and delete those two folders. Your comments, reviews and merges
-            stay on GitHub, where they always were.
-          </p>
-
-          <h2>For your security review</h2>
-          <table class="versus facts">
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Answer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Needs a GitHub App or OAuth grant in the org?</td>
-                <td>No. It uses each person's own <code>gh</code> sign-in.</td>
-              </tr>
-              <tr>
-                <td>Stores tokens?</td>
-                <td>No. The GitHub CLI keeps and uses its own.</td>
-              </tr>
-              <tr>
-                <td>Sends code or metadata to Mergiato?</td>
-                <td>No. There are no Mergiato servers.</td>
-              </tr>
-              <tr>
-                <td>Telemetry or crash reports?</td>
-                <td>None in the app. (This website counts visits with cookieless Rybbit.)</td>
-              </tr>
-              <tr>
-                <td>Needs a local clone?</td>
-                <td>No. Only the optional docked terminal opens one you pick.</td>
-              </tr>
-              <tr>
-                <td>Code signing?</td>
-                <td>
-                  Updates are signed and checked before they install. The app isn't signed with an Apple Developer ID
-                  yet, so macOS asks once on the first open; some company-managed Macs block it until it is.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h2>Questions</h2>
-          <details>
-            <summary>Can Mergiato act on GitHub without me?</summary>
-            <p>
-              No. In the background it only reads. Everything that changes GitHub (a comment, an approval, a merge, a
-              re-run) starts with your click, and merges ask for a second, deliberate one.
-            </p>
-          </details>
-          <details>
-            <summary>Does my team or my org need to approve anything?</summary>
-            <p>
-              No. There's nothing to install in the organization. Each person signs in to the GitHub CLI, which most
-              developers have done already.
-            </p>
-          </details>
-          <details>
-            <summary>Will it burn through my GitHub rate limit?</summary>
-            <p>
-              It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached,
-              avatars cost nothing, and polling pauses while the app is in the background.
-            </p>
-          </details>
-
-          <div class="band">
-            <div>
-              <strong>Nothing to approve, nothing to roll out.</strong>
-              <p>Free while in beta, under 10 MB, and you're reviewing in about a minute.</p>
-            </div>
-            <a
-              class="button"
-              data-download
-              data-place="security-end"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
+      <a
+        class="button"
+        data-download
+        data-place="security-end"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -417,7 +427,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>

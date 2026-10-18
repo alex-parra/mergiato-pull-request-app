@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/compare/gh-dash/" />
     <meta property="og:title" content="Mergiato vs gh-dash" />
     <meta property="og:description" content="gh-dash is a free terminal dashboard for GitHub PRs and issues. Mergiato is a desktop app with visual diffs, line comments, CI re-runs and stacks. Both use gh." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: Mergiato vs gh-dash: window or terminal for PRs" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mergiato vs gh-dash" />
     <meta name="twitter:description" content="gh-dash is a free terminal dashboard for GitHub PRs and issues. Mergiato is a desktop app with visual diffs, line comments, CI re-runs and stacks. Both use gh." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -149,137 +149,137 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Compare / gh-dash</nav>
-          <p class="eyebrow">Compare</p>
-          <h1>Mergiato vs gh-dash</h1>
-          <p class="lead">
-            Both run on the GitHub CLI you're signed in to, so neither needs a token or an org app. gh-dash is a free,
-            open-source dashboard in your terminal, driven by the keyboard and a config file. Mergiato is a desktop
-            window built around the review itself: diffs, threads, checks, stacks and merges side by side.
-          </p>
-          <p class="checked">gh-dash details checked on 18 October 2026, from gh-dash.dev and its GitHub repository.</p>
-        </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Compare / gh-dash</nav>
+    <p class="eyebrow">Compare</p>
+    <h1>Mergiato vs gh-dash</h1>
+    <p class="lead">
+      Both run on the GitHub CLI you're signed in to, so neither needs a token or an org app. gh-dash is a free,
+      open-source dashboard in your terminal, driven by the keyboard and a config file. Mergiato is a desktop window
+      built around the review itself: diffs, threads, checks, stacks and merges side by side.
+    </p>
+    <p class="checked">gh-dash details checked on 18 October 2026, from gh-dash.dev and its GitHub repository.</p>
+  </div>
+</div>
+
+<section class="page">
+  <div class="wrap prose">
+    <h2>The short answer</h2>
+    <ul>
+      <li>
+        <b>Pick gh-dash</b> if you live in the terminal, want PRs and issues in sections you define yourself, and like
+        to script your own commands.
+      </li>
+      <li>
+        <b>Pick Mergiato</b> if you want to read and comment on the diff itself, see each CI job, follow stacks, and
+        merge through your repo's queue, in one window.
+      </li>
+    </ul>
+
+    <h2>Side by side</h2>
+    <table class="versus">
+      <thead>
+        <tr>
+          <th></th>
+          <th>gh-dash</th>
+          <th>Mergiato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Where it runs</td>
+          <td>In your terminal, as a <code>gh</code> extension</td>
+          <td>A desktop app</td>
+        </tr>
+        <tr>
+          <td>Sign-in</td>
+          <td>Your <code>gh</code> sign-in</td>
+          <td>Your <code>gh</code> sign-in</td>
+        </tr>
+        <tr>
+          <td>Lists</td>
+          <td>PRs and issues, in sections you write as GitHub searches in a YAML file</td>
+          <td>Your PRs and the reviews waiting on you, ready out of the box; PRs only</td>
+        </tr>
+        <tr>
+          <td>Reading the diff</td>
+          <td>In your pager (<code>less</code> by default, or a tool like delta)</td>
+          <td>In the app: unified or split, syntax colors, up to 3,000 files, Viewed marks</td>
+        </tr>
+        <tr>
+          <td>Commenting</td>
+          <td>A comment on the PR</td>
+          <td>Comments on a line or range, replies, reactions, resolve</td>
+        </tr>
+        <tr>
+          <td>Checks</td>
+          <td>Watch a PR's checks and get a notification when they finish</td>
+          <td>Each job's state and time; re-run failed jobs, all, or one</td>
+        </tr>
+        <tr>
+          <td>Stacks and merge queues</td>
+          <td>Not listed in its docs; merge runs <code>gh pr merge</code></td>
+          <td>Graphite, GitHub and branch-chain stacks; Graphite's and GitHub's merge queues</td>
+        </tr>
+        <tr>
+          <td>Customizing</td>
+          <td>Keybindings, sections and your own commands, all in config</td>
+          <td>Settings, themes and layout choices; no custom commands</td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>Free, open source (MIT)</td>
+          <td>Free while in beta</td>
+        </tr>
+        <tr>
+          <td>Runs on</td>
+          <td>Wherever the GitHub CLI runs</td>
+          <td>macOS today; more platforms are coming</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Where gh-dash is the better pick</h2>
+    <ul>
+      <li>You'd rather never leave the terminal, or you work over SSH.</li>
+      <li>You track issues next to PRs, in sections tuned to your own searches.</li>
+      <li>You want to bind your own commands, like opening lazygit on the PR's branch.</li>
+      <li>You want something open source you can change.</li>
+    </ul>
+
+    <h2>Where Mergiato is the better pick</h2>
+    <ul>
+      <li>
+        You review big diffs and want to comment on the exact line, with every file in view.
+        <a href="/large-pull-requests/">How it handles large PRs</a>.
+      </li>
+      <li>You fix red builds from the PR: <a href="/github-actions/">each job, timed, re-run in one click</a>.</li>
+      <li>Your team stacks PRs and merges through a queue: <a href="/stacked-prs/">stacks in Mergiato</a>.</li>
+      <li>You want it working the moment it opens, with nothing to configure.</li>
+    </ul>
+
+    <h2>Using both</h2>
+    <p>
+      They share the same <code>gh</code> sign-in, so there's nothing to set up twice. Keep gh-dash for a quick look
+      from the terminal, and open the PR in Mergiato when it's time to read the diff and merge.
+    </p>
+
+    <div class="band">
+      <div>
+        <strong>The same gh sign-in, a whole window for the review.</strong>
+        <p>Free while in beta, under 10 MB, and ready in about a minute.</p>
       </div>
-
-      <section class="page">
-        <div class="wrap prose">
-          <h2>The short answer</h2>
-          <ul>
-            <li>
-              <b>Pick gh-dash</b> if you live in the terminal, want PRs and issues in sections you define yourself, and
-              like to script your own commands.
-            </li>
-            <li>
-              <b>Pick Mergiato</b> if you want to read and comment on the diff itself, see each CI job, follow stacks,
-              and merge through your repo's queue, in one window.
-            </li>
-          </ul>
-
-          <h2>Side by side</h2>
-          <table class="versus">
-            <thead>
-              <tr>
-                <th></th>
-                <th>gh-dash</th>
-                <th>Mergiato</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Where it runs</td>
-                <td>In your terminal, as a <code>gh</code> extension</td>
-                <td>A desktop app</td>
-              </tr>
-              <tr>
-                <td>Sign-in</td>
-                <td>Your <code>gh</code> sign-in</td>
-                <td>Your <code>gh</code> sign-in</td>
-              </tr>
-              <tr>
-                <td>Lists</td>
-                <td>PRs and issues, in sections you write as GitHub searches in a YAML file</td>
-                <td>Your PRs and the reviews waiting on you, ready out of the box; PRs only</td>
-              </tr>
-              <tr>
-                <td>Reading the diff</td>
-                <td>In your pager (<code>less</code> by default, or a tool like delta)</td>
-                <td>In the app: unified or split, syntax colors, up to 3,000 files, Viewed marks</td>
-              </tr>
-              <tr>
-                <td>Commenting</td>
-                <td>A comment on the PR</td>
-                <td>Comments on a line or range, replies, reactions, resolve</td>
-              </tr>
-              <tr>
-                <td>Checks</td>
-                <td>Watch a PR's checks and get a notification when they finish</td>
-                <td>Each job's state and time; re-run failed jobs, all, or one</td>
-              </tr>
-              <tr>
-                <td>Stacks and merge queues</td>
-                <td>Not listed in its docs; merge runs <code>gh pr merge</code></td>
-                <td>Graphite, GitHub and branch-chain stacks; Graphite's and GitHub's merge queues</td>
-              </tr>
-              <tr>
-                <td>Customizing</td>
-                <td>Keybindings, sections and your own commands, all in config</td>
-                <td>Settings, themes and layout choices; no custom commands</td>
-              </tr>
-              <tr>
-                <td>Price</td>
-                <td>Free, open source (MIT)</td>
-                <td>Free while in beta</td>
-              </tr>
-              <tr>
-                <td>Runs on</td>
-                <td>Wherever the GitHub CLI runs</td>
-                <td>macOS today; more platforms are coming</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h2>Where gh-dash is the better pick</h2>
-          <ul>
-            <li>You'd rather never leave the terminal, or you work over SSH.</li>
-            <li>You track issues next to PRs, in sections tuned to your own searches.</li>
-            <li>You want to bind your own commands, like opening lazygit on the PR's branch.</li>
-            <li>You want something open source you can change.</li>
-          </ul>
-
-          <h2>Where Mergiato is the better pick</h2>
-          <ul>
-            <li>
-              You review big diffs and want to comment on the exact line, with every file in view.
-              <a href="/large-pull-requests/">How it handles large PRs</a>.
-            </li>
-            <li>You fix red builds from the PR: <a href="/github-actions/">each job, timed, re-run in one click</a>.</li>
-            <li>Your team stacks PRs and merges through a queue: <a href="/stacked-prs/">stacks in Mergiato</a>.</li>
-            <li>You want it working the moment it opens, with nothing to configure.</li>
-          </ul>
-
-          <h2>Using both</h2>
-          <p>
-            They share the same <code>gh</code> sign-in, so there's nothing to set up twice. Keep gh-dash for a quick
-            look from the terminal, and open the PR in Mergiato when it's time to read the diff and merge.
-          </p>
-
-          <div class="band">
-            <div>
-              <strong>The same gh sign-in, a whole window for the review.</strong>
-              <p>Free while in beta, under 10 MB, and ready in about a minute.</p>
-            </div>
-            <a
-              class="button"
-              data-download
-              data-place="compare-gh-dash"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
+      <a
+        class="button"
+        data-download
+        data-place="compare-gh-dash"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -352,7 +352,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>

@@ -2413,3 +2413,45 @@ dialog::backdrop {
 .more a:hover {
   text-decoration: underline;
 }
+
+/* Real app media: screenshots in the page's own theme, and short videos that play while on screen. */
+.media {
+  margin: 0;
+}
+/* Videos fill their column; screenshots keep their own size (they're taken at 2x) and only shrink. */
+.media video,
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--edge-strong);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: 0 30px 80px -40px var(--shadow);
+}
+.media img {
+  width: auto;
+  max-width: 100%;
+}
+.media .stacked + .stacked {
+  margin-top: 14px;
+}
+.media figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+:root[data-theme="light"] .media .dark-only,
+:root:not([data-theme="light"]) .media .light-only {
+  display: none;
+}
+.hero-media {
+  margin: 40px auto 0;
+  max-width: 1120px;
+}
+.hero-media video {
+  border-radius: 14px;
+}
+.prose .media {
+  margin: 24px 0;
+}

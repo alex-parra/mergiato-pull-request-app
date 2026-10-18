@@ -128,3 +128,24 @@ wireThemeToggle();
 wireDownloads();
 wireCopyButtons();
 loadLatestRelease();
+wireVideos();
+
+// The app's videos play while on screen and pause off it, so a long page doesn't run them all.
+// With Reduce Motion on they stay on their poster, with controls to play one by choice.
+function wireVideos() {
+  const videos = document.querySelectorAll("video[data-autoplay]");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    for (const video of videos) video.controls = true;
+    return;
+  }
+  const watch = new IntersectionObserver(
+    (entries) => {
+      for (const { target, isIntersecting } of entries) {
+        if (isIntersecting) target.play().catch(() => {});
+        else target.pause();
+      }
+    },
+    { threshold: 0.2 },
+  );
+  for (const video of videos) watch.observe(video);
+}

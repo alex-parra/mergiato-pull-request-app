@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/install/" />
     <meta property="og:title" content="Install Mergiato in about a minute" />
     <meta property="og:description" content="Install Mergiato in about a minute: download the .dmg, allow it once in Privacy &amp; Security, and sign in to the GitHub CLI. Updates then install themselves." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: Install Mergiato: download, first open, sign in" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Install Mergiato in about a minute" />
     <meta name="twitter:description" content="Install Mergiato in about a minute: download the .dmg, allow it once in Privacy &amp; Security, and sign in to the GitHub CLI. Updates then install themselves." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -148,114 +148,114 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Install</nav>
-          <p class="eyebrow">Install</p>
-          <h1>Install Mergiato in about a minute.</h1>
-          <p class="lead">
-            Three steps: download the app, allow it once on the first open, and sign in to the GitHub CLI if you
-            haven't already. After that, updates install themselves.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download
-              data-place="install-hero"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-        </div>
-      </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Install</nav>
+    <p class="eyebrow">Install</p>
+    <h1>Install Mergiato in about a minute.</h1>
+    <p class="lead">
+      Three steps: download the app, allow it once on the first open, and sign in to the GitHub CLI if you haven't
+      already. After that, updates install themselves.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="install-hero"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+  </div>
+</div>
 
-      <section class="page">
-        <div class="wrap prose">
-          <h2>1. Download and install</h2>
-          <p>
-            Download the latest <code>.dmg</code>: one universal file, under 10 MB, for Macs with Apple silicon or
-            Intel. Open it and drag Mergiato to Applications.
-          </p>
+<section class="page">
+  <div class="wrap prose">
+    <h2>1. Download and install</h2>
+    <p>
+      Download the latest <code>.dmg</code>: one universal file, under 10 MB, for Macs with Apple silicon or Intel. Open
+      it and drag Mergiato to Applications.
+    </p>
 
-          <h2>2. Open it the first time</h2>
-          <p>
-            Mergiato isn't signed with an Apple Developer ID yet, so the first time you open it macOS says it can't
-            check the developer. Allow it once:
-          </p>
-          <ol>
-            <li>Open Mergiato from Applications, and close the warning.</li>
-            <li>Go to <b>System Settings → Privacy &amp; Security</b> and scroll to the Security section.</li>
-            <li>Next to the line about Mergiato, click <b>Open Anyway</b> and confirm.</li>
-          </ol>
-          <p>
-            Updates don't ask again. Some company-managed Macs only allow apps from identified developers and block it
-            entirely; that changes once Mergiato is signed.
-          </p>
+    <h2>2. Open it the first time</h2>
+    <p>
+      Mergiato isn't signed with an Apple Developer ID yet, so the first time you open it macOS says it can't check the
+      developer. Allow it once:
+    </p>
+    <ol>
+      <li>Open Mergiato from Applications, and close the warning.</li>
+      <li>Go to <b>System Settings → Privacy &amp; Security</b> and scroll to the Security section.</li>
+      <li>Next to the line about Mergiato, click <b>Open Anyway</b> and confirm.</li>
+    </ol>
+    <p>
+      Updates don't ask again. Some company-managed Macs only allow apps from identified developers and block it
+      entirely; that changes once Mergiato is signed.
+    </p>
 
-          <h2>3. Sign in to the GitHub CLI</h2>
-          <p>
-            Mergiato reads GitHub through the GitHub CLI (<code>gh</code>), signed in as you. If you already use
-            <code>gh</code>, skip this step. Otherwise, install it and sign in:
-          </p>
-          <p>
-            <span class="cmd">brew install gh <button type="button" data-copy="brew install gh">Copy</button></span>
-            <span class="cmd">gh auth login <button type="button" data-copy="gh auth login">Copy</button></span>
-          </p>
-          <p>
-            For GitHub Enterprise, add your server: <code>gh auth login --hostname github.example.com</code>. Without
-            Homebrew, see <a href="https://cli.github.com">cli.github.com</a> for other ways to install it.
-          </p>
-          <p>Open Mergiato again and your pull requests are there. There's nothing else to set up.</p>
+    <h2>3. Sign in to the GitHub CLI</h2>
+    <p>
+      Mergiato reads GitHub through the GitHub CLI (<code>gh</code>), signed in as you. If you already use
+      <code>gh</code>, skip this step. Otherwise, install it and sign in:
+    </p>
+    <p>
+      <span class="cmd">brew install gh <button type="button" data-copy="brew install gh">Copy</button></span>
+      <span class="cmd">gh auth login <button type="button" data-copy="gh auth login">Copy</button></span>
+    </p>
+    <p>
+      For GitHub Enterprise, add your server: <code>gh auth login --hostname github.example.com</code>. Without
+      Homebrew, see <a href="https://cli.github.com">cli.github.com</a> for other ways to install it.
+    </p>
+    <p>Open Mergiato again and your pull requests are there. There's nothing else to set up.</p>
 
-          <h2>Optional extras</h2>
-          <ul>
-            <li>
-              <b>Vercel previews:</b> install the Vercel CLI and sign in (<code>npm i -g vercel</code>, then
-              <code>vercel login</code>) to see and deploy previews from each PR.
-            </li>
-            <li>
-              <b>The docked terminal</b> opens in your clone of the PR's repository. Mergiato asks for the folder the
-              first time and remembers it.
-            </li>
-          </ul>
-          <p>
-            Mergiato shows which tools it found at the foot of its sidebar, with their versions. A missing one is
-            dimmed, and hovering says what it's for.
-          </p>
+    <h2>Optional extras</h2>
+    <ul>
+      <li>
+        <b>Vercel previews:</b> install the Vercel CLI and sign in (<code>npm i -g vercel</code>, then
+        <code>vercel login</code>) to see and deploy previews from each PR.
+      </li>
+      <li>
+        <b>The docked terminal</b> opens in your clone of the PR's repository. Mergiato asks for the folder the first
+        time and remembers it.
+      </li>
+    </ul>
+    <p>
+      Mergiato shows which tools it found at the foot of its sidebar, with their versions. A missing one is dimmed, and
+      hovering says what it's for.
+    </p>
 
-          <h2>Updates</h2>
-          <p>
-            Mergiato checks for a new version 10 seconds after it opens and every 6 hours. When there is one, it offers
-            it once with a Restart button. Every update is signed, and checked before it installs.
-          </p>
+    <h2>Updates</h2>
+    <p>
+      Mergiato checks for a new version 10 seconds after it opens and every 6 hours. When there is one, it offers it
+      once with a Restart button. Every update is signed, and checked before it installs.
+    </p>
 
-          <h2>Uninstall</h2>
-          <p>
-            Drag Mergiato to the Trash. To remove its saved settings too, delete
-            <code>~/Library/WebKit/com.mergiato.app</code> and <code>~/Library/Caches/com.mergiato.app</code>. Nothing
-            needs to be revoked on GitHub, because Mergiato never had its own access.
-            <a href="/security/">More on what it can access</a>.
-          </p>
+    <h2>Uninstall</h2>
+    <p>
+      Drag Mergiato to the Trash. To remove its saved settings too, delete
+      <code>~/Library/WebKit/com.mergiato.app</code> and <code>~/Library/Caches/com.mergiato.app</code>. Nothing needs
+      to be revoked on GitHub, because Mergiato never had its own access.
+      <a href="/security/">More on what it can access</a>.
+    </p>
 
-          <h2>Questions</h2>
-          <details>
-            <summary>Why does macOS warn on the first open?</summary>
-            <p>
-              Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check who made it. Allowing it once
-              in Privacy &amp; Security is enough; updates don't ask again.
-            </p>
-          </details>
-          <details>
-            <summary>Do I need a local clone of my repositories?</summary>
-            <p>No. Everything comes from GitHub through the CLI. A clone is only for the optional terminal.</p>
-          </details>
-          <details>
-            <summary>Does it run on Windows or Linux?</summary>
-            <p>Not yet: macOS today, on Apple silicon and Intel. More platforms are coming.</p>
-          </details>
-        </div>
-      </section>
+    <h2>Questions</h2>
+    <details>
+      <summary>Why does macOS warn on the first open?</summary>
+      <p>
+        Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check who made it. Allowing it once in
+        Privacy &amp; Security is enough; updates don't ask again.
+      </p>
+    </details>
+    <details>
+      <summary>Do I need a local clone of my repositories?</summary>
+      <p>No. Everything comes from GitHub through the CLI. A clone is only for the optional terminal.</p>
+    </details>
+    <details>
+      <summary>Does it run on Windows or Linux?</summary>
+      <p>Not yet: macOS today, on Apple silicon and Intel. More platforms are coming.</p>
+    </details>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -328,7 +328,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>

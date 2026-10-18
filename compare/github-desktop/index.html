@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/compare/github-desktop/" />
     <meta property="og:title" content="Mergiato vs GitHub Desktop" />
     <meta property="og:description" content="GitHub Desktop is a git client for commits and branches, and can't comment on PRs. Mergiato is for the pull request side: review, checks, stacks and merges." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: Mergiato vs GitHub Desktop: PRs vs commits" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mergiato vs GitHub Desktop" />
     <meta name="twitter:description" content="GitHub Desktop is a git client for commits and branches, and can't comment on PRs. Mergiato is for the pull request side: review, checks, stacks and merges." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -149,119 +149,118 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Compare / GitHub Desktop</nav>
-          <p class="eyebrow">Compare</p>
-          <h1>Mergiato vs GitHub Desktop</h1>
-          <p class="lead">
-            They do different jobs. GitHub Desktop is a git client: it commits, branches and pushes in a repository on
-            your machine. Mergiato is for the pull request side: your inbox, review, checks, stacks and merges, without
-            a clone. Most people who'd use one could use both.
-          </p>
-          <p class="checked">GitHub Desktop details checked on 18 October 2026, from GitHub's documentation.</p>
-        </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Compare / GitHub Desktop</nav>
+    <p class="eyebrow">Compare</p>
+    <h1>Mergiato vs GitHub Desktop</h1>
+    <p class="lead">
+      They do different jobs. GitHub Desktop is a git client: it commits, branches and pushes in a repository on your
+      machine. Mergiato is for the pull request side: your inbox, review, checks, stacks and merges, without a clone.
+      Most people who'd use one could use both.
+    </p>
+    <p class="checked">GitHub Desktop details checked on 18 October 2026, from GitHub's documentation.</p>
+  </div>
+</div>
+
+<section class="page">
+  <div class="wrap prose">
+    <h2>Side by side</h2>
+    <table class="versus">
+      <thead>
+        <tr>
+          <th></th>
+          <th>GitHub Desktop</th>
+          <th>Mergiato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Made for</td>
+          <td>Commits, branches, push and pull in a local repository</td>
+          <td>Pull requests: the ones you ship and the ones you review</td>
+        </tr>
+        <tr>
+          <td>Needs a clone</td>
+          <td>Yes</td>
+          <td>No; only the optional terminal opens one</td>
+        </tr>
+        <tr>
+          <td>Pull request list</td>
+          <td>Per repository, from the Current Branch menu</td>
+          <td>Account-wide: your PRs and the reviews waiting on you, across repos</td>
+        </tr>
+        <tr>
+          <td>Comment and review</td>
+          <td>Not in the app; GitHub's docs send you to github.com</td>
+          <td>Line and range comments, replies, reactions, approve or request changes</td>
+        </tr>
+        <tr>
+          <td>Checks</td>
+          <td>Status, and re-run checks</td>
+          <td>Each job's run and time; re-run failed jobs, all, or one</td>
+        </tr>
+        <tr>
+          <td>Merge</td>
+          <td>On github.com</td>
+          <td>One button that follows the repo's rules, merge queues included</td>
+        </tr>
+        <tr>
+          <td>Stacked PRs</td>
+          <td>Not shown</td>
+          <td>Graphite, GitHub and branch-chain stacks</td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>Free and open source</td>
+          <td>Free while in beta</td>
+        </tr>
+        <tr>
+          <td>Runs on</td>
+          <td>macOS and Windows</td>
+          <td>macOS today; more platforms are coming</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Using both</h2>
+    <p>
+      Write code and commit with GitHub Desktop (or the terminal, or your editor). When the PR is up, Mergiato takes
+      over: watch its checks, re-run what failed, read the review, and merge. Reviews of other people's PRs don't need a
+      clone at all, so they never touch your working copy.
+    </p>
+
+    <h2>Questions</h2>
+    <details>
+      <summary>Can I review pull requests in GitHub Desktop?</summary>
+      <p>
+        You can list a repository's PRs, check one out and see its checks, but GitHub's documentation says you can't
+        comment on a pull request from GitHub Desktop. Reviews and merges happen on github.com, or in Mergiato.
+      </p>
+    </details>
+    <details>
+      <summary>Does Mergiato replace GitHub Desktop?</summary>
+      <p>
+        No. Mergiato doesn't make commits or manage branches in your local repository. It covers everything after the
+        push.
+      </p>
+    </details>
+
+    <div class="band">
+      <div>
+        <strong>Everything after the push, in one window.</strong>
+        <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
       </div>
-
-      <section class="page">
-        <div class="wrap prose">
-          <h2>Side by side</h2>
-          <table class="versus">
-            <thead>
-              <tr>
-                <th></th>
-                <th>GitHub Desktop</th>
-                <th>Mergiato</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Made for</td>
-                <td>Commits, branches, push and pull in a local repository</td>
-                <td>Pull requests: the ones you ship and the ones you review</td>
-              </tr>
-              <tr>
-                <td>Needs a clone</td>
-                <td>Yes</td>
-                <td>No; only the optional terminal opens one</td>
-              </tr>
-              <tr>
-                <td>Pull request list</td>
-                <td>Per repository, from the Current Branch menu</td>
-                <td>Account-wide: your PRs and the reviews waiting on you, across repos</td>
-              </tr>
-              <tr>
-                <td>Comment and review</td>
-                <td>Not in the app; GitHub's docs send you to github.com</td>
-                <td>Line and range comments, replies, reactions, approve or request changes</td>
-              </tr>
-              <tr>
-                <td>Checks</td>
-                <td>Status, and re-run checks</td>
-                <td>Each job's run and time; re-run failed jobs, all, or one</td>
-              </tr>
-              <tr>
-                <td>Merge</td>
-                <td>On github.com</td>
-                <td>One button that follows the repo's rules, merge queues included</td>
-              </tr>
-              <tr>
-                <td>Stacked PRs</td>
-                <td>Not shown</td>
-                <td>Graphite, GitHub and branch-chain stacks</td>
-              </tr>
-              <tr>
-                <td>Price</td>
-                <td>Free and open source</td>
-                <td>Free while in beta</td>
-              </tr>
-              <tr>
-                <td>Runs on</td>
-                <td>macOS and Windows</td>
-                <td>macOS today; more platforms are coming</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h2>Using both</h2>
-          <p>
-            Write code and commit with GitHub Desktop (or the terminal, or your editor). When the PR is up, Mergiato
-            takes over: watch its checks, re-run what failed, read the review, and merge. Reviews of other people's PRs
-            don't need a clone at all, so they never touch your working copy.
-          </p>
-
-          <h2>Questions</h2>
-          <details>
-            <summary>Can I review pull requests in GitHub Desktop?</summary>
-            <p>
-              You can list a repository's PRs, check one out and see its checks, but GitHub's documentation says you
-              can't comment on a pull request from GitHub Desktop. Reviews and merges happen on github.com, or in
-              Mergiato.
-            </p>
-          </details>
-          <details>
-            <summary>Does Mergiato replace GitHub Desktop?</summary>
-            <p>
-              No. Mergiato doesn't make commits or manage branches in your local repository. It covers everything after
-              the push.
-            </p>
-          </details>
-
-          <div class="band">
-            <div>
-              <strong>Everything after the push, in one window.</strong>
-              <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
-            </div>
-            <a
-              class="button"
-              data-download
-              data-place="compare-github-desktop"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
+      <a
+        class="button"
+        data-download
+        data-place="compare-github-desktop"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -334,7 +333,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>

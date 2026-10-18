@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/" />
     <meta property="og:title" content="Mergiato · Your PRs in one window, not seven tabs" />
     <meta property="og:description" content="Spend less time navigating GitHub and more time deciding what to ship. A free desktop app for GitHub pull requests that runs on your own GitHub CLI." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: your PRs in one window, not seven tabs." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mergiato · Your PRs in one window, not seven tabs" />
     <meta name="twitter:description" content="Spend less time navigating GitHub and more time deciding what to ship. A free desktop app for GitHub pull requests that runs on your own GitHub CLI." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -60,182 +60,182 @@
         if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light";
       } catch {}
     </script>
-        <!-- The FAQPage block mirrors the FAQ section word for word; change both together. -->
-    <script type="application/ld+json">
+    <!-- The FAQPage block mirrors the FAQ section word for word; change both together. -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
-        "@graph": [
+        "@type": "WebSite",
+        "@id": "https://mergiato.com/#website",
+        "url": "https://mergiato.com/",
+        "name": "Mergiato",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://mergiato.com/#app",
+        "name": "Mergiato",
+        "url": "https://mergiato.com/",
+        "description": "A desktop app for GitHub pull requests and code review: one inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and merges, in one window. It runs on the user's own GitHub CLI, with no GitHub App, no servers and no account.",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Code review",
+        "operatingSystem": "macOS (Apple silicon and Intel)",
+        "softwareRequirements": "GitHub CLI (gh), signed in",
+        "downloadUrl": "https://github.com/alex-parra/mergiato-pull-request-app/releases/latest",
+        "releaseNotes": "https://github.com/alex-parra/mergiato-pull-request-app/releases",
+        "image": "https://mergiato.com/icon.png",
+        "screenshot": "https://mergiato.com/og.png?v=4",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free during the beta"
+        },
+        "featureList": [
+          "Inbox of your pull requests and review requests, refreshed live",
+          "CI checks per job with timing and one-click re-run",
+          "Stacked pull requests: Graphite stacks, GitHub stacks and branch chains",
+          "Diffs of any size, up to 3,000 files, unified or split",
+          "Line and range comments, replies, reactions, resolve, approve or request changes",
+          "Merge through Graphite's merge queue, GitHub's merge queue or the repository's merge methods",
+          "Vercel preview deployments, deployable from the pull request",
+          "Terminal docked under each pull request, in its local clone",
+          "Keyboard shortcuts for everything",
+          "Six themes, light and dark"
+        ],
+        "author": {
+          "@id": "https://mergiato.com/#maker"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mergiato.com/#maker",
+        "name": "Alex Parra",
+        "url": "https://github.com/alex-parra"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://mergiato.com/#faq",
+        "mainEntity": [
           {
-            "@type": "WebSite",
-            "@id": "https://mergiato.com/#website",
-            "url": "https://mergiato.com/",
-            "name": "Mergiato",
-            "inLanguage": "en"
-          },
-          {
-            "@type": "SoftwareApplication",
-            "@id": "https://mergiato.com/#app",
-            "name": "Mergiato",
-            "url": "https://mergiato.com/",
-            "description": "A desktop app for GitHub pull requests and code review: one inbox, CI checks, stacked PRs, diffs of any size, review threads, Vercel previews and merges, in one window. It runs on the user's own GitHub CLI, with no GitHub App, no servers and no account.",
-            "applicationCategory": "DeveloperApplication",
-            "applicationSubCategory": "Code review",
-            "operatingSystem": "macOS (Apple silicon and Intel)",
-            "softwareRequirements": "GitHub CLI (gh), signed in",
-            "downloadUrl": "https://github.com/alex-parra/mergiato-pull-request-app/releases/latest",
-            "releaseNotes": "https://github.com/alex-parra/mergiato-pull-request-app/releases",
-            "image": "https://mergiato.com/icon.png",
-            "screenshot": "https://mergiato.com/og.png?v=3",
-            "isAccessibleForFree": true,
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD",
-              "description": "Free during the beta"
-            },
-            "featureList": [
-              "Inbox of your pull requests and review requests, refreshed live",
-              "CI checks per job with timing and one-click re-run",
-              "Stacked pull requests: Graphite stacks, GitHub stacks and branch chains",
-              "Diffs of any size, up to 3,000 files, unified or split",
-              "Line and range comments, replies, reactions, resolve, approve or request changes",
-              "Merge through Graphite's merge queue, GitHub's merge queue or the repository's merge methods",
-              "Vercel preview deployments, deployable from the pull request",
-              "Terminal docked under each pull request, in its local clone",
-              "Keyboard shortcuts for everything",
-              "Six themes, light and dark"
-            ],
-            "author": {
-              "@id": "https://mergiato.com/#maker"
+            "@type": "Question",
+            "name": "Is it free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, while in beta, with every feature. Paid plans may come later, likely a one-time license. Early users will hear first, and nothing you rely on will vanish overnight."
             }
           },
           {
-            "@type": "Person",
-            "@id": "https://mergiato.com/#maker",
-            "name": "Alex Parra",
-            "url": "https://github.com/alex-parra"
+            "@type": "Question",
+            "name": "What can Mergiato see? Does my code go anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the app, and no analytics."
+            }
           },
           {
-            "@type": "FAQPage",
-            "@id": "https://mergiato.com/#faq",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is it free?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, while in beta, with every feature. Paid plans may come later, likely a one-time license. Early users will hear first, and nothing you rely on will vanish overnight."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What can Mergiato see? Does my code go anywhere?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the app, and no analytics."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do I need to install anything in my GitHub organization?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can review it in Mergiato."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do I need a GitHub token?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Mergiato signs in through the GitHub CLI (gh auth login), so there's nothing to create, paste or rotate."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does my team need it too?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Everything you do lands on GitHub as usual, so it works for one person on a team of a hundred. Teammates who like what they see can download it themselves."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do I need a local clone of the repo?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Everything comes from GitHub through the CLI. The clone is only for the docked terminal, and Mergiato asks for it the first time you open one."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Will it burn through my GitHub rate limit?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached, avatars cost nothing, and polling pauses while the app is in the background."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does it work with Graphite?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes: it shows Graphite stacks and the merge queue, merges through the queue, and links each PR to its Graphite page. It also reads GitHub's own stacks and plain branch chains."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How is it different from GitHub Desktop?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "GitHub Desktop is a git client: commits, branches and pushes in your local repository. Mergiato is for the pull request side: your inbox, reviews, checks, stacks, comments and merges. They work fine side by side."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How is it different from Graphite?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works the same without them."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does it work with GitLab or Bitbucket?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on GitHub issues: demand decides what comes next."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does it run on Intel Macs, Windows or Linux?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Every Mac: one universal download runs on Apple silicon and Intel. More platforms are coming."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Why does macOS warn on the first open?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check it. Allow it once in System Settings → Privacy & Security. Some company-managed Macs block that entirely; signing is coming."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Something's broken, or missing. Where do I say so?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "On GitHub issues. In a beta, your bug report is the roadmap."
-                }
-              }
-            ]
+            "@type": "Question",
+            "name": "Do I need to install anything in my GitHub organization?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can review it in Mergiato."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a GitHub token?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Mergiato signs in through the GitHub CLI (gh auth login), so there's nothing to create, paste or rotate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does my team need it too?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Everything you do lands on GitHub as usual, so it works for one person on a team of a hundred. Teammates who like what they see can download it themselves."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a local clone of the repo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Everything comes from GitHub through the CLI. The clone is only for the docked terminal, and Mergiato asks for it the first time you open one."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will it burn through my GitHub rate limit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached, avatars cost nothing, and polling pauses while the app is in the background."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work with Graphite?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes: it shows Graphite stacks and the merge queue, merges through the queue, and links each PR to its Graphite page. It also reads GitHub's own stacks and plain branch chains."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is it different from GitHub Desktop?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GitHub Desktop is a git client: commits, branches and pushes in your local repository. Mergiato is for the pull request side: your inbox, reviews, checks, stacks, comments and merges. They work fine side by side."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is it different from Graphite?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Graphite is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and works the same without them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work with GitLab or Bitbucket?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on GitHub issues: demand decides what comes next."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it run on Intel Macs, Windows or Linux?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every Mac: one universal download runs on Apple silicon and Intel. More platforms are coming."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does macOS warn on the first open?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check it. Allow it once in System Settings → Privacy & Security. Some company-managed Macs block that entirely; signing is coming."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Something's broken, or missing. Where do I say so?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On GitHub issues. In a beta, your bug report is the roadmap."
+            }
           }
         ]
       }
-    </script>
+    ]
+  }
+</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -286,921 +286,715 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="hero" id="top">
-        <div class="wrap">
-          <span class="pill">Free beta · macOS · under 10 MB</span>
-          <h1>Your PRs in one window, <em>not seven tabs.</em></h1>
-          <p class="lead">
-            Review and ship GitHub pull requests without leaving your flow. Mergiato is a fast desktop app for your PR
-            inbox, code reviews, CI checks, stacked PRs and merges. It signs in through
-            <b>the GitHub CLI you already use</b>, so there's no token to paste and nothing for your org to approve.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download data-place="hero"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.2zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1.1 3.1 1.2.1 2.3-.6 3.1-1.4z"
-                />
-              </svg>
-              <span data-download-label>Download for Mac</span>
-            </a>
-            <a class="button ghost" href="#demo">Try the live demo ↓</a>
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-          <ul class="trust">
-            <li>No GitHub App to install in your org</li>
-            <li>Requests go straight from your machine to GitHub</li>
-            <li>The app: no account, no analytics</li>
-          </ul>
+    <main id="main"><div class="hero" id="top">
+  <div class="wrap">
+    <span class="pill">Free beta · macOS · under 10 MB</span>
+    <h1>Your PRs in one window, <em>not seven tabs.</em></h1>
+    <p class="lead">
+      Review and ship GitHub pull requests without leaving your flow. Mergiato is a fast desktop app for your PR inbox,
+      code reviews, CI checks, stacked PRs and merges. It signs in through
+      <b>the GitHub CLI you already use</b>, so there's no token to paste and nothing for your org to approve.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="hero"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.2zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1.1 3.1 1.2.1 2.3-.6 3.1-1.4z"
+          />
+        </svg>
+        <span data-download-label>Download for Mac</span>
+      </a>
+      <a class="button ghost" href="#demo">Try the live demo ↓</a>
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+    <ul class="trust">
+      <li>No GitHub App to install in your org</li>
+      <li>Requests go straight from your machine to GitHub</li>
+      <li>The app: no account, no analytics</li>
+    </ul>
 
-          <div id="demo">
-            <p class="demo-hint">
-              <span><b>This is clickable.</b> Pick a PR, open its checks, then merge one.</span>
-            </p>
-            <!-- A working drawing of the app: the script at the end fills it and handles the clicks. -->
-            <div class="console" data-demo>
-              <div class="deck">
-                <aside class="rail">
-                  <div class="rail-top">
-                    <span class="lights"><i></i><i></i><i></i></span><span class="beta">Beta</span>
-                    <span class="fresh">Updated just now ↻</span>
-                  </div>
-                  <div class="me">
-                    <span
-                      class="avatar"
-                      style="width: 26px; height: 26px; background: linear-gradient(135deg, #80a7e8, #8dceaa)"
-                    ></span>
-                    <span><b>you</b><br />30d · 41 merged · 96 reviewed</span>
-                  </div>
-                  <div class="search">Search PRs <kbd>⌘F</kbd></div>
-                  <div class="segment">
-                    <button type="button" data-side="mine" class="on">
-                      My PRs <span class="n" data-mine-count>4</span>
-                    </button>
-                    <button type="button" data-side="reviews">
-                      Reviews <span class="count" data-review-count>3</span>
-                    </button>
-                  </div>
-                  <div class="rail-list" data-rail></div>
-                  <div class="rail-foot">
-                    <span>⚙</span
-                    ><span class="tools"
-                      ><span data-gh-icon>●</span><span style="color: var(--claude)">✻</span><span>▭</span
-                      ><span>▲</span></span
-                    >
-                  </div>
-                </aside>
-                <div class="main">
-                  <div class="main-scroll" data-main>
-                    <noscript><p>Turn on JavaScript to try the demo.</p></noscript>
-                  </div>
-                  <div class="term-bar">
-                    <span>▭ Terminal</span><span>+</span><span class="end"><kbd>⌘J</kbd> show</span>
-                  </div>
-                </div>
-              </div>
+    <figure class="media hero-media">
+      <video data-autoplay muted loop playsinline preload="none" width="1280" height="800"
+        poster="/media/hero-poster.jpg" aria-label="Mergiato: a PR's stack and previews, its checks, a review thread, then the PR below merged through Graphite's queue">
+        <source src="/media/hero.webm" type="video/webm" />
+        <source src="/media/hero.mp4" type="video/mp4" />
+      </video>
+    </figure>
+
+    <div id="demo">
+      <p class="demo-hint">
+        <span><b>Try it yourself.</b> A clickable sketch of the app: pick a PR, open its checks, then merge one.</span>
+      </p>
+      <!-- A working drawing of the app: the script at the end fills it and handles the clicks. -->
+      <div class="console" data-demo>
+        <div class="deck">
+          <aside class="rail">
+            <div class="rail-top">
+              <span class="lights"><i></i><i></i><i></i></span><span class="beta">Beta</span>
+              <span class="fresh">Updated just now ↻</span>
+            </div>
+            <div class="me">
+              <span
+                class="avatar"
+                style="width: 26px; height: 26px; background: linear-gradient(135deg, #80a7e8, #8dceaa)"
+              ></span>
+              <span><b>you</b><br />30d · 41 merged · 96 reviewed</span>
+            </div>
+            <div class="search">Search PRs <kbd>⌘F</kbd></div>
+            <div class="segment">
+              <button type="button" data-side="mine" class="on">My PRs <span class="n" data-mine-count>4</span></button>
+              <button type="button" data-side="reviews">Reviews <span class="count" data-review-count>3</span></button>
+            </div>
+            <div class="rail-list" data-rail></div>
+            <div class="rail-foot">
+              <span>⚙</span
+              ><span class="tools"
+                ><span data-gh-icon>●</span><span style="color: var(--claude)">✻</span><span>▭</span
+                ><span>▲</span></span
+              >
+            </div>
+          </aside>
+          <div class="main">
+            <div class="main-scroll" data-main>
+              <noscript><p>Turn on JavaScript to try the demo.</p></noscript>
+            </div>
+            <div class="term-bar">
+              <span>▭ Terminal</span><span>+</span><span class="end"><kbd>⌘J</kbd> show</span>
             </div>
           </div>
-
-          <p class="works">
-            Works with <b>GitHub</b> · <b>GitHub CLI</b> · <b>GitHub Actions</b> ·
-            <b>Graphite stacks &amp; merge queue</b> · <b>Vercel previews</b> · <b>git</b>
-          </p>
         </div>
       </div>
+    </div>
 
-      <section id="problem">
-        <div class="wrap">
-          <p class="eyebrow">The problem</p>
-          <h2>Agents write the PRs. You still have to look.</h2>
-          <p class="intro">
-            Coding agents open pull requests faster than anyone can read them, and every one waits on a person to read
-            the diff, check the run and press merge. Nobody wants to be the reason a PR sits for a day. But each review
-            pulls you out of zen mode and into seven tabs: the PR, its files, the Actions logs, the preview, the stack,
-            a notification and a terminal. By tab five you forgot why you opened tab one.
-          </p>
-          <ul class="tabs-mess" aria-label="What a review takes today">
-            <li>PR conversation</li>
-            <li>Files changed</li>
-            <li>Actions logs</li>
-            <li>Preview dashboard</li>
-            <li>Stack view</li>
-            <li>Notifications</li>
-            <li>Terminal</li>
-          </ul>
-          <span class="verdict">→ Mergiato: one window for the review, then back to zen mode.</span>
+    <p class="works">
+      Works with <b>GitHub</b> · <b>GitHub CLI</b> · <b>GitHub Actions</b> · <b>Graphite stacks &amp; merge queue</b> ·
+      <b>Vercel previews</b> · <b>git</b>
+    </p>
+  </div>
+</div>
 
-          <div class="cards">
-            <div class="tile">
-              <q>Which PRs actually need me?</q>
-              <p>Your inbox splits what you're shipping from what's waiting on you, with a live count.</p>
-            </div>
-            <div class="tile">
-              <q>The diff is too big to load.</q>
-              <p>Every file, up to GitHub's 3,000. Only what's near your view is drawn, so it never stalls.</p>
-            </div>
-            <div class="tile">
-              <q>Which check failed, and can I re-run it?</q>
-              <p>Each job's latest run, its state and its time. Re-run the failed ones in one click.</p>
-            </div>
-            <div class="tile">
-              <q>Security won't approve another GitHub App.</q>
-              <p>There's nothing to approve. Mergiato uses the GitHub CLI you're already signed in to.</p>
-            </div>
-          </div>
+<section id="problem">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>Agents write the PRs. You still have to look.</h2>
+    <p class="intro">
+      Coding agents open pull requests faster than anyone can read them, and every one waits on a person to read the
+      diff, check the run and press merge. Nobody wants to be the reason a PR sits for a day. But each review pulls you
+      out of zen mode and into seven tabs: the PR, its files, the Actions logs, the preview, the stack, a notification
+      and a terminal. By tab five you forgot why you opened tab one.
+    </p>
+    <ul class="tabs-mess" aria-label="What a review takes today">
+      <li>PR conversation</li>
+      <li>Files changed</li>
+      <li>Actions logs</li>
+      <li>Preview dashboard</li>
+      <li>Stack view</li>
+      <li>Notifications</li>
+      <li>Terminal</li>
+    </ul>
+    <span class="verdict">→ Mergiato: one window for the review, then back to zen mode.</span>
+
+    <div class="cards">
+      <div class="tile">
+        <q>Which PRs actually need me?</q>
+        <p>Your inbox splits what you're shipping from what's waiting on you, with a live count.</p>
+      </div>
+      <div class="tile">
+        <q>The diff is too big to load.</q>
+        <p>Every file, up to GitHub's 3,000. Only what's near your view is drawn, so it never stalls.</p>
+      </div>
+      <div class="tile">
+        <q>Which check failed, and can I re-run it?</q>
+        <p>Each job's latest run, its state and its time. Re-run the failed ones in one click.</p>
+      </div>
+      <div class="tile">
+        <q>Security won't approve another GitHub App.</q>
+        <p>There's nothing to approve. Mergiato uses the GitHub CLI you're already signed in to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <p class="eyebrow">Side by side</p>
+    <h2>GitHub in a browser vs. GitHub in Mergiato.</h2>
+    <p class="intro">Same pull requests, same GitHub. Much less clicking around.</p>
+    <table class="versus">
+      <thead>
+        <tr>
+          <th>The job</th>
+          <th>In the browser</th>
+          <th>In Mergiato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Find what needs you</td>
+          <td>Notifications, filters, saved searches</td>
+          <td>One inbox: your PRs, and reviews waiting on you, live</td>
+        </tr>
+        <tr>
+          <td>Read the checks</td>
+          <td>The Actions tab, a few clicks per job</td>
+          <td>On the PR, timed per job; re-run in one click</td>
+        </tr>
+        <tr>
+          <td>Big diffs</td>
+          <td>Large files and diffs load in parts</td>
+          <td>Every file, smooth from the first to the 3,000th</td>
+        </tr>
+        <tr>
+          <td>Stacked PRs</td>
+          <td>A separate tool, or reading branch names</td>
+          <td>The whole stack on the PR, with ↑ ↓ to move along it</td>
+        </tr>
+        <tr>
+          <td>Merge</td>
+          <td>GitHub's button, or Graphite's site for its queue</td>
+          <td>One button that merges the way the repo does</td>
+        </tr>
+        <tr>
+          <td>Previews</td>
+          <td>The Vercel dashboard, or a bot comment</td>
+          <td>State per project; deploy the branch from the PR</td>
+        </tr>
+        <tr>
+          <td>A shell</td>
+          <td>Another app, then <code>cd</code> to the clone</td>
+          <td>Docked under the PR, already in its clone</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h2>Built for the PRs you ship and the ones you review.</h2>
+
+    <div class="feature">
+      <div class="copy">
+        <p class="eyebrow">Checks</p>
+        <h3>Know why it's red, fix it from here.</h3>
+        <p>
+          A flaky job shouldn't cost you ten clicks through Actions. See each GitHub Actions job's latest run, how long
+          it took and whether it failed, then re-run the failed jobs from the PR. It updates every 10 seconds while jobs
+          run.
+        </p>
+        <ul>
+          <li>Counts by state and total time, at a glance</li>
+          <li>Re-run failed jobs, all jobs, or one</li>
+          <li>Old runs of a re-run job left out, as on GitHub</li>
+        </ul>
+        <p class="more"><a href="/github-actions/">More on checks and re-runs →</a></p>
+      </div>
+      <figure class="media">
+        <video data-autoplay muted loop playsinline preload="none" width="838" height="476"
+          poster="/media/checks-poster.jpg" aria-label="A failed job re-run from the PR's Checks panel, turning green">
+          <source src="/media/checks.webm" type="video/webm" />
+          <source src="/media/checks.mp4" type="video/mp4" />
+        </video>
+        <figcaption>A red build: re-run the failed job from the PR, and watch it pass.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <p class="eyebrow">Stacks &amp; merge</p>
+        <h3>Stacked PRs, and a merge button that knows the rules.</h3>
+        <p>
+          See the whole stack on every PR: Graphite stacks, GitHub stacks, or plain branch chains. The Merge button
+          merges the way the repo does, and won't let you merge what you shouldn't.
+        </p>
+        <ul>
+          <li>Graphite's merge queue: one click queues the whole stack</li>
+          <li>GitHub's merge queue, or your repo's merge methods</li>
+          <li>Two clicks to merge, so no accidents</li>
+          <li>Blocked? It says why: approvals, conflicts, the PR below</li>
+        </ul>
+        <p class="more"><a href="/stacked-prs/">How Mergiato handles stacks →</a></p>
+      </div>
+      <figure class="media">
+        <video data-autoplay muted loop playsinline preload="none" width="1124" height="454"
+          poster="/media/stack-merge-poster.jpg" aria-label="Stepping up a three-PR stack, then merging two PRs through Graphite's queue">
+          <source src="/media/stack-merge.webm" type="video/webm" />
+          <source src="/media/stack-merge.mp4" type="video/mp4" />
+        </video>
+        <figcaption>The stack on every PR, and a Merge that goes through Graphite's queue.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <p class="eyebrow">Previews &amp; terminal</p>
+        <h3>Try it before you approve it.</h3>
+        <p>
+          The preview is part of the review. See every Vercel project's deployment, open it, or build the branch's
+          latest commit, from the PR. Need a shell? A terminal docks under the PR, in its own clone.
+        </p>
+        <ul>
+          <li>State and preview link per project</li>
+          <li>Deploy latest, or redeploy, from the PR</li>
+          <li>Terminals kept per PR, running while you look elsewhere</li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="dark-only stacked" src="/media/previews-dark-800.jpg"
+          srcset="/media/previews-dark-800.jpg 800w, /media/previews-dark.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="743" height="167" loading="lazy" decoding="async" alt="Vercel previews per project, with Deploy latest and Redeploy" />
+        <img class="light-only stacked" src="/media/previews-light-800.jpg"
+          srcset="/media/previews-light-800.jpg 800w, /media/previews-light.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="743" height="167" loading="lazy" decoding="async" alt="Vercel previews per project, with Deploy latest and Redeploy" />
+        <img class="dark-only stacked" src="/media/terminal-dark-800.jpg"
+          srcset="/media/terminal-dark-800.jpg 800w, /media/terminal-dark.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="800" height="276" loading="lazy" decoding="async" alt="A terminal docked under the PR, running the tests in its clone" />
+        <img class="light-only stacked" src="/media/terminal-light-800.jpg"
+          srcset="/media/terminal-light-800.jpg 800w, /media/terminal-light.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="800" height="276" loading="lazy" decoding="async" alt="A terminal docked under the PR, running the tests in its clone" />
+        <figcaption>Previews per project, and a shell already in the PR's clone.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <p class="eyebrow">Changes</p>
+        <h3>Huge PRs, smooth as small ones.</h3>
+        <p>
+          Where GitHub makes you press <b>Load diff</b> file by file and some tools stop at 50, Mergiato shows every
+          file GitHub has, up to 3,000, and draws only what's near your view: scrolling stays light, memory stays flat.
+          A 914-file PR draws its first screen in 0.2 seconds.
+        </p>
+        <ul>
+          <li>File tree or flat list, unified or split, syntax colors</li>
+          <li>Viewed marks that reset when a file changes again</li>
+          <li>Lockfiles and generated files folded away</li>
+          <li>One commit at a time, when you want it</li>
+        </ul>
+        <p class="more"><a href="/large-pull-requests/">How it shows every file →</a></p>
+      </div>
+      <figure class="media">
+        <video data-autoplay muted loop playsinline preload="none" width="1124" height="900"
+          poster="/media/large-pr-poster.jpg" aria-label="Scrolling a 914-file pull request and marking files viewed">
+          <source src="/media/large-pr.webm" type="video/webm" />
+          <source src="/media/large-pr.mp4" type="video/mp4" />
+        </video>
+        <figcaption>914 files, all there: scroll, mark Viewed, keep going.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <p class="eyebrow">Review</p>
+        <h3>The whole code review, start to finish.</h3>
+        <p>
+          Comment on a line or a range, reply, resolve, react, approve. Everything lands on GitHub as your own account,
+          and shows at once. If GitHub says no, it rolls back and tells you why.
+        </p>
+        <ul>
+          <li>Approve in one click, or with a comment, or request changes</li>
+          <li>Jump to any open thread from one list</li>
+          <li>Half-written comments kept as drafts, per line</li>
+          <li>Edit the title, description, reviewers (teams too), labels</li>
+          <li>Paste or drop images and videos into any comment</li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="dark-only" src="/media/review-thread-dark-800.jpg"
+          srcset="/media/review-thread-dark-800.jpg 800w, /media/review-thread-dark.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="765" height="450" loading="lazy" decoding="async" alt="A review thread under the line it comments on, with Resolve and replies" />
+        <img class="light-only" src="/media/review-thread-light-800.jpg"
+          srcset="/media/review-thread-light-800.jpg 800w, /media/review-thread-light.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="765" height="450" loading="lazy" decoding="async" alt="A review thread under the line it comments on, with Resolve and replies" />
+        <figcaption>Threads sit under the line they're about.</figcaption>
+      </figure>
+    </div>
+
+    <div class="feature">
+      <div class="copy">
+        <p class="eyebrow">Inbox</p>
+        <h3>Your PRs and your reviews, live.</h3>
+        <p>
+          Two lists: what you're shipping, with each PR's checks, reviews and merge state, and what's waiting on you.
+          They refresh every 30 seconds and follow each PR live, so a merged PR moves the second it lands.
+        </p>
+        <ul>
+          <li>Your open PRs with checks, reviews and merge state</li>
+          <li>Review requests with a live count</li>
+          <li>PRs you reviewed, kept handy for the follow-up</li>
+          <li>Check and review state on every row</li>
+          <li>Paste a link, <code>owner/repo#123</code> or <code>#123</code> to open any PR</li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="dark-only" src="/media/inbox-dark-800.jpg"
+          srcset="/media/inbox-dark-800.jpg 800w, /media/inbox-dark.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="340" height="616" loading="lazy" decoding="async" alt="The Reviews tab: five review requests, each with its checks and review state" />
+        <img class="light-only" src="/media/inbox-light-800.jpg"
+          srcset="/media/inbox-light-800.jpg 800w, /media/inbox-light.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="340" height="616" loading="lazy" decoding="async" alt="The Reviews tab: five review requests, each with its checks and review state" />
+        <figcaption>Your reviews, with each PR's checks, at a glance.</figcaption>
+      </figure>
+    </div>
+
+    <div class="band">
+      <div>
+        <strong>Seen enough? Take it for a spin.</strong>
+        <p>Free, under 10 MB, and you're reviewing in about a minute.</p>
+      </div>
+      <a
+        class="button"
+        data-download
+        data-place="features"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
+
+<section id="polish">
+  <div class="wrap">
+    <p class="eyebrow">Details</p>
+    <h2>Small things, done right.</h2>
+    <p class="intro">The details you only notice when another tool doesn't have them.</p>
+    <div class="small-things">
+      <div class="thing"><b>Opens where you left off</b>The last PR, the last tab. Or the first PR that needs you.</div>
+      <div class="thing"><b>Instant start</b>Your last inbox shows at once, then refreshes in the background.</div>
+      <div class="thing"><b>Never stale</b>A review or push from anywhere shows up without a ⌘R.</div>
+      <div class="thing"><b>Offline-aware</b>Lost Wi-Fi? It says so, waits, then catches up on its own.</div>
+      <div class="thing"><b>Optimistic</b>Changes show at once, and roll back if GitHub refuses them.</div>
+      <div class="thing"><b>Six themes</b>Three dark, three light, previewed live on the app with <kbd>⌥⌘T</kbd>.</div>
+      <div class="thing"><b>Your last 30 days</b>PRs merged and reviewed, under your name.</div>
+      <div class="thing"><b>One commit at a time</b>Review a PR commit by commit when it was built that way.</div>
+      <div class="thing"><b>Comment jump list</b>Every inline thread in diff order. Pick one, land on its line.</div>
+      <div class="thing"><b>Quit asks twice</b><kbd>⌘Q</kbd> warns first, so a slip doesn't kill your terminals.</div>
+      <div class="thing"><b>Updates itself</b>Signed updates, checked in the background. Restart when you like.</div>
+      <div class="thing">
+        <b>Agent review, optional</b>Start a Claude Code review docked under the PR, then make the call yourself.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <p class="eyebrow">Zero rollout</p>
+    <h2>Your team doesn't have to switch.</h2>
+    <p class="intro">
+      Mergiato is a better window onto GitHub. Your comments, reviews and merges land there exactly as if you'd made
+      them in the browser. Your teammates notice one thing: faster reviews from you.
+    </p>
+    <div class="cards" style="margin-top: 0">
+      <div class="tile">
+        <h3>Nothing to roll out</h3>
+        <p>One person downloads it and starts reviewing. The org, its admins and the rest of the team do nothing.</p>
+      </div>
+      <div class="tile">
+        <h3>Everything stays on GitHub</h3>
+        <p>Comments, approvals, labels, merges: GitHub's own, visible to everyone as usual.</p>
+      </div>
+      <div class="tile">
+        <h3>Works with your stack</h3>
+        <p>Graphite stacks and merge queue, GitHub Actions, Vercel previews. Shown, not replaced.</p>
+      </div>
+      <div class="tile">
+        <h3>Leave anytime</h3>
+        <p>Drag it to the Trash. Your comments and reviews stay on GitHub, where they always lived.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="security">
+  <div class="wrap secure">
+    <div>
+      <p class="eyebrow">Security</p>
+      <h2>Your keys never leave your machine.</h2>
+      <p class="intro">
+        Most review tools ask you to install an app in your GitHub organization, grant it access to your repositories,
+        and send your code through their servers. Mergiato doesn't.
+      </p>
+      <p class="intro">
+        It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in to,
+        <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to GitHub,
+        with your own access, as if you typed the command. Your security team has no new vendor to vet, because no one
+        new is in the loop.
+      </p>
+      <p class="quote">
+        “It's the GitHub CLI, with a cockpit.”
+        <small>The one line to forward to your security team.</small>
+      </p>
+      <p class="more"><a href="/security/">Everything Mergiato can access, in full →</a></p>
+    </div>
+    <div>
+      <div class="flow" aria-label="How a request travels">
+        <div class="hop">Mergiato <small>your machine</small></div>
+        <div class="link">runs</div>
+        <div class="hop">gh · git · vercel <small>your CLIs, your sign-in</small></div>
+        <div class="link">talk directly to</div>
+        <div class="hop">GitHub · Vercel <small>same as your terminal</small></div>
+        <div class="nope">
+          <span>No GitHub App or OAuth grant</span>
+          <span>No tokens stored by Mergiato</span>
+          <span>No Mergiato servers, no account</span>
+          <span>No analytics, no code sent anywhere else</span>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section id="compare">
-        <div class="wrap">
-          <p class="eyebrow">Side by side</p>
-          <h2>GitHub in a browser vs. GitHub in Mergiato.</h2>
-          <p class="intro">Same pull requests, same GitHub. Much less clicking around.</p>
-          <table class="versus">
-            <thead>
-              <tr>
-                <th>The job</th>
-                <th>In the browser</th>
-                <th>In Mergiato</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Find what needs you</td>
-                <td>Notifications, filters, saved searches</td>
-                <td>One inbox: your PRs, and reviews waiting on you, live</td>
-              </tr>
-              <tr>
-                <td>Read the checks</td>
-                <td>The Actions tab, a few clicks per job</td>
-                <td>On the PR, timed per job; re-run in one click</td>
-              </tr>
-              <tr>
-                <td>Big diffs</td>
-                <td>Large files and diffs load in parts</td>
-                <td>Every file, smooth from the first to the 3,000th</td>
-              </tr>
-              <tr>
-                <td>Stacked PRs</td>
-                <td>A separate tool, or reading branch names</td>
-                <td>The whole stack on the PR, with ↑ ↓ to move along it</td>
-              </tr>
-              <tr>
-                <td>Merge</td>
-                <td>GitHub's button, or Graphite's site for its queue</td>
-                <td>One button that merges the way the repo does</td>
-              </tr>
-              <tr>
-                <td>Previews</td>
-                <td>The Vercel dashboard, or a bot comment</td>
-                <td>State per project; deploy the branch from the PR</td>
-              </tr>
-              <tr>
-                <td>A shell</td>
-                <td>Another app, then <code>cd</code> to the clone</td>
-                <td>Docked under the PR, already in its clone</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+<section id="keys">
+  <div class="wrap">
+    <p class="eyebrow">Controls</p>
+    <h2>Hands on the keys.</h2>
+    <p class="intro">Everything has a shortcut, and <kbd>⌘/</kbd> lists them all.</p>
+    <div class="keys">
+      <div class="key">
+        <span>Next / previous PR</span><span><kbd>⌥↑</kbd><kbd>⌥↓</kbd></span>
+      </div>
+      <div class="key">
+        <span>My PRs / Reviews</span><span><kbd>⌘⇧1</kbd><kbd>⌘⇧2</kbd></span>
+      </div>
+      <div class="key">
+        <span>Overview, Checks, Changes, Reviews</span><span><kbd>⌘1</kbd><kbd>⌘4</kbd></span>
+      </div>
+      <div class="key">
+        <span>Previous / next tab</span><span><kbd>⌘←</kbd><kbd>⌘→</kbd></span>
+      </div>
+      <div class="key">
+        <span>Find any PR</span><span><kbd>⌘F</kbd></span>
+      </div>
+      <div class="key">
+        <span>Back / forward</span><span><kbd>⌘[</kbd><kbd>⌘]</kbd></span>
+      </div>
+      <div class="key">
+        <span>Terminal</span><span><kbd>⌘J</kbd></span>
+      </div>
+      <div class="key">
+        <span>Post or save</span><span><kbd>⌘↵</kbd></span>
+      </div>
+      <div class="key">
+        <span>Comment on a range</span><span><kbd>⇧</kbd><kbd>click</kbd></span>
+      </div>
+      <div class="key">
+        <span>Themes, live</span><span><kbd>⌥⌘T</kbd></span>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section id="features">
-        <div class="wrap">
-          <p class="eyebrow">Features</p>
-          <h2>Built for the PRs you ship and the ones you review.</h2>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Checks</p>
-              <h3>Know why it's red, fix it from here.</h3>
-              <p>
-                A flaky job shouldn't cost you ten clicks through Actions. See each GitHub Actions job's latest run, how
-                long it took and whether it failed, then re-run the failed jobs from the PR. It updates every 10 seconds
-                while jobs run.
-              </p>
-              <ul>
-                <li>Counts by state and total time, at a glance</li>
-                <li>Re-run failed jobs, all jobs, or one</li>
-                <li>Old runs of a re-run job left out, as on GitHub</li>
-              </ul>
-              <p class="more"><a href="/github-actions/">More on checks and re-runs →</a></p>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="The Checks panel: 13 jobs passed and 1 failed, with each job's time, and buttons to re-run the failed jobs or all of them."
-            >
-              <div class="illus-head">
-                <b>Checks</b>
-                <span class="chip ok">✓ 13</span><span class="chip bad">✕ 1</span>
-                <span class="end">8m 40s</span>
-              </div>
-              <div class="illus-body">
-                <div class="line fail">
-                  <span class="ic-bad"
-                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
-                  ><span class="name">e2e · checkout</span><span class="meta">4m 05s</span>
-                </div>
-                <div class="line">
-                  <span class="ic-ok"
-                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                  ><span class="name">build</span><span class="meta">1m 48s</span>
-                </div>
-                <div class="line">
-                  <span class="ic-ok"
-                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                  ><span class="name">unit tests</span><span class="meta">2m 31s</span>
-                </div>
-                <div class="line">
-                  <span class="ic-ok"
-                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                  ><span class="name">lint · types</span><span class="meta">52s</span>
-                </div>
-                <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px">
-                  <span class="mini-btn">Re-run all</span><span class="mini-btn primary">↻ Re-run failed</span>
-                </div>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Stacks &amp; merge</p>
-              <h3>Stacked PRs, and a merge button that knows the rules.</h3>
-              <p>
-                See the whole stack on every PR: Graphite stacks, GitHub stacks, or plain branch chains. The Merge
-                button merges the way the repo does, and won't let you merge what you shouldn't.
-              </p>
-              <ul>
-                <li>Graphite's merge queue: one click queues the whole stack</li>
-                <li>GitHub's merge queue, or your repo's merge methods</li>
-                <li>Two clicks to merge, so no accidents</li>
-                <li>Blocked? It says why: approvals, conflicts, the PR below</li>
-              </ul>
-              <p class="more"><a href="/stacked-prs/">How Mergiato handles stacks →</a></p>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="A stack of three PRs drawn as a rail, the current one marked, with a Merge 2 PRs button that goes through Graphite's queue."
-            >
-              <div class="illus-head">
-                <b>Stack</b> 2 of 3 <span class="chip accent">↑ ↓</span>
-                <span class="end"
-                  ><span class="merge" style="display: inline-block; font-size: 12px">Merge 2 PRs ▾</span></span
-                >
-              </div>
-              <div class="illus-body">
-                <div class="stack-list">
-                  <div class="stack-row">
-                    <i></i><span>#2493 Billing: invoice emails <span class="chip wait">Waiting review</span></span>
-                  </div>
-                  <div class="stack-row on">
-                    <i></i><span>#2490 Billing: proration on upgrades <span class="chip ok">Approved</span></span>
-                  </div>
-                  <div class="stack-row">
-                    <i></i><span>#2486 Billing: plan change API <span class="chip ok">Approved</span></span>
-                  </div>
-                  <div class="stack-row merged"><i></i><span class="branch">main</span></div>
-                </div>
-                <p class="why" style="margin: 6px 0 0">Merges through Graphite's queue, with the PR below it.</p>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Previews &amp; terminal</p>
-              <h3>Try it before you approve it.</h3>
-              <p>
-                The preview is part of the review. See every Vercel project's deployment, open it, or build the branch's
-                latest commit, from the PR. Need a shell? A terminal docks under the PR, in its own clone.
-              </p>
-              <ul>
-                <li>State and preview link per project</li>
-                <li>Deploy latest, or redeploy, from the PR</li>
-                <li>Terminals kept per PR, running while you look elsewhere</li>
-              </ul>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="The Vercel Previews panel: three projects with their state, preview address, and Deploy latest and Redeploy buttons."
-            >
-              <div class="illus-head">
-                <b>▲ Vercel Previews</b><span class="mini-btn">Deploy ▾</span>
-                <span class="end">updated 2m ago</span>
-              </div>
-              <div class="illus-body">
-                <div class="line" style="grid-template-columns: 80px 74px 1fr auto">
-                  <span class="name">web</span><span style="color: var(--ok)">● Ready</span
-                  ><span class="meta" style="overflow: hidden; text-overflow: ellipsis"
-                    >↗ web-git-payments-retry.vercel.app</span
-                  ><span class="mini-btn">Deploy latest</span>
-                </div>
-                <div class="line" style="grid-template-columns: 80px 74px 1fr auto">
-                  <span class="name">dashboard</span><span style="color: var(--wait)">◌ Building</span
-                  ><span class="meta"></span><span class="meta">—</span>
-                </div>
-                <div class="line" style="grid-template-columns: 80px 74px 1fr auto">
-                  <span class="name">docs</span><span style="color: var(--bad)">● Failed</span><span class="meta"></span
-                  ><span class="mini-btn">Redeploy</span>
-                </div>
-                <pre
-                  class="code pane"
-                  style="margin-top: 6px"
-                ><span class="c">~/code/shop (payments-retry) $ pnpm test retry</span><span style="color: var(--ok)"> ✓ 12 passed</span></pre>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Changes</p>
-              <h3>Huge PRs, smooth as small ones.</h3>
-              <p>
-                Where GitHub makes you press <b>Load diff</b> file by file and some tools stop at 50, Mergiato shows
-                every file GitHub has, up to 3,000, and draws only what's near your view: scrolling stays light, memory
-                stays flat. A 914-file PR draws its first screen in 0.2 seconds.
-              </p>
-              <ul>
-                <li>File tree or flat list, unified or split, syntax colors</li>
-                <li>Viewed marks that reset when a file changes again</li>
-                <li>Lockfiles and generated files folded away</li>
-                <li>One commit at a time, when you want it</li>
-              </ul>
-              <p class="more"><a href="/large-pull-requests/">How it shows every file →</a></p>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="The Changes tab on a PR with 914 files: 612 marked viewed, one changed again since it was viewed."
-            >
-              <div class="illus-head">
-                <b>Files</b> 914 <span class="chip plain">Only with comments · 23</span>
-                <span class="end">612 / 914 viewed</span>
-              </div>
-              <div class="illus-body">
-                <div class="bar"><i style="width: 67%"></i></div>
-                <div class="line faded">
-                  <span class="tick on">✓</span><span class="name">src/checkout/retry.ts</span
-                  ><span class="meta"><span class="plus">+42</span> −9</span>
-                </div>
-                <div class="line faded">
-                  <span class="tick on">✓</span><span class="name">src/checkout/gateway.ts</span
-                  ><span class="meta"><span class="plus">+18</span> −4</span>
-                </div>
-                <div class="line">
-                  <span class="tick"></span
-                  ><span class="name"
-                    >src/checkout/refunds.ts
-                    <span class="badge wait" style="margin-left: 6px"
-                      >changed<span class="wide-only"> since viewed</span></span
-                    ></span
-                  ><span class="meta"><span class="plus">+7</span> −2</span>
-                </div>
-                <div class="line faded">
-                  <span class="tick"></span
-                  ><span class="name">pnpm-lock.yaml <span class="chip plain">generated</span></span
-                  ><span class="meta"><span class="plus">+1,860</span></span>
-                </div>
-                <div class="line">
-                  <span class="tick"></span><span class="name">… 910 more, every one of them</span
-                  ><span class="meta">no cap</span>
-                </div>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Review</p>
-              <h3>The whole code review, start to finish.</h3>
-              <p>
-                Comment on a line or a range, reply, resolve, react, approve. Everything lands on GitHub as your own
-                account, and shows at once. If GitHub says no, it rolls back and tells you why.
-              </p>
-              <ul>
-                <li>Approve in one click, or with a comment, or request changes</li>
-                <li>Jump to any open thread from one list</li>
-                <li>Half-written comments kept as drafts, per line</li>
-                <li>Edit the title, description, reviewers (teams too), labels</li>
-                <li>Paste or drop images and videos into any comment</li>
-              </ul>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="A review thread under a changed line, with a reply box, reactions, a Resolve button, and an Approve button with its menu open."
-            >
-              <div class="illus-head">
-                <b>Changes</b> <span class="chip plain">Review comments · 4</span>
-                <span class="end"><span class="mini-btn approve">✓ Approve ▾</span></span>
-              </div>
-              <div class="menu">
-                <div class="sel">Approve<small>Submit an approval right away</small></div>
-                <div>Approve with comment…<small>Say why it's good to go</small></div>
-                <div>Request changes…<small>A comment is required</small></div>
-              </div>
-              <div class="illus-body" style="padding-top: 0">
-                <div class="diff pane" style="margin: 0">
-                  <div class="dl c">
-                    <span class="ln">41</span><span class="ln">41</span
-                    ><span class="cd">
-                      <span class="sk">const</span> attempts = merchant.retries ?? <span class="sc">3</span>;</span
-                    >
-                  </div>
-                  <div class="dl a">
-                    <span class="ln"></span><span class="ln">42</span
-                    ><span class="cd"
-                      >+ <span class="sk">if</span> (attempts &gt; <span class="sc">5</span>)
-                      <span class="sk">throw</span> <span class="sk">new</span> <span class="st">RangeError</span>(<span
-                        class="ss"
-                        >"max 5"</span
-                      >);</span
-                    >
-                  </div>
-                </div>
-                <div class="thread" style="margin: 0">
-                  <span
-                    class="avatar"
-                    style="
-                      width: 16px;
-                      height: 16px;
-                      vertical-align: -3px;
-                      background: linear-gradient(135deg, #80a7e8, #c9b3f0);
-                    "
-                  ></span>
-                  <b>mara</b> · Should 5 be a constant? Billing uses the same cap.
-                  <div class="tools">
-                    <span class="chip plain">👍 2</span><span class="chip plain">🎯 1</span>
-                    <span class="mini-btn end">Resolve</span>
-                  </div>
-                  <div class="search" style="margin-top: 8px">Reply…</div>
-                </div>
-              </div>
-            </figure>
-          </div>
-
-          <div class="feature">
-            <div class="copy">
-              <p class="eyebrow">Inbox</p>
-              <h3>Your PRs and your reviews, live.</h3>
-              <p>
-                Two lists: what you're shipping, with each PR's checks, reviews and merge state, and what's waiting on
-                you. They refresh every 30 seconds and follow each PR live, so a merged PR moves the second it lands.
-              </p>
-              <ul>
-                <li>Your open PRs with checks, reviews and merge state</li>
-                <li>Review requests with a live count</li>
-                <li>PRs you reviewed, kept handy for the follow-up</li>
-                <li>Check and review state on every row</li>
-                <li>Paste a link, <code>owner/repo#123</code> or <code>#123</code> to open any PR</li>
-              </ul>
-            </div>
-            <figure
-              class="illus"
-              role="img"
-              aria-label="The inbox's Reviews tab: three review requests, each with its number, repository, check and review icons and state, and a PR you've reviewed below."
-            >
-              <div class="illus-head">
-                <span class="segment" style="margin: 0; width: 230px"
-                  ><button type="button" tabindex="-1">My PRs <span class="n">4</span></button
-                  ><button type="button" tabindex="-1" class="on">Reviews <span class="count">3</span></button></span
-                >
-                <span class="end">Updated just now</span>
-              </div>
-              <div class="illus-body" style="gap: 0">
-                <div class="group" style="margin: 2px 0 4px">⌄ REVIEW REQUESTED<span class="n">3</span></div>
-                <div class="row on">
-                  <span class="l1"
-                    ><b>#2490</b><span class="repo">acme/shop</span
-                    ><span class="icons"
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                      ><span class="ic-muted"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 6v6l4 2" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Billing: proration on upgrades</span>
-                </div>
-                <div class="row">
-                  <span class="l1"
-                    ><b>#2488</b><span class="repo">acme/docs</span
-                    ><span class="icons"
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                      ><span class="ic-muted"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 6v6l4 2" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Docs: API rate limits</span>
-                </div>
-                <div class="row">
-                  <span class="l1"
-                    ><b>#2485</b><span class="repo">acme/shop</span
-                    ><span class="icons"
-                      ><span class="ic-bad"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
-                      ><span class="ic-muted"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 6v6l4 2" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Search: debounce the query box</span>
-                </div>
-                <div class="group" style="margin: 10px 0 4px">⌄ REVIEWED BY YOU<span class="n">5</span></div>
-                <div class="row">
-                  <span class="l1"
-                    ><b>#2471</b><span class="repo">acme/shop</span
-                    ><span class="icons"
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                      ><span class="ic-ok"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                          <circle cx="9" cy="7" r="4" />
-                          <path d="m16 11 2 2 4-4" /></svg></span
-                      ><span class="pill-sm tone-green">Open</span></span
-                    ></span
-                  ><span class="l2">Infra: bump Node to 24</span>
-                </div>
-              </div>
-            </figure>
-          </div>
-
-          <div class="band">
-            <div>
-              <strong>Seen enough? Take it for a spin.</strong>
-              <p>Free, under 10 MB, and you're reviewing in about a minute.</p>
-            </div>
-            <a
-              class="button"
-              data-download data-place="features"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section id="polish">
-        <div class="wrap">
-          <p class="eyebrow">Details</p>
-          <h2>Small things, done right.</h2>
-          <p class="intro">The details you only notice when another tool doesn't have them.</p>
-          <div class="small-things">
-            <div class="thing">
-              <b>Opens where you left off</b>The last PR, the last tab. Or the first PR that needs you.
-            </div>
-            <div class="thing">
-              <b>Instant start</b>Your last inbox shows at once, then refreshes in the background.
-            </div>
-            <div class="thing"><b>Never stale</b>A review or push from anywhere shows up without a ⌘R.</div>
-            <div class="thing"><b>Offline-aware</b>Lost Wi-Fi? It says so, waits, then catches up on its own.</div>
-            <div class="thing"><b>Optimistic</b>Changes show at once, and roll back if GitHub refuses them.</div>
-            <div class="thing">
-              <b>Six themes</b>Three dark, three light, previewed live on the app with <kbd>⌥⌘T</kbd>.
-            </div>
-            <div class="thing"><b>Your last 30 days</b>PRs merged and reviewed, under your name.</div>
-            <div class="thing"><b>One commit at a time</b>Review a PR commit by commit when it was built that way.</div>
-            <div class="thing">
-              <b>Comment jump list</b>Every inline thread in diff order. Pick one, land on its line.
-            </div>
-            <div class="thing">
-              <b>Quit asks twice</b><kbd>⌘Q</kbd> warns first, so a slip doesn't kill your terminals.
-            </div>
-            <div class="thing">
-              <b>Updates itself</b>Signed updates, checked in the background. Restart when you like.
-            </div>
-            <div class="thing">
-              <b>Agent review, optional</b>Start a Claude Code review docked under the PR, then make the call yourself.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="team">
-        <div class="wrap">
-          <p class="eyebrow">Zero rollout</p>
-          <h2>Your team doesn't have to switch.</h2>
-          <p class="intro">
-            Mergiato is a better window onto GitHub. Your comments, reviews and merges land there exactly as if you'd
-            made them in the browser. Your teammates notice one thing: faster reviews from you.
-          </p>
-          <div class="cards" style="margin-top: 0">
-            <div class="tile">
-              <h3>Nothing to roll out</h3>
-              <p>
-                One person downloads it and starts reviewing. The org, its admins and the rest of the team do nothing.
-              </p>
-            </div>
-            <div class="tile">
-              <h3>Everything stays on GitHub</h3>
-              <p>Comments, approvals, labels, merges: GitHub's own, visible to everyone as usual.</p>
-            </div>
-            <div class="tile">
-              <h3>Works with your stack</h3>
-              <p>Graphite stacks and merge queue, GitHub Actions, Vercel previews. Shown, not replaced.</p>
-            </div>
-            <div class="tile">
-              <h3>Leave anytime</h3>
-              <p>Drag it to the Trash. Your comments and reviews stay on GitHub, where they always lived.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="security">
-        <div class="wrap secure">
-          <div>
-            <p class="eyebrow">Security</p>
-            <h2>Your keys never leave your machine.</h2>
-            <p class="intro">
-              Most review tools ask you to install an app in your GitHub organization, grant it access to your
-              repositories, and send your code through their servers. Mergiato doesn't.
-            </p>
-            <p class="intro">
-              It drives the tools you already use and trust, on your computer: the <b>GitHub CLI</b> you're signed in
-              to, <b>git</b>, and the <b>Vercel CLI</b> if you use it. Every request goes straight from your machine to
-              GitHub, with your own access, as if you typed the command. Your security team has no new vendor to vet,
-              because no one new is in the loop.
-            </p>
-            <p class="quote">
-              “It's the GitHub CLI, with a cockpit.”
-              <small>The one line to forward to your security team.</small>
-            </p>
-            <p class="more"><a href="/security/">Everything Mergiato can access, in full →</a></p>
-          </div>
-          <div>
-            <div class="flow" aria-label="How a request travels">
-              <div class="hop">Mergiato <small>your machine</small></div>
-              <div class="link">runs</div>
-              <div class="hop">gh · git · vercel <small>your CLIs, your sign-in</small></div>
-              <div class="link">talk directly to</div>
-              <div class="hop">GitHub · Vercel <small>same as your terminal</small></div>
-              <div class="nope">
-                <span>No GitHub App or OAuth grant</span>
-                <span>No tokens stored by Mergiato</span>
-                <span>No Mergiato servers, no account</span>
-                <span>No analytics, no code sent anywhere else</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="keys">
-        <div class="wrap">
-          <p class="eyebrow">Controls</p>
-          <h2>Hands on the keys.</h2>
-          <p class="intro">Everything has a shortcut, and <kbd>⌘/</kbd> lists them all.</p>
-          <div class="keys">
-            <div class="key">
-              <span>Next / previous PR</span><span><kbd>⌥↑</kbd><kbd>⌥↓</kbd></span>
-            </div>
-            <div class="key">
-              <span>My PRs / Reviews</span><span><kbd>⌘⇧1</kbd><kbd>⌘⇧2</kbd></span>
-            </div>
-            <div class="key">
-              <span>Overview, Checks, Changes, Reviews</span><span><kbd>⌘1</kbd><kbd>⌘4</kbd></span>
-            </div>
-            <div class="key">
-              <span>Previous / next tab</span><span><kbd>⌘←</kbd><kbd>⌘→</kbd></span>
-            </div>
-            <div class="key">
-              <span>Find any PR</span><span><kbd>⌘F</kbd></span>
-            </div>
-            <div class="key">
-              <span>Back / forward</span><span><kbd>⌘[</kbd><kbd>⌘]</kbd></span>
-            </div>
-            <div class="key">
-              <span>Terminal</span><span><kbd>⌘J</kbd></span>
-            </div>
-            <div class="key">
-              <span>Post or save</span><span><kbd>⌘↵</kbd></span>
-            </div>
-            <div class="key">
-              <span>Comment on a range</span><span><kbd>⇧</kbd><kbd>click</kbd></span>
-            </div>
-            <div class="key">
-              <span>Themes, live</span><span><kbd>⌥⌘T</kbd></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="get">
-        <div class="wrap">
-          <p class="eyebrow">Price &amp; install</p>
-          <h2>Free while in beta. Ready in a minute.</h2>
-          <div class="get">
-            <div class="price">
-              <p class="eyebrow" style="margin-bottom: 14px">Beta</p>
-              <div class="amount">$0 <small>while in beta</small></div>
-              <ul>
-                <li>Every feature, no limits</li>
-                <li>No sign-up, no card, no account</li>
-                <li>Automatic updates</li>
-                <li>Paid plans, if they come, with fair notice</li>
-              </ul>
+<section id="get">
+  <div class="wrap">
+    <p class="eyebrow">Price &amp; install</p>
+    <h2>Free while in beta. Ready in a minute.</h2>
+    <div class="get">
+      <div class="price">
+        <p class="eyebrow" style="margin-bottom: 14px">Beta</p>
+        <div class="amount">$0 <small>while in beta</small></div>
+        <ul>
+          <li>Every feature, no limits</li>
+          <li>No sign-up, no card, no account</li>
+          <li>Automatic updates</li>
+          <li>Paid plans, if they come, with fair notice</li>
+        </ul>
+        <a
+          class="button"
+          data-download
+          data-place="pricing"
+          href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+          ><span data-download-label>Download for Mac</span></a
+        >
+        <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li>
+            <p>
+              <strong>Download</strong> the
               <a
-                class="button"
-                data-download data-place="pricing"
+                data-download
+                data-place="pricing-steps"
                 href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-                ><span data-download-label>Download for Mac</span></a
-              >
-              <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-            </div>
+                >latest <code>.dmg</code></a
+              >, open it and drag Mergiato to Applications.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Open it once.</strong> Mergiato isn't signed with an Apple Developer ID yet, so macOS asks on the
+              first open: go to System Settings → Privacy &amp; Security → <strong>Open Anyway</strong>. Updates don't
+              ask again.
+            </p>
+          </li>
+          <li>
             <div>
-              <ol class="steps">
-                <li>
-                  <p>
-                    <strong>Download</strong> the
-                    <a data-download data-place="pricing-steps" href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-                      >latest <code>.dmg</code></a
-                    >, open it and drag Mergiato to Applications.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <strong>Open it once.</strong> Mergiato isn't signed with an Apple Developer ID yet, so macOS asks
-                    on the first open: go to System Settings → Privacy &amp; Security → <strong>Open Anyway</strong>.
-                    Updates don't ask again.
-                  </p>
-                </li>
-                <li>
-                  <div>
-                    <p><strong>Sign in to GitHub's CLI</strong>, if you haven't. Already done? Skip it.</p>
-                    <span class="cmd"
-                      >brew install gh <button type="button" data-copy="brew install gh">Copy</button></span
-                    >
-                    <span class="cmd">gh auth login <button type="button" data-copy="gh auth login">Copy</button></span>
-                  </div>
-                </li>
-              </ol>
-              <p class="needs">
-                Needs a Mac (Apple silicon or Intel) and the <a href="https://cli.github.com">GitHub CLI</a>. Optional:
-                the Vercel CLI, for previews. No local clone needed.
-              </p>
-              <p class="more"><a href="/install/">The full install guide →</a></p>
+              <p><strong>Sign in to GitHub's CLI</strong>, if you haven't. Already done? Skip it.</p>
+              <span class="cmd">brew install gh <button type="button" data-copy="brew install gh">Copy</button></span>
+              <span class="cmd">gh auth login <button type="button" data-copy="gh auth login">Copy</button></span>
             </div>
-          </div>
-        </div>
-      </section>
+          </li>
+        </ol>
+        <p class="needs">
+          Needs a Mac (Apple silicon or Intel) and the <a href="https://cli.github.com">GitHub CLI</a>. Optional: the
+          Vercel CLI, for previews. No local clone needed.
+        </p>
+        <p class="more"><a href="/install/">The full install guide →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section id="faq">
-        <div class="wrap faq">
-          <p class="eyebrow">FAQ</p>
-          <h2>Questions from the tower</h2>
-          <details>
-            <summary>Is it free?</summary>
-            <p>
-              Yes, while in beta, with every feature. Paid plans may come later, likely a one-time license. Early users
-              will hear first, and nothing you rely on will vanish overnight.
-            </p>
-          </details>
-          <details>
-            <summary>What can Mergiato see? Does my code go anywhere?</summary>
-            <p>
-              Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight
-              to GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by
-              the app, and no analytics.
-            </p>
-          </details>
-          <details>
-            <summary>Do I need to install anything in my GitHub organization?</summary>
-            <p>
-              No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can
-              review it in Mergiato.
-            </p>
-          </details>
-          <details>
-            <summary>Do I need a GitHub token?</summary>
-            <p>
-              No. Mergiato signs in through the GitHub CLI (<code>gh auth login</code>), so there's nothing to create,
-              paste or rotate.
-            </p>
-          </details>
-          <details>
-            <summary>Does my team need it too?</summary>
-            <p>
-              No. Everything you do lands on GitHub as usual, so it works for one person on a team of a hundred.
-              Teammates who like what they see can download it themselves.
-            </p>
-          </details>
-          <details>
-            <summary>Do I need a local clone of the repo?</summary>
-            <p>
-              No. Everything comes from GitHub through the CLI. The clone is only for the docked terminal, and Mergiato
-              asks for it the first time you open one.
-            </p>
-          </details>
-          <details>
-            <summary>Will it burn through my GitHub rate limit?</summary>
-            <p>
-              It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached,
-              avatars cost nothing, and polling pauses while the app is in the background.
-            </p>
-          </details>
-          <details>
-            <summary>Does it work with Graphite?</summary>
-            <p>
-              Yes: it shows Graphite stacks and the merge queue, merges through the queue, and links each PR to its
-              Graphite page. It also reads GitHub's own stacks and plain branch chains.
-            </p>
-          </details>
-          <details>
-            <summary>How is it different from GitHub Desktop?</summary>
-            <p>
-              <a href="/compare/github-desktop/">GitHub Desktop</a> is a git client: commits, branches and pushes in your local repository. Mergiato is for the
-              pull request side: your inbox, reviews, checks, stacks, comments and merges. They work fine side by side.
-            </p>
-          </details>
-          <details>
-            <summary>How is it different from Graphite?</summary>
-            <p>
-              <a href="/compare/graphite/">Graphite</a> is a service with its own web app and CLI for stacked PRs. Mergiato is a desktop app with no
-              account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your team uses them, and
-              works the same without them.
-            </p>
-          </details>
-          <details>
-            <summary>Does it work with GitLab or Bitbucket?</summary>
-            <p>
-              GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on
-              <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>: demand decides
-              what comes next.
-            </p>
-          </details>
-          <details>
-            <summary>Does it run on Intel Macs, Windows or Linux?</summary>
-            <p>Every Mac: one universal download runs on Apple silicon and Intel. More platforms are coming.</p>
-          </details>
-          <details>
-            <summary>Why does macOS warn on the first open?</summary>
-            <p>
-              Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check it. Allow it once in System
-              Settings → Privacy &amp; Security. Some company-managed Macs block that entirely; signing is coming.
-            </p>
-          </details>
-          <details>
-            <summary>Something's broken, or missing. Where do I say so?</summary>
-            <p>
-              On <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>. In a beta,
-              your bug report is the roadmap.
-            </p>
-          </details>
-        </div>
-      </section>
+<section id="faq">
+  <div class="wrap faq">
+    <p class="eyebrow">FAQ</p>
+    <h2>Questions from the tower</h2>
+    <details>
+      <summary>Is it free?</summary>
+      <p>
+        Yes, while in beta, with every feature. Paid plans may come later, likely a one-time license. Early users will
+        hear first, and nothing you rely on will vanish overnight.
+      </p>
+    </details>
+    <details>
+      <summary>What can Mergiato see? Does my code go anywhere?</summary>
+      <p>
+        Exactly what your GitHub CLI can see, because that's what it uses. Requests go from your computer straight to
+        GitHub (and Vercel, if you use its CLI). There are no Mergiato servers, no account, no tokens kept by the app,
+        and no analytics.
+      </p>
+    </details>
+    <details>
+      <summary>Do I need to install anything in my GitHub organization?</summary>
+      <p>
+        No. There's no GitHub App and no OAuth grant: if you can work on a repository from your terminal, you can review
+        it in Mergiato.
+      </p>
+    </details>
+    <details>
+      <summary>Do I need a GitHub token?</summary>
+      <p>
+        No. Mergiato signs in through the GitHub CLI (<code>gh auth login</code>), so there's nothing to create, paste
+        or rotate.
+      </p>
+    </details>
+    <details>
+      <summary>Does my team need it too?</summary>
+      <p>
+        No. Everything you do lands on GitHub as usual, so it works for one person on a team of a hundred. Teammates who
+        like what they see can download it themselves.
+      </p>
+    </details>
+    <details>
+      <summary>Do I need a local clone of the repo?</summary>
+      <p>
+        No. Everything comes from GitHub through the CLI. The clone is only for the docked terminal, and Mergiato asks
+        for it the first time you open one.
+      </p>
+    </details>
+    <details>
+      <summary>Will it burn through my GitHub rate limit?</summary>
+      <p>
+        It's built to be frugal: the inbox is a few searches with small pages, requests are shared and cached, avatars
+        cost nothing, and polling pauses while the app is in the background.
+      </p>
+    </details>
+    <details>
+      <summary>Does it work with Graphite?</summary>
+      <p>
+        Yes: it shows Graphite stacks and the merge queue, merges through the queue, and links each PR to its Graphite
+        page. It also reads GitHub's own stacks and plain branch chains.
+      </p>
+    </details>
+    <details>
+      <summary>How is it different from GitHub Desktop?</summary>
+      <p>
+        <a href="/compare/github-desktop/">GitHub Desktop</a> is a git client: commits, branches and pushes in your
+        local repository. Mergiato is for the pull request side: your inbox, reviews, checks, stacks, comments and
+        merges. They work fine side by side.
+      </p>
+    </details>
+    <details>
+      <summary>How is it different from Graphite?</summary>
+      <p>
+        <a href="/compare/graphite/">Graphite</a> is a service with its own web app and CLI for stacked PRs. Mergiato is
+        a desktop app with no account that sits on top of GitHub: it shows Graphite's stacks and merge queue if your
+        team uses them, and works the same without them.
+      </p>
+    </details>
+    <details>
+      <summary>Does it work with GitLab or Bitbucket?</summary>
+      <p>
+        GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on
+        <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>: demand decides what
+        comes next.
+      </p>
+    </details>
+    <details>
+      <summary>Does it run on Intel Macs, Windows or Linux?</summary>
+      <p>Every Mac: one universal download runs on Apple silicon and Intel. More platforms are coming.</p>
+    </details>
+    <details>
+      <summary>Why does macOS warn on the first open?</summary>
+      <p>
+        Mergiato isn't signed with an Apple Developer ID yet, so macOS can't check it. Allow it once in System Settings
+        → Privacy &amp; Security. Some company-managed Macs block that entirely; signing is coming.
+      </p>
+    </details>
+    <details>
+      <summary>Something's broken, or missing. Where do I say so?</summary>
+      <p>
+        On <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub issues</a>. In a beta, your
+        bug report is the roadmap.
+      </p>
+    </details>
+  </div>
+</section>
 
-      <section id="maker">
-        <div class="wrap">
-          <div class="maker">
-            <div>
-              <p class="eyebrow">From the maker</p>
-              <p>
-                Hi, I'm Alex. Like you, I spend a good part of my day in pull requests, and I got tired of flying them
-                across seven tabs. So I built the window I wanted: everything about a PR in one place, fast, on my own
-                tools. I use it every day at work. If something's missing or broken, tell me on
-                <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub</a>; that's what shapes
-                it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<section id="maker">
+  <div class="wrap">
+    <div class="maker">
+      <div>
+        <p class="eyebrow">From the maker</p>
+        <p>
+          Hi, I'm Alex. Like you, I spend a good part of my day in pull requests, and I got tired of flying them across
+          seven tabs. So I built the window I wanted: everything about a PR in one place, fast, on my own tools. I use
+          it every day at work. If something's missing or broken, tell me on
+          <a href="https://github.com/alex-parra/mergiato-pull-request-app/issues">GitHub</a>; that's what shapes it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section class="closing">
-        <div class="wrap">
-          <img class="app-icon small" src="icon.png" width="80" height="80" alt="" loading="lazy" />
-          <p class="eyebrow">Cleared for takeoff</p>
-          <h2>Close the tabs. Open Mergiato.</h2>
-          <p class="intro">
-            Free during the beta. One download, no sign-up, and you're reviewing in about a minute. If it's not for you,
-            drag it to the Trash.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download data-place="closing"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-        </div>
-      </section></main>
+<section class="closing">
+  <div class="wrap">
+    <img class="app-icon small" src="icon.png" width="80" height="80" alt="" loading="lazy" />
+    <p class="eyebrow">Cleared for takeoff</p>
+    <h2>Close the tabs. Open Mergiato.</h2>
+    <p class="intro">
+      Free during the beta. One download, no sign-up, and you're reviewing in about a minute. If it's not for you, drag
+      it to the Trash.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="closing"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+  </div>
+</section></main>
 
     <footer>
       <div class="wrap">
@@ -1272,148 +1066,146 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     <script>
-// The demo: a few made-up PRs in the app's real layout. Merge, approve and re-run change them, like the app.
-function startDemo(root) {
-  const state = { side: "mine", open: 2481, tab: "Changes", checksOpen: false, armed: false };
-  const rail = root.querySelector("[data-rail]");
-  const main = root.querySelector("[data-main]");
+  // The demo: a few made-up PRs in the app's real layout. Merge, approve and re-run change them, like the app.
+  function startDemo(root) {
+    const state = { side: "mine", open: 2481, tab: "Changes", checksOpen: false, armed: false };
+    const rail = root.querySelector("[data-rail]");
+    const main = root.querySelector("[data-main]");
 
-  root.addEventListener("click", (event) => {
-    const target = event.target.closest("button, [data-backdrop]");
-    if (!target) return;
-    const pr = find(state.open);
-    if (target.dataset.side) {
-      state.side = target.dataset.side;
-      state.open = demoPrs.find((item) => item.side === state.side && item.group !== "merged").n;
-      state.armed = false;
-    } else if (target.dataset.pr) {
-      state.open = Number(target.dataset.pr);
-      state.armed = false;
-    } else if (target.dataset.tab) {
-      if (target.dataset.tab === "Checks") state.checksOpen = true;
-      else state.tab = target.dataset.tab;
-    } else if (target.dataset.backdrop !== undefined && event.target === target) {
-      state.checksOpen = false;
-    } else if (target.dataset.action === "merge") {
-      if (!state.armed) state.armed = true;
-      else {
+    root.addEventListener("click", (event) => {
+      const target = event.target.closest("button, [data-backdrop]");
+      if (!target) return;
+      const pr = find(state.open);
+      if (target.dataset.side) {
+        state.side = target.dataset.side;
+        state.open = demoPrs.find((item) => item.side === state.side && item.group !== "merged").n;
         state.armed = false;
-        pr.group = "merged";
+      } else if (target.dataset.pr) {
+        state.open = Number(target.dataset.pr);
+        state.armed = false;
+      } else if (target.dataset.tab) {
+        if (target.dataset.tab === "Checks") state.checksOpen = true;
+        else state.tab = target.dataset.tab;
+      } else if (target.dataset.backdrop !== undefined && event.target === target) {
+        state.checksOpen = false;
+      } else if (target.dataset.action === "merge") {
+        if (!state.armed) state.armed = true;
+        else {
+          state.armed = false;
+          pr.group = "merged";
+          pr.justMoved = true;
+          celebrate(target);
+        }
+      } else if (target.dataset.action === "approve") {
+        pr.review = "approved";
+        pr.reviewers = pr.reviewers.replace("you (requested)", "you ✓");
+        pr.group = "reviewed";
         pr.justMoved = true;
         celebrate(target);
+      } else if (target.dataset.action === "rerun") {
+        for (const check of pr.checks) if (check[1] === "bad") check[1] = "run";
+        setTimeout(() => {
+          for (const check of pr.checks) if (check[1] === "run") check[1] = "ok";
+          render();
+        }, 2400);
+      } else if (target.dataset.viewed) {
+        const file = pr.files[Number(target.dataset.viewed)];
+        file.viewed = !file.viewed;
+      } else if (target.dataset.action === "resolve") {
+        pr.resolved = !pr.resolved;
       }
-    } else if (target.dataset.action === "approve") {
-      pr.review = "approved";
-      pr.reviewers = pr.reviewers.replace("you (requested)", "you ✓");
-      pr.group = "reviewed";
-      pr.justMoved = true;
-      celebrate(target);
-    } else if (target.dataset.action === "rerun") {
-      for (const check of pr.checks) if (check[1] === "bad") check[1] = "run";
-      setTimeout(() => {
-        for (const check of pr.checks) if (check[1] === "run") check[1] = "ok";
-        render();
-      }, 2400);
-    } else if (target.dataset.viewed) {
-      const file = pr.files[Number(target.dataset.viewed)];
-      file.viewed = !file.viewed;
-    } else if (target.dataset.action === "resolve") {
-      pr.resolved = !pr.resolved;
-    }
-    render();
-  });
-
-  // ⌥↑ / ⌥↓ walk the list, as in the app.
-  root.addEventListener("keydown", (event) => {
-    if (!event.altKey || !["ArrowUp", "ArrowDown"].includes(event.key)) return;
-    event.preventDefault();
-    const list = visible();
-    const at = list.findIndex((pr) => pr.n === state.open);
-    const next = list[at + (event.key === "ArrowDown" ? 1 : -1)];
-    if (next) state.open = next.n;
-    render();
-    rail.querySelector(".row.on")?.focus();
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && state.checksOpen) {
-      state.checksOpen = false;
       render();
+    });
+
+    // ⌥↑ / ⌥↓ walk the list, as in the app.
+    root.addEventListener("keydown", (event) => {
+      if (!event.altKey || !["ArrowUp", "ArrowDown"].includes(event.key)) return;
+      event.preventDefault();
+      const list = visible();
+      const at = list.findIndex((pr) => pr.n === state.open);
+      const next = list[at + (event.key === "ArrowDown" ? 1 : -1)];
+      if (next) state.open = next.n;
+      render();
+      rail.querySelector(".row.on")?.focus();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && state.checksOpen) {
+        state.checksOpen = false;
+        render();
+      }
+    });
+
+    root.querySelector("[data-gh-icon]").innerHTML = icon.github;
+    render();
+
+    function find(n) {
+      return demoPrs.find((pr) => pr.n === n);
     }
-  });
 
-  root.querySelector("[data-gh-icon]").innerHTML = icon.github;
-  render();
+    function visible() {
+      const groups = state.side === "mine" ? ["progress", "merged"] : ["requested", "reviewed"];
+      return groups.flatMap((group) => demoPrs.filter((pr) => pr.group === group));
+    }
 
-  function find(n) {
-    return demoPrs.find((pr) => pr.n === n);
-  }
+    function render() {
+      const groups =
+        state.side === "mine"
+          ? [
+              ["progress", "IN PROGRESS"],
+              ["merged", "MERGED"],
+            ]
+          : [
+              ["requested", "REVIEW REQUESTED"],
+              ["reviewed", "REVIEWED BY YOU"],
+            ];
+      for (const button of root.querySelectorAll("[data-side]"))
+        button.classList.toggle("on", button.dataset.side === state.side);
+      root.querySelector("[data-review-count]").textContent = demoPrs.filter((pr) => pr.group === "requested").length;
+      root.querySelector("[data-mine-count]").textContent = demoPrs.filter((pr) => pr.group === "progress").length;
+      rail.innerHTML = groups
+        .map(([group, title]) => {
+          const items = demoPrs.filter((pr) => pr.group === group);
+          const rows = items
+            .map(
+              (pr) =>
+                `<button type="button" class="row${pr.n === state.open ? " on" : ""}${pr.justMoved ? " moved" : ""}" data-pr="${pr.n}"><span class="l1"><b>#${pr.n}</b><span class="repo">${repoOf(pr)}</span><span class="icons">${checkIcon(pr)}${reviewIcon(pr)}${statePill(pr, "sm")}</span></span><span class="l2">${pr.title}</span></button>`,
+            )
+            .join("");
+          return `<div class="group">⌄ ${title}<span class="n">${items.length}</span></div>${rows}`;
+        })
+        .join("");
+      for (const pr of demoPrs) pr.justMoved = false;
+      main.innerHTML = renderPr(find(state.open));
+    }
 
-  function visible() {
-    const groups = state.side === "mine" ? ["progress", "merged"] : ["requested", "reviewed"];
-    return groups.flatMap((group) => demoPrs.filter((pr) => pr.group === group));
-  }
-
-  function render() {
-    const groups =
-      state.side === "mine"
-        ? [
-            ["progress", "IN PROGRESS"],
-            ["merged", "MERGED"],
-          ]
-        : [
-            ["requested", "REVIEW REQUESTED"],
-            ["reviewed", "REVIEWED BY YOU"],
-          ];
-    for (const button of root.querySelectorAll("[data-side]"))
-      button.classList.toggle("on", button.dataset.side === state.side);
-    root.querySelector("[data-review-count]").textContent = demoPrs.filter(
-      (pr) => pr.group === "requested",
-    ).length;
-    root.querySelector("[data-mine-count]").textContent = demoPrs.filter((pr) => pr.group === "progress").length;
-    rail.innerHTML = groups
-      .map(([group, title]) => {
-        const items = demoPrs.filter((pr) => pr.group === group);
-        const rows = items
-          .map(
-            (pr) =>
-              `<button type="button" class="row${pr.n === state.open ? " on" : ""}${pr.justMoved ? " moved" : ""}" data-pr="${pr.n}"><span class="l1"><b>#${pr.n}</b><span class="repo">${repoOf(pr)}</span><span class="icons">${checkIcon(pr)}${reviewIcon(pr)}${statePill(pr, "sm")}</span></span><span class="l2">${pr.title}</span></button>`,
-          )
-          .join("");
-        return `<div class="group">⌄ ${title}<span class="n">${items.length}</span></div>${rows}`;
-      })
-      .join("");
-    for (const pr of demoPrs) pr.justMoved = false;
-    main.innerHTML = renderPr(find(state.open));
-  }
-
-  function renderPr(pr) {
-    const checks = summary(pr.checks);
-    const added = pr.files.reduce((sum, file) => sum + file[1], 0);
-    const removed = pr.files.reduce((sum, file) => sum + file[2], 0);
-    const [head, rest] = pr.branch.split(" → ");
-    const [base] = rest.split(" · ");
-    const checkLabel = { ok: "ic-ok", wait: "ic-wait", bad: "ic-bad" }[checks.cls];
-    const tabs = [
-      ["Overview", "Overview"],
-      ["Checks", `Checks <span class="${checkLabel}">${checks.short}</span>`],
-      [
-        "Changes",
-        `Changes <span class="k">${pr.files.length}</span> <span class="plus">+${added}</span> <span class="minus">−${removed}</span>`,
-      ],
-      ["Reviews", `Reviews <span class="k">${pr.resolved ? 0 : 1}</span>`],
-    ]
-      .map(
-        ([tab, label]) =>
-          `<button type="button" data-tab="${tab}" class="${tab === state.tab ? "on" : ""}">${label}</button>`,
-      )
-      .join("");
-    const claude = `<span class="tab-like claude-btn">Review with <i>✻</i> ▾</span>`;
-    const tabEnd = pr.stack
-      ? `<span class="tab-like end">${icon.layers} Stack ${pr.stack.at}/${pr.stack.rows.length - 1} ⌄ ⌃</span>`
-      : "";
-    return `
+    function renderPr(pr) {
+      const checks = summary(pr.checks);
+      const added = pr.files.reduce((sum, file) => sum + file[1], 0);
+      const removed = pr.files.reduce((sum, file) => sum + file[2], 0);
+      const [head, rest] = pr.branch.split(" → ");
+      const [base] = rest.split(" · ");
+      const checkLabel = { ok: "ic-ok", wait: "ic-wait", bad: "ic-bad" }[checks.cls];
+      const tabs = [
+        ["Overview", "Overview"],
+        ["Checks", `Checks <span class="${checkLabel}">${checks.short}</span>`],
+        [
+          "Changes",
+          `Changes <span class="k">${pr.files.length}</span> <span class="plus">+${added}</span> <span class="minus">−${removed}</span>`,
+        ],
+        ["Reviews", `Reviews <span class="k">${pr.resolved ? 0 : 1}</span>`],
+      ]
+        .map(
+          ([tab, label]) =>
+            `<button type="button" data-tab="${tab}" class="${tab === state.tab ? "on" : ""}">${label}</button>`,
+        )
+        .join("");
+      const claude = `<span class="tab-like claude-btn">Review with <i>✻</i> ▾</span>`;
+      const tabEnd = pr.stack
+        ? `<span class="tab-like end">${icon.layers} Stack ${pr.stack.at}/${pr.stack.rows.length - 1} ⌄ ⌃</span>`
+        : "";
+      return `
       <div class="crumbs">${repoOf(pr)} · <b>${pr.author}</b></div>
       <div class="branches"><span class="br">${head}</span>→<span class="br">${base}</span><span class="side"><span>${icon.tag} ${labelOf(pr)}</span><span>${icon.user} ${pr.author}</span></span></div>
       <div class="head">
@@ -1425,432 +1217,431 @@ function startDemo(root) {
       <div class="tabs">${tabs}${claude}${tabEnd}${approveButton(pr)}</div>
       <div class="view">${view(pr)}</div>
       <div class="floating" data-backdrop ${state.checksOpen ? "" : "hidden"}>${checksPanel(pr, checks)}</div>`;
-  }
-
-  function view(pr) {
-    if (state.tab === "Overview") {
-      const stack = pr.stack
-        ? `<div class="card"><div class="who"><b>Stack</b></div><div class="stack-list" style="margin-top:8px">${pr.stack.rows
-            .map(
-              (row, i) =>
-                `<div class="stack-row${row.startsWith("#" + pr.n) ? " on" : ""}${i === pr.stack.rows.length - 1 ? " merged" : ""}"><i></i><span>${row}</span></div>`,
-            )
-            .join("")}</div></div>`
-        : `<div class="card"><div class="who"><b>Reviewers</b></div><p>${pr.reviewers}</p></div>`;
-      return `<div class="overview"><div><div class="card"><div class="who">${avatar(pr.author)}<b>${pr.author}</b> opened this · 2d ago</div><p>${pr.desc}</p></div><div class="card disc"><div class="who">${avatar(pr.thread[0])}<b>${pr.thread[0]}</b> commented · 1h ago</div><p>${pr.thread[1]}</p></div></div><div>${stack}</div></div>`;
     }
-    if (state.tab === "Reviews") {
-      return `<div class="card"><div class="who"><b>Reviewers:</b> ${pr.reviewers}</div></div><div style="margin-top:10px">${thread(pr)}</div>`;
+
+    function view(pr) {
+      if (state.tab === "Overview") {
+        const stack = pr.stack
+          ? `<div class="card"><div class="who"><b>Stack</b></div><div class="stack-list" style="margin-top:8px">${pr.stack.rows
+              .map(
+                (row, i) =>
+                  `<div class="stack-row${row.startsWith("#" + pr.n) ? " on" : ""}${i === pr.stack.rows.length - 1 ? " merged" : ""}"><i></i><span>${row}</span></div>`,
+              )
+              .join("")}</div></div>`
+          : `<div class="card"><div class="who"><b>Reviewers</b></div><p>${pr.reviewers}</p></div>`;
+        return `<div class="overview"><div><div class="card"><div class="who">${avatar(pr.author)}<b>${pr.author}</b> opened this · 2d ago</div><p>${pr.desc}</p></div><div class="card disc"><div class="who">${avatar(pr.thread[0])}<b>${pr.thread[0]}</b> commented · 1h ago</div><p>${pr.thread[1]}</p></div></div><div>${stack}</div></div>`;
+      }
+      if (state.tab === "Reviews") {
+        return `<div class="card"><div class="who"><b>Reviewers:</b> ${pr.reviewers}</div></div><div style="margin-top:10px">${thread(pr)}</div>`;
+      }
+      const viewed = pr.files.filter((file) => file.viewed).length;
+      const bar = `<div class="ch-bar"><span>${icon.commit} Commits <span class="k">${pr.branch.split(" · ")[1]?.split(" ")[0] ?? 1}</span></span><span>${icon.file} Files <span class="k">${pr.files.length}</span></span><span class="find">Search files…</span><span class="comments">${icon.comment} Review comments ${pr.resolved ? 0 : 1}</span><span class="end">${viewed} / ${pr.files.length} viewed</span></div>`;
+      const files = pr.files
+        .map((file, i) => {
+          const open = i === 0 && !file.viewed;
+          const kind = file[2] === 0 ? '<span class="badge ok">added</span>' : '<span class="badge">modified</span>';
+          const ext = file[0].split(".").pop().toUpperCase().slice(0, 3);
+          return `<div class="fblock"><div class="fhead"><span class="chev">${open ? "⌄" : "›"}</span><span class="lang">${ext}</span><span class="path">${file[0]}</span>${kind}<span class="plus">+${file[1]}</span><span class="minus">−${file[2]}</span><button type="button" class="viewed" data-viewed="${i}"><i class="${file.viewed ? "on" : ""}">${file.viewed ? "✓" : ""}</i>Viewed</button></div>${open ? diff(pr) : ""}</div>`;
+        })
+        .join("");
+      return bar + files;
     }
-    const viewed = pr.files.filter((file) => file.viewed).length;
-    const bar = `<div class="ch-bar"><span>${icon.commit} Commits <span class="k">${pr.branch.split(" · ")[1]?.split(" ")[0] ?? 1}</span></span><span>${icon.file} Files <span class="k">${pr.files.length}</span></span><span class="find">Search files…</span><span class="comments">${icon.comment} Review comments ${pr.resolved ? 0 : 1}</span><span class="end">${viewed} / ${pr.files.length} viewed</span></div>`;
-    const files = pr.files
-      .map((file, i) => {
-        const open = i === 0 && !file.viewed;
-        const kind =
-          file[2] === 0 ? '<span class="badge ok">added</span>' : '<span class="badge">modified</span>';
-        const ext = file[0].split(".").pop().toUpperCase().slice(0, 3);
-        return `<div class="fblock"><div class="fhead"><span class="chev">${open ? "⌄" : "›"}</span><span class="lang">${ext}</span><span class="path">${file[0]}</span>${kind}<span class="plus">+${file[1]}</span><span class="minus">−${file[2]}</span><button type="button" class="viewed" data-viewed="${i}"><i class="${file.viewed ? "on" : ""}">${file.viewed ? "✓" : ""}</i>Viewed</button></div>${open ? diff(pr) : ""}</div>`;
-      })
-      .join("");
-    return bar + files;
+
+    // Numbered lines, both sides, with the app's syntax colors; the thread sits under the last change.
+    function diff(pr) {
+      let old = 12;
+      let now = 12;
+      const last = pr.diff.findLastIndex((line) => line[0] !== " ");
+      return `<div class="diff">${pr.diff
+        .map((line, i) => {
+          const kind = { "+": "a", "-": "d" }[line[0]] ?? "c";
+          const left = kind === "a" ? "" : old++;
+          const right = kind === "d" ? "" : now++;
+          const row = `<div class="dl ${kind}"><span class="ln">${left}</span><span class="ln">${right}</span><span class="cd">${line[0] === " " ? " " : line[0]}${highlight(line.slice(1))}</span></div>`;
+          return i === last && !pr.resolved ? row + thread(pr) : row;
+        })
+        .join("")}</div>`;
+    }
+
+    function thread(pr) {
+      if (pr.resolved)
+        return `<div class="d-thread"><div class="who"><span class="badge ok">resolved</span>${avatar(pr.thread[0], 14)}<b>${pr.thread[0]}</b> ${pr.thread[1].slice(0, 36)}…<button type="button" class="mini-btn" style="margin-left:auto" data-action="resolve">Unresolve</button></div></div>`;
+      return `<div class="d-thread"><div class="who">${avatar(pr.thread[0], 16)}<b>${pr.thread[0]}</b> 2h<button type="button" class="mini-btn" style="margin-left:auto" data-action="resolve">Resolve</button></div><p>${pr.thread[1]}</p><div class="reply">Reply…</div></div>`;
+    }
+
+    function highlight(code) {
+      const keywords =
+        /^(export|async|function|return|const|let|if|throw|new|await|import|from|where|uses|with|false|true)$/;
+      return code
+        .split(/("[^"]*"|`[^`]*`|\b\d+\b|[A-Za-z_$][\w$]*(?=\()|[A-Za-z_$][\w$]*)/)
+        .map((part) => {
+          const safe = part.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          if (/^["`]/.test(part)) return `<span class="ss">${safe}</span>`;
+          if (/^\d+$/.test(part)) return `<span class="sc">${safe}</span>`;
+          if (keywords.test(part)) return `<span class="sk">${safe}</span>`;
+          if (/^[A-Za-z_$]/.test(part) && code.includes(part + "(")) return `<span class="st">${safe}</span>`;
+          return safe;
+        })
+        .join("");
+    }
+
+    function checksPanel(pr, checks) {
+      const count = (status) => pr.checks.filter((check) => check[1] === status).length;
+      const seconds = pr.checks.reduce((sum, [, , time]) => {
+        const [, m = 0, s = 0] = time.match(/(?:(\d+)m)?\s*(?:(\d+)s)?/) ?? [];
+        return sum + Number(m) * 60 + Number(s);
+      }, 0);
+      const total = `${Math.floor(seconds / 60)}m ${String(seconds % 60).padStart(2, "0")}s`;
+      const rows = pr.checks
+        .map(([name, status, time]) => {
+          const mark = {
+            ok: `<span class="ic-ok">${icon.check}</span>`,
+            bad: `<span class="ic-bad">${icon.x}</span>`,
+            run: `<span class="ic-wait spin">${icon.loader}</span>`,
+          }[status];
+          const tone = { ok: "ic-ok", bad: "ic-bad", run: "ic-wait" }[status];
+          return `<div class="check">${mark}<span>${name}</span><span class="time ${tone}">${status === "run" ? "running" : time}</span></div>`;
+        })
+        .join("");
+      const failed = count("bad") > 0;
+      return `<div class="float-panel"><div class="fp-head"><b>Checks</b><span class="ic-ok">✓ ${count("ok")}</span>${failed ? `<span class="ic-bad">✕ ${count("bad")}</span>` : ""}${count("run") ? `<span class="ic-wait">◌ ${count("run")}</span>` : ""}<span class="time">${total}</span><span class="end">Re-run: ${failed ? '<button type="button" class="mini-btn" data-action="rerun">Failed</button>' : ""}<span class="mini-btn">All</span></span></div><div class="checks">${rows}</div></div>`;
+    }
+
+    function action(pr) {
+      if (pr.group === "merged" || pr.side === "reviews") return "";
+      const blocked = blockedBy(pr);
+      if (blocked)
+        return `<span class="why">${blocked}</span><span class="merge-split"><button type="button" class="merge" disabled>Merge</button><span class="caret">▾</span></span>`;
+      return `<span class="merge-split"><button type="button" class="merge${state.armed ? " armed" : ""}" data-action="merge">${state.armed ? "Confirm squash merge" : "Merge"}</button><span class="caret">▾</span></span>`;
+    }
+
+    // Someone else's open PR: the tabs row ends with Approve, as in the app.
+    function approveButton(pr) {
+      if (pr.side !== "reviews" || pr.group === "merged") return "";
+      if (pr.group === "reviewed") return `<span class="why end">You approved this</span>`;
+      return `<span class="merge-split ${pr.stack ? "" : "end"}"><button type="button" class="merge" data-action="approve">✓ Approve</button><span class="caret">▾</span></span>`;
+    }
+
+    function blockedBy(pr) {
+      if (pr.draft) return "Draft: mark it ready first";
+      if (pr.review === "changes") return "Changes requested";
+      if (pr.checks.some((check) => check[1] === "bad")) return "A check failed";
+      if (pr.checks.some((check) => check[1] === "run")) return "Checks still running";
+      return "";
+    }
+
+    function statePill(pr, size) {
+      const chevron = size === "lg" && pr.side === "mine" && pr.group !== "merged" ? " ⌄" : "";
+      if (pr.group === "merged") return `<span class="pill-${size} tone-purple">Merged</span>`;
+      if (pr.draft) return `<span class="pill-${size} tone-neutral">Draft${chevron}</span>`;
+      return `<span class="pill-${size} tone-green">Open${chevron}</span>`;
+    }
+
+    function reviewPill(pr) {
+      if (pr.group === "merged" || pr.draft) return "";
+      return {
+        approved: `<span class="pill-lg tone-green">Approved</span>`,
+        changes: `<span class="pill-lg tone-red">Changes requested</span>`,
+        waiting: `<span class="pill-lg tone-amber">Waiting review</span>`,
+      }[pr.review];
+    }
+
+    function checkIcon(pr) {
+      if (pr.group === "merged") return "";
+      if (pr.checks.some((check) => check[1] === "bad")) return `<span class="ic-bad">${icon.x}</span>`;
+      if (pr.checks.some((check) => check[1] === "run")) return `<span class="ic-wait spin">${icon.loader}</span>`;
+      return `<span class="ic-ok">${icon.check}</span>`;
+    }
+
+    function reviewIcon(pr) {
+      if (pr.group === "merged" || pr.draft) return "";
+      return {
+        approved: `<span class="ic-ok">${icon.userCheck}</span>`,
+        changes: `<span class="ic-bad">${icon.userX}</span>`,
+        waiting: `<span class="ic-muted">${icon.clock}</span>`,
+      }[pr.review];
+    }
+
+    function summary(checks) {
+      const count = (status) => checks.filter((check) => check[1] === status).length;
+      if (count("bad")) return { cls: "bad", short: `✕ ${count("bad")}` };
+      if (count("run")) return { cls: "wait", short: `◌ ${count("run")}` };
+      return { cls: "ok", short: `✓ ${checks.length}` };
+    }
+
+    function repoOf(pr) {
+      return pr.files[0][0].startsWith("docs/") ? "acme/docs" : "acme/shop";
+    }
+
+    function labelOf(pr) {
+      return pr.title.split(":")[0].toLowerCase();
+    }
+
+    function firstReviewer(pr) {
+      return pr.reviewers.split(" · ")[0].replace(/ (✓|✕|\(requested\))/, "");
+    }
+
+    function avatar(name, size = 16) {
+      const colors = {
+        mara: "#80a7e8, #c9b3f0",
+        theo: "#8dceaa, #80a7e8",
+        sam: "#e8b45d, #dd9396",
+        ana: "#c9b3f0, #dd9396",
+        you: "#80a7e8, #8dceaa",
+      };
+      return `<span class="avatar" style="width:${size}px;height:${size}px;background:linear-gradient(135deg, ${colors[name] ?? "#888, #555"})"></span>`;
+    }
   }
 
-  // Numbered lines, both sides, with the app's syntax colors; the thread sits under the last change.
-  function diff(pr) {
-    let old = 12;
-    let now = 12;
-    const last = pr.diff.findLastIndex((line) => line[0] !== " ");
-    return `<div class="diff">${pr.diff
-      .map((line, i) => {
-        const kind = { "+": "a", "-": "d" }[line[0]] ?? "c";
-        const left = kind === "a" ? "" : old++;
-        const right = kind === "d" ? "" : now++;
-        const row = `<div class="dl ${kind}"><span class="ln">${left}</span><span class="ln">${right}</span><span class="cd">${line[0] === " " ? " " : line[0]}${highlight(line.slice(1))}</span></div>`;
-        return i === last && !pr.resolved ? row + thread(pr) : row;
-      })
-      .join("")}</div>`;
+  // Lucide icons, as the app draws them.
+  const icon = Object.fromEntries(
+    Object.entries({
+      check: '<path d="M20 6 9 17l-5-5"/>',
+      x: '<path d="M18 6 6 18M6 6l12 12"/>',
+      loader: '<path d="M21 12a9 9 0 1 1-6.219-8.56"/>',
+      clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+      userCheck:
+        '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/>',
+      userX:
+        '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 8 5 5M22 8l-5 5"/>',
+      user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+      users:
+        '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+      tag: '<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1"/>',
+      layers: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
+      commit: '<circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/>',
+      file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+      comment: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+      github:
+        '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
+    }).map(([name, paths]) => [name, `<svg viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`]),
+  );
+
+  function celebrate(from) {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const box = from.getBoundingClientRect();
+    const colors = ["#80a7e8", "#8dceaa", "#e8b45d", "#c9b3f0", "#dd9396"];
+    for (let i = 0; i < 28; i++) {
+      const bit = document.createElement("i");
+      bit.className = "confetti";
+      bit.style.left = `${box.left + box.width / 2}px`;
+      bit.style.top = `${box.top + box.height / 2}px`;
+      bit.style.background = colors[i % colors.length];
+      bit.style.setProperty("--x", `${(Math.random() - 0.5) * 260}px`);
+      bit.style.setProperty("--y", `${-40 - Math.random() * 160}px`);
+      bit.style.setProperty("--r", `${Math.random() * 540}deg`);
+      document.body.append(bit);
+      setTimeout(() => bit.remove(), 950);
+    }
   }
 
-  function thread(pr) {
-    if (pr.resolved)
-      return `<div class="d-thread"><div class="who"><span class="badge ok">resolved</span>${avatar(pr.thread[0], 14)}<b>${pr.thread[0]}</b> ${pr.thread[1].slice(0, 36)}…<button type="button" class="mini-btn" style="margin-left:auto" data-action="resolve">Unresolve</button></div></div>`;
-    return `<div class="d-thread"><div class="who">${avatar(pr.thread[0], 16)}<b>${pr.thread[0]}</b> 2h<button type="button" class="mini-btn" style="margin-left:auto" data-action="resolve">Resolve</button></div><p>${pr.thread[1]}</p><div class="reply">Reply…</div></div>`;
-  }
-
-  function highlight(code) {
-    const keywords =
-      /^(export|async|function|return|const|let|if|throw|new|await|import|from|where|uses|with|false|true)$/;
-    return code
-      .split(/("[^"]*"|`[^`]*`|\b\d+\b|[A-Za-z_$][\w$]*(?=\()|[A-Za-z_$][\w$]*)/)
-      .map((part) => {
-        const safe = part.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        if (/^["`]/.test(part)) return `<span class="ss">${safe}</span>`;
-        if (/^\d+$/.test(part)) return `<span class="sc">${safe}</span>`;
-        if (keywords.test(part)) return `<span class="sk">${safe}</span>`;
-        if (/^[A-Za-z_$]/.test(part) && code.includes(part + "(")) return `<span class="st">${safe}</span>`;
-        return safe;
-      })
-      .join("");
-  }
-
-  function checksPanel(pr, checks) {
-    const count = (status) => pr.checks.filter((check) => check[1] === status).length;
-    const seconds = pr.checks.reduce((sum, [, , time]) => {
-      const [, m = 0, s = 0] = time.match(/(?:(\d+)m)?\s*(?:(\d+)s)?/) ?? [];
-      return sum + Number(m) * 60 + Number(s);
-    }, 0);
-    const total = `${Math.floor(seconds / 60)}m ${String(seconds % 60).padStart(2, "0")}s`;
-    const rows = pr.checks
-      .map(([name, status, time]) => {
-        const mark = {
-          ok: `<span class="ic-ok">${icon.check}</span>`,
-          bad: `<span class="ic-bad">${icon.x}</span>`,
-          run: `<span class="ic-wait spin">${icon.loader}</span>`,
-        }[status];
-        const tone = { ok: "ic-ok", bad: "ic-bad", run: "ic-wait" }[status];
-        return `<div class="check">${mark}<span>${name}</span><span class="time ${tone}">${status === "run" ? "running" : time}</span></div>`;
-      })
-      .join("");
-    const failed = count("bad") > 0;
-    return `<div class="float-panel"><div class="fp-head"><b>Checks</b><span class="ic-ok">✓ ${count("ok")}</span>${failed ? `<span class="ic-bad">✕ ${count("bad")}</span>` : ""}${count("run") ? `<span class="ic-wait">◌ ${count("run")}</span>` : ""}<span class="time">${total}</span><span class="end">Re-run: ${failed ? '<button type="button" class="mini-btn" data-action="rerun">Failed</button>' : ""}<span class="mini-btn">All</span></span></div><div class="checks">${rows}</div></div>`;
-  }
-
-  function action(pr) {
-    if (pr.group === "merged" || pr.side === "reviews") return "";
-    const blocked = blockedBy(pr);
-    if (blocked)
-      return `<span class="why">${blocked}</span><span class="merge-split"><button type="button" class="merge" disabled>Merge</button><span class="caret">▾</span></span>`;
-    return `<span class="merge-split"><button type="button" class="merge${state.armed ? " armed" : ""}" data-action="merge">${state.armed ? "Confirm squash merge" : "Merge"}</button><span class="caret">▾</span></span>`;
-  }
-
-  // Someone else's open PR: the tabs row ends with Approve, as in the app.
-  function approveButton(pr) {
-    if (pr.side !== "reviews" || pr.group === "merged") return "";
-    if (pr.group === "reviewed") return `<span class="why end">You approved this</span>`;
-    return `<span class="merge-split ${pr.stack ? "" : "end"}"><button type="button" class="merge" data-action="approve">✓ Approve</button><span class="caret">▾</span></span>`;
-  }
-
-  function blockedBy(pr) {
-    if (pr.draft) return "Draft: mark it ready first";
-    if (pr.review === "changes") return "Changes requested";
-    if (pr.checks.some((check) => check[1] === "bad")) return "A check failed";
-    if (pr.checks.some((check) => check[1] === "run")) return "Checks still running";
-    return "";
-  }
-
-  function statePill(pr, size) {
-    const chevron = size === "lg" && pr.side === "mine" && pr.group !== "merged" ? " ⌄" : "";
-    if (pr.group === "merged") return `<span class="pill-${size} tone-purple">Merged</span>`;
-    if (pr.draft) return `<span class="pill-${size} tone-neutral">Draft${chevron}</span>`;
-    return `<span class="pill-${size} tone-green">Open${chevron}</span>`;
-  }
-
-  function reviewPill(pr) {
-    if (pr.group === "merged" || pr.draft) return "";
-    return {
-      approved: `<span class="pill-lg tone-green">Approved</span>`,
-      changes: `<span class="pill-lg tone-red">Changes requested</span>`,
-      waiting: `<span class="pill-lg tone-amber">Waiting review</span>`,
-    }[pr.review];
-  }
-
-  function checkIcon(pr) {
-    if (pr.group === "merged") return "";
-    if (pr.checks.some((check) => check[1] === "bad")) return `<span class="ic-bad">${icon.x}</span>`;
-    if (pr.checks.some((check) => check[1] === "run")) return `<span class="ic-wait spin">${icon.loader}</span>`;
-    return `<span class="ic-ok">${icon.check}</span>`;
-  }
-
-  function reviewIcon(pr) {
-    if (pr.group === "merged" || pr.draft) return "";
-    return {
-      approved: `<span class="ic-ok">${icon.userCheck}</span>`,
-      changes: `<span class="ic-bad">${icon.userX}</span>`,
-      waiting: `<span class="ic-muted">${icon.clock}</span>`,
-    }[pr.review];
-  }
-
-  function summary(checks) {
-    const count = (status) => checks.filter((check) => check[1] === status).length;
-    if (count("bad")) return { cls: "bad", short: `✕ ${count("bad")}` };
-    if (count("run")) return { cls: "wait", short: `◌ ${count("run")}` };
-    return { cls: "ok", short: `✓ ${checks.length}` };
-  }
-
-  function repoOf(pr) {
-    return pr.files[0][0].startsWith("docs/") ? "acme/docs" : "acme/shop";
-  }
-
-  function labelOf(pr) {
-    return pr.title.split(":")[0].toLowerCase();
-  }
-
-  function firstReviewer(pr) {
-    return pr.reviewers.split(" · ")[0].replace(/ (✓|✕|\(requested\))/, "");
-  }
-
-  function avatar(name, size = 16) {
-    const colors = {
-      mara: "#80a7e8, #c9b3f0",
-      theo: "#8dceaa, #80a7e8",
-      sam: "#e8b45d, #dd9396",
-      ana: "#c9b3f0, #dd9396",
-      you: "#80a7e8, #8dceaa",
-    };
-    return `<span class="avatar" style="width:${size}px;height:${size}px;background:linear-gradient(135deg, ${colors[name] ?? "#888, #555"})"></span>`;
-  }
-}
-
-// Lucide icons, as the app draws them.
-const icon = Object.fromEntries(
-  Object.entries({
-    check: '<path d="M20 6 9 17l-5-5"/>',
-    x: '<path d="M18 6 6 18M6 6l12 12"/>',
-    loader: '<path d="M21 12a9 9 0 1 1-6.219-8.56"/>',
-    clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
-    userCheck:
-      '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/>',
-    userX:
-      '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 8 5 5M22 8l-5 5"/>',
-    user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
-    users:
-      '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
-    tag: '<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1"/>',
-    layers: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
-    commit: '<circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/>',
-    file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
-    comment: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
-    github:
-      '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
-  }).map(([name, paths]) => [name, `<svg viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`]),
-);
-
-function celebrate(from) {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const box = from.getBoundingClientRect();
-  const colors = ["#80a7e8", "#8dceaa", "#e8b45d", "#c9b3f0", "#dd9396"];
-  for (let i = 0; i < 28; i++) {
-    const bit = document.createElement("i");
-    bit.className = "confetti";
-    bit.style.left = `${box.left + box.width / 2}px`;
-    bit.style.top = `${box.top + box.height / 2}px`;
-    bit.style.background = colors[i % colors.length];
-    bit.style.setProperty("--x", `${(Math.random() - 0.5) * 260}px`);
-    bit.style.setProperty("--y", `${-40 - Math.random() * 160}px`);
-    bit.style.setProperty("--r", `${Math.random() * 540}deg`);
-    document.body.append(bit);
-    setTimeout(() => bit.remove(), 950);
-  }
-}
-
-// Made-up PRs for the demo. Checks: [name, status, time]; files: [path, added, removed].
-const demoPrs = [
-  {
-    n: 2481,
-    side: "mine",
-    group: "progress",
-    author: "you",
-    title: "Checkout: retry failed payments",
-    branch: "payments-retry → main · 3 commits",
-    review: "approved",
-    reviewers: "mara ✓ · theo ✓",
-    desc: "Retries a failed charge up to 3 times, with exponential backoff. Fixes the checkouts we lose to gateway timeouts.",
-    checks: [
-      ["build", "ok", "1m 48s"],
-      ["unit tests", "ok", "2m 31s"],
-      ["e2e · checkout", "ok", "4m 05s"],
-      ["lint · types", "ok", "52s"],
-      ["preview · web", "ok", "58s"],
-    ],
-    files: [
-      ["src/checkout/retry.ts", 42, 9],
-      ["src/checkout/gateway.ts", 18, 4],
-      ["tests/checkout/retry.test.ts", 61, 0],
-    ],
-    diff: [
-      "  export async function charge(order: Order) {",
-      "-   return gateway.charge(order.total);",
-      "+   return withRetry(() => gateway.charge(order.total), {",
-      "+     attempts: 3,",
-      '+     backoff: "exponential",',
-      "+   });",
-      "  }",
-    ],
-    thread: ["mara", "Should 3 attempts be configurable per merchant?"],
-  },
-  {
-    n: 2477,
-    side: "mine",
-    group: "progress",
-    author: "you",
-    title: "Search: index archived projects",
-    branch: "search-archived → main · 5 commits",
-    review: "waiting",
-    reviewers: "sam (requested)",
-    desc: "Archived projects now show up in search, greyed out, so people stop asking where their old project went.",
-    checks: [
-      ["build", "ok", "1m 52s"],
-      ["unit tests", "run", ""],
-      ["e2e · search", "run", ""],
-      ["lint · types", "ok", "49s"],
-    ],
-    files: [
-      ["src/search/indexer.ts", 27, 6],
-      ["src/search/query.ts", 9, 2],
-    ],
-    diff: [
-      "  const where = { orgId };",
-      "- where.archived = false;",
-      "+ if (!options.includeArchived) where.archived = false;",
-      "  return db.project.findMany({ where });",
-    ],
-    thread: ["sam", "Do archived ones rank lower than live ones?"],
-  },
-  {
-    n: 2470,
-    side: "mine",
-    group: "progress",
-    author: "you",
-    title: "Auth: rotate session keys",
-    branch: "rotate-keys → main · 2 commits",
-    review: "changes",
-    reviewers: "ana ✕ · mara",
-    desc: "Rotates the session signing key daily and accepts the previous one for 24 hours, so nobody gets signed out.",
-    checks: [
-      ["build", "ok", "1m 40s"],
-      ["unit tests", "bad", "2m 12s"],
-      ["lint · types", "ok", "51s"],
-    ],
-    files: [
-      ["src/auth/keys.ts", 33, 12],
-      ["src/auth/session.ts", 14, 3],
-    ],
-    diff: [
-      "  export function verify(token: string) {",
-      "-   return jwt.verify(token, key);",
-      "+   return [current, previous].some((k) => jwt.verify(token, k));",
-      "  }",
-    ],
-    thread: ["ana", "This swallows the error for an expired token. Can we keep the reason?"],
-  },
-  {
-    n: 2466,
-    side: "mine",
-    group: "progress",
-    author: "you",
-    title: "Onboarding: new welcome flow",
-    branch: "welcome-flow → main · 1 commit",
-    review: "waiting",
-    reviewers: "none yet",
-    draft: true,
-    desc: "Work in progress: three steps instead of seven. Copy is still placeholder.",
-    checks: [["build", "ok", "1m 44s"]],
-    files: [["src/onboarding/Welcome.tsx", 88, 140]],
-    diff: ["- <StepOne /><StepTwo /><StepThree /><StepFour />", "+ <Steps items={welcome} />"],
-    thread: ["theo", "Love the cut. Can step 2 be skipped?"],
-  },
-  {
-    n: 2459,
-    side: "mine",
-    group: "merged",
-    author: "you",
-    title: "CI: cache the pnpm store",
-    branch: "ci-cache → main · 1 commit",
-    review: "approved",
-    reviewers: "ana ✓",
-    desc: "Caches the pnpm store between runs. Installs drop from 70s to 9s.",
-    checks: [["build", "ok", "1m 02s"]],
-    files: [[".github/workflows/ci.yml", 8, 1]],
-    diff: ["  - uses: pnpm/action-setup@v4", "+ - uses: actions/cache@v4", "+   with: { path: ~/.pnpm-store }"],
-    thread: ["ana", "9 seconds. I could cry."],
-  },
-  {
-    n: 2490,
-    side: "reviews",
-    group: "requested",
-    author: "theo",
-    title: "Billing: proration on upgrades",
-    branch: "proration → plan-change-api · 2 commits",
-    review: "waiting",
-    reviewers: "you (requested) · mara",
-    desc: "Charges the difference when someone upgrades mid-cycle, instead of the full new price.",
-    stack: {
-      at: 2,
-      rows: [
-        "#2493 Billing: invoice emails",
-        "#2490 Billing: proration on upgrades",
-        "#2486 Billing: plan change API",
-        "main",
+  // Made-up PRs for the demo. Checks: [name, status, time]; files: [path, added, removed].
+  const demoPrs = [
+    {
+      n: 2481,
+      side: "mine",
+      group: "progress",
+      author: "you",
+      title: "Checkout: retry failed payments",
+      branch: "payments-retry → main · 3 commits",
+      review: "approved",
+      reviewers: "mara ✓ · theo ✓",
+      desc: "Retries a failed charge up to 3 times, with exponential backoff. Fixes the checkouts we lose to gateway timeouts.",
+      checks: [
+        ["build", "ok", "1m 48s"],
+        ["unit tests", "ok", "2m 31s"],
+        ["e2e · checkout", "ok", "4m 05s"],
+        ["lint · types", "ok", "52s"],
+        ["preview · web", "ok", "58s"],
       ],
+      files: [
+        ["src/checkout/retry.ts", 42, 9],
+        ["src/checkout/gateway.ts", 18, 4],
+        ["tests/checkout/retry.test.ts", 61, 0],
+      ],
+      diff: [
+        "  export async function charge(order: Order) {",
+        "-   return gateway.charge(order.total);",
+        "+   return withRetry(() => gateway.charge(order.total), {",
+        "+     attempts: 3,",
+        '+     backoff: "exponential",',
+        "+   });",
+        "  }",
+      ],
+      thread: ["mara", "Should 3 attempts be configurable per merchant?"],
     },
-    checks: [
-      ["build", "ok", "1m 50s"],
-      ["unit tests", "ok", "2m 20s"],
-    ],
-    files: [
-      ["src/billing/proration.ts", 54, 0],
-      ["src/billing/upgrade.ts", 11, 3],
-    ],
-    diff: [
-      "+ export function prorate(from: Plan, to: Plan, daysLeft: number) {",
-      "+   const daily = (to.price - from.price) / 30;",
-      "+   return Math.max(0, Math.round(daily * daysLeft));",
-      "+ }",
-    ],
-    thread: ["mara", "30 days is wrong for February. Use the cycle's real length?"],
-  },
-  {
-    n: 2488,
-    side: "reviews",
-    group: "requested",
-    author: "mara",
-    title: "Docs: API rate limits",
-    branch: "docs-rate-limits → main · 1 commit",
-    review: "waiting",
-    reviewers: "you (requested)",
-    desc: "Documents the limits per plan and the headers that report them.",
-    checks: [["docs build", "ok", "41s"]],
-    files: [["docs/api/rate-limits.md", 72, 0]],
-    diff: ["+ ## Rate limits", "+ Every response carries `X-RateLimit-Remaining`."],
-    thread: ["sam", "Can we add a curl example?"],
-  },
-  {
-    n: 2485,
-    side: "reviews",
-    group: "requested",
-    author: "sam",
-    title: "Search: debounce the query box",
-    branch: "search-debounce → main · 1 commit",
-    review: "waiting",
-    reviewers: "you (requested) · ana",
-    desc: "Waits 250ms after typing stops before it searches. Cuts search requests by about 80%.",
-    checks: [
-      ["build", "ok", "1m 38s"],
-      ["e2e · search", "bad", "3m 11s"],
-    ],
-    files: [["src/search/SearchBox.tsx", 12, 4]],
-    diff: ["- onChange={(e) => search(e.target.value)}", "+ onChange={(e) => debounced(e.target.value)}"],
-    thread: ["ana", "The e2e test types fast. It may need a wait now."],
-  },
-  {
-    n: 2471,
-    side: "reviews",
-    group: "reviewed",
-    author: "ana",
-    title: "Infra: bump Node to 24",
-    branch: "node-24 → main · 1 commit",
-    review: "approved",
-    reviewers: "you ✓",
-    desc: "Node 24 across CI and the Dockerfile.",
-    checks: [["build", "ok", "1m 31s"]],
-    files: [["Dockerfile", 1, 1]],
-    diff: ["- FROM node:22-alpine", "+ FROM node:24-alpine"],
-    thread: ["you", "Ship it."],
-  },
-];
+    {
+      n: 2477,
+      side: "mine",
+      group: "progress",
+      author: "you",
+      title: "Search: index archived projects",
+      branch: "search-archived → main · 5 commits",
+      review: "waiting",
+      reviewers: "sam (requested)",
+      desc: "Archived projects now show up in search, greyed out, so people stop asking where their old project went.",
+      checks: [
+        ["build", "ok", "1m 52s"],
+        ["unit tests", "run", ""],
+        ["e2e · search", "run", ""],
+        ["lint · types", "ok", "49s"],
+      ],
+      files: [
+        ["src/search/indexer.ts", 27, 6],
+        ["src/search/query.ts", 9, 2],
+      ],
+      diff: [
+        "  const where = { orgId };",
+        "- where.archived = false;",
+        "+ if (!options.includeArchived) where.archived = false;",
+        "  return db.project.findMany({ where });",
+      ],
+      thread: ["sam", "Do archived ones rank lower than live ones?"],
+    },
+    {
+      n: 2470,
+      side: "mine",
+      group: "progress",
+      author: "you",
+      title: "Auth: rotate session keys",
+      branch: "rotate-keys → main · 2 commits",
+      review: "changes",
+      reviewers: "ana ✕ · mara",
+      desc: "Rotates the session signing key daily and accepts the previous one for 24 hours, so nobody gets signed out.",
+      checks: [
+        ["build", "ok", "1m 40s"],
+        ["unit tests", "bad", "2m 12s"],
+        ["lint · types", "ok", "51s"],
+      ],
+      files: [
+        ["src/auth/keys.ts", 33, 12],
+        ["src/auth/session.ts", 14, 3],
+      ],
+      diff: [
+        "  export function verify(token: string) {",
+        "-   return jwt.verify(token, key);",
+        "+   return [current, previous].some((k) => jwt.verify(token, k));",
+        "  }",
+      ],
+      thread: ["ana", "This swallows the error for an expired token. Can we keep the reason?"],
+    },
+    {
+      n: 2466,
+      side: "mine",
+      group: "progress",
+      author: "you",
+      title: "Onboarding: new welcome flow",
+      branch: "welcome-flow → main · 1 commit",
+      review: "waiting",
+      reviewers: "none yet",
+      draft: true,
+      desc: "Work in progress: three steps instead of seven. Copy is still placeholder.",
+      checks: [["build", "ok", "1m 44s"]],
+      files: [["src/onboarding/Welcome.tsx", 88, 140]],
+      diff: ["- <StepOne /><StepTwo /><StepThree /><StepFour />", "+ <Steps items={welcome} />"],
+      thread: ["theo", "Love the cut. Can step 2 be skipped?"],
+    },
+    {
+      n: 2459,
+      side: "mine",
+      group: "merged",
+      author: "you",
+      title: "CI: cache the pnpm store",
+      branch: "ci-cache → main · 1 commit",
+      review: "approved",
+      reviewers: "ana ✓",
+      desc: "Caches the pnpm store between runs. Installs drop from 70s to 9s.",
+      checks: [["build", "ok", "1m 02s"]],
+      files: [[".github/workflows/ci.yml", 8, 1]],
+      diff: ["  - uses: pnpm/action-setup@v4", "+ - uses: actions/cache@v4", "+   with: { path: ~/.pnpm-store }"],
+      thread: ["ana", "9 seconds. I could cry."],
+    },
+    {
+      n: 2490,
+      side: "reviews",
+      group: "requested",
+      author: "theo",
+      title: "Billing: proration on upgrades",
+      branch: "proration → plan-change-api · 2 commits",
+      review: "waiting",
+      reviewers: "you (requested) · mara",
+      desc: "Charges the difference when someone upgrades mid-cycle, instead of the full new price.",
+      stack: {
+        at: 2,
+        rows: [
+          "#2493 Billing: invoice emails",
+          "#2490 Billing: proration on upgrades",
+          "#2486 Billing: plan change API",
+          "main",
+        ],
+      },
+      checks: [
+        ["build", "ok", "1m 50s"],
+        ["unit tests", "ok", "2m 20s"],
+      ],
+      files: [
+        ["src/billing/proration.ts", 54, 0],
+        ["src/billing/upgrade.ts", 11, 3],
+      ],
+      diff: [
+        "+ export function prorate(from: Plan, to: Plan, daysLeft: number) {",
+        "+   const daily = (to.price - from.price) / 30;",
+        "+   return Math.max(0, Math.round(daily * daysLeft));",
+        "+ }",
+      ],
+      thread: ["mara", "30 days is wrong for February. Use the cycle's real length?"],
+    },
+    {
+      n: 2488,
+      side: "reviews",
+      group: "requested",
+      author: "mara",
+      title: "Docs: API rate limits",
+      branch: "docs-rate-limits → main · 1 commit",
+      review: "waiting",
+      reviewers: "you (requested)",
+      desc: "Documents the limits per plan and the headers that report them.",
+      checks: [["docs build", "ok", "41s"]],
+      files: [["docs/api/rate-limits.md", 72, 0]],
+      diff: ["+ ## Rate limits", "+ Every response carries `X-RateLimit-Remaining`."],
+      thread: ["sam", "Can we add a curl example?"],
+    },
+    {
+      n: 2485,
+      side: "reviews",
+      group: "requested",
+      author: "sam",
+      title: "Search: debounce the query box",
+      branch: "search-debounce → main · 1 commit",
+      review: "waiting",
+      reviewers: "you (requested) · ana",
+      desc: "Waits 250ms after typing stops before it searches. Cuts search requests by about 80%.",
+      checks: [
+        ["build", "ok", "1m 38s"],
+        ["e2e · search", "bad", "3m 11s"],
+      ],
+      files: [["src/search/SearchBox.tsx", 12, 4]],
+      diff: ["- onChange={(e) => search(e.target.value)}", "+ onChange={(e) => debounced(e.target.value)}"],
+      thread: ["ana", "The e2e test types fast. It may need a wait now."],
+    },
+    {
+      n: 2471,
+      side: "reviews",
+      group: "reviewed",
+      author: "ana",
+      title: "Infra: bump Node to 24",
+      branch: "node-24 → main · 1 commit",
+      review: "approved",
+      reviewers: "you ✓",
+      desc: "Node 24 across CI and the Dockerfile.",
+      checks: [["build", "ok", "1m 31s"]],
+      files: [["Dockerfile", 1, 1]],
+      diff: ["- FROM node:22-alpine", "+ FROM node:24-alpine"],
+      thread: ["you", "Ship it."],
+    },
+  ];
 
-startDemo(document.querySelector("[data-demo]"));
+  startDemo(document.querySelector("[data-demo]"));
 </script>
 
   </body>

@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/github-actions/" />
     <meta property="og:title" content="Know why it's red, and fix it from the PR" />
     <meta property="og:description" content="See every GitHub Actions job on the pull request with its time and state, and re-run the failed jobs, all of them, or just one, without opening the Actions tab." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: Re-run failed GitHub Actions jobs from the PR" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Know why it's red, and fix it from the PR" />
     <meta name="twitter:description" content="See every GitHub Actions job on the pull request with its time and state, and re-run the failed jobs, all of them, or just one, without opening the Actions tab." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -148,157 +148,125 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / GitHub Actions checks</nav>
-          <p class="eyebrow">GitHub Actions checks</p>
-          <h1>Know why it's red, and re-run it from the PR.</h1>
-          <p class="lead">
-            A flaky job shouldn't cost you ten clicks through the Actions tab. Mergiato shows every check on the pull
-            request, how long each job took and which one failed, and re-runs the failed jobs in one click.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download
-              data-place="actions-hero"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-        </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / GitHub Actions checks</nav>
+    <p class="eyebrow">GitHub Actions checks</p>
+    <h1>Know why it's red, and re-run it from the PR.</h1>
+    <p class="lead">
+      A flaky job shouldn't cost you ten clicks through the Actions tab. Mergiato shows every check on the pull request,
+      how long each job took and which one failed, and re-runs the failed jobs in one click.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="actions-hero"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+  </div>
+</div>
+
+<section class="page">
+  <div class="wrap prose">
+    <figure class="media">
+      <video data-autoplay muted loop playsinline preload="none" width="838" height="476"
+        poster="/media/checks-poster.jpg" aria-label="A failed job re-run from the PR's Checks panel, turning green">
+        <source src="/media/checks.webm" type="video/webm" />
+        <source src="/media/checks.mp4" type="video/mp4" />
+      </video>
+      <figcaption>A failed job, re-run from the PR. The wait for it is cut.</figcaption>
+    </figure>
+
+    <h2>Everything about a PR's checks, in one panel</h2>
+    <ul>
+      <li>
+        <b>Grouped by workflow</b>, with nested job names like <code>Web / test</code> kept on one line. Each group
+        shows its worst outcome.
+      </li>
+      <li><b>Each job's time</b>, colored by state and ticking while it runs. A workflow shows its total too.</li>
+      <li>
+        <b>Real totals.</b> The panel's total counts only the time some job was running: jobs that overlap count once,
+        and waiting in the queue isn't counted.
+      </li>
+      <li>
+        <b>Live while jobs run.</b> It refreshes every 10 seconds while any check is running, and every 30 seconds
+        otherwise.
+      </li>
+    </ul>
+
+    <h2>Re-run what failed, and only that</h2>
+    <table class="versus facts">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>You can</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The panel's top row</td>
+          <td>Re-run the failed jobs, or all jobs, across the PR's workflow runs</td>
+        </tr>
+        <tr>
+          <td>A workflow</td>
+          <td>Re-run its failed jobs or all of them, or open the run on GitHub</td>
+        </tr>
+        <tr>
+          <td>A single job</td>
+          <td>Re-run just that job, or open it on GitHub</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>A run that still has jobs in progress is skipped, because GitHub refuses to re-run it until it finishes.</p>
+
+    <h2>Only the run that counts</h2>
+    <p>
+      A workflow can run several times on one commit: two PR events at once, or a re-run. Like GitHub, Mergiato counts
+      only each job's newest run, so an old failure doesn't hang around after its re-run passes. The same rule applies
+      to the check icon on every PR in your sidebar.
+    </p>
+    <p>
+      Cancelled runs are left out, and so is Graphite's <code>mergeability_check</code>, which stays "in progress" on
+      stacked and draft PRs and would otherwise keep every stack yellow.
+    </p>
+
+    <h2>Questions</h2>
+    <details>
+      <summary>Does it work with checks other than GitHub Actions?</summary>
+      <p>
+        It shows every check GitHub reports for the PR's latest commit, from any app. Re-running uses GitHub Actions, so
+        it applies to Actions jobs.
+      </p>
+    </details>
+    <details>
+      <summary>Will polling checks use up my rate limit?</summary>
+      <p>
+        Checks poll only for the PR you have open, every 10 seconds while jobs run and every 30 otherwise. Your inbox
+        gets each PR's check state from the searches it already makes, at no extra cost.
+      </p>
+    </details>
+
+    <p>Once it's green: <a href="/stacked-prs/">merging stacks and queues the way your repo does</a>.</p>
+
+    <div class="band">
+      <div>
+        <strong>Fix the red build without leaving the PR.</strong>
+        <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
       </div>
-
-      <section class="page">
-        <div class="wrap prose">
-          <figure
-            class="illus"
-            role="img"
-            aria-label="The Checks panel: 13 jobs passed and 1 failed, with each job's time, and buttons to re-run the failed jobs or all of them."
-          >
-            <div class="illus-head">
-              <b>Checks</b>
-              <span class="chip ok">✓ 13</span><span class="chip bad">✕ 1</span>
-              <span class="end">8m 40s</span>
-            </div>
-            <div class="illus-body">
-              <div class="line fail">
-                <span class="ic-bad"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg></span
-                ><span class="name">e2e · checkout</span><span class="meta">4m 05s</span>
-              </div>
-              <div class="line">
-                <span class="ic-ok"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                ><span class="name">build</span><span class="meta">1m 48s</span>
-              </div>
-              <div class="line">
-                <span class="ic-ok"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                ><span class="name">unit tests</span><span class="meta">2m 31s</span>
-              </div>
-              <div class="line">
-                <span class="ic-ok"
-                  ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span
-                ><span class="name">lint · types</span><span class="meta">52s</span>
-              </div>
-              <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px">
-                <span class="mini-btn">Re-run all</span><span class="mini-btn primary">↻ Re-run failed</span>
-              </div>
-            </div>
-          </figure>
-
-          <h2>Everything about a PR's checks, in one panel</h2>
-          <ul>
-            <li>
-              <b>Grouped by workflow</b>, with nested job names like <code>Web / test</code> kept on one line. Each
-              group shows its worst outcome.
-            </li>
-            <li>
-              <b>Each job's time</b>, colored by state and ticking while it runs. A workflow shows its total too.
-            </li>
-            <li>
-              <b>Real totals.</b> The panel's total counts only the time some job was running: jobs that overlap count
-              once, and waiting in the queue isn't counted.
-            </li>
-            <li>
-              <b>Live while jobs run.</b> It refreshes every 10 seconds while any check is running, and every 30
-              seconds otherwise.
-            </li>
-          </ul>
-
-          <h2>Re-run what failed, and only that</h2>
-          <table class="versus facts">
-            <thead>
-              <tr>
-                <th>From</th>
-                <th>You can</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>The panel's top row</td>
-                <td>Re-run the failed jobs, or all jobs, across the PR's workflow runs</td>
-              </tr>
-              <tr>
-                <td>A workflow</td>
-                <td>Re-run its failed jobs or all of them, or open the run on GitHub</td>
-              </tr>
-              <tr>
-                <td>A single job</td>
-                <td>Re-run just that job, or open it on GitHub</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>
-            A run that still has jobs in progress is skipped, because GitHub refuses to re-run it until it finishes.
-          </p>
-
-          <h2>Only the run that counts</h2>
-          <p>
-            A workflow can run several times on one commit: two PR events at once, or a re-run. Like GitHub, Mergiato
-            counts only each job's newest run, so an old failure doesn't hang around after its re-run passes. The same
-            rule applies to the check icon on every PR in your sidebar.
-          </p>
-          <p>
-            Cancelled runs are left out, and so is Graphite's <code>mergeability_check</code>, which stays "in
-            progress" on stacked and draft PRs and would otherwise keep every stack yellow.
-          </p>
-
-          <h2>Questions</h2>
-          <details>
-            <summary>Does it work with checks other than GitHub Actions?</summary>
-            <p>
-              It shows every check GitHub reports for the PR's latest commit, from any app. Re-running uses GitHub
-              Actions, so it applies to Actions jobs.
-            </p>
-          </details>
-          <details>
-            <summary>Will polling checks use up my rate limit?</summary>
-            <p>
-              Checks poll only for the PR you have open, every 10 seconds while jobs run and every 30 otherwise. Your
-              inbox gets each PR's check state from the searches it already makes, at no extra cost.
-            </p>
-          </details>
-
-          <p>Once it's green: <a href="/stacked-prs/">merging stacks and queues the way your repo does</a>.</p>
-
-          <div class="band">
-            <div>
-              <strong>Fix the red build without leaving the PR.</strong>
-              <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
-            </div>
-            <a
-              class="button"
-              data-download
-              data-place="actions-end"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
+      <a
+        class="button"
+        data-download
+        data-place="actions-end"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -371,7 +339,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>

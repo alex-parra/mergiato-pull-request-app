@@ -13,14 +13,14 @@
     <meta property="og:url" content="https://mergiato.com/stacked-prs/" />
     <meta property="og:title" content="Stacked PRs on GitHub, without losing your place" />
     <meta property="og:description" content="See the whole stack on every PR, from Graphite, GitHub's own stacks or branch chains, and merge it the way your repo does, through Graphite's queue or GitHub's." />
-    <meta property="og:image" content="https://mergiato.com/og.png?v=3" />
+    <meta property="og:image" content="https://mergiato.com/og.png?v=4" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: Review and merge stacked PRs on GitHub" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Stacked PRs on GitHub, without losing your place" />
     <meta name="twitter:description" content="See the whole stack on every PR, from Graphite, GitHub's own stacks or branch chains, and merge it the way your repo does, through Graphite's queue or GitHub's." />
-    <meta name="twitter:image" content="https://mergiato.com/og.png?v=3" />
+    <meta name="twitter:image" content="https://mergiato.com/og.png?v=4" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -28,7 +28,7 @@
     <link rel="alternate" type="text/plain" href="/llms.txt" title="Mergiato, for language models" />
     <!-- Fonts are served from here: faster first paint, and no visitor request goes to a third party. -->
     <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=ba86b2a3" />
+    <link rel="stylesheet" href="/styles.css?v=649db396" />
     <!-- Visit counts: self-hosted Rybbit, cookieless. No identify() calls, so it stores nothing on the visitor's device. -->
     <script>
       // Only the live site counts: local copies, previews and file:// views load nothing. ?notrack opts this
@@ -148,190 +148,171 @@
       </div>
     </nav>
 
-    <main id="main">      <div class="page-hero">
-        <div class="wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Stacked PRs</nav>
-          <p class="eyebrow">Stacked PRs</p>
-          <h1>Stacked PRs on GitHub, without losing your place.</h1>
-          <p class="lead">
-            A stack splits one change into small pull requests that build on each other. GitHub shows each PR on its
-            own. Mergiato shows the whole stack on every PR, lets you step along it, and merges it the way your repo
-            expects.
-          </p>
-          <div class="actions">
-            <a
-              class="button"
-              data-download
-              data-place="stacks-hero"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-          <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
-        </div>
+    <main id="main"><div class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Mergiato</a> / Stacked PRs</nav>
+    <p class="eyebrow">Stacked PRs</p>
+    <h1>Stacked PRs on GitHub, without losing your place.</h1>
+    <p class="lead">
+      A stack splits one change into small pull requests that build on each other. GitHub shows each PR on its own.
+      Mergiato shows the whole stack on every PR, lets you step along it, and merges it the way your repo expects.
+    </p>
+    <div class="actions">
+      <a
+        class="button"
+        data-download
+        data-place="stacks-hero"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+    <p class="fine" data-version>Free · no sign-up · Apple silicon and Intel Macs</p>
+  </div>
+</div>
+
+<section class="page">
+  <div class="wrap prose">
+    <figure class="media">
+      <video data-autoplay muted loop playsinline preload="none" width="1124" height="454"
+        poster="/media/stack-merge-poster.jpg" aria-label="Stepping up a three-PR stack, then merging two PRs through Graphite's queue">
+        <source src="/media/stack-merge.webm" type="video/webm" />
+        <source src="/media/stack-merge.mp4" type="video/mp4" />
+      </video>
+      <figcaption>Step through the stack, then merge it through Graphite's queue.</figcaption>
+    </figure>
+
+    <h2>What is a stacked PR?</h2>
+    <p>
+      A stacked pull request is one that targets another PR's branch instead of <code>main</code>. You build a change as
+      a chain: the bottom PR adds the API, the next one uses it, the top one adds the emails. Each stays small enough to
+      review in one sitting, and they merge in order, bottom first.
+    </p>
+
+    <h2>Where Mergiato finds the stack</h2>
+    <p>It reads stacks from three places, in this order:</p>
+    <ol>
+      <li><b>GitHub's own stacks</b>, when the repository uses them.</li>
+      <li>
+        <b>Graphite's stack comment</b>, the one Graphite posts on each PR. It's the only source that still lists PRs
+        already merged out of the stack.
+      </li>
+      <li>
+        <b>Plain branch chains</b>: PRs whose base is another open PR's branch. No tool needed, just <code>git</code>.
+      </li>
+    </ol>
+    <p>
+      You don't need Graphite or any other tool. If your team stacks by hand, Mergiato sees the chain from the branches.
+    </p>
+
+    <h2>Moving through a stack</h2>
+    <ul>
+      <li>
+        A <b>Stack 2/3</b> chip sits on every stacked PR, with <b>↑ ↓</b> buttons that open the PR above or below it.
+      </li>
+      <li>
+        The sidebar groups each stack together, top first, joined by a rail, so you see which of your PRs belong
+        together.
+      </li>
+      <li>The PR's Overview lists the whole stack next to the description, with each PR's checks and review state.</li>
+      <li>
+        Closed PRs are hidden by default, with a <b>Show closed</b> toggle, so an abandoned branch doesn't clutter the
+        stack.
+      </li>
+    </ul>
+
+    <h2>Merging a stack the way your repo does</h2>
+    <p>
+      The Merge button works out how the repository merges, and only offers what it allows. Two clicks merge, so a slip
+      of the mouse doesn't.
+    </p>
+    <table class="versus facts">
+      <thead>
+        <tr>
+          <th>If the repo uses</th>
+          <th>Merge does this</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Graphite's merge queue</td>
+          <td>
+            Adds Graphite's queue label. On a stacked PR it reads <b>Merge 2 PRs</b>, because Graphite queues the PRs
+            below it too. A queued PR shows <b>Merging…</b> and can be taken off the queue.
+          </td>
+        </tr>
+        <tr>
+          <td>GitHub's merge queue</td>
+          <td>Adds the PR to GitHub's queue.</td>
+        </tr>
+        <tr>
+          <td>Plain merges</td>
+          <td>
+            Merges with the methods the repo allows (your default picked first) and follows its delete-branch setting.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <figure class="media">
+        <img class="dark-only" src="/media/merge-blocked-dark-800.jpg"
+          srcset="/media/merge-blocked-dark-800.jpg 800w, /media/merge-blocked-dark.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="702" height="93" loading="lazy" decoding="async" alt="The Merge 3 PRs button, greyed out, with its tooltip: Changes were requested" />
+        <img class="light-only" src="/media/merge-blocked-light-800.jpg"
+          srcset="/media/merge-blocked-light-800.jpg 800w, /media/merge-blocked-light.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px"
+          width="702" height="93" loading="lazy" decoding="async" alt="The Merge 3 PRs button, greyed out, with its tooltip: Changes were requested" />
+        <figcaption>Greyed out? Hover to see why.</figcaption>
+      </figure>
+    <p>
+      When Merge is greyed out, hovering says why: an approval missing, a conflict, a failing check, or a PR below this
+      one that isn't approved yet. A plain GitHub merge is off for a stacked PR on purpose: it would merge into the
+      branch below instead of <code>main</code>.
+    </p>
+
+    <h2>What it doesn't do</h2>
+    <p>
+      Mergiato shows and merges stacks; it doesn't create or restack them. Keep using the Graphite CLI,
+      <code>git</code> or your own tooling for that, and Mergiato picks up the new stack on its next refresh.
+    </p>
+
+    <h2>Questions</h2>
+    <details>
+      <summary>Do I need Graphite to see stacks?</summary>
+      <p>
+        No. Mergiato also reads GitHub's own stacks and plain branch chains. Graphite adds two things when your team
+        uses it: merged PRs in the stack list, and merging through its queue.
+      </p>
+    </details>
+    <details>
+      <summary>Does it work with Graphite's merge queue?</summary>
+      <p>
+        Yes. Merge adds Graphite's queue label, the stack's lower PRs go with it, and the PR shows when it's queued and
+        merging. You can also take a PR off the queue from the same button.
+      </p>
+    </details>
+    <details>
+      <summary>Can I review a stack one PR at a time?</summary>
+      <p>
+        Yes. Each PR in the stack has its own diff, checks and threads. Use ↑ ↓ to move along the stack without going
+        back to the list.
+      </p>
+    </details>
+
+    <p>More on how Mergiato compares with Graphite itself: <a href="/compare/graphite/">Mergiato vs Graphite</a>.</p>
+
+    <div class="band">
+      <div>
+        <strong>See your whole stack on every PR.</strong>
+        <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
       </div>
-
-      <section class="page">
-        <div class="wrap prose">
-          <figure
-            class="illus"
-            role="img"
-            aria-label="A stack of three PRs drawn as a rail, the current one marked, with a Merge 2 PRs button that goes through Graphite's queue."
-          >
-            <div class="illus-head">
-              <b>Stack</b> 2 of 3 <span class="chip accent">↑ ↓</span>
-              <span class="end"
-                ><span class="merge" style="display: inline-block; font-size: 12px">Merge 2 PRs ▾</span></span
-              >
-            </div>
-            <div class="illus-body">
-              <div class="stack-list">
-                <div class="stack-row">
-                  <i></i><span>#2493 Billing: invoice emails <span class="chip wait">Waiting review</span></span>
-                </div>
-                <div class="stack-row on">
-                  <i></i><span>#2490 Billing: proration on upgrades <span class="chip ok">Approved</span></span>
-                </div>
-                <div class="stack-row">
-                  <i></i><span>#2486 Billing: plan change API <span class="chip ok">Approved</span></span>
-                </div>
-                <div class="stack-row merged"><i></i><span class="branch">main</span></div>
-              </div>
-              <p class="why" style="margin: 6px 0 0">Merges through Graphite's queue, with the PR below it.</p>
-            </div>
-          </figure>
-
-          <h2>What is a stacked PR?</h2>
-          <p>
-            A stacked pull request is one that targets another PR's branch instead of <code>main</code>. You build a
-            change as a chain: the bottom PR adds the API, the next one uses it, the top one adds the emails. Each
-            stays small enough to review in one sitting, and they merge in order, bottom first.
-          </p>
-
-          <h2>Where Mergiato finds the stack</h2>
-          <p>It reads stacks from three places, in this order:</p>
-          <ol>
-            <li><b>GitHub's own stacks</b>, when the repository uses them.</li>
-            <li>
-              <b>Graphite's stack comment</b>, the one Graphite posts on each PR. It's the only source that still
-              lists PRs already merged out of the stack.
-            </li>
-            <li>
-              <b>Plain branch chains</b>: PRs whose base is another open PR's branch. No tool needed, just
-              <code>git</code>.
-            </li>
-          </ol>
-          <p>
-            You don't need Graphite or any other tool. If your team stacks by hand, Mergiato sees the chain from the
-            branches.
-          </p>
-
-          <h2>Moving through a stack</h2>
-          <ul>
-            <li>
-              A <b>Stack 2/3</b> chip sits on every stacked PR, with <b>↑ ↓</b> buttons that open the PR above or below
-              it.
-            </li>
-            <li>
-              The sidebar groups each stack together, top first, joined by a rail, so you see which of your PRs belong
-              together.
-            </li>
-            <li>
-              The PR's Overview lists the whole stack next to the description, with each PR's checks and review state.
-            </li>
-            <li>
-              Closed PRs are hidden by default, with a <b>Show closed</b> toggle, so an abandoned branch doesn't clutter
-              the stack.
-            </li>
-          </ul>
-
-          <h2>Merging a stack the way your repo does</h2>
-          <p>
-            The Merge button works out how the repository merges, and only offers what it allows. Two clicks merge, so
-            a slip of the mouse doesn't.
-          </p>
-          <table class="versus facts">
-            <thead>
-              <tr>
-                <th>If the repo uses</th>
-                <th>Merge does this</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Graphite's merge queue</td>
-                <td>
-                  Adds Graphite's queue label. On a stacked PR it reads <b>Merge 2 PRs</b>, because Graphite queues the
-                  PRs below it too. A queued PR shows <b>Merging…</b> and can be taken off the queue.
-                </td>
-              </tr>
-              <tr>
-                <td>GitHub's merge queue</td>
-                <td>Adds the PR to GitHub's queue.</td>
-              </tr>
-              <tr>
-                <td>Plain merges</td>
-                <td>
-                  Merges with the methods the repo allows (your default picked first) and follows its delete-branch
-                  setting.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p>
-            When Merge is greyed out, hovering says why: an approval missing, a conflict, a failing check, or a PR
-            below this one that isn't approved yet. A plain GitHub merge is off for a stacked PR on purpose: it would
-            merge into the branch below instead of <code>main</code>.
-          </p>
-
-          <h2>What it doesn't do</h2>
-          <p>
-            Mergiato shows and merges stacks; it doesn't create or restack them. Keep using the Graphite CLI,
-            <code>git</code> or your own tooling for that, and Mergiato picks up the new stack on its next refresh.
-          </p>
-
-          <h2>Questions</h2>
-          <details>
-            <summary>Do I need Graphite to see stacks?</summary>
-            <p>
-              No. Mergiato also reads GitHub's own stacks and plain branch chains. Graphite adds two things when your
-              team uses it: merged PRs in the stack list, and merging through its queue.
-            </p>
-          </details>
-          <details>
-            <summary>Does it work with Graphite's merge queue?</summary>
-            <p>
-              Yes. Merge adds Graphite's queue label, the stack's lower PRs go with it, and the PR shows when it's
-              queued and merging. You can also take a PR off the queue from the same button.
-            </p>
-          </details>
-          <details>
-            <summary>Can I review a stack one PR at a time?</summary>
-            <p>
-              Yes. Each PR in the stack has its own diff, checks and threads. Use ↑ ↓ to move along the stack without
-              going back to the list.
-            </p>
-          </details>
-
-          <p>
-            More on how Mergiato compares with Graphite itself: <a href="/compare/graphite/">Mergiato vs Graphite</a>.
-          </p>
-
-          <div class="band">
-            <div>
-              <strong>See your whole stack on every PR.</strong>
-              <p>Free while in beta, under 10 MB, and it signs in through your GitHub CLI.</p>
-            </div>
-            <a
-              class="button"
-              data-download
-              data-place="stacks-end"
-              href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
-              ><span data-download-label>Download for Mac</span></a
-            >
-          </div>
-        </div>
-      </section>
+      <a
+        class="button"
+        data-download
+        data-place="stacks-end"
+        href="https://github.com/alex-parra/mergiato-pull-request-app/releases/latest"
+        ><span data-download-label>Download for Mac</span></a
+      >
+    </div>
+  </div>
+</section>
 </main>
 
     <footer>
@@ -404,7 +385,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=ba86b2a3"></script>
+    <script src="/site.js?v=649db396"></script>
     
   </body>
 </html>
