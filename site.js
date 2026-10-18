@@ -84,19 +84,19 @@ function loadLatestRelease() {
       const dmgs = latest?.assets.filter((asset) => asset.name.endsWith(".dmg")) ?? [];
       const dmg = dmgs.find((asset) => asset.name.includes("universal")) ?? dmgs[0];
       if (!dmg) return;
-      const macs = dmg.name.includes("universal") ? "Apple silicon & Intel" : "Apple silicon";
+      const macs = dmg.name.includes("universal") ? "Apple silicon and Intel" : "Apple silicon";
       const size = (dmg.size / 1_000_000).toFixed(1);
       // A small count reads as "nobody uses this", so it only shows once there's a crowd.
       const downloads = stable
         .flatMap((release) => release.assets)
         .filter((asset) => asset.name.endsWith(".dmg"))
         .reduce((sum, asset) => sum + asset.download_count, 0);
-      const crowd = downloads >= 250 ? ` · ${downloads.toLocaleString("en")} downloads` : "";
+      const crowd = downloads >= 250 ? `, ${downloads.toLocaleString("en")} downloads` : "";
       if (isMac) {
         for (const link of document.querySelectorAll("[data-download], [data-download-direct]"))
           link.href = dmg.browser_download_url;
         for (const line of document.querySelectorAll("[data-version]"))
-          line.textContent = `Free · ${size} MB · ${latest.tag_name}, updated ${ago(latest.published_at)} · ${macs}${crowd}`;
+          line.textContent = `Free, ${size} MB. ${latest.tag_name}, updated ${ago(latest.published_at)}${crowd}. For ${macs} Macs.`;
       }
     })
     .catch(() => {});
