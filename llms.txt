@@ -33,7 +33,7 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 ## Install
 
 1. Download the .dmg, open it and drag Mergiato to Applications.
-2. First open: the app is not yet signed with an Apple Developer ID, so macOS asks once. Allow it in System Settings > Privacy & Security > Open Anyway. Updates don't ask again. Some company-managed Macs block unsigned apps entirely.
+2. First open: Apple Developer ID signing is on its way; until it lands, macOS asks once. Allow it in System Settings > Privacy & Security > Open Anyway. Updates don't ask again. Some company-managed Macs block unsigned apps entirely.
 3. If needed, install and sign in to the GitHub CLI: `brew install gh`, then `gh auth login`.
 
 ## Works with
