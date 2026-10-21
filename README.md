@@ -8,9 +8,9 @@ Mergiato is a fast desktop app for GitHub pull requests: the ones you ship and t
 
 ## Download
 
-Mergiato 0.1.23 · [all releases](https://github.com/alex-parra/mergiato-pull-request-app/releases)
+Mergiato 0.2.0 · [all releases](https://github.com/alex-parra/mergiato-pull-request-app/releases)
 
-- **Mac** (Apple silicon or Intel): [Mergiato_0.1.23_universal.dmg](https://github.com/alex-parra/mergiato-pull-request-app/releases/download/v0.1.23/Mergiato_0.1.23_universal.dmg)
+- **Mac** (Apple silicon or Intel): [Mergiato_0.2.0_universal.dmg](https://github.com/alex-parra/mergiato-pull-request-app/releases/download/v0.2.0/Mergiato_0.2.0_universal.dmg)
 
 Open the `.dmg` and drag Mergiato to Applications. Mergiato is in beta and free for now. Installed copies update themselves.
 
