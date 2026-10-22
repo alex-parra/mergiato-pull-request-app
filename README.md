@@ -14,20 +14,23 @@ Mergiato 0.3.0 · [all releases](https://github.com/alex-parra/mergiato-pull-req
 
 Open the `.dmg` and drag Mergiato to Applications. Mergiato is in beta and free for now. Installed copies update themselves.
 
-
 ## First open
 
-Mergiato isn't signed with an Apple Developer ID yet, so macOS can't verify it on the first open. Allow it once: System Settings → Privacy & Security → **Open Anyway**. Updates don't ask again.
+Open Mergiato from Applications. It is signed with an Apple Developer ID and notarized by Apple. If macOS asks whether to open an app downloaded from the internet, click **Open**. No Privacy & Security override is needed for the current release.
 
 ## What it does
 
 - **CI checks:** each job's latest run, its state and its time, grouped by workflow. Re-run the failed jobs, all of them, or one, from the PR.
-- **Stacked PRs:** Graphite stacks, GitHub's native stacks and plain branch chains, with ↑ ↓ to move along them. One Merge button follows the repo's rules: Graphite's merge queue, GitHub's merge queue or its merge methods.
-- **Previews:** each Vercel project's deployment, with deploy and redeploy from the PR.
-- **Terminal:** shells docked under each PR, in its local clone.
+- **Stacked PRs:** Graphite stacks, GitHub's native stacks and plain branch chains. **Option ↑ / ↓** moves within the stack; **Option Shift ↑ / ↓** follows sidebar order. One Merge button follows the repo's rules: Graphite's merge queue, GitHub's merge queue or its merge methods.
+- **Vercel deployments:** preview state and links per project, with deploy and redeploy from the PR. After merging, follow production and custom-environment deployments, including building, ready, failed and replaced states.
+- **Terminal and optional AI:** shells docked under each PR, in its local clone, with sessions kept running while you browse other PRs. With Claude Code installed, start a docked review or draft a PR description for you to check before saving.
 - **Diffs of any size:** every file GitHub has, up to 3,000, drawn only near your view. A 914-file PR draws its first screen in 0.2 seconds.
-- **Code review:** comment on a line or a range, reply, react and resolve. Approve, approve with a comment, or request changes. Drafts are kept per line.
-- **Inbox:** your PRs and the reviews waiting on you, in two lists that refresh every 30 seconds, with check and review state on every row. Open any PR by link, `owner/repo#123` or `#123`.
+- **Code review:** comment on a line or a range, reply, react and resolve. Post comments individually or collect them in a pending review, then submit with a comment, approval or request for changes. Insert suggested changes from selected lines. Unsent editor drafts stay on this device across restarts and updates, with recovery for failed comment and reply sends.
+- **Inbox:** your PRs and the reviews waiting on you, in two lists that refresh every 30 seconds, with check, review and PR state on every row. Unread markers, recent PRs and a configurable Dock badge help you find what needs attention. Open any PR by link, `owner/repo#123` or `#123`.
+- **Quick-action cards:** right-click a sidebar or stack row, or press Space on a focused row, to inspect reviews, checks and merge readiness and act without opening the PR.
+- **Keyboard navigation:** **⌘K** opens commands and recent PRs; **⌘P** in Changes finds a file by path. **⌘/** lists all shortcuts.
+- **Reading preferences:** unified or split diffs, a file tree or list, adjustable code and comment text sizes, optional test-file folding, and six themes.
+- **Close and quit protection:** optional **⌘Q** confirmation in Settings, off by default. Closing a running Claude terminal tab with **⌘W** still asks for a second press.
 
 Everything lands on GitHub as your own account, so your team doesn't have to switch. [See every feature →](https://mergiato.com/#features)
 
