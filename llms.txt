@@ -33,7 +33,7 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 ## Install
 
 1. Download the .dmg, open it and drag Mergiato to Applications.
-2. First open: Apple Developer ID signing is on its way; until it lands, macOS asks once. Allow it in System Settings > Privacy & Security > Open Anyway. Updates don't ask again. Some company-managed Macs block unsigned apps entirely.
+2. Open Mergiato from Applications. It is signed with an Apple Developer ID and notarized by Apple. If macOS asks whether to open an app downloaded from the internet, click Open. No Privacy & Security override is needed for the current release.
 3. If needed, install and sign in to the GitHub CLI: `brew install gh`, then `gh auth login`.
 
 ## Works with
@@ -53,7 +53,7 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 - [Mergiato vs GitHub Desktop: PRs vs commits](https://mergiato.com/compare/github-desktop/): GitHub Desktop is a git client for commits and branches, and can't comment on PRs. Mergiato is for the pull request side: review, checks, stacks and merges.
 - [Mergiato vs Pulldog: desktop apps for PRs](https://mergiato.com/compare/pulldog/): Pulldog is a Mac code review client for GitHub, GitLab and more. Mergiato covers the whole life of a GitHub PR: checks, stacks, merge queues, previews.
 - [Re-run failed GitHub Actions jobs from the PR](https://mergiato.com/github-actions/): See every GitHub Actions job on the pull request with its time and state, and re-run the failed jobs, all of them, or just one, without opening the Actions tab.
-- [Install Mergiato: download, first open, sign in](https://mergiato.com/install/): Install Mergiato in about a minute: download the .dmg, allow it once in Privacy & Security, and sign in to the GitHub CLI. Updates then install themselves.
+- [Install Mergiato: download, first open, sign in](https://mergiato.com/install/): Install Mergiato in about a minute: download the signed and notarized app, open it from Applications, and sign in to the GitHub CLI. Updates then install themselves.
 - [Review large GitHub pull requests, every file](https://mergiato.com/large-pull-requests/): GitHub hides big diffs behind Load diff, and its diff API stops at 300 files. Mergiato shows every file, up to 3,000, and draws a 914-file PR in 0.2 seconds.
 - [Mergiato pricing: free while in beta](https://mergiato.com/pricing/): Mergiato is free during the beta, with every feature and no sign-up, card or account. Paid plans may come later, likely a one-time license, with fair notice.
 - [Security and privacy: what Mergiato can access](https://mergiato.com/security/): Mergiato runs on your own GitHub CLI and sends every request straight from your machine to GitHub. Here's what it can access, and what it keeps.

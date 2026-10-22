@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Install Mergiato: download, first open, sign in · Mergiato</title>
-    <meta name="description" content="Install Mergiato in about a minute: download the .dmg, allow it once in Privacy &amp; Security, and sign in to the GitHub CLI. Updates then install themselves." />
+    <meta name="description" content="Install Mergiato in about a minute: download the signed and notarized app, open it from Applications, and sign in to the GitHub CLI. Updates then install themselves." />
     <meta name="author" content="Alex Parra" />
     <meta name="application-name" content="Mergiato" />
     <link rel="canonical" href="https://mergiato.com/install/" />
@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="Mergiato" />
     <meta property="og:url" content="https://mergiato.com/install/" />
     <meta property="og:title" content="Install Mergiato in about a minute" />
-    <meta property="og:description" content="Install Mergiato in about a minute: download the .dmg, allow it once in Privacy &amp; Security, and sign in to the GitHub CLI. Updates then install themselves." />
+    <meta property="og:description" content="Install Mergiato in about a minute: download the signed and notarized app, open it from Applications, and sign in to the GitHub CLI. Updates then install themselves." />
     <meta property="og:image" content="https://mergiato.com/og/install.jpg?v=e77bbdd7" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@mergiato" />
     <meta name="twitter:title" content="Install Mergiato in about a minute" />
-    <meta name="twitter:description" content="Install Mergiato in about a minute: download the .dmg, allow it once in Privacy &amp; Security, and sign in to the GitHub CLI. Updates then install themselves." />
+    <meta name="twitter:description" content="Install Mergiato in about a minute: download the signed and notarized app, open it from Applications, and sign in to the GitHub CLI. Updates then install themselves." />
     <meta name="twitter:image" content="https://mergiato.com/og/install.jpg?v=e77bbdd7" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
@@ -80,7 +80,7 @@
             "@id": "https://mergiato.com/install/",
             "url": "https://mergiato.com/install/",
             "name": "Install Mergiato: download, first open, sign in",
-            "description": "Install Mergiato in about a minute: download the .dmg, allow it once in Privacy & Security, and sign in to the GitHub CLI. Updates then install themselves.",
+            "description": "Install Mergiato in about a minute: download the signed and notarized app, open it from Applications, and sign in to the GitHub CLI. Updates then install themselves.",
             "isPartOf": {
               "@id": "https://mergiato.com/#website"
             },
@@ -192,7 +192,7 @@
       Install Mergiato in about a minute.
     </h1>
     <p class="mb-7 max-w-[64ch] text-[clamp(16px,2.2vw,19px)] text-muted">
-      Three steps: download the app, allow it once on the first open, and sign in to the GitHub CLI if you haven't
+      Three steps: download the app, open it from Applications, and sign in to the GitHub CLI if you haven't
       already. After that, updates install themselves.
     </p>
     <div class="flex flex-wrap gap-3">
@@ -218,17 +218,12 @@
 
     <h2>2. Open it the first time</h2>
     <p>
-      Signing with an Apple Developer ID is on its way. Until it lands, the first time you open Mergiato macOS says it
-      can't check the developer. Allow it once:
+      Open Mergiato from Applications. macOS may ask whether you want to open an app downloaded from the internet.
+      Click <b>Open</b> to continue.
     </p>
-    <ol>
-      <li>Open Mergiato from Applications, and close the warning.</li>
-      <li>Go to <b>System Settings → Privacy &amp; Security</b> and scroll to the Security section.</li>
-      <li>Next to the line about Mergiato, click <b>Open Anyway</b> and confirm.</li>
-    </ol>
     <p>
-      Updates don't ask again. Some company-managed Macs only allow apps from identified developers and block it
-      entirely; that changes with the signed release.
+      Mergiato is signed with an Apple Developer ID and notarized by Apple. You don't need to change
+      Privacy &amp; Security settings for the current release.
     </p>
 
     <h2>3. Sign in to the GitHub CLI</h2>
@@ -329,10 +324,10 @@
 
     <h2>Questions</h2>
     <details>
-      <summary>Why does macOS warn on the first open?</summary>
+      <summary>Why does macOS ask before opening it?</summary>
       <p>
-        Mergiato's Apple Developer ID signing is on its way; until then, macOS can't check who made it. Allowing it once
-        in Privacy &amp; Security is enough, and updates don't ask again.
+        macOS normally asks before opening an app downloaded from the internet. Click Open to continue. Mergiato is
+        signed with an Apple Developer ID and notarized by Apple.
       </p>
     </details>
     <details>
@@ -461,8 +456,8 @@
             class="grid grid-cols-[28px_1fr] gap-3.5 rounded-xl border border-edge bg-panel px-4 py-3.5 text-[14px] [counter-increment:step] before:grid before:size-7 before:place-items-center before:rounded-full before:bg-raised before:text-[13px] before:font-bold before:text-fg before:content-[counter(step)]"
           >
             <p>
-              <strong>First open:</strong> macOS asks once. System Settings → Privacy &amp; Security →
-              <strong>Open Anyway</strong>.
+              <strong>Open Mergiato.</strong> If macOS asks about an app downloaded from the internet, click
+              <strong>Open</strong>.
             </p>
           </li>
           <li
