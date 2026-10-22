@@ -34,6 +34,10 @@ Open Mergiato from Applications. It is signed with an Apple Developer ID and not
 
 Everything lands on GitHub as your own account, so your team doesn't have to switch. [See every feature →](https://mergiato.com/#features)
 
+## Coming in the next release
+
+- **PR description reactions:** view GitHub emoji reaction counts and add or remove your own reactions directly on the description. The picker sits beside existing reactions, with a standalone button when there are none. Failed changes roll back and show an error.
+
 ## Security and privacy
 
 Mergiato drives the tools you already trust, on your computer: `gh`, `git` and, if you use it, `vercel`. Every request goes straight from your machine to GitHub with your own access. There's no GitHub App or OAuth grant, Mergiato stores no tokens, and it has no servers, no account and no analytics. [More on security →](https://mergiato.com/#security)
