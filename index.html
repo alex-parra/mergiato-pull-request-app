@@ -1046,7 +1046,7 @@
         <ul>
           <li>Approve in one click, or with a comment, or request changes</li>
           <li>Jump to any open thread from one list</li>
-          <li>Half-written comments kept as drafts, per line</li>
+          <li>Drafts kept on this device across restarts and updates, with failed-send recovery</li>
           <li>Edit the title, description, reviewers (teams too), labels</li>
           <li>Paste or drop images and videos into any comment</li>
         </ul>
@@ -1263,7 +1263,10 @@
       <div><b>Your last 30 days</b>PRs merged and reviewed, under your name.</div>
       <div><b>One commit at a time</b>Review a PR commit by commit when it was built that way.</div>
       <div><b>Comment jump list</b>Every inline thread in diff order. Pick one, land on its line.</div>
-      <div><b>Quit asks twice</b><kbd>⌘Q</kbd> warns first, so a slip doesn't kill your terminals.</div>
+      <div>
+        <b>Optional quit confirmation</b>Enable a second <kbd>⌘Q</kbd> in Settings. Off by default; running Claude tabs
+        keep their close protection.
+      </div>
       <div><b>Updates itself</b>Signed updates, checked in the background. Restart when you like.</div>
       <div class="xl:col-span-2">
         <b>Agent review, optional</b>Start an AI review docked under the PR, then make the call yourself.
@@ -1324,8 +1327,8 @@
             class="block h-auto rounded-xl border border-edge-strong bg-panel shadow-[0_30px_80px_-40px_var(--color-shadow)] max-w-full"
             src="/media/shortcuts-dark-800.jpg"
             srcset="/media/shortcuts-dark.jpg 2x"
-            width="288"
-            height="468"
+            width="760"
+            height="786"
             loading="lazy"
             decoding="async"
             alt="Mergiato's keyboard shortcuts sheet, opened with ⌘/"
@@ -1337,8 +1340,8 @@
             class="block h-auto rounded-xl border border-edge-strong bg-panel shadow-[0_30px_80px_-40px_var(--color-shadow)] max-w-full"
             src="/media/shortcuts-light-800.jpg"
             srcset="/media/shortcuts-light.jpg 2x"
-            width="288"
-            height="468"
+            width="760"
+            height="786"
             loading="lazy"
             decoding="async"
             alt="Mergiato's keyboard shortcuts sheet, opened with ⌘/"
@@ -1347,13 +1350,17 @@
         <figcaption class="mt-2.5 text-[13px] text-muted">⌘/ in the app: the whole list, one keypress away.</figcaption>
       </figure>
       <div>
-        <p class="mb-4 text-[17px] text-fg">Five to learn first:</p>
+        <p class="mb-4 text-[17px] text-fg">Six to learn first:</p>
         <dl
           class="max-w-[520px] border-t border-edge text-[16px] *:flex *:items-center *:justify-between *:gap-4 *:border-b *:border-edge *:py-3.5 [&_dd]:flex [&_dd]:shrink-0 [&_dd]:gap-1 [&_dt]:text-body"
         >
           <div>
-            <dt>Next or previous PR</dt>
+            <dt>PR above or below in the stack</dt>
             <dd><kbd>⌥↑</kbd><kbd>⌥↓</kbd></dd>
+          </div>
+          <div>
+            <dt>Previous or next PR in the sidebar</dt>
+            <dd><kbd>⌥⇧↑</kbd><kbd>⌥⇧↓</kbd></dd>
           </div>
           <div>
             <dt>Overview, Checks, Changes, Reviews</dt>
@@ -1879,18 +1886,32 @@
         pr.resolved = !pr.resolved;
       }
       render();
+      // macOS does not focus buttons on click; keep demo shortcuts available after an action.
+      root.tabIndex = -1;
+      root.focus({ preventScroll: true });
     });
 
-    // ⌥↑ / ⌥↓ walk the list, as in the app.
+    // Plain Option arrows follow the stack; Shift switches to sidebar order, as in the app.
     root.addEventListener("keydown", (event) => {
-      if (!event.altKey || !["ArrowUp", "ArrowDown"].includes(event.key)) return;
+      if (!event.altKey || event.metaKey || event.ctrlKey || !["ArrowUp", "ArrowDown"].includes(event.key)) return;
+      if (
+        event.target.closest('input, textarea, select, [contenteditable=""], [contenteditable="true"], [data-terminal]')
+      )
+        return;
       event.preventDefault();
-      const list = visible();
-      const at = list.findIndex((pr) => pr.n === state.open);
-      const next = list[at + (event.key === "ArrowDown" ? 1 : -1)];
-      if (next) state.open = next.n;
+      const pr = find(state.open);
+      const list = event.shiftKey
+        ? visible()
+        : (pr.stack?.rows ?? []).map((row) => find(Number(row.match(/^#(\d+)/)?.[1]))).filter(Boolean);
+      const at = list.findIndex((item) => item.n === state.open);
+      const next = list[event.shiftKey && at === -1 ? 0 : at + (event.key === "ArrowDown" ? 1 : -1)];
+      if (!next) return;
+      state.open = next.n;
+      state.armed = false;
       render();
-      rail.querySelector("[aria-current]")?.focus();
+      // A stack member can sit outside the current sidebar list.
+      root.tabIndex = -1;
+      (rail.querySelector("[aria-current]") ?? root).focus({ preventScroll: true });
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && state.checksOpen) {
@@ -2456,6 +2477,27 @@
       thread: ["you", "Ship it."],
     },
   ];
+
+  // These members are available through the stack but aren't in the demo's inbox.
+  const billingStack = demoPrs.find((pr) => pr.n === 2490);
+  for (const [n, title, branch, at, desc] of [
+    [
+      2493,
+      "Billing: invoice emails",
+      "invoice-emails → proration · 1 commit",
+      3,
+      "Sends an invoice email after a plan change.",
+    ],
+    [
+      2486,
+      "Billing: plan change API",
+      "plan-change-api → main · 1 commit",
+      1,
+      "Adds the endpoint used by plan upgrades.",
+    ],
+  ]) {
+    demoPrs.push({ ...billingStack, n, title, branch, desc, group: "stack", stack: { ...billingStack.stack, at } });
+  }
 
   startDemo(document.querySelector("[data-demo]"));
 </script>

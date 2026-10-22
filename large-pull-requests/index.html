@@ -310,8 +310,9 @@
     <details>
       <summary>Does it keep a big diff in memory between visits?</summary>
       <p>
-        It keeps the diff for the PR's current commit while the app runs, so going back to it is instant. New commits
-        bring a fresh copy, and an unused one is dropped after 10 minutes.
+        It caches the diff for the PR's current head and base commits while the app runs, so revisiting a cached diff
+        avoids another download. A change to either commit brings a fresh comparison, and an unused copy is dropped
+        after 10 minutes.
       </p>
     </details>
 

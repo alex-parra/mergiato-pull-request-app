@@ -348,9 +348,10 @@
     <h2>What stays on your machine</h2>
     <p>
       Mergiato keeps a few things so it opens fast and remembers your choices: your settings and theme, the last inbox
-      it loaded, which files you've marked Viewed, and the clone folder you picked for each repository. It keeps them in
-      its own app data (<code>~/Library/WebKit/com.mergiato.app</code> and
-      <code>~/Library/Caches/com.mergiato.app</code> on a Mac). None of it leaves your machine.
+      it loaded, unsent editor drafts, and the clone folder you picked for each repository. It keeps them in its own app
+      data (<code>~/Library/WebKit/com.mergiato.app</code> and <code>~/Library/Caches/com.mergiato.app</code> on a Mac).
+      Drafts survive app restarts and updates; their text goes to GitHub when you send or save it. Viewed-file marks are
+      stored on GitHub.
     </p>
     <p>
       To remove Mergiato, drag it to the Trash and delete those two folders. Your comments, reviews and merges stay on

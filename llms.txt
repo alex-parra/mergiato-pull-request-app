@@ -17,14 +17,14 @@ Developers who review or ship many pull requests a day on GitHub, including team
 - Inbox: "My PRs" (in progress, merged) and "Reviews" (review requested, reviewed by you), refreshed every 30 seconds, with check and review state on every row. Open any PR by link, `owner/repo#123` or `#123`.
 - Checks: each job's latest run, its state and time, grouped by workflow. Re-run failed jobs, all jobs, or one job, from the PR. Updates every 10 seconds while jobs run.
 - Changes: every file GitHub has, up to 3,000, drawn only near the view so large diffs stay smooth. File tree or list, unified or split, syntax colors, Viewed marks that reset when a file changes, generated files and lockfiles folded, one commit at a time.
-- Review: comment on a line or a range, reply, react, resolve, edit or delete your comments. Approve, approve with a comment, or request changes. Drafts kept per line. Edit the title, description (with PR templates and image or video uploads), reviewers (including teams), labels and assignees.
-- Stacked PRs: Graphite stacks, GitHub's native stacks and plain branch chains, shown on every PR with up and down jumps.
+- Review: comment on a line or a range, reply, react, resolve, edit or delete your comments. Approve, approve with a comment, or request changes. Drafts are kept per line on this device across restarts and updates. Failed comment/reply sends can be restored without losing newer draft text. Edit the title, description (with PR templates and image or video uploads), reviewers (including teams), labels and assignees.
+- Stacked PRs: Graphite stacks, GitHub's native stacks and plain branch chains, shown on every PR with up and down jumps. Option-Up/Down moves within the stack; Option-Shift-Up/Down follows sidebar order.
 - Merge: one button that follows the repository's rules: Graphite's merge queue (queues the stack), GitHub's merge queue, or the repository's allowed merge methods. Two clicks to merge; when blocked it says why (approvals, conflicts, failing checks, the PR below in the stack).
 - PR state: convert to draft, mark ready for review, close, reopen.
 - Previews: each Vercel project's deployment state and link; deploy the branch's latest commit or redeploy, from the PR.
 - Terminal: shells docked under each PR, in its local clone, kept running per PR.
 - Agent review (optional): start a Claude Code review docked under the PR.
-- Everyday details: reopens where you left off, shows the last inbox at once on launch, keeps the open PR current without refreshing, handles going offline, optimistic updates that roll back if GitHub refuses, six themes (three dark, three light), keyboard shortcuts for everything (Cmd-/ lists them), quit asks twice, signed automatic updates.
+- Everyday details: reopens where you left off, shows the last inbox at once on launch, keeps the open PR current without refreshing, handles going offline, optimistic updates that roll back if GitHub refuses, six themes (three dark, three light), keyboard shortcuts for everything (Cmd-/ lists them), optional quit confirmation in Settings (off by default), close protection for running Claude tabs, signed automatic updates.
 
 ## Security and privacy
 
