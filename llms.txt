@@ -65,7 +65,7 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 
 - [Pricing, as plain text](https://mergiato.com/pricing.md): free beta, what's included, what comes later
 
-- [Website](https://mergiato.com/): features, live demo, FAQ
+- [Website](https://mergiato.com/): features, a try-it demo of the real app on made-up data, FAQ
 - [Latest release](https://github.com/alex-parra/mergiato-pull-request-app/releases/latest): download the .dmg
 - [All releases](https://github.com/alex-parra/mergiato-pull-request-app/releases): versions and notes
 - [Issues](https://github.com/alex-parra/mergiato-pull-request-app/issues): bugs and feature requests

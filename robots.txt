@@ -1,5 +1,6 @@
 # Everyone's welcome, search engines and AI agents alike.
 User-agent: *
 Allow: /
+Disallow: /demo/
 
 Sitemap: https://mergiato.com/sitemap.xml
