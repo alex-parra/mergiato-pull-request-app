@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://mergiato.com/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/hero-poster.jpg</video:thumbnail_loc>
       <video:title>Mergiato: a PR's stack and previews, its checks, a review thread, then the PR below merged through Graphite's queue</video:title>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://mergiato.com/stacked-prs/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/stack-merge-poster.jpg</video:thumbnail_loc>
       <video:title>Stepping up a three-PR stack, then merging two PRs through Graphite's queue</video:title>

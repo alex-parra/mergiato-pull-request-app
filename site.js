@@ -48,10 +48,10 @@ function wireDownloads() {
 function openGuideAfterSave(dialog) {
   let asked = false;
   const onBlur = () => (asked = true);
+  const show = () => dialog.open || dialog.showModal();
   addEventListener("blur", onBlur, { once: true });
   setTimeout(() => {
     removeEventListener("blur", onBlur);
-    const show = () => dialog.open || dialog.showModal();
     if (asked || !document.hasFocus()) addEventListener("focus", show, { once: true });
     else show();
   }, 500);
