@@ -32,7 +32,7 @@ Mergiato drives the user's own CLIs: `gh`, `git` and, optionally, `vercel`. Requ
 
 ## Install
 
-1. Download the .dmg, open it and drag Mergiato to Applications.
+1. Download the .dmg, open it and drag Mergiato to Applications. Or with Homebrew: `brew tap alex-parra/tap && brew trust --cask alex-parra/tap/mergiato && brew install --cask mergiato` (the same notarized app; it then updates itself; current Homebrew asks you to trust a third-party tap once).
 2. Open Mergiato from Applications. It is signed with an Apple Developer ID and notarized by Apple. If macOS asks whether to open an app downloaded from the internet, click Open. No Privacy & Security override is needed for the current release.
 3. If needed, install and sign in to the GitHub CLI: `brew install gh`, then `gh auth login`.
 
