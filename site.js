@@ -83,6 +83,7 @@ function wireThemeToggle() {
     button.addEventListener("click", () => {
       const theme = root.dataset.theme === "light" ? "dark" : "light";
       apply(theme);
+      track("Theme", { theme });
       try {
         localStorage.setItem("theme", theme);
       } catch {}
@@ -94,6 +95,7 @@ function wireCopyButtons() {
     const label = button.textContent;
     button.addEventListener("click", () => {
       copy(button.dataset.copy, "Copied: " + button.dataset.copy);
+      track("Copy", { what: button.dataset.copy });
       button.textContent = "Copied";
       setTimeout(() => (button.textContent = label), 1500);
     });
@@ -162,8 +164,71 @@ wireThemeToggle();
 wireDownloads();
 wireCopyButtons();
 wireShares();
+wireEngagement();
 loadLatestRelease();
 wireVideos();
+
+// Rybbit may be blocked or still loading; whatever is being counted works either way.
+function track(name, props) {
+  window.rybbit?.event(name, props);
+}
+
+// How far people read, and what they open, as a few small events: each fires once per page view, with flat
+// properties and no personal data. Rybbit has no scroll or visibility tracking of its own.
+function wireEngagement() {
+  const seen = new Set();
+  const once = (key, name, props) => {
+    if (seen.has(key)) return;
+    seen.add(key);
+    track(name, props);
+  };
+
+  // A section counts once its top is in the upper 60% of the screen (tall ones never fill 35% of it).
+  const sections = document.querySelectorAll("section[id]");
+  if (sections.length) {
+    const views = new IntersectionObserver(
+      (entries) => {
+        for (const { target, isIntersecting } of entries) {
+          if (!isIntersecting) continue;
+          once(`section:${target.id}`, "Section View", { section: target.id });
+          views.unobserve(target);
+        }
+      },
+      { rootMargin: "0px 0px -40% 0px" },
+    );
+    for (const section of sections) views.observe(section);
+  }
+
+  // The deepest quarter reached, from the bottom edge of the screen.
+  let waiting = false;
+  addEventListener(
+    "scroll",
+    () => {
+      if (waiting) return;
+      waiting = true;
+      requestAnimationFrame(() => {
+        waiting = false;
+        const page = document.documentElement;
+        const depth = ((scrollY + innerHeight) / page.scrollHeight) * 100;
+        for (const mark of [25, 50, 75, 90])
+          if (depth >= mark) once(`depth:${mark}`, "Scroll Depth", { percent: mark });
+      });
+    },
+    { passive: true },
+  );
+
+  // Which questions get opened (the questions are public copy, so they're safe to name).
+  document.addEventListener(
+    "toggle",
+    ({ target }) => {
+      if (target.matches?.("#faq details") && target.open)
+        once(`faq:${target.querySelector("summary").textContent}`, "FAQ Open", {
+          question: target.querySelector("summary").textContent.trim(),
+        });
+    },
+    true,
+  );
+}
 
 // The app's videos play while on screen and pause off it, so a long page doesn't run them all.
 // With Reduce Motion on they stay on their poster, with controls to play one by choice.

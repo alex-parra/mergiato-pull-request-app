@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://mergiato.com/" />
     <meta property="og:title" content="Mergiato · Your PRs in one window, not seven tabs" />
     <meta property="og:description" content="Spend less time navigating GitHub and more time deciding what to ship. A free desktop app for GitHub pull requests that runs on your own GitHub CLI." />
-    <meta property="og:image" content="https://mergiato.com/og/home.jpg?v=d32f6836" />
+    <meta property="og:image" content="https://mergiato.com/og/home.jpg?v=70c817fa" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mergiato: your PRs in one window, not seven tabs." />
@@ -21,7 +21,7 @@
     <meta name="twitter:site" content="@mergiato" />
     <meta name="twitter:title" content="Mergiato · Your PRs in one window, not seven tabs" />
     <meta name="twitter:description" content="Spend less time navigating GitHub and more time deciding what to ship. A free desktop app for GitHub pull requests that runs on your own GitHub CLI." />
-    <meta name="twitter:image" content="https://mergiato.com/og/home.jpg?v=d32f6836" />
+    <meta name="twitter:image" content="https://mergiato.com/og/home.jpg?v=70c817fa" />
     <meta name="theme-color" content="#090909" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
@@ -299,6 +299,22 @@
           },
           {
             "@type": "Question",
+            "name": "Does it run in the menu bar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Optionally. Turn on the menu bar companion in Settings and a small dot appears: blue when reviews are waiting on you, red when changes were requested on your PR. Click it for a mini inbox of your PRs and reviews, then pick one to open it in Mergiato. It is off by default, and with it on, closing the window keeps Mergiato running in the menu bar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can it show what changed since I last looked at a PR?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When you reopen a PR, Overview sums up the new comments, reviews and replies from others since your last visit, with New badges in Overview, Reviews and Changes. Unread dots in the sidebar and on PR cards say why a PR lit up. The times you last opened each PR stay on your computer."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Does it work with GitLab or Bitbucket?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -449,6 +465,8 @@
       <a
         class="inline-flex items-center gap-2 rounded-[10px] border border-edge-strong px-5.5 py-3.25 text-[15px] font-[650] whitespace-nowrap text-fg transition-[translate,opacity] duration-120 hover:-translate-y-px hover:opacity-90"
         href="/security/"
+        data-rybbit-event="Secondary CTA"
+        data-rybbit-prop-place="hero"
         >What it can access</a
       >
     </div>
@@ -1076,6 +1094,7 @@
           <li>Post comments individually, or collect them and submit one review with your verdict</li>
           <li>Suggest a code change directly from selected lines</li>
           <li>Jump to any open thread from one list</li>
+          <li>Back on a PR? See what's new since your last visit, badged where it happened</li>
           <li>Peek at the PR description from Changes, without losing your place</li>
           <li>Drafts kept on this device across restarts and updates, with failed-send recovery</li>
           <li>Edit the title, description, reviewers (teams too), labels</li>
@@ -1125,7 +1144,7 @@
         </p>
         <ul>
           <li>Your open PRs with checks, reviews and merge state</li>
-          <li>Unread markers, recent PRs, and a configurable Dock badge</li>
+          <li>Unread markers that say why, recent PRs, and a configurable Dock badge</li>
           <li>PRs you reviewed, kept handy for the follow-up</li>
           <li>Right-click a PR, or press Space, for details and actions without opening it</li>
           <li>Paste a link, <code>owner/repo#123</code> or <code>#123</code> to open any PR</li>
@@ -1741,6 +1760,23 @@
       </p>
     </details>
     <details>
+      <summary>Does it run in the menu bar?</summary>
+      <p>
+        Optionally. Turn on the menu bar companion in Settings and a small dot appears: blue when reviews are waiting on
+        you, red when changes were requested on your PR. Click it for a mini inbox of your PRs and reviews, then pick
+        one to open it in Mergiato. It is off by default, and with it on, closing the window keeps Mergiato running in
+        the menu bar.
+      </p>
+    </details>
+    <details>
+      <summary>Can it show what changed since I last looked at a PR?</summary>
+      <p>
+        Yes. When you reopen a PR, Overview sums up the new comments, reviews and replies from others since your last
+        visit, with New badges in Overview, Reviews and Changes. Unread dots in the sidebar and on PR cards say why a PR
+        lit up. The times you last opened each PR stay on your computer.
+      </p>
+    </details>
+    <details>
       <summary>Does it work with GitLab or Bitbucket?</summary>
       <p>
         GitHub and GitHub Enterprise today. If you'd use Mergiato with another host, say so on
@@ -1856,7 +1892,8 @@
           </button>
         </span>
         <p class="basis-full text-[12px]">
-          This site counts visits with self-hosted, cookieless Rybbit. The app collects nothing.
+          This site counts visits and a few clicks (which sections get read, which buttons get pressed) with
+          self-hosted, cookieless Rybbit. The app collects nothing.
         </p>
       </div>
     </footer>
@@ -1991,7 +2028,7 @@
       </div>
     </dialog>
 
-    <script src="/site.js?v=0328068d"></script>
+    <script src="/site.js?v=f4d9c3e1"></script>
     <script>
   // The demo: a few made-up PRs in the app's real layout. Merge, approve and re-run change them, like the app.
   function startDemo(root) {
@@ -2003,6 +2040,22 @@
       const target = event.target.closest("button, [data-backdrop]");
       if (!target) return;
       const pr = find(state.open);
+      // Which parts of the demo get tried, once each per visit.
+      demoAction(
+        target.dataset.action
+          ? target.dataset.action === "merge"
+            ? `merge ${state.armed ? "confirm" : "arm"}`
+            : target.dataset.action
+          : target.dataset.side
+            ? "switch list"
+            : target.dataset.pr
+              ? "open pr"
+              : target.dataset.tab
+                ? `tab ${target.dataset.tab.toLowerCase()}`
+                : target.dataset.viewed !== undefined
+                  ? "viewed"
+                  : "close",
+      );
       if (target.dataset.side) {
         state.side = target.dataset.side;
         state.open = demoPrs.find((item) => item.side === state.side && item.group !== "merged").n;
@@ -2080,6 +2133,13 @@
 
     root.querySelector("[data-gh-icon]").innerHTML = icon.github;
     render();
+
+    const tried = new Set();
+    function demoAction(action) {
+      if (tried.has(action)) return;
+      tried.add(action);
+      window.rybbit?.event("Demo Action", { action });
+    }
 
     // After a merge or an approval, the download sits right under the demo.
     function offerDownload(action) {
