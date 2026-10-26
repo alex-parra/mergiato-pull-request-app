@@ -88,6 +88,17 @@
           },
           {
             "@type": "VideoObject",
+            "name": "Walking the pull requests of a stack with Option-Up and Option-Down, with each key shown, then leaving it with Option-Shift-Down",
+            "description": "Down a stack and back with ⌥↑ ⌥↓, then ⌥⇧↓ steps out of it to the next row in the sidebar.",
+            "thumbnailUrl": "https://mergiato.com/media/stack-walk-poster.jpg",
+            "contentUrl": "https://mergiato.com/media/stack-walk.mp4",
+            "uploadDate": "2026-10-26T17:40:58Z",
+            "duration": "PT10S",
+            "width": 1440,
+            "height": 900
+          },
+          {
+            "@type": "VideoObject",
             "name": "A failed job re-run from the PR's Checks panel, turning green",
             "description": "A red build: re-run the failed job from the PR, and watch it pass.",
             "thumbnailUrl": "https://mergiato.com/media/checks-poster.jpg",
@@ -552,9 +563,9 @@
     </h2>
     <p class="mb-11 max-w-[62ch] text-[17px] text-muted">
       Coding agents open pull requests faster than anyone can read them, and every one waits on a person to read the
-      diff, check the run and press merge. Nobody wants to be the reason a PR sits for a day. But each review pulls you
-      out of zen mode and into seven tabs: the PR, its files, the Actions logs, the preview, the stack, a notification
-      and a terminal. By tab five you forgot why you opened tab one.
+      diff, check the run and press merge. Nobody wants to be the reason a PR sits for a day. But a day of reviews fills
+      your browser with PRs, Actions runs and previews, squeezed down to favicons that tell you nothing. By the fifth
+      tab you forgot why you opened the first.
     </p>
     <!-- The tab pile everyone knows: so many GitHub and Graphite tabs that only their icons fit. The strip
          fades out at the right edge, as if there were more (there always are). -->
@@ -790,7 +801,54 @@
       Built for the PRs you ship and the ones you review.
     </h2>
 
-    <div class="grid grid-cols-1 items-center gap-6 py-11 lg:gap-14 lg:grid-cols-[1fr_1.25fr]">
+    <!-- Navigating many PRs, the answer to the favicon strip above: wide, the clip under the copy in two columns. -->
+    <div class="py-11">
+      <div
+        class="grid grid-cols-1 gap-x-14 lg:grid-cols-2 [&_h3]:mb-3 [&_h3]:text-[28px] [&_h3]:leading-[1.2] [&_h3]:font-bold [&_h3]:tracking-[-0.6px] [&_h3]:text-fg [&_p]:mb-3.5 [&_p]:text-muted [&_ul]:grid [&_ul]:gap-1.5 [&_ul]:text-[15px] [&_ul]:list-disc [&_ul]:pl-5 [&_li]:marker:text-accent"
+      >
+        <div>
+          <p class="mb-2! text-[15px] font-semibold text-seal-ink!">Navigate</p>
+          <h3>Every PR, readable. One keypress apart.</h3>
+          <p>
+            Your open PRs sit in one sidebar with their real titles, checks and review state, not squeezed into
+            favicons. Moving between them takes a keypress, not a hunt.
+          </p>
+        </div>
+        <div class="lg:pt-9">
+          <ul>
+            <li>Real titles, checks and review state on every sidebar row</li>
+            <li>⌥↑ and ⌥↓ walk a stack; ⌥⇧↑ and ⌥⇧↓ follow the sidebar instead</li>
+            <li>⌘K opens any PR by name or number; ⌘V on a copied PR link opens it</li>
+          </ul>
+          <p class="mt-5 font-semibold [&_a]:text-accent [&_a:hover]:underline">
+            <a href="/#keys">All the shortcuts</a>
+          </p>
+        </div>
+      </div>
+      <figure class="mt-8">
+        <video
+          class="block h-auto rounded-xl border border-edge-strong bg-panel shadow-[0_30px_80px_-40px_var(--color-shadow)] w-full"
+          data-autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          width="1440"
+          height="900"
+          data-poster="/media/stack-walk-poster.jpg"
+          aria-label="Walking the pull requests of a stack with Option-Up and Option-Down, with each key shown, then leaving it with Option-Shift-Down"
+        >
+          <source src="/media/stack-walk.webm" type="video/webm" />
+          <source src="/media/stack-walk.mp4" type="video/mp4" />
+        </video>
+        <figcaption class="mt-2.5 text-[13px] text-muted">
+          Down a stack and back with ⌥↑ ⌥↓, then ⌥⇧↓ steps out of it to the next row in the sidebar.
+        </figcaption>
+      </figure>
+    </div>
+    <div
+      class="grid grid-cols-1 items-center gap-6 border-t border-dashed border-edge py-11 lg:gap-14 lg:grid-cols-[1fr_1.25fr]"
+    >
       <div
         class="[&_h3]:mb-3 [&_h3]:text-[28px] [&_h3]:leading-[1.2] [&_h3]:font-bold [&_h3]:tracking-[-0.6px] [&_h3]:text-fg [&_p]:mb-3.5 [&_p]:text-muted [&_ul]:grid [&_ul]:gap-1.5 [&_ul]:text-[15px] [&_ul]:list-disc [&_ul]:pl-5 [&_li]:marker:text-accent"
       >

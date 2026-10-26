@@ -12,6 +12,14 @@
       <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
     <video:video>
+      <video:thumbnail_loc>https://mergiato.com/media/stack-walk-poster.jpg</video:thumbnail_loc>
+      <video:title>Walking the pull requests of a stack with Option-Up and Option-Down, with each key shown, then leaving it with Option-Shift-Down</video:title>
+      <video:description>Down a stack and back with ⌥↑ ⌥↓, then ⌥⇧↓ steps out of it to the next row in the sidebar.</video:description>
+      <video:content_loc>https://mergiato.com/media/stack-walk.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-10-26T17:40:58Z</video:publication_date>
+    </video:video>
+    <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/checks-poster.jpg</video:thumbnail_loc>
       <video:title>A failed job re-run from the PR's Checks panel, turning green</video:title>
       <video:description>A red build: re-run the failed job from the PR, and watch it pass.</video:description>
