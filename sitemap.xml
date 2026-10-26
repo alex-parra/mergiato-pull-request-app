@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://mergiato.com/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/hero-poster.jpg</video:thumbnail_loc>
       <video:title>Mergiato: a PR's stack and previews, its checks, a review thread, then the PR below merged through Graphite's queue</video:title>
       <video:description>A PR's stack and previews, its checks, a review thread, then a merge through Graphite's queue.</video:description>
       <video:content_loc>https://mergiato.com/media/hero.mp4</video:content_loc>
       <video:duration>14</video:duration>
-      <video:publication_date>2026-10-25T09:21:15Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/checks-poster.jpg</video:thumbnail_loc>
@@ -17,7 +17,7 @@
       <video:description>A red build: re-run the failed job from the PR, and watch it pass.</video:description>
       <video:content_loc>https://mergiato.com/media/checks.mp4</video:content_loc>
       <video:duration>9</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/stack-merge-poster.jpg</video:thumbnail_loc>
@@ -25,7 +25,7 @@
       <video:description>The stack on every PR, and a Merge that goes through Graphite's queue.</video:description>
       <video:content_loc>https://mergiato.com/media/stack-merge.mp4</video:content_loc>
       <video:duration>12</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/large-pr-poster.jpg</video:thumbnail_loc>
@@ -33,7 +33,7 @@
       <video:description>914 files, all there: scroll, mark Viewed, keep going.</video:description>
       <video:content_loc>https://mergiato.com/media/large-pr.mp4</video:content_loc>
       <video:duration>19</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/themes-poster.jpg</video:thumbnail_loc>
@@ -41,7 +41,7 @@
       <video:description>The theme picker previewing Mergiato's six themes on the app</video:description>
       <video:content_loc>https://mergiato.com/media/themes.mp4</video:content_loc>
       <video:duration>9</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
   </url>
   <url>
@@ -61,7 +61,7 @@
       <video:description>A red build: re-run the failed job from the PR, and watch it pass.</video:description>
       <video:content_loc>https://mergiato.com/media/checks.mp4</video:content_loc>
       <video:duration>9</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
   </url>
   <url>
@@ -73,12 +73,12 @@
       <video:description>A failed job, re-run from the PR. The wait for it is cut.</video:description>
       <video:content_loc>https://mergiato.com/media/checks.mp4</video:content_loc>
       <video:duration>9</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
   </url>
   <url>
     <loc>https://mergiato.com/install/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://mergiato.com/large-pull-requests/</loc>
@@ -89,7 +89,7 @@
       <video:description>A 914-file pull request: every file, scrolled and marked Viewed.</video:description>
       <video:content_loc>https://mergiato.com/media/large-pr.mp4</video:content_loc>
       <video:duration>19</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
   </url>
   <url>
@@ -98,18 +98,18 @@
   </url>
   <url>
     <loc>https://mergiato.com/security/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://mergiato.com/stacked-prs/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <video:video>
       <video:thumbnail_loc>https://mergiato.com/media/stack-merge-poster.jpg</video:thumbnail_loc>
       <video:title>Stepping up a three-PR stack, then merging two PRs through Graphite's queue</video:title>
       <video:description>Step through the stack, then merge it through Graphite's queue.</video:description>
       <video:content_loc>https://mergiato.com/media/stack-merge.mp4</video:content_loc>
       <video:duration>12</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
   </url>
   <url>
@@ -125,7 +125,7 @@
       <video:description>A Graphite stack in Mergiato: step through it, then merge through Graphite's queue.</video:description>
       <video:content_loc>https://mergiato.com/media/stack-merge.mp4</video:content_loc>
       <video:duration>12</video:duration>
-      <video:publication_date>2026-10-24T22:51:19Z</video:publication_date>
+      <video:publication_date>2026-10-25T19:28:13Z</video:publication_date>
     </video:video>
   </url>
 </urlset>
