@@ -6,7 +6,7 @@ Mergiato is a desktop app for GitHub pull requests. Website: https://mergiato.co
 - Price: $0
 - Limits: none; every feature is included
 - Sign-up: none (no account, no card); it signs in through the user's own GitHub CLI (`gh`)
-- Platforms: macOS today, Apple silicon and Intel (one universal download, under 10 MB)
+- Platforms: macOS today, Apple silicon and Intel (one universal download, about 11 MB)
 - Updates: automatic and signed
 
 ## Later
